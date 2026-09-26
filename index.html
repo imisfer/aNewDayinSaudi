@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>يوم جديد في السعودية</title>
+  <meta name="description" content="موجز يومي هادئ لما يحدث في المملكة: إنجازات ومؤشرات وخدمات، في شاشة واحدة ودقيقة قراءة.">
+  <meta name="theme-color" content="#0b5d3b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="brand">يوم جديد في السعودية</div>
+      <div class="dates">
+        <span id="hijri"></span>
+        <span class="sep">·</span>
+        <span id="gregorian"></span>
+      </div>
+    </header>
+
+    <section class="lead">
+      <p class="eyebrow" id="edition-label">موجز اليوم</p>
+      <h1 id="headline">…</h1>
+    </section>
+
+    <section class="strip" aria-label="الطقس ومواقيت الصلاة">
+      <div class="weather" id="weather">
+        <span class="w-temp" id="w-temp">—</span>
+        <span class="w-desc" id="w-desc">الرياض</span>
+      </div>
+      <ol class="prayers" id="prayers"></ol>
+    </section>
+
+    <section aria-label="أبرز الأخبار">
+      <ul class="cards" id="cards"></ul>
+    </section>
+
+    <section class="indicators" id="indicators-wrap" hidden>
+      <h2>مؤشرات</h2>
+      <ul id="indicators"></ul>
+    </section>
+
+    <section class="events" id="events-wrap" hidden>
+      <h2>قادم</h2>
+      <ul id="events"></ul>
+    </section>
+
+    <footer class="foot">
+      <p>كل خبر مؤرخ ومربوط بمصدره. نلخّص ونحيل إلى المصدر، ولا نعيد نشر المقالات.</p>
+      <p id="pilot-note" hidden>نسخة تجريبية تُحرَّر يدويًا.</p>
+    </footer>
+  </main>
+
+  <script src="assets/adhan.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

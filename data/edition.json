@@ -1,0 +1,48 @@
+{
+  "edition_date": "2026-09-26",
+  "status": "pilot",
+  "headline": "أسبوع اليوم الوطني: ناقل جوي جديد من الدمام، ومنتجع جبلي في الباحة، وتضخم مستقر عند 1.8%",
+  "cards": [
+    {
+      "category": "مناسبات",
+      "title": "ختم خاص لليوم الوطني في المنافذ الدولية",
+      "summary": "أطلقت المديرية العامة للجوازات ختمًا يحمل الهوية البصرية لليوم الوطني، تُختم به جوازات المسافرين القادمين والمغادرين في 23 سبتمبر من كل عام.",
+      "date": "2026-09-23",
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/N2684021"
+    },
+    {
+      "category": "سياحة",
+      "title": "افتتاح منتجع جبل قمرة في الباحة",
+      "summary": "افتتحت «أسفار» المملوكة لصندوق الاستثمارات العامة منتجعًا جبليًا بـ30 غرفة وجناحًا على ارتفاع 2,260 مترًا، وتشغّله «مانتس» التابعة لمجموعة أكور.",
+      "date": "2026-09-20",
+      "source_name": "صندوق الاستثمارات العامة",
+      "source_url": "https://www.pif.gov.sa/en/news-and-insights/newswire/2026/pif-owned-asfar-inaugurates-gamra-mountain-resort/"
+    },
+    {
+      "category": "اقتصاد",
+      "title": "التضخم السنوي عند 1.8% في أغسطس",
+      "summary": "ثبت معدل التضخم للشهر الرابع على التوالي، والسكن أكبر المساهمين بـ0.8 نقطة مئوية، وارتفع المؤشر الشهري 0.1% فقط.",
+      "date": "2026-09-15",
+      "source_name": "الهيئة العامة للإحصاء (عبر عرب نيوز)",
+      "source_url": "https://www.arabnews.com/business/saudi-inflation-holds-at-18-in-august-as-housing-and-food-costs-climb-3001753"
+    },
+    {
+      "category": "طيران",
+      "title": "ترخيص ناقل اقتصادي جديد مقره الدمام",
+      "summary": "منحت الهيئة العامة للطيران المدني الترخيص لتحالف تقوده العربية للطيران مع نسما وكون القابضة: 81 وجهة و45 طائرة ونحو 10 ملايين مسافر سنويًا بحلول 2030، وأكثر من 2,400 وظيفة مباشرة.",
+      "date": "2026-09-14",
+      "source_name": "ذا ناشيونال",
+      "source_url": "https://www.thenationalnews.com/business/aviation/2026/09/14/air-arabia-led-group-cleared-to-launch-budget-saudi-airline/"
+    }
+  ],
+  "indicators": [
+    {
+      "label": "التضخم السنوي",
+      "value": "1.8%",
+      "note": "أغسطس 2026",
+      "source_url": "https://www.arabnews.com/business/saudi-inflation-holds-at-18-in-august-as-housing-and-food-costs-climb-3001753"
+    }
+  ],
+  "events": []
+}

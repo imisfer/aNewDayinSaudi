@@ -36,9 +36,24 @@
       <ol class="prayers" id="prayers"></ol>
     </section>
 
-    <section aria-label="أبرز الأخبار">
-      <ul class="cards" id="cards"></ul>
+    <section class="briefing" aria-label="أبرز الأخبار">
+      <p class="brief" id="brief"></p>
+      <ul class="more" id="more" hidden></ul>
+      <p class="hint">اضغط على العبارات الملوّنة لقراءة التفاصيل والمصدر.</p>
     </section>
+
+    <dialog class="detail" id="detail" aria-labelledby="d-title">
+      <div class="d-meta">
+        <span class="cat" id="d-cat"></span>
+        <time id="d-date"></time>
+        <button type="button" class="d-close" id="d-close" aria-label="إغلاق">✕</button>
+      </div>
+      <h3 id="d-title"></h3>
+      <p id="d-summary"></p>
+      <a class="d-source" id="d-source" target="_blank" rel="noopener">
+        <span>المصدر: <span id="d-source-name"></span></span><span aria-hidden="true">↖</span>
+      </a>
+    </dialog>
 
     <section class="indicators" id="indicators-wrap" hidden>
       <h2>مؤشرات</h2>

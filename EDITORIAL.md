@@ -29,6 +29,13 @@ Crime, accidents, disputes, politics and foreign conflicts, rumours, anything th
 ## Headline
 One line (≤ 140 characters) summarising the 2–3 strongest items. It must only mention items that appear as cards.
 
+## Brief (what readers see)
+Cards are not shown as a list. Readers see one flowing paragraph, `brief` (≤ 90 words, 2–3 sentences), that mentions **every** card. Each card's `keyword` (1–4 words, e.g. «موسم الرياض», «149 مصنعًا») must appear verbatim in the brief; the page turns it into a tappable phrase that opens the card's details and source.
+- Order the brief from strongest item to weakest.
+- Each keyword appears once, and no keyword may contain another.
+- A keyword must start a word: never attach a prefix letter to it (write «في موسم الرياض», not «بموسم الرياض» with keyword «موسم الرياض»), or Arabic letter joining breaks on screen.
+- The brief reads as natural prose, not a list of phrases.
+
 ## Indicators and events
 - Indicators: only figures with a dated official source (e.g., latest inflation, GDP, PMI). Leave the array empty rather than guess. No live prices (Tadawul, Brent) until a licensed feed exists.
 - Events: upcoming dated national events in the next 30 days, from official sources only.

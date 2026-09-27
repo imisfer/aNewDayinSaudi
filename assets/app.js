@@ -75,6 +75,65 @@
     }
   }
 
+  // ---------- Brief: key phrases open a detail overlay ----------
+  const dlg = $("detail");
+  let lastTrigger = null;
+  function openDetail(c, trigger) {
+    lastTrigger = trigger;
+    $("d-cat").textContent = c.category;
+    const t = $("d-date");
+    t.textContent = fmtDate(c.date);
+    t.dateTime = c.date;
+    $("d-title").textContent = c.title;
+    $("d-summary").textContent = c.summary;
+    const a = $("d-source");
+    a.href = c.source_url;
+    $("d-source-name").textContent = c.source_name;
+    dlg.showModal();
+  }
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); }); // tap outside closes
+  $("d-close").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("close", () => lastTrigger && lastTrigger.focus());
+
+  function keyButton(text, c) {
+    const b = el("button", "key", text);
+    b.type = "button";
+    b.setAttribute("aria-haspopup", "dialog");
+    b.addEventListener("click", () => openDetail(c, b));
+    return b;
+  }
+
+  function renderBrief(brief, cards) {
+    const p = $("brief");
+    p.textContent = "";
+    // Locate each card's keyword (first occurrence) in the brief; ignore overlaps.
+    const spans = [];
+    cards.forEach((c, i) => {
+      const k = c.keyword && brief.indexOf(c.keyword);
+      if (k != null && k >= 0) spans.push({ s: k, e: k + c.keyword.length, i });
+    });
+    spans.sort((x, y) => x.s - y.s);
+    const placed = new Set();
+    let pos = 0;
+    for (const sp of spans) {
+      if (sp.s < pos) continue;
+      p.append(document.createTextNode(brief.slice(pos, sp.s)), keyButton(brief.slice(sp.s, sp.e), cards[sp.i]));
+      placed.add(sp.i);
+      pos = sp.e;
+    }
+    p.append(document.createTextNode(brief.slice(pos)));
+    // Any card not referenced in the brief stays reachable as a chip.
+    const rest = cards.filter((_, i) => !placed.has(i));
+    const more = $("more");
+    more.textContent = "";
+    more.hidden = rest.length === 0;
+    for (const c of rest) {
+      const li = el("li");
+      li.append(keyButton(c.keyword || c.title, c));
+      more.append(li);
+    }
+  }
+
   // ---------- Edition ----------
   async function renderEdition() {
     let ed;
@@ -94,20 +153,7 @@
       : "آخر تحديث: " + fmtDate(ed.edition_date);
     if (ed.status === "pilot") $("pilot-note").hidden = false;
 
-    const ul = $("cards");
-    for (const c of ed.cards.slice(0, 8)) {
-      const li = el("li", "card");
-      const a = el("a");
-      a.href = c.source_url;
-      a.target = "_blank";
-      a.rel = "noopener";
-      const meta = el("div", "meta");
-      meta.append(el("span", "cat", c.category), el("time", "", fmtDate(c.date)));
-      meta.lastChild.dateTime = c.date;
-      a.append(meta, el("h3", "", c.title), el("p", "", c.summary), el("div", "src", c.source_name));
-      li.append(a);
-      ul.append(li);
-    }
+    renderBrief(ed.brief || "", ed.cards.slice(0, 8));
 
     if (ed.indicators && ed.indicators.length) {
       $("indicators-wrap").hidden = false;

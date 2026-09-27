@@ -37,6 +37,14 @@ if (!["pilot", "live"].includes(ed.status)) err('status must be "pilot" or "live
 if (typeof ed.headline !== "string" || ed.headline.length < 15) err("headline missing or too short");
 else if (ed.headline.length > 140) err(`headline too long (${ed.headline.length} chars, max 140)`);
 
+const brief = typeof ed.brief === "string" ? ed.brief : "";
+if (brief.length < 40) err("brief missing or too short");
+else {
+  const bw = brief.trim().split(/\s+/).length;
+  if (bw > 90) err(`brief too long (${bw} words, max 90)`);
+  if (BANNED_WORDS.test(brief)) err(`brief: sensational wording: "${brief.match(BANNED_WORDS)[0]}"`);
+}
+
 if (!Array.isArray(ed.cards)) err("cards must be an array");
 const cards = ed.cards || [];
 if (cards.length < 3) err(`only ${cards.length} cards; minimum to publish is 3`);
@@ -46,7 +54,14 @@ if (cards.length > 8) err(`${cards.length} cards; maximum is 8`);
 const seen = new Set();
 cards.forEach((c, i) => {
   const n = `card ${i + 1}`;
-  for (const k of ["category", "title", "summary", "date", "source_name", "source_url"]) {
+  if (c.keyword) {
+    if (!brief.includes(c.keyword)) err(`${n}: keyword "${c.keyword}" not found in brief`);
+    if (c.keyword.split(/\s+/).length > 4) err(`${n}: keyword too long (max 4 words)`);
+    const pre = brief[brief.indexOf(c.keyword) - 1];
+    if (pre && /[ء-ي]/.test(pre)) err(`${n}: keyword "${c.keyword}" is glued to a preceding Arabic letter (breaks letter joining)`);
+    if (cards.some((o, j) => j !== i && o.keyword && (o.keyword.includes(c.keyword)))) err(`${n}: keyword "${c.keyword}" overlaps another card's keyword`);
+  }
+  for (const k of ["category", "keyword", "title", "summary", "date", "source_name", "source_url"]) {
     if (!c[k] || typeof c[k] !== "string") err(`${n}: missing ${k}`);
   }
   if (c.date && !iso.test(c.date)) err(`${n}: date not YYYY-MM-DD`);

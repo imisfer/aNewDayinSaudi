@@ -10,6 +10,8 @@ const requireToday = args.includes("--today");
 // Official Saudi sources are preferred; these reputable outlets are allowed when no official release exists.
 const OFFICIAL = /(^|\.)gov\.sa$|(^|\.)spa\.gov\.sa$|(^|\.)pif\.gov\.sa$|(^|\.)sama\.gov\.sa$|(^|\.)stats\.gov\.sa$|(^|\.)vision2030\.gov\.sa$|(^|\.)saudiexchange\.sa$|(^|\.)aramco\.com$|(^|\.)ncm\.gov\.sa$|(^|\.)my\.gov\.sa$/;
 const REPUTABLE = /(^|\.)(arabnews\.com|thenationalnews\.com|reuters\.com|bloomberg\.com|aawsat\.com|alarabiya\.net|okaz\.com\.sa|alriyadh\.com|aleqt\.com|argaam\.com|sabq\.org|saudigazette\.com\.sa|spl\.com\.sa|saff\.com\.sa)$/;
+// Arabic letters that join to the following letter (excludes ا أ إ آ د ذ ر ز و ؤ ة ء).
+const JOINING = /[\u0626\u0628\u062A-\u062E\u0633-\u063A\u0640-\u0647\u0649\u064A]/;
 const BANNED_WORDS = /(صادم|عاجل|كارثة|فضيحة|لن تصدق|مذهل|الأعظم في التاريخ)/;
 
 const errors = [];
@@ -37,13 +39,7 @@ if (!["pilot", "live"].includes(ed.status)) err('status must be "pilot" or "live
 if (typeof ed.headline !== "string" || ed.headline.length < 15) err("headline missing or too short");
 else if (ed.headline.length > 140) err(`headline too long (${ed.headline.length} chars, max 140)`);
 
-const brief = typeof ed.brief === "string" ? ed.brief : "";
-if (brief.length < 40) err("brief missing or too short");
-else {
-  const bw = brief.trim().split(/\s+/).length;
-  if (bw > 90) err(`brief too long (${bw} words, max 90)`);
-  if (BANNED_WORDS.test(brief)) err(`brief: sensational wording: "${brief.match(BANNED_WORDS)[0]}"`);
-}
+const headline = typeof ed.headline === "string" ? ed.headline : "";
 
 if (!Array.isArray(ed.cards)) err("cards must be an array");
 const cards = ed.cards || [];
@@ -51,15 +47,18 @@ if (cards.length < 3) err(`only ${cards.length} cards; minimum to publish is 3`)
 else if (cards.length < 5) warn(`${cards.length} cards; target is 5–8`);
 if (cards.length > 8) err(`${cards.length} cards; maximum is 8`);
 
+const inHeadline = cards.filter((c) => c.keyword && headline.includes(c.keyword)).length;
+if (inHeadline < 2) err(`only ${inHeadline} card keyword(s) appear in the headline; at least 2 must`);
+
 const seen = new Set();
 cards.forEach((c, i) => {
   const n = `card ${i + 1}`;
   if (c.keyword) {
-    if (!brief.includes(c.keyword)) err(`${n}: keyword "${c.keyword}" not found in brief`);
+    // Keywords found in the headline become links there; the rest are shown as "وأيضًا" chips.
+    const at = headline.indexOf(c.keyword);
+    if (at > 0 && JOINING.test(headline[at - 1]) && /[\u0621-\u064A]/.test(c.keyword[0])) err(`${n}: keyword "${c.keyword}" is glued to a preceding Arabic letter in the headline (breaks letter joining)`);
     if (c.keyword.split(/\s+/).length > 4) err(`${n}: keyword too long (max 4 words)`);
-    const pre = brief[brief.indexOf(c.keyword) - 1];
-    if (pre && /[ء-ي]/.test(pre)) err(`${n}: keyword "${c.keyword}" is glued to a preceding Arabic letter (breaks letter joining)`);
-    if (cards.some((o, j) => j !== i && o.keyword && (o.keyword.includes(c.keyword)))) err(`${n}: keyword "${c.keyword}" overlaps another card's keyword`);
+    if (cards.some((o, j) => j !== i && o.keyword && o.keyword.includes(c.keyword))) err(`${n}: keyword "${c.keyword}" overlaps another card's keyword`);
   }
   for (const k of ["category", "keyword", "title", "summary", "date", "source_name", "source_url"]) {
     if (!c[k] || typeof c[k] !== "string") err(`${n}: missing ${k}`);

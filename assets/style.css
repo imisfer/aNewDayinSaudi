@@ -73,7 +73,6 @@ a { color: inherit; text-decoration: none; }
 .prayers li.next .p-name, .prayers li.next .p-time { color: var(--accent); }
 
 /* Brief: one paragraph, key phrases open the detail overlay */
-.brief { margin: 0; font-size: 1.06rem; line-height: 2.05; }
 .key {
   font: inherit; color: var(--accent); font-weight: 600; cursor: pointer;
   background: var(--accent-soft); border: 0; border-radius: 6px;
@@ -82,7 +81,11 @@ a { color: inherit; text-decoration: none; }
 }
 .key:hover { text-decoration-style: solid; }
 .key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.more { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.lead h1 .key { padding: 0 6px; border-radius: 8px; font-weight: 700; text-underline-offset: 8px; }
+.also { display: flex; align-items: baseline; gap: 10px; margin: 12px 0 0; }
+.also-label { font-size: .8rem; color: var(--gold); font-weight: 600; white-space: nowrap; }
+.more { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.more .key { font-size: .9rem; padding: 3px 10px; border-radius: 99px; text-decoration: none; }
 .hint { margin: 8px 0 0; font-size: .75rem; color: var(--muted); }
 
 .cat { color: var(--accent); font-weight: 600; background: var(--accent-soft); padding: 1px 8px; border-radius: 99px; }

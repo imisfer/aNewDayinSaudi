@@ -26,15 +26,14 @@ Crime, accidents, disputes, politics and foreign conflicts, rumours, anything th
 - 5–8 cards. If fewer than 5 items pass verification, publish fewer (minimum 3). Never pad with weak items.
 - Mix categories; avoid more than 2 cards from the same category.
 
-## Headline
-One line (≤ 140 characters) summarising the 2–3 strongest items. It must only mention items that appear as cards.
-
-## Brief (what readers see)
-Cards are not shown as a list. Readers see one flowing paragraph, `brief` (≤ 90 words, 2–3 sentences), that mentions **every** card. Each card's `keyword` (1–4 words, e.g. «موسم الرياض», «149 مصنعًا») must appear verbatim in the brief; the page turns it into a tappable phrase that opens the card's details and source.
-- Order the brief from strongest item to weakest.
-- Each keyword appears once, and no keyword may contain another.
-- A keyword must start a word: never attach a prefix letter to it (write «في موسم الرياض», not «بموسم الرياض» with keyword «موسم الرياض»), or Arabic letter joining breaks on screen.
-- The brief reads as natural prose, not a list of phrases.
+## Headline (the lead readers tap)
+Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is the lead: it names the 2–3 strongest items, and each card's `keyword` that appears in it becomes a tappable phrase opening that card's details and source. Cards whose keyword isn't in the headline appear under it as "وأيضًا" chips.
+- Every card needs a `keyword`: 1–4 words. At least 2 keywords must appear verbatim in the headline.
+- Headline keywords should be the natural subject of each clause (e.g. «موسم الرياض», «149 مصنعًا»). Put quotation marks inside the keyword: «توريد», not توريد.
+- For chip-only cards the keyword is the chip label, so make it self-explanatory (e.g. «التضخم 1.8%», «ناقل جوي جديد»).
+- Never attach a joining letter to a headline keyword (write «في موسم الرياض», not «بموسم الرياض»); a leading «و» is fine.
+- No keyword may contain another.
+- Order cards from strongest to weakest; chips follow that order.
 
 ## Indicators and events
 - Indicators: only figures with a dated official source (e.g., latest inflation, GDP, PMI). Leave the array empty rather than guess. No live prices (Tadawul, Brent) until a licensed feed exists.

@@ -103,8 +103,9 @@
     return b;
   }
 
-  function renderBrief(brief, cards) {
-    const p = $("brief");
+  // The one-line headline carries the links; stories it doesn't mention become "وأيضًا" chips.
+  function renderHeadline(brief, cards) {
+    const p = $("headline");
     p.textContent = "";
     // Locate each card's keyword (first occurrence) in the brief; ignore overlaps.
     const spans = [];
@@ -126,7 +127,7 @@
     const rest = cards.filter((_, i) => !placed.has(i));
     const more = $("more");
     more.textContent = "";
-    more.hidden = rest.length === 0;
+    $("more-wrap").hidden = rest.length === 0;
     for (const c of rest) {
       const li = el("li");
       li.append(keyButton(c.keyword || c.title, c));
@@ -145,7 +146,6 @@
       return;
     }
 
-    $("headline").textContent = ed.headline;
     // Today's edition → "موجز اليوم"; an older one is labelled honestly as the last update.
     const todayISO = new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(now);
     $("edition-label").textContent = ed.edition_date === todayISO
@@ -153,7 +153,7 @@
       : "آخر تحديث: " + fmtDate(ed.edition_date);
     if (ed.status === "pilot") $("pilot-note").hidden = false;
 
-    renderBrief(ed.brief || "", ed.cards.slice(0, 8));
+    renderHeadline(ed.headline || "", ed.cards.slice(0, 8));
 
     if (ed.indicators && ed.indicators.length) {
       $("indicators-wrap").hidden = false;

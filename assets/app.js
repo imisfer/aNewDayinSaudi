@@ -37,6 +37,11 @@
       ["الفجر", times.fajr], ["الظهر", times.dhuhr], ["العصر", times.asr],
       ["المغرب", times.maghrib], ["العشاء", times.isha]
     ];
+    // After Isha, the next prayer is tomorrow's Fajr.
+    if (!list.some(([, t]) => t > now)) {
+      const tomorrow = new Date(now.getTime() + 864e5);
+      list[0] = ["الفجر", new a.PrayerTimes(new a.Coordinates(LOCATION.lat, LOCATION.lng), tomorrow, params).fajr];
+    }
     const next = list.find(([, t]) => t > now);
     const ol = $("prayers");
     ol.textContent = "";
@@ -82,7 +87,11 @@
     }
 
     $("headline").textContent = ed.headline;
-    $("edition-label").textContent = "موجز " + fmtDate(ed.edition_date);
+    // Today's edition → "موجز اليوم"; an older one is labelled honestly as the last update.
+    const todayISO = new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(now);
+    $("edition-label").textContent = ed.edition_date === todayISO
+      ? "موجز اليوم"
+      : "آخر تحديث: " + fmtDate(ed.edition_date);
     if (ed.status === "pilot") $("pilot-note").hidden = false;
 
     const ul = $("cards");

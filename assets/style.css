@@ -148,6 +148,11 @@ a { color: inherit; text-decoration: none; }
   background: var(--muted); border-radius: 1px; opacity: .6; z-index: 2;
 }
 .tl-tick.past { opacity: .3; }
+.tl-sun {
+  position: absolute; bottom: 9px; width: 22px; height: 22px; margin-inline-start: -11px;
+  color: var(--gold); z-index: 2; line-height: 0;
+}
+.tl-sun.past { opacity: .45; }
 .tl-now {
   position: absolute; top: 3px; width: 10px; height: 10px; margin-inline-start: -5px; z-index: 3;
   border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft);

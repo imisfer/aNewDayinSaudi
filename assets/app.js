@@ -141,7 +141,7 @@
   function renderTimeline(items) {
     const wrap = $("timeline");
     const track = $("tl-track");
-    track.querySelectorAll(".tl-tick, .tl-dot, .tl-now").forEach((n) => n.remove());
+    track.querySelectorAll(".tl-tick, .tl-dot-wrap, .tl-now, .tl-sun").forEach((n) => n.remove());
     if (!window.adhan) return;
     const a = window.adhan;
     const pt = new a.PrayerTimes(new a.Coordinates(LOCATION.lat, LOCATION.lng), now, a.CalculationMethod.UmmAlQura());
@@ -154,6 +154,20 @@
       const tick = el("span", "tl-tick" + (t < now ? " past" : ""));
       tick.style.insetInlineStart = pos(t) + "%";
       track.append(tick);
+    }
+    // Sunrise and sunset icons above the line.
+    const SUN = (up) => `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">` +
+      `<path d="M6 17a6 6 0 0 1 12 0"/><path d="M2 17h20"/><path d="M12 3v4"/>` +
+      (up ? `<path d="M9.5 5.5 12 3l2.5 2.5"/>` : `<path d="M9.5 4.5 12 7l2.5-2.5"/>`) +
+      `<path d="m4.2 10.2 1.4 1.4M19.8 10.2l-1.4 1.4"/></svg>`;
+    for (const [t, up, name] of [[pt.sunrise, true, "الشروق"], [pt.maghrib, false, "الغروب"]]) {
+      const s = el("span", "tl-sun" + (t < now ? " past" : ""));
+      s.innerHTML = SUN(up);
+      s.style.insetInlineStart = pos(t) + "%";
+      s.setAttribute("role", "img");
+      s.setAttribute("aria-label", `${name} ${clock.format(t)}`);
+      s.title = `${name} ${clock.format(t)}`;
+      track.append(s);
     }
     const nowMark = el("span", "tl-now");
     nowMark.style.insetInlineStart = pos(now) + "%";

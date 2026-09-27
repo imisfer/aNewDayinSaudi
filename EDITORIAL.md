@@ -35,6 +35,15 @@ Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is t
 - No keyword may contain another.
 - Order cards from strongest to weakest; chips follow that order.
 
+## Timeline (dots at the bottom of the screen)
+`timeline` holds today's timed moments. Each one shows as a dot at its time on a Fajr-to-midnight line, with a small bubble on tap. The next one within 3 hours shows its bubble automatically.
+- Include: Saudi national team matches; Roshn Saudi League and King's Cup matches for Al-Hilal, Al-Nassr, Al-Ittihad, Al-Ahli, Al-Qadsiah and Al-Shabab; Saudi clubs in AFC competitions; major tournaments hosted in Saudi Arabia (all their matches); official openings or national moments with a set time.
+- At most 6 items. If there are more, keep the national team first, then the biggest clubs.
+- `time`: ISO with +03:00, on today's date, verified against a fixture source (spl.com.sa, saff.com.sa, the-afc.com or a reputable outlet).
+- `label` ≤ 40 chars: the match written as «الهلال × النصر», or the event name. `note` ≤ 40 chars: competition · city.
+- `colors`: 1–2 hex colours. For matches use each team's main kit colour (home first). Never use club logos.
+- Leave the array empty on days with nothing timed.
+
 ## Indicators and events
 - Indicators: only figures with a dated official source (e.g., latest inflation, GDP, PMI). Leave the array empty rather than guess. No live prices (Tadawul, Brent) until a licensed feed exists.
 - Events: upcoming dated national events in the next 30 days, from official sources only.

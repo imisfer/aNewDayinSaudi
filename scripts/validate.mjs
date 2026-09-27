@@ -9,7 +9,7 @@ const requireToday = args.includes("--today");
 
 // Official Saudi sources are preferred; these reputable outlets are allowed when no official release exists.
 const OFFICIAL = /(^|\.)gov\.sa$|(^|\.)spa\.gov\.sa$|(^|\.)pif\.gov\.sa$|(^|\.)sama\.gov\.sa$|(^|\.)stats\.gov\.sa$|(^|\.)vision2030\.gov\.sa$|(^|\.)saudiexchange\.sa$|(^|\.)aramco\.com$|(^|\.)ncm\.gov\.sa$|(^|\.)my\.gov\.sa$/;
-const REPUTABLE = /(^|\.)(arabnews\.com|thenationalnews\.com|reuters\.com|bloomberg\.com|aawsat\.com|alarabiya\.net|okaz\.com\.sa|alriyadh\.com|aleqt\.com|argaam\.com|sabq\.org|saudigazette\.com\.sa|spl\.com\.sa|saff\.com\.sa)$/;
+const REPUTABLE = /(^|\.)(arabnews\.com|aljazeera\.net|alyaum\.com|the-afc\.com|thenationalnews\.com|reuters\.com|bloomberg\.com|aawsat\.com|alarabiya\.net|okaz\.com\.sa|alriyadh\.com|aleqt\.com|argaam\.com|sabq\.org|saudigazette\.com\.sa|spl\.com\.sa|saff\.com\.sa)$/;
 // Arabic letters that join to the following letter (excludes ا أ إ آ د ذ ر ز و ؤ ة ء).
 const JOINING = /[\u0626\u0628\u062A-\u062E\u0633-\u063A\u0640-\u0647\u0649\u064A]/;
 const BANNED_WORDS = /(صادم|عاجل|كارثة|فضيحة|لن تصدق|مذهل|الأعظم في التاريخ)/;
@@ -91,6 +91,25 @@ for (const [i, x] of (ed.events || []).entries()) {
   if (!x.title) err(`event ${i + 1}: missing title`);
   if (x.date && ed.edition_date && x.date < ed.edition_date) err(`event ${i + 1}: date is in the past`);
 }
+
+// Timeline: today's timed events shown as dots at the bottom (matches, openings, national moments).
+const tl = ed.timeline || [];
+if (!Array.isArray(tl)) err("timeline must be an array");
+if (tl.length > 6) err(`timeline has ${tl.length} items; maximum is 6`);
+tl.forEach((x, i) => {
+  const n = `timeline ${i + 1}`;
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?\+03:00$/.test(x.time || "")) err(`${n}: time must be ISO with +03:00 (e.g. 2026-09-27T21:00:00+03:00)`);
+  else if (x.time.slice(0, 10) !== ed.edition_date) err(`${n}: time is not on the edition date`);
+  if (!x.label || x.label.length > 40) err(`${n}: label missing or longer than 40 chars`);
+  if (x.note && x.note.length > 40) err(`${n}: note longer than 40 chars`);
+  if (!Array.isArray(x.colors) || x.colors.length < 1 || x.colors.length > 2 || !x.colors.every((c) => /^#[0-9a-fA-F]{6}$/.test(c))) err(`${n}: colors must be 1–2 hex values like #00732F`);
+  if (x.source_url) {
+    try {
+      const h = new URL(x.source_url).hostname.replace(/^www\./, "");
+      if (!OFFICIAL.test(h) && !REPUTABLE.test(h)) err(`${n}: source ${h} is not on the allowed list`);
+    } catch { err(`${n}: source_url is not a valid URL`); }
+  } else err(`${n}: missing source_url`);
+});
 
 for (const w of warnings) console.log(`WARN: ${w}`);
 for (const e of errors) console.log(`FAIL: ${e}`);

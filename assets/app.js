@@ -148,14 +148,14 @@
     const start = new Date(pt.fajr.getTime() - 30 * 60e3);
     const end = new Date(Date.parse(`${todayISO}T00:00:00+03:00`) + 864e5);
     const pos = (t) => Math.min(100, Math.max(0, ((t - start) / (end - start)) * 100));
-    // RTL: the day flows from right (morning) to left (night).
+    // The day flows down the left rail: morning at the top, night at the bottom.
     track.style.setProperty("--elapsed", pos(now) + "%");
     for (const t of [pt.fajr, pt.dhuhr, pt.asr, pt.maghrib, pt.isha]) {
       const tick = el("span", "tl-tick" + (t < now ? " past" : ""));
-      tick.style.insetInlineStart = pos(t) + "%";
+      tick.style.top = pos(t) + "%";
       track.append(tick);
     }
-    // Sunrise and sunset icons above the line.
+    // Sunrise and sunset icons beside the line.
     const SUN = (up) => `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">` +
       `<path d="M6 17a6 6 0 0 1 12 0"/><path d="M2 17h20"/><path d="M12 3v4"/>` +
       (up ? `<path d="M9.5 5.5 12 3l2.5 2.5"/>` : `<path d="M9.5 4.5 12 7l2.5-2.5"/>`) +
@@ -163,14 +163,14 @@
     for (const [t, up, name] of [[pt.sunrise, true, "الشروق"], [pt.maghrib, false, "الغروب"]]) {
       const s = el("span", "tl-sun" + (t < now ? " past" : ""));
       s.innerHTML = SUN(up);
-      s.style.insetInlineStart = pos(t) + "%";
+      s.style.top = pos(t) + "%";
       s.setAttribute("role", "img");
       s.setAttribute("aria-label", `${name} ${clock.format(t)}`);
       s.title = `${name} ${clock.format(t)}`;
       track.append(s);
     }
     const nowMark = el("span", "tl-now");
-    nowMark.style.insetInlineStart = pos(now) + "%";
+    nowMark.style.top = pos(now) + "%";
     track.append(nowMark);
 
     const today = (items || []).filter((e) => e.time && e.time.slice(0, 10) === todayISO)
@@ -188,11 +188,11 @@
       dot.style.setProperty("--c2", c2 || c1);
       const text = `${e.label} · ${clock.format(e.at)}`;
       dot.setAttribute("aria-label", e.note ? `${text} · ${e.note}` : text);
-      const bubble = el(e.source_url ? "a" : "span", "tl-bubble" + (p < 18 ? " edge-start" : p > 82 ? " edge-end" : ""));
+      const bubble = el(e.source_url ? "a" : "span", "tl-bubble" + (p < 6 ? " edge-start" : p > 94 ? " edge-end" : ""));
       if (e.source_url) { bubble.href = e.source_url; bubble.target = "_blank"; bubble.rel = "noopener"; }
       bubble.append(el("strong", "", e.label), el("span", "", `${clock.format(e.at)}${e.note ? " · " + e.note : ""}`));
       const holder = el("span", "tl-dot-wrap" + (e === soon ? " open" : ""));
-      holder.style.insetInlineStart = p + "%";
+      holder.style.top = p + "%";
       dot.addEventListener("click", (ev) => {
         ev.stopPropagation();
         const wasOpen = holder.classList.contains("open");

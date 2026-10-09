@@ -14,6 +14,10 @@ A one-screen, Arabic-first daily briefing on what's happening in Saudi Arabia: d
 - If no valid edition can be produced, nothing is pushed and the page labels the previous edition "آخر تحديث".
 - To change what gets selected or how it's written, edit `EDITORIAL.md`.
 
+## Versioning
+- The footer shows `الإصدار vX.Y · date`. Bump it on every code or design change, in the footer and in the `?v=` on `style.css` and `app.js` in `index.html` (all three must match). The `?v=` makes browsers fetch the new files instead of a cached copy.
+- Daily edition pushes don't change the version.
+
 ## Editorial rules
 - Factual, dated, traceable. Official sources first (SPA, ministries, GASTAT, PIF, SAMA).
 - Summarize in our own words and link out. Don't republish articles.

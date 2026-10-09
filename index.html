@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=0.3">
+  <link rel="stylesheet" href="assets/style.css?v=0.4">
 </head>
 <body>
   <main class="page">
@@ -54,9 +54,10 @@
       </a>
     </dialog>
 
-    <section class="indicators" id="indicators-wrap" hidden>
-      <h2>مؤشرات</h2>
-      <ul id="indicators"></ul>
+    <section class="regions" id="regions-wrap" aria-label="فعاليات المدن" hidden>
+      <div class="region"><h2>الرياض</h2><ul id="r-riyadh"></ul></div>
+      <div class="region"><h2>جدة</h2><ul id="r-jeddah"></ul></div>
+      <div class="region"><h2>مناطق أخرى</h2><ul id="r-other"></ul></div>
     </section>
 
     <section class="events" id="events-wrap" hidden>
@@ -70,12 +71,12 @@
 
     <footer class="foot">
       <p>كل خبر مؤرخ ومربوط بمصدره. نلخّص ونحيل إلى المصدر، ولا نعيد نشر المقالات.</p>
-      <p class="ver">الإصدار v0.3 · 2026-10-09</p>
+      <p class="ver">الإصدار v0.4 · 2026-10-09</p>
       <p id="pilot-note" hidden>نسخة تجريبية تُحرَّر يدويًا.</p>
     </footer>
   </main>
 
   <script src="assets/adhan.min.js"></script>
-  <script src="assets/app.js?v=0.3"></script>
+  <script src="assets/app.js?v=0.4"></script>
 </body>
 </html>

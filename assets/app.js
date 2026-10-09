@@ -207,6 +207,40 @@
     document.querySelectorAll(".tl-dot-wrap.open").forEach((h) => h.classList.remove("open"));
   });
 
+  // ---------- City events: Riyadh, Jeddah, other regions ----------
+  const dayMonth = (iso) => fmtDate(iso);
+  function when(e) {
+    if (e.when) return e.when; // free text for recurring items, e.g. «كل سبت»
+    const end = e.end || e.start;
+    if (e.start <= todayISO && end >= todayISO) return end === todayISO ? "اليوم" : "حتى " + dayMonth(end);
+    if (end === e.start) return dayMonth(e.start);
+    const [sm, em] = [e.start.slice(0, 7), end.slice(0, 7)];
+    const d = (iso) => new Intl.NumberFormat("ar-SA-u-nu-latn").format(+iso.slice(8, 10));
+    return sm === em ? `${d(e.start)}–${dayMonth(end)}` : `${dayMonth(e.start)} – ${dayMonth(end)}`;
+  }
+  function renderRegions(regions) {
+    if (!regions) return;
+    let any = false;
+    for (const key of ["riyadh", "jeddah", "other"]) {
+      const ul = $("r-" + key);
+      ul.textContent = "";
+      const items = (regions[key] || []).filter((e) => (e.end || e.start) >= todayISO).slice(0, 5);
+      for (const e of items) {
+        const li = el("li");
+        const a = el("a");
+        a.href = e.source_url; a.target = "_blank"; a.rel = "noopener";
+        a.append(el("span", "ev-title", e.title));
+        const meta = [when(e), e.place].filter(Boolean).join(" · ");
+        a.append(el("span", "ev-meta", meta));
+        li.append(a);
+        ul.append(li);
+        any = true;
+      }
+      if (!items.length) ul.append(el("li", "ev-empty", "لا فعاليات بارزة هذا الأسبوع"));
+    }
+    $("regions-wrap").hidden = !any;
+  }
+
   // ---------- Edition ----------
   async function renderEdition() {
     let ed;
@@ -227,17 +261,7 @@
     renderHeadline(ed.headline || "", ed.cards.slice(0, 8));
     renderTimeline(ed.timeline);
 
-    if (ed.indicators && ed.indicators.length) {
-      $("indicators-wrap").hidden = false;
-      for (const i of ed.indicators) {
-        const li = el("li");
-        const a = el("a");
-        a.href = i.source_url; a.target = "_blank"; a.rel = "noopener";
-        a.append(el("div", "ind-val", i.value), el("div", "ind-label", i.label), el("div", "ind-note", i.note));
-        li.append(a);
-        $("indicators").append(li);
-      }
-    }
+    renderRegions(ed.regions);
 
     if (ed.events && ed.events.length) {
       $("events-wrap").hidden = false;

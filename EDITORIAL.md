@@ -44,9 +44,19 @@ Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is t
 - `colors`: 1–2 hex colours. For matches use each team's main kit colour (home first). Never use club logos.
 - Leave the array empty on days with nothing timed.
 
-## Indicators and events
-- Indicators: only figures with a dated official source (e.g., latest inflation, GDP, PMI). Leave the array empty rather than guess. No live prices (Tadawul, Brent) until a licensed feed exists.
-- Events: upcoming dated national events in the next 30 days, from official sources only.
+## City events (three columns: الرياض، جدة، مناطق أخرى)
+`regions` replaces the old indicators block. Each column lists the top events happening in that place, so a reader sees at a glance what's on this week.
+- Keys: `riyadh`, `jeddah`, `other`. `other` is every city outside Riyadh and Jeddah (AlUla, Khobar/Dammam, Taif, Abha, Tabuk…); name the city in `place`.
+- Sources: ticketing and tourism platforms are the primary source here. Check each in turn: webook.com, the city calendars on platinumlist.net (e.g. riyadh.platinumlist.net/calendar/this-weekend, jeddah.platinumlist.net/calendar/this-weekend, khobar.platinumlist.net/calendar/october), visitsaudi.com, experiencealula.com, the Riyadh/Jeddah season sites, and official announcements (SPA, ministries, Ministry of Culture, Events Investment Fund). Link each item to its own event page.
+- Window: events running today or starting within the next 7 days. If a column has fewer than 2 such items, extend that column up to 30 days ahead, soonest first.
+- What counts as "top": festivals, national and international sports, exhibitions and fairs, concerts by well-known artists, theatre and comedy by known names, family attractions with a limited run. Prefer what a general family audience would want to know about.
+- Leave out: nightclub-style parties, brunches, restaurants, beach-club or pool passes, gyms, and permanent attractions (theme parks, standing venues) unless something new opens.
+- 2–5 items per column, ordered by date. If nothing qualifies, leave the column empty; the page says «لا فعاليات بارزة هذا الأسبوع». Never pad.
+- Fields: `title` ≤ 45 chars (the event in plain Arabic, e.g. «حفل ندى القلعة», «افتتاح موسم الرياض للسباقات»); `place` ≤ 30 chars (venue or district; for `other`, the city); `start` and optional `end` as YYYY-MM-DD; optional `when` ≤ 25 chars for recurring items («كل سبت من 24 أكتوبر»); `source_url`.
+- Verify the dates on the event page itself. If a listing contradicts itself, use the event page or drop the item.
+
+## Upcoming national events
+- `events`: upcoming dated national events in the next 30 days, from official sources only.
 
 ## Publishing
 1. Write `data/edition.json` with `edition_date` = today (Asia/Riyadh) and `status: "pilot"`.

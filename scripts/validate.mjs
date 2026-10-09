@@ -83,8 +83,41 @@ cards.forEach((c, i) => {
 });
 if (ed.headline && BANNED_WORDS.test(ed.headline)) err("headline: sensational wording");
 
-for (const [i, x] of (ed.indicators || []).entries()) {
-  for (const k of ["label", "value", "note", "source_url"]) if (!x[k]) err(`indicator ${i + 1}: missing ${k}`);
+// City events: three columns (Riyadh, Jeddah, other regions). Ticketing and tourism platforms are allowed here only.
+const EVENT_HOSTS = /(^|\.)(webook\.com|platinumlist\.net|visitsaudi\.com|experiencealula\.com|riyadhseason\.com|jeddahseason\.sa)$/;
+if (ed.regions != null) {
+  if (typeof ed.regions !== "object" || Array.isArray(ed.regions)) err("regions must be an object with riyadh, jeddah, other");
+  else {
+    for (const key of Object.keys(ed.regions)) if (!["riyadh", "jeddah", "other"].includes(key)) err(`regions: unknown key "${key}"`);
+    for (const key of ["riyadh", "jeddah", "other"]) {
+      const list = ed.regions[key] || [];
+      if (!Array.isArray(list)) { err(`regions.${key} must be an array`); continue; }
+      if (list.length > 5) err(`regions.${key} has ${list.length} items; maximum is 5`);
+      const urls = new Set();
+      list.forEach((x, i) => {
+        const n = `regions.${key} ${i + 1}`;
+        if (!x.title || x.title.length > 45) err(`${n}: title missing or longer than 45 chars`);
+        if (!x.place || x.place.length > 30) err(`${n}: place missing or longer than 30 chars`);
+        if (key === "other" && x.place && /^(الرياض|جدة)$/.test(x.place)) err(`${n}: "other" items must be outside Riyadh and Jeddah`);
+        if (!iso.test(x.start || "")) err(`${n}: start not YYYY-MM-DD`);
+        if (x.end && !iso.test(x.end)) err(`${n}: end not YYYY-MM-DD`);
+        if (x.end && x.start && x.end < x.start) err(`${n}: end before start`);
+        const last = x.end || x.start;
+        if (last && ed.edition_date && last < ed.edition_date) err(`${n}: event already over (${last})`);
+        if (x.start && ed.edition_date && daysBetween(ed.edition_date, x.start) > 30) err(`${n}: starts more than 30 days ahead (${x.start})`);
+        if (x.when && x.when.length > 25) err(`${n}: when longer than 25 chars`);
+        for (const t of [x.title, x.place]) if (t && BANNED_WORDS.test(t)) err(`${n}: sensational wording`);
+        try {
+          const u = new URL(x.source_url);
+          const h = u.hostname.replace(/^www\./, "");
+          if (u.protocol !== "https:") err(`${n}: source_url must be https`);
+          if (!EVENT_HOSTS.test(h) && !OFFICIAL.test(h) && !REPUTABLE.test(h)) err(`${n}: source ${h} is not on the allowed list`);
+        } catch { err(`${n}: source_url is not a valid URL`); }
+        if (urls.has(x.source_url)) err(`${n}: duplicate source_url`);
+        urls.add(x.source_url);
+      });
+    }
+  }
 }
 for (const [i, x] of (ed.events || []).entries()) {
   if (!iso.test(x.date || "")) err(`event ${i + 1}: date not YYYY-MM-DD`);

@@ -4,7 +4,7 @@ A one-screen, Arabic-first daily briefing on what's happening in Saudi Arabia: d
 
 ## What's in v0.1
 - `index.html`: the page (RTL, mobile-first, light/dark).
-- `data/edition.json`: today's edition. A headline, 5–8 cards, indicators and upcoming events. **Every card needs a `date` and a `source_url`.**
+- `data/edition.json`: today's edition. A headline, 5–8 cards, the day timeline, city events (Riyadh, Jeddah, other regions) and upcoming national events. **Every card needs a `date` and a `source_url`.**
 - `assets/app.js`: renders the edition, the Hijri (Umm al-Qura) and Gregorian dates, prayer times (computed on-device with [adhan-js](https://github.com/batoulapps/adhan-js), Umm al-Qura method), and weather ([Open-Meteo](https://open-meteo.com), no key).
 - No cookies, no analytics, no ads. The only third-party requests are Google Fonts and Open-Meteo.
 

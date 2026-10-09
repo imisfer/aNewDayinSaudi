@@ -67,14 +67,6 @@
       "source_url": "https://sabq.org/article/006towp"
     }
   ],
-  "indicators": [
-    {
-      "label": "التضخم السنوي",
-      "value": "1.8%",
-      "note": "أغسطس 2026",
-      "source_url": "https://stats.gov.sa/ar/w/news/214"
-    }
-  ],
   "events": [
     {
       "date": "2026-10-21",
@@ -94,29 +86,108 @@
       "time": "2026-10-09T06:00:00+03:00",
       "label": "افتتاح جسر طريق الثمامة للحركة",
       "note": "الهيئة الملكية · الرياض",
-      "colors": ["#006C35"],
+      "colors": [
+        "#006C35"
+      ],
       "source_url": "https://www.rcrc.gov.sa/en/al-thumamah-road-bridge-opens-to-traffic-en/"
     },
     {
       "time": "2026-10-09T16:50:00+03:00",
       "label": "الخلود × القادسية",
       "note": "دوري روشن · الرس",
-      "colors": ["#B01E23", "#E30613"],
+      "colors": [
+        "#B01E23",
+        "#E30613"
+      ],
       "source_url": "https://sabq.org/article/1akqmxw"
     },
     {
       "time": "2026-10-09T17:55:00+03:00",
       "label": "الفتح × الأهلي",
       "note": "دوري روشن · الأحساء",
-      "colors": ["#1F4E9C", "#00843D"],
+      "colors": [
+        "#1F4E9C",
+        "#00843D"
+      ],
       "source_url": "https://sabq.org/article/1akqmxw"
     },
     {
       "time": "2026-10-09T21:00:00+03:00",
       "label": "النصر × الدرعية",
       "note": "دوري روشن · الأول بارك، الرياض",
-      "colors": ["#FFD700", "#FFFFFF"],
+      "colors": [
+        "#FFD700",
+        "#FFFFFF"
+      ],
       "source_url": "https://www.aljazeera.net/sport/2026/10/8/%D9%85%D9%88%D8%B9%D8%AF-%D9%85%D8%A8%D8%A7%D8%B1%D8%A7%D8%A9-%D8%A7%D9%84%D9%86%D8%B5%D8%B1-%D8%B6%D8%AF-%D8%A7%D9%84%D8%AF%D8%B1%D8%B9%D9%8A%D8%A9"
     }
-  ]
+  ],
+  "regions": {
+    "riyadh": [
+      {
+        "title": "الدوري السعودي لقفز الحواجز",
+        "place": "حديقة الخيل",
+        "start": "2026-10-08",
+        "end": "2026-10-10",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/108915/saudi-show-jumping-league-in-riyadh"
+      },
+      {
+        "title": "سيرك فونتانا المائي",
+        "place": "قرب النخيل مول",
+        "start": "2026-09-16",
+        "end": "2026-12-19",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/fontana-circus-riyadh"
+      },
+      {
+        "title": "علاء الشيخ: عرض كوميدي",
+        "place": "النادي الأدبي، الملز",
+        "start": "2026-10-15",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/107606/alla-el-sheikh-live-in-riyadh"
+      },
+      {
+        "title": "افتتاح موسم الرياض للسباقات",
+        "place": "ميدان الملك عبدالعزيز",
+        "start": "2026-10-16",
+        "end": "2026-10-17",
+        "source_url": "https://webook.com/en/events/riyadh-racing-season"
+      }
+    ],
+    "jeddah": [
+      {
+        "title": "أحمد أمين: عرض كوميدي",
+        "place": "جدة",
+        "start": "2026-10-10",
+        "source_url": "https://jeddah.platinumlist.net/event-tickets/108424/ahmed-amin-stand-up-comedy-show-in-jeddah"
+      },
+      {
+        "title": "حفل ندى القلعة",
+        "place": "مسرح ماربل آرتش",
+        "start": "2026-10-16",
+        "source_url": "https://jeddah.platinumlist.net/event-tickets/108928/marble-arch-theater-in-jeddah"
+      },
+      {
+        "title": "صلاح الدالي: عرض كوميدي",
+        "place": "جدة",
+        "start": "2026-10-16",
+        "source_url": "https://jeddah.platinumlist.net/event-tickets/108273/stand-up-comedy-show-with-salah-al-dali-in-jeddah"
+      }
+    ],
+    "other": [
+      {
+        "title": "جولة جيولوجيا الحِجر",
+        "place": "العلا",
+        "start": "2026-10-24",
+        "end": "2026-12-12",
+        "when": "كل سبت من 24 أكتوبر",
+        "source_url": "https://www.experiencealula.com/en/whats-on/hegra-geology-hike"
+      },
+      {
+        "title": "مهرجان سماء العلا",
+        "place": "العلا",
+        "start": "2026-11-06",
+        "end": "2026-11-15",
+        "source_url": "https://www.experiencealula.com/en/whats-on/festivals/alula-skies-festival"
+      }
+    ]
+  }
 }

@@ -33,13 +33,33 @@
     61: "مطر خفيف", 63: "مطر", 65: "مطر غزير", 80: "زخات", 81: "زخات", 82: "زخات غزيرة",
     95: "عواصف رعدية", 96: "عواصف رعدية", 99: "عواصف رعدية"
   };
+  // Line icons for WMO weather codes (stroke = currentColor).
+  function weatherIcon(code, day) {
+    const sun = `<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>`;
+    const moon = `<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/>`;
+    const cloud = `<path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.5 1.5A3.3 3.3 0 0 0 7 18z"/>`;
+    const smallSun = day
+      ? `<circle cx="8" cy="8" r="3"/><path d="M8 2.5v1M2.5 8h1M4.1 4.1l.7.7M11.9 4.1l-.7.7"/>`
+      : `<path d="M11 9.5A4 4 0 0 1 6.5 5a4 4 0 1 0 4.5 4.5z"/>`;
+    const lowCloud = `<path d="M8 20h9a3.5 3.5 0 0 0 .4-7 5 5 0 0 0-9.6 1.2A2.9 2.9 0 0 0 8 20z"/>`;
+    let body;
+    if (code <= 1) body = day ? sun : moon;
+    else if (code === 2) body = smallSun + lowCloud;
+    else if (code === 3) body = cloud;
+    else if (code === 45 || code === 48) body = `<path d="M4 9h16M3 13h18M5 17h14"/>`;
+    else if (code >= 95) body = `<path d="M7 15h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.5 1.5A3.3 3.3 0 0 0 7 15z"/><path d="M12.5 15l-2 3.5h3l-2 3.5"/>`;
+    else if (code >= 51) body = `<path d="M7 15h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.5 1.5A3.3 3.3 0 0 0 7 15z"/><path d="M9 18l-1 2.5M13 18l-1 2.5M17 18l-1 2.5"/>`;
+    else body = cloud;
+    return `<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
+  }
+
   // Small weather line under the Riyadh and Jeddah columns.
   const WEATHER_CITIES = [["w-riyadh", 24.7136, 46.6753], ["w-jeddah", 21.4858, 39.1925]];
   async function renderWeather() {
     try {
       const url = `https://api.open-meteo.com/v1/forecast?latitude=${WEATHER_CITIES.map((c) => c[1]).join(",")}` +
         `&longitude=${WEATHER_CITIES.map((c) => c[2]).join(",")}` +
-        `&current=temperature_2m,weather_code&timezone=${encodeURIComponent(TZ)}`;
+        `&current=temperature_2m,weather_code,is_day&timezone=${encodeURIComponent(TZ)}`;
       const r = await fetch(url);
       if (!r.ok) throw new Error(r.status);
       let data = await r.json();
@@ -48,8 +68,15 @@
       WEATHER_CITIES.forEach(([id], i) => {
         const d = data[i];
         if (!d) return;
-        const desc = WMO[d.current.weather_code] || "";
-        $(id).textContent = [`${nf.format(d.current.temperature_2m)}°`, desc].filter(Boolean).join(" · ");
+        const code = d.current.weather_code;
+        const line = $(id);
+        line.textContent = "";
+        const icon = el("span", "w-icon");
+        icon.innerHTML = weatherIcon(code, d.current.is_day !== 0);
+        icon.setAttribute("role", "img");
+        icon.setAttribute("aria-label", WMO[code] || "");
+        icon.title = WMO[code] || "";
+        line.append(icon, el("span", "", `${nf.format(d.current.temperature_2m)}°`));
       });
     } catch (e) { /* the line simply stays empty */ }
   }

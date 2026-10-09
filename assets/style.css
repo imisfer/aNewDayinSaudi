@@ -69,26 +69,26 @@ a { color: inherit; text-decoration: none; }
 .prayers li { display: flex; flex-direction: column; border-radius: 8px; padding: 4px 0; }
 .prayers .p-name { font-size: .72rem; color: var(--muted); }
 .prayers .p-time { font-size: .9rem; font-weight: 600; font-variant-numeric: tabular-nums; }
-.prayers li.next { background: var(--accent-soft); }
+.prayers li.next .p-time { font-weight: 700; }
 .prayers li.next .p-name, .prayers li.next .p-time { color: var(--accent); }
 
 /* Brief: one paragraph, key phrases open the detail overlay */
 .key {
   font: inherit; color: var(--accent); font-weight: 600; cursor: pointer;
-  background: var(--accent-soft); border: 0; border-radius: 6px;
-  padding: 0 5px; margin: 0 1px; line-height: inherit;
+  background: none; border: 0; border-radius: 0;
+  padding: 0; margin: 0; line-height: inherit;
   text-decoration: underline dotted; text-underline-offset: 5px;
 }
 .key:hover { text-decoration-style: solid; }
 .key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.lead h1 .key { padding: 0 6px; border-radius: 8px; font-weight: 700; text-underline-offset: 8px; }
+.lead h1 .key { font-weight: 700; text-underline-offset: 8px; }
 .also { display: flex; align-items: baseline; gap: 10px; margin: 12px 0 0; }
 .also-label { font-size: .8rem; color: var(--gold); font-weight: 600; white-space: nowrap; }
-.more { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-.more .key { font-size: .9rem; padding: 3px 10px; border-radius: 99px; text-decoration: none; }
+.more { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.more .key { font-size: .9rem; }
 .hint { margin: 8px 0 0; font-size: .75rem; color: var(--muted); }
 
-.cat { color: var(--accent); font-weight: 600; background: var(--accent-soft); padding: 1px 8px; border-radius: 99px; }
+.cat { color: var(--accent); font-weight: 600; }
 
 /* Detail overlay */
 .detail {
@@ -112,10 +112,10 @@ a { color: inherit; text-decoration: none; }
 .detail p { margin: 0; color: var(--muted); font-size: .98rem; line-height: 1.85; }
 .d-source {
   display: flex; justify-content: space-between; align-items: center;
-  margin-top: 16px; padding: 10px 14px; border-radius: 12px;
-  background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: .9rem;
+  margin-top: 16px; padding: 10px 0 0; border-top: 1px solid var(--line);
+  color: var(--accent); font-weight: 600; font-size: .9rem;
 }
-.d-source:hover { outline: 1px solid var(--accent); }
+.d-source:hover { text-decoration: underline; text-underline-offset: 5px; }
 @media (max-width: 420px) {
   .detail { margin: auto 0 0; width: 100%; max-width: 100%; border-radius: 18px 18px 0 0; }
 }

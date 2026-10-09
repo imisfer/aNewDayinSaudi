@@ -51,15 +51,6 @@ a { color: inherit; text-decoration: none; }
 .eyebrow { margin: 0 0 6px; color: var(--gold); font-weight: 600; font-size: .85rem; }
 .lead h1 { margin: 0; font-size: clamp(1.35rem, 5vw, 1.75rem); line-height: 1.5; font-weight: 700; }
 
-.strip {
-  display: flex; gap: 12px; align-items: stretch;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
-  padding: 10px 12px; margin-bottom: 16px;
-}
-.weather { display: flex; align-items: baseline; gap: 10px; }
-.w-temp { font-size: 1.35rem; font-weight: 700; }
-.w-desc { font-size: .85rem; color: var(--muted); }
-
 /* Brief: one paragraph, key phrases open the detail overlay */
 .key {
   font: inherit; color: var(--accent); font-weight: 600; cursor: pointer;
@@ -115,6 +106,7 @@ a { color: inherit; text-decoration: none; }
   font-size: .9rem; color: var(--gold); font-weight: 600;
   margin: 0 0 6px; padding-bottom: 4px; border-bottom: 1px solid var(--line);
 }
+.r-weather { margin: -2px 0 4px; font-size: .75rem; color: var(--muted); font-variant-numeric: tabular-nums; min-height: 1.2em; }
 .region ul { list-style: none; margin: 0; padding: 0; }
 .region li { padding: 6px 0; }
 .region li + li { border-top: 1px dashed var(--line); }

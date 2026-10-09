@@ -33,20 +33,26 @@
     61: "مطر خفيف", 63: "مطر", 65: "مطر غزير", 80: "زخات", 81: "زخات", 82: "زخات غزيرة",
     95: "عواصف رعدية", 96: "عواصف رعدية", 99: "عواصف رعدية"
   };
+  // Small weather line under the Riyadh and Jeddah columns.
+  const WEATHER_CITIES = [["w-riyadh", 24.7136, 46.6753], ["w-jeddah", 21.4858, 39.1925]];
   async function renderWeather() {
     try {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${LOCATION.lat}&longitude=${LOCATION.lng}` +
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${WEATHER_CITIES.map((c) => c[1]).join(",")}` +
+        `&longitude=${WEATHER_CITIES.map((c) => c[2]).join(",")}` +
         `&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=${encodeURIComponent(TZ)}&forecast_days=1`;
       const r = await fetch(url);
       if (!r.ok) throw new Error(r.status);
-      const d = await r.json();
+      let data = await r.json();
+      if (!Array.isArray(data)) data = [data];
       const nf = new Intl.NumberFormat("ar-SA-u-nu-latn", { maximumFractionDigits: 0 });
-      $("w-temp").textContent = nf.format(d.current.temperature_2m) + "°";
-      const desc = WMO[d.current.weather_code] || "";
-      $("w-desc").textContent = `${LOCATION.name} · ${desc} · ${nf.format(d.daily.temperature_2m_max[0])}°/${nf.format(d.daily.temperature_2m_min[0])}°`;
-    } catch (e) {
-      $("w-desc").textContent = LOCATION.name;
-    }
+      WEATHER_CITIES.forEach(([id], i) => {
+        const d = data[i];
+        if (!d) return;
+        const desc = WMO[d.current.weather_code] || "";
+        $(id).textContent = [`${nf.format(d.current.temperature_2m)}°`, desc,
+          `${nf.format(d.daily.temperature_2m_max[0])}°/${nf.format(d.daily.temperature_2m_min[0])}°`].filter(Boolean).join(" · ");
+      });
+    } catch (e) { /* the line simply stays empty */ }
   }
 
   // ---------- Brief: key phrases open a detail overlay ----------
@@ -111,8 +117,8 @@
 
   // ---------- World clocks (tooltip on the timeline's "now" marker) ----------
   const WORLD = [
-    ["طوكيو", "Asia/Tokyo"], ["نيويورك", "America/New_York"],
-    ["لندن", "Europe/London"], ["موسكو", "Europe/Moscow"]
+    ["طوكيو", "Asia/Tokyo"], ["الرياض", "Asia/Riyadh"],
+    ["لندن", "Europe/London"], ["نيويورك", "America/New_York"]
   ];
   const SVGNS = "http://www.w3.org/2000/svg";
   function clockFace(h, m) {

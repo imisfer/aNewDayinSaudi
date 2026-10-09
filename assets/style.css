@@ -56,21 +56,9 @@ a { color: inherit; text-decoration: none; }
   background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
   padding: 10px 12px; margin-bottom: 16px;
 }
-.weather {
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  min-width: 72px; padding-inline-end: 12px; border-inline-end: 1px solid var(--line);
-}
+.weather { display: flex; align-items: baseline; gap: 10px; }
 .w-temp { font-size: 1.35rem; font-weight: 700; }
-.w-desc { font-size: .75rem; color: var(--muted); text-align: center; }
-.prayers {
-  list-style: none; margin: 0; padding: 0; flex: 1;
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; text-align: center;
-}
-.prayers li { display: flex; flex-direction: column; border-radius: 8px; padding: 4px 0; }
-.prayers .p-name { font-size: .72rem; color: var(--muted); }
-.prayers .p-time { font-size: .9rem; font-weight: 600; font-variant-numeric: tabular-nums; }
-.prayers li.next .p-time { font-weight: 700; }
-.prayers li.next .p-name, .prayers li.next .p-time { color: var(--accent); }
+.w-desc { font-size: .85rem; color: var(--muted); }
 
 /* Brief: one paragraph, key phrases open the detail overlay */
 .key {
@@ -165,9 +153,41 @@ a { color: inherit; text-decoration: none; }
 }
 .tl-sun svg { width: 18px; height: 18px; }
 .tl-sun.past { opacity: .45; }
+.tl-now-wrap { position: absolute; left: 14px; z-index: 6; }
 .tl-now {
-  position: absolute; left: 9px; width: 10px; height: 10px; margin-top: -5px; z-index: 3;
-  border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft);
+  position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; padding: 0; cursor: pointer;
+  border: 0; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.tl-now::before { content: ""; position: absolute; inset: -10px; border-radius: 50%; } /* bigger tap area */
+.tl-now:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+/* World clocks tooltip */
+.tl-clocks {
+  position: absolute; left: 18px; top: 0; transform: translateY(-50%);
+  display: none; gap: 12px; padding: 12px 14px 10px; direction: rtl;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+.tl-clocks.edge-start { transform: translateY(-16px); }
+.tl-clocks.edge-end { transform: translateY(calc(-100% + 16px)); }
+.tl-now-wrap.open .tl-clocks,
+.tl-now-wrap:hover .tl-clocks,
+.tl-now-wrap:focus-within .tl-clocks { display: flex; }
+.clock { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.clock-face { line-height: 0; }
+.clock svg .c-face { fill: var(--bg); stroke: var(--ink); stroke-width: 6; }
+.clock svg .c-ticks line { stroke: var(--ink); stroke-linecap: round; }
+.clock svg .c-nums text { fill: var(--ink); font: 700 13px "IBM Plex Sans Arabic", system-ui, sans-serif; text-anchor: middle; dominant-baseline: middle; }
+.clock svg .c-hour { stroke: var(--ink); stroke-width: 5; stroke-linecap: round; }
+.clock svg .c-min { stroke: var(--ink); stroke-width: 3.2; stroke-linecap: round; }
+.clock svg .c-pin { fill: var(--accent); }
+.clock-city {
+  font-size: .72rem; font-weight: 600; line-height: 1.4;
+  padding: 1px 8px; border: 1px solid var(--line); border-radius: 6px;
+}
+.clock-time { font-size: .68rem; color: var(--muted); line-height: 1.2; font-variant-numeric: tabular-nums; }
+@media (max-width: 400px) {
+  .tl-clocks { gap: 6px; padding: 10px 8px 8px; }
+  .clock svg { width: 50px; height: 50px; }
 }
 .tl-dot-wrap { position: absolute; left: 14px; z-index: 4; }
 .tl-dot {
@@ -206,7 +226,4 @@ a { color: inherit; text-decoration: none; }
   .page { padding-left: 52px; }
 }
 
-@media (max-width: 420px) {
-  .strip { flex-direction: column; }
-  .weather { flex-direction: row; gap: 8px; border-inline-end: 0; border-bottom: 1px solid var(--line); padding: 0 0 8px; }
-}
+

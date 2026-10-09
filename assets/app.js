@@ -26,32 +26,6 @@
     timeZone: TZ, day: "numeric", month: "long"
   }).format(new Date(iso + "T12:00:00+03:00"));
 
-  // ---------- Prayer times (computed on-device, Umm al-Qura method) ----------
-  function renderPrayers() {
-    if (!window.adhan) return;
-    const a = window.adhan;
-    const params = a.CalculationMethod.UmmAlQura();
-    const times = new a.PrayerTimes(new a.Coordinates(LOCATION.lat, LOCATION.lng), now, params);
-    const fmt = new Intl.DateTimeFormat("ar-SA-u-nu-latn", { timeZone: TZ, hour: "numeric", minute: "2-digit" });
-    const list = [
-      ["الفجر", times.fajr], ["الظهر", times.dhuhr], ["العصر", times.asr],
-      ["المغرب", times.maghrib], ["العشاء", times.isha]
-    ];
-    // After Isha, the next prayer is tomorrow's Fajr.
-    if (!list.some(([, t]) => t > now)) {
-      const tomorrow = new Date(now.getTime() + 864e5);
-      list[0] = ["الفجر", new a.PrayerTimes(new a.Coordinates(LOCATION.lat, LOCATION.lng), tomorrow, params).fajr];
-    }
-    const next = list.find(([, t]) => t > now);
-    const ol = $("prayers");
-    ol.textContent = "";
-    for (const [name, t] of list) {
-      const li = el("li", next && next[1] === t ? "next" : "");
-      li.append(el("span", "p-name", name), el("span", "p-time", fmt.format(t).replace(/\s?[صم]$/, "")));
-      ol.append(li);
-    }
-  }
-
   // ---------- Weather (Open-Meteo, no key, no cookies) ----------
   const WMO = {
     0: "صحو", 1: "صحو غالبًا", 2: "غائم جزئيًا", 3: "غائم",
@@ -135,13 +109,52 @@
     }
   }
 
+  // ---------- World clocks (tooltip on the timeline's "now" marker) ----------
+  const WORLD = [
+    ["طوكيو", "Asia/Tokyo"], ["نيويورك", "America/New_York"],
+    ["لندن", "Europe/London"], ["موسكو", "Europe/Moscow"]
+  ];
+  const SVGNS = "http://www.w3.org/2000/svg";
+  function clockFace(h, m) {
+    let ticks = "";
+    for (let i = 0; i < 12; i++) {
+      const q = i % 3 === 0;
+      ticks += `<line x1="0" y1="${q ? -37 : -39}" x2="0" y2="-43" stroke-width="${q ? 3 : 1.6}" transform="rotate(${i * 30})"/>`;
+    }
+    const nums = [["12", 0, -27], ["3", 29, 1], ["6", 0, 29], ["9", -29, 1]]
+      .map(([t, x, y]) => `<text x="${x}" y="${y}">${t}</text>`).join("");
+    const ha = (h % 12) * 30 + m * 0.5, ma = m * 6;
+    return `<svg viewBox="-50 -50 100 100" width="58" height="58" aria-hidden="true">` +
+      `<circle r="45" class="c-face"/><g class="c-ticks">${ticks}</g><g class="c-nums">${nums}</g>` +
+      `<line x1="0" y1="6" x2="0" y2="-22" class="c-hour" transform="rotate(${ha})"/>` +
+      `<line x1="0" y1="8" x2="0" y2="-34" class="c-min" transform="rotate(${ma})"/>` +
+      `<circle r="3.2" class="c-pin"/></svg>`;
+  }
+  function drawClocks(box) {
+    const t = new Date();
+    box.textContent = "";
+    for (const [name, zone] of WORLD) {
+      const parts = Object.fromEntries(new Intl.DateTimeFormat("en-US", {
+        timeZone: zone, hour: "numeric", minute: "numeric", hourCycle: "h23"
+      }).formatToParts(t).map((p) => [p.type, p.value]));
+      const cell = el("div", "clock");
+      const face = el("div", "clock-face");
+      face.innerHTML = clockFace(+parts.hour, +parts.minute);
+      const digital = new Intl.DateTimeFormat("ar-SA-u-nu-latn", { timeZone: zone, hour: "numeric", minute: "2-digit" }).format(t);
+      cell.append(face, el("span", "clock-city", name), el("span", "clock-time", digital));
+      cell.setAttribute("aria-label", `${name} ${digital}`);
+      box.append(cell);
+    }
+  }
+  setInterval(() => document.querySelectorAll(".tl-now-wrap.open .tl-clocks, .tl-now-wrap:hover .tl-clocks").forEach(drawClocks), 30e3);
+
   // ---------- Day timeline: Fajr → midnight, prayer ticks, event dots with bubbles ----------
   const todayISO = new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(now);
   const clock = new Intl.DateTimeFormat("ar-SA-u-nu-latn", { timeZone: TZ, hour: "numeric", minute: "2-digit" });
   function renderTimeline(items) {
     const wrap = $("timeline");
     const track = $("tl-track");
-    track.querySelectorAll(".tl-tick, .tl-dot-wrap, .tl-now, .tl-sun").forEach((n) => n.remove());
+    track.querySelectorAll(".tl-tick, .tl-dot-wrap, .tl-now-wrap, .tl-sun").forEach((n) => n.remove());
     if (!window.adhan) return;
     const a = window.adhan;
     const pt = new a.PrayerTimes(new a.Coordinates(LOCATION.lat, LOCATION.lng), now, a.CalculationMethod.UmmAlQura());
@@ -169,9 +182,26 @@
       s.title = `${name} ${clock.format(t)}`;
       track.append(s);
     }
-    const nowMark = el("span", "tl-now");
-    nowMark.style.top = pos(now) + "%";
-    track.append(nowMark);
+    // "Now" marker: hover or tap shows world clocks at this moment.
+    const pn = pos(now);
+    const nowWrap = el("span", "tl-now-wrap");
+    nowWrap.style.top = pn + "%";
+    const nowBtn = el("button", "tl-now");
+    nowBtn.type = "button";
+    nowBtn.setAttribute("aria-label", "الآن · الساعة حول العالم");
+    const clocks = el("div", "tl-clocks" + (pn < 15 ? " edge-start" : pn > 85 ? " edge-end" : ""));
+    clocks.setAttribute("role", "tooltip");
+    nowWrap.append(nowBtn, clocks);
+    nowBtn.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      track.querySelectorAll(".tl-dot-wrap.open").forEach((h) => h.classList.remove("open"));
+      nowWrap.classList.toggle("open");
+      drawClocks(clocks);
+    });
+    nowWrap.addEventListener("mouseenter", () => drawClocks(clocks));
+    nowBtn.addEventListener("focus", () => drawClocks(clocks));
+    drawClocks(clocks);
+    track.append(nowWrap);
 
     const today = (items || []).filter((e) => e.time && e.time.slice(0, 10) === todayISO)
       .map((e) => ({ ...e, at: new Date(e.time) }))
@@ -204,7 +234,7 @@
     }
   }
   document.addEventListener("click", () => {
-    document.querySelectorAll(".tl-dot-wrap.open").forEach((h) => h.classList.remove("open"));
+    document.querySelectorAll(".tl-dot-wrap.open, .tl-now-wrap.open").forEach((h) => h.classList.remove("open"));
   });
 
   // ---------- City events: Riyadh, Jeddah, other regions ----------
@@ -271,7 +301,6 @@
     }
   }
 
-  renderPrayers();
   renderTimeline([]);
   renderWeather();
   renderEdition();

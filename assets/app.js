@@ -39,7 +39,7 @@
     try {
       const url = `https://api.open-meteo.com/v1/forecast?latitude=${WEATHER_CITIES.map((c) => c[1]).join(",")}` +
         `&longitude=${WEATHER_CITIES.map((c) => c[2]).join(",")}` +
-        `&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=${encodeURIComponent(TZ)}&forecast_days=1`;
+        `&current=temperature_2m,weather_code&timezone=${encodeURIComponent(TZ)}`;
       const r = await fetch(url);
       if (!r.ok) throw new Error(r.status);
       let data = await r.json();
@@ -49,8 +49,7 @@
         const d = data[i];
         if (!d) return;
         const desc = WMO[d.current.weather_code] || "";
-        $(id).textContent = [`${nf.format(d.current.temperature_2m)}°`, desc,
-          `${nf.format(d.daily.temperature_2m_max[0])}°/${nf.format(d.daily.temperature_2m_min[0])}°`].filter(Boolean).join(" · ");
+        $(id).textContent = [`${nf.format(d.current.temperature_2m)}°`, desc].filter(Boolean).join(" · ");
       });
     } catch (e) { /* the line simply stays empty */ }
   }

@@ -1,61 +1,61 @@
 {
-  "edition_date": "2026-10-12",
+  "edition_date": "2026-10-13",
   "status": "pilot",
-  "headline": "الرياض تستضيف «أسبوع الطاقة» بأكثر من 70 وزيرًا، و«منتدى الرياض الاقتصادي» ينطلق اليوم، و«حساب المواطن» يودع 3.1 مليارات ريال",
+  "headline": "المملكة تستضيف «مؤتمر البترول العالمي» لأول مرة، و«مذكرات تفاهم للطاقة» مع الكويت وقطر ومصر، و«النصر 3-1» في نخبة آسيا",
   "cards": [
     {
+      "category": "طاقة",
+      "keyword": "«مؤتمر البترول العالمي»",
+      "title": "الرياض تحتضن مؤتمر البترول العالمي الخامس والعشرين لأول مرة",
+      "summary": "افتتح وزير الطاقة الأمير عبدالعزيز بن سلمان المؤتمر الذي تستضيفه المملكة لأول مرة حتى 15 أكتوبر في مركز الرياض فرونت، مع توقعات بأكثر من 25 ألف مشارك.",
+      "date": "2026-10-12",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/energy/saudi-arabia-positions-riyadh-as-global-energy-security-hub-as-wpc-energy-congress-opens-3005881"
+    },
+    {
+      "category": "طاقة",
+      "keyword": "«مذكرات تفاهم للطاقة»",
+      "title": "وزير الطاقة يوقّع ثلاث مذكرات تفاهم مع الكويت وقطر ومصر",
+      "summary": "تشمل المذكرات الربط الكهربائي والطاقة المتجددة مع الكويت، والغاز والهيدروجين النظيف ودراسة خطوط أنابيب للتصدير مع قطر، وتجارة النفط والغاز ولوجستياتها مع مصر.",
+      "date": "2026-10-11",
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/eo0rp51"
+    },
+    {
+      "category": "رياضة",
+      "keyword": "«النصر 3-1»",
+      "title": "النصر يتغلب على نفتشي الأوزبكي 3-1 في دوري أبطال آسيا للنخبة",
+      "summary": "سجّل أنجيلو وكريستيانو رونالدو وهدف عكسي ثلاثية النصر على ملعب جامعة الملك سعود بالرياض، في الجولة الثانية لمنطقة الغرب.",
+      "date": "2026-10-12",
+      "source_name": "الاتحاد الآسيوي",
+      "source_url": "https://www.the-afc.com/ar/club/afc_champions_league_elite.html/news/md2-al-nassr-club-ksa-3-1-pfc-neftchi-uzb-1"
+    },
+    {
+      "category": "سياحة",
+      "keyword": "أول رخصة لتشغيل شاطئ",
+      "title": "أول رخصة مشغّل شاطئ في المملكة لشاطئ يام بمدينة الملك عبدالله",
+      "summary": "منحت الهيئة السعودية للبحر الأحمر إعمار المدينة الاقتصادية الرخصة، وتُلزم المشغّل بمنقذين معتمدين طوال ساعات التشغيل، ومرافق لذوي الإعاقة، ومراقبة جودة المياه والرمال.",
+      "date": "2026-10-12",
+      "source_name": "عرب نيوز (واس)",
+      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-red-sea-authority-grants-first-beach-operator-license-to-emaar-3005938"
+    },
+    {
+      "category": "رياضة",
+      "keyword": "الأهلي يتصدر غرب آسيا",
+      "title": "الأهلي يفوز على الوصل 3-1 في دبي ويتصدر منطقة الغرب مؤقتًا",
+      "summary": "سجّل إيبانيز وترينكاو وفراس البريكان أهداف الأهلي على ملعب زعبيل، ليرتقي مؤقتًا إلى صدارة منطقة الغرب في نخبة آسيا برصيد 4 نقاط من مباراتين.",
+      "date": "2026-10-12",
+      "source_name": "الاتحاد الآسيوي",
+      "source_url": "https://www.the-afc.com/ar/club/afc_champions_league_elite.html/news/md2-al-wasl-fc-uae-1-3-al-ahli-saudi-fc-ksa-1"
+    },
+    {
       "category": "اقتصاد",
-      "keyword": "«أسبوع الطاقة»",
-      "title": "الرياض تستضيف أسبوع الطاقة بمشاركة أكثر من 70 وزيرًا",
-      "summary": "تستضيف الرياض من 11 إلى 15 أكتوبر سلسلة فعاليات للطاقة، يفتتحها الاجتماع الوزاري السابع عشر لمنتدى الطاقة الدولي، ويتصدرها مؤتمر الطاقة العالمي الخامس والعشرون، بمشاركة أكثر من 70 وزيرًا و300 من قادة الشركات.",
-      "date": "2026-10-11",
-      "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/w2689329"
-    },
-    {
-      "category": "اقتصاد",
-      "keyword": "«منتدى الرياض الاقتصادي»",
-      "title": "منتدى الرياض الاقتصادي يفتتح دورته الثانية عشرة اليوم بخمس دراسات",
-      "summary": "يفتتح أمير منطقة الرياض، نيابةً عن خادم الحرمين الشريفين، الدورة الثانية عشرة للمنتدى، لمناقشة خمس دراسات منها الزراعة الذكية للأمن الغذائي والمائي، والازدحام المروري، وعوائد استضافة إكسبو 2030 وكأس العالم 2034.",
-      "date": "2026-10-11",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/viddt67"
-    },
-    {
-      "category": "خدمات",
-      "keyword": "«حساب المواطن»",
-      "title": "حساب المواطن يودع 3.1 مليارات ريال لمستفيدي دفعة أكتوبر",
-      "summary": "أودع برنامج حساب المواطن 3.1 مليارات ريال لمستفيدي الدفعة 107 الخاصة بشهر أكتوبر، بمتوسط دعم بلغ 1,469 ريالًا للأسرة الواحدة.",
-      "date": "2026-10-11",
+      "keyword": "تمويل المنشآت 490.8 مليار",
+      "title": "تمويل المنشآت الصغيرة والمتوسطة يبلغ 490.8 مليار ريال",
+      "summary": "ارتفع تمويل المنشآت الصغيرة والمتوسطة ومتناهية الصغر 16.5% على أساس سنوي بنهاية الربع الثاني 2026، وفق بيانات البنك المركزي السعودي، ليمثل 11.7% من إجمالي التمويل.",
+      "date": "2026-10-06",
       "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2270291"
-    },
-    {
-      "category": "مجتمع",
-      "keyword": "جائزة أبحاث الإعاقة",
-      "title": "770 ترشيحًا من 111 دولة لجائزة الملك سلمان العالمية لأبحاث الإعاقة",
-      "summary": "افتتح أمير منطقة الرياض المؤتمر الدولي السابع للإعاقة والتأهيل المستمر حتى 13 أكتوبر، وكرّم الفائزين بالدورة الرابعة للجائزة التي استقطبت 770 ترشيحًا من 111 دولة في خمسة فروع.",
-      "date": "2026-10-11",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/i5p9nvk"
-    },
-    {
-      "category": "خدمات",
-      "keyword": "السجل العقاري بمكة",
-      "title": "بدء السجل العقاري لـ26,858 قطعة في منطقة مكة المكرمة",
-      "summary": "بدأت الهيئة العامة للعقار تسجيل 26,858 قطعة عقارية في أحياء من جدة ومكة المكرمة وذهبان، عبر منصة السجل العقاري الإلكترونية ومراكز الخدمة، حتى 14 يناير 2027.",
-      "date": "2026-10-11",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2270301"
-    },
-    {
-      "category": "ثقافة",
-      "keyword": "764 ألف زائر للصقور",
-      "title": "معرض الصقور والصيد يختتم نسخة 2026 بأكثر من 764 ألف زائر",
-      "summary": "اختتم معرض الصقور والصيد السعودي الدولي في ملهم شمال الرياض فعالياته بعد عشرة أيام، بمشاركة 47 دولة وأكثر من 1,446 عارضًا وعلامة تجارية، و44 جهة حكومية.",
-      "date": "2026-10-11",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/pyfghne"
+      "source_url": "https://www.okaz.com.sa/economy/na/2269590"
     }
   ],
   "events": [
@@ -78,24 +78,24 @@
   ],
   "timeline": [
     {
-      "time": "2026-10-12T16:45:00+03:00",
-      "label": "باختاكور × القادسية",
-      "note": "نخبة آسيا · طشقند",
+      "time": "2026-10-13T19:00:00+03:00",
+      "label": "السد × الهلال",
+      "note": "نخبة آسيا · الدوحة",
       "colors": [
-        "#00843D",
-        "#D71920"
+        "#FFFFFF",
+        "#005BAC"
       ],
-      "source_url": "https://assets.the-afc.com/2026-27_ACL_Elite/Downloads/Match_Schedule/AFC-Champions-League-Elite-202627---League-Stage-Match-Schedule---Sep6upd.pdf"
+      "source_url": "https://www.aljazeera.net/sport/2026/10/11/%D9%85%D9%88%D8%B9%D8%AF-%D9%85%D8%A8%D8%A7%D8%B1%D8%A7%D8%A9-%D8%A7%D9%84%D8%B3%D8%AF-%D8%B6%D8%AF-%D8%A7%D9%84%D9%87%D9%84%D8%A7%D9%84-%D9%81%D9%8A-%D8%AF%D9%88%D8%B1%D9%8A"
     },
     {
-      "time": "2026-10-12T19:00:00+03:00",
-      "label": "الوصل × الأهلي",
-      "note": "نخبة آسيا · دبي",
+      "time": "2026-10-13T21:15:00+03:00",
+      "label": "الاتحاد × شباب الأهلي",
+      "note": "نخبة آسيا · جدة",
       "colors": [
         "#FFD200",
-        "#00843D"
+        "#D71920"
       ],
-      "source_url": "https://assets.the-afc.com/2026-27_ACL_Elite/Downloads/Match_Schedule/AFC-Champions-League-Elite-202627---League-Stage-Match-Schedule---Sep6upd.pdf"
+      "source_url": "https://www.okaz.com.sa/ampArticle/2270531"
     }
   ],
   "regions": {
@@ -103,15 +103,21 @@
       {
         "title": "سيرك فونتانا المائي",
         "place": "قرب النخيل مول",
-        "start": "2026-10-10",
+        "start": "2026-10-14",
         "end": "2026-12-19",
         "source_url": "https://riyadh.platinumlist.net/event-tickets/fontana-circus-riyadh"
       },
       {
-        "title": "وليد المغازي: عرض كوميدي",
-        "place": "الرياض",
-        "start": "2026-10-16",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/108761/waleed-el-moghazy-messed-it-up-live-in-riyadh"
+        "title": "ديربي السيدات: النصر × الهلال",
+        "place": "ملعب نادي النصر",
+        "start": "2026-10-22",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/108570/al-nasr-x-al-hilal"
+      },
+      {
+        "title": "جون عشقر: «فينا نحكي» كوميدي",
+        "place": "مسرح مدارس الرياض",
+        "start": "2026-10-22",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/106073/feena-nehke-stand-up-comedy-by-john-achkar-in-riyadh"
       }
     ],
     "jeddah": [
@@ -123,15 +129,16 @@
       },
       {
         "title": "صلاح الدالي: عرض كوميدي",
-        "place": "جدة",
+        "place": "جمعية الثقافة والفنون بجدة",
         "start": "2026-10-16",
         "source_url": "https://jeddah.platinumlist.net/event-tickets/108273/stand-up-comedy-show-with-salah-al-dali-in-jeddah"
       },
       {
-        "title": "وليد المغازي: عرض كوميدي",
-        "place": "جدة",
-        "start": "2026-10-17",
-        "source_url": "https://jeddah.platinumlist.net/event-tickets/108750/kalam-fadi-presents-waleed-el-moghazy-messed-it-up-live-in-jeddah"
+        "title": "معرض «جواهر العالم» للمجوهرات",
+        "place": "هيلتون جدة",
+        "start": "2026-10-19",
+        "end": "2026-10-22",
+        "source_url": "https://www.arabnews.com/saudi-arabia/jewels-of-the-world-debuts-show-in-riyadh-3005903"
       }
     ],
     "other": [

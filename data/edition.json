@@ -1,61 +1,61 @@
 {
-  "edition_date": "2026-10-13",
+  "edition_date": "2026-10-14",
   "status": "pilot",
-  "headline": "المملكة تستضيف «مؤتمر البترول العالمي» لأول مرة، و«مذكرات تفاهم للطاقة» مع الكويت وقطر ومصر، و«النصر 3-1» في نخبة آسيا",
+  "headline": "«قطار الرياض» يضيف 94 قطارًا، و«صندوق النقد» يتوقع نموًا 7.9% في 2027، و«الهلال 2-0» على السد في الدوحة",
   "cards": [
     {
-      "category": "طاقة",
-      "keyword": "«مؤتمر البترول العالمي»",
-      "title": "الرياض تحتضن مؤتمر البترول العالمي الخامس والعشرين لأول مرة",
-      "summary": "افتتح وزير الطاقة الأمير عبدالعزيز بن سلمان المؤتمر الذي تستضيفه المملكة لأول مرة حتى 15 أكتوبر في مركز الرياض فرونت، مع توقعات بأكثر من 25 ألف مشارك.",
-      "date": "2026-10-12",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/energy/saudi-arabia-positions-riyadh-as-global-energy-security-hub-as-wpc-energy-congress-opens-3005881"
-    },
-    {
-      "category": "طاقة",
-      "keyword": "«مذكرات تفاهم للطاقة»",
-      "title": "وزير الطاقة يوقّع ثلاث مذكرات تفاهم مع الكويت وقطر ومصر",
-      "summary": "تشمل المذكرات الربط الكهربائي والطاقة المتجددة مع الكويت، والغاز والهيدروجين النظيف ودراسة خطوط أنابيب للتصدير مع قطر، وتجارة النفط والغاز ولوجستياتها مع مصر.",
-      "date": "2026-10-11",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/eo0rp51"
-    },
-    {
-      "category": "رياضة",
-      "keyword": "«النصر 3-1»",
-      "title": "النصر يتغلب على نفتشي الأوزبكي 3-1 في دوري أبطال آسيا للنخبة",
-      "summary": "سجّل أنجيلو وكريستيانو رونالدو وهدف عكسي ثلاثية النصر على ملعب جامعة الملك سعود بالرياض، في الجولة الثانية لمنطقة الغرب.",
-      "date": "2026-10-12",
-      "source_name": "الاتحاد الآسيوي",
-      "source_url": "https://www.the-afc.com/ar/club/afc_champions_league_elite.html/news/md2-al-nassr-club-ksa-3-1-pfc-neftchi-uzb-1"
-    },
-    {
-      "category": "سياحة",
-      "keyword": "أول رخصة لتشغيل شاطئ",
-      "title": "أول رخصة مشغّل شاطئ في المملكة لشاطئ يام بمدينة الملك عبدالله",
-      "summary": "منحت الهيئة السعودية للبحر الأحمر إعمار المدينة الاقتصادية الرخصة، وتُلزم المشغّل بمنقذين معتمدين طوال ساعات التشغيل، ومرافق لذوي الإعاقة، ومراقبة جودة المياه والرمال.",
-      "date": "2026-10-12",
-      "source_name": "عرب نيوز (واس)",
-      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-red-sea-authority-grants-first-beach-operator-license-to-emaar-3005938"
-    },
-    {
-      "category": "رياضة",
-      "keyword": "الأهلي يتصدر غرب آسيا",
-      "title": "الأهلي يفوز على الوصل 3-1 في دبي ويتصدر منطقة الغرب مؤقتًا",
-      "summary": "سجّل إيبانيز وترينكاو وفراس البريكان أهداف الأهلي على ملعب زعبيل، ليرتقي مؤقتًا إلى صدارة منطقة الغرب في نخبة آسيا برصيد 4 نقاط من مباراتين.",
-      "date": "2026-10-12",
-      "source_name": "الاتحاد الآسيوي",
-      "source_url": "https://www.the-afc.com/ar/club/afc_champions_league_elite.html/news/md2-al-wasl-fc-uae-1-3-al-ahli-saudi-fc-ksa-1"
+      "category": "نقل",
+      "keyword": "«قطار الرياض»",
+      "title": "الهيئة الملكية لمدينة الرياض تشتري 94 قطارًا جديدًا لقطار الرياض",
+      "summary": "عقود بنحو 5.5 مليارات ريال مع سيمنس وألستوم ترفع الأسطول من 183 إلى 277 قطارًا والطاقة الاستيعابية للشبكة 60%، ويبدأ التسليم في 2028.",
+      "date": "2026-10-13",
+      "source_name": "الهيئة الملكية لمدينة الرياض",
+      "source_url": "https://www.rcrc.gov.sa/en/riyadh-metro-fleet-expansion-94-trains-en/"
     },
     {
       "category": "اقتصاد",
-      "keyword": "تمويل المنشآت 490.8 مليار",
-      "title": "تمويل المنشآت الصغيرة والمتوسطة يبلغ 490.8 مليار ريال",
-      "summary": "ارتفع تمويل المنشآت الصغيرة والمتوسطة ومتناهية الصغر 16.5% على أساس سنوي بنهاية الربع الثاني 2026، وفق بيانات البنك المركزي السعودي، ليمثل 11.7% من إجمالي التمويل.",
-      "date": "2026-10-06",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/economy/na/2269590"
+      "keyword": "«صندوق النقد»",
+      "title": "صندوق النقد الدولي يتوقع نمو الاقتصاد السعودي 7.9% في 2027",
+      "summary": "توقّع تقرير آفاق الاقتصاد العالمي لشهر أكتوبر عودة الاقتصاد السعودي إلى نمو 7.9% في 2027 بعد انكماش متوقع 3.3% في 2026، متجاوزًا النمو العالمي المتوقع 3.4%.",
+      "date": "2026-10-13",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/business/saudi-arabia-to-outpace-global-growth-with-79-expansion-in-2027-imf-3006034"
+    },
+    {
+      "category": "رياضة",
+      "keyword": "«الهلال 2-0»",
+      "title": "الهلال يتغلب على السد 2-0 في الدوحة بدوري أبطال آسيا للنخبة",
+      "summary": "سجّل أولي واتكينز هدف الافتتاح وأضاف روبن نيفيز الثاني من ركلة جزاء، ليحافظ الهلال على سجله الكامل بفوزين في أول جولتين.",
+      "date": "2026-10-13",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/sport/revenge-for-al-hilal-in-afc-champions-league-after-elimination-by-al-sadd-last-season-3006161"
+    },
+    {
+      "category": "إنساني",
+      "keyword": "حملة القلب في نيجيريا",
+      "title": "مركز الملك سلمان للإغاثة يطلق حملة لجراحات القلب في أبوجا",
+      "summary": "يُجري فريق من 10 متطوعين سعوديين 108 إجراءات في مستشفى نظامية بالعاصمة النيجيرية، منها 28 عملية قلب مفتوح و80 قسطرة تشخيصية وعلاجية.",
+      "date": "2026-10-13",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-medical-campaign-in-nigeria-to-perform-108-heart-surgeries-and-procedures-3006219"
+    },
+    {
+      "category": "اقتصاد",
+      "keyword": "مؤشر المنشآت الصغيرة 53.8",
+      "title": "مؤشر مديري المشتريات للمنشآت الصغيرة والمتوسطة عند 53.8",
+      "summary": "سجّل المؤشر 53.8 نقطة في سبتمبر مع أسرع نمو للطلبات الجديدة منذ سبعة أشهر، وتحسّن متوسط الربع الثالث إلى 52.7 من 51.4 في الربع الثاني.",
+      "date": "2026-10-12",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/business/saudi-arabias-sme-pmi-at-538-as-new-orders-hit-7-month-high-3005898"
+    },
+    {
+      "category": "علوم",
+      "keyword": "«لينكس» الأول عالميًا",
+      "title": "فريق «لينكس» السعودي يتصدر نهائيات أرامكو STEM Racing العالمية",
+      "summary": "حلّ الفريق القادم من الظهران أولًا بين 91 فريقًا في نهائيات سنغافورة، وحصدت الفرق السعودية ثلاث جوائز ضمن برنامج يقوده مركز إثراء.",
+      "date": "2026-10-08",
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/en/N2696356"
     }
   ],
   "events": [
@@ -78,24 +78,14 @@
   ],
   "timeline": [
     {
-      "time": "2026-10-13T19:00:00+03:00",
-      "label": "السد × الهلال",
-      "note": "نخبة آسيا · الدوحة",
+      "time": "2026-10-14T19:00:00+03:00",
+      "label": "التعاون × الريان",
+      "note": "أبطال آسيا 2 · بريدة",
       "colors": [
-        "#FFFFFF",
-        "#005BAC"
+        "#FFCC00",
+        "#E30613"
       ],
-      "source_url": "https://www.aljazeera.net/sport/2026/10/11/%D9%85%D9%88%D8%B9%D8%AF-%D9%85%D8%A8%D8%A7%D8%B1%D8%A7%D8%A9-%D8%A7%D9%84%D8%B3%D8%AF-%D8%B6%D8%AF-%D8%A7%D9%84%D9%87%D9%84%D8%A7%D9%84-%D9%81%D9%8A-%D8%AF%D9%88%D8%B1%D9%8A"
-    },
-    {
-      "time": "2026-10-13T21:15:00+03:00",
-      "label": "الاتحاد × شباب الأهلي",
-      "note": "نخبة آسيا · جدة",
-      "colors": [
-        "#FFD200",
-        "#D71920"
-      ],
-      "source_url": "https://www.okaz.com.sa/ampArticle/2270531"
+      "source_url": "https://assets.the-afc.com/2026-27_ACL_Two/Downloads/AFC-Champions-League-Two-2026-27-Group-Stage-Match-Schedule-25Sep-upd.pdf"
     }
   ],
   "regions": {
@@ -108,15 +98,17 @@
         "source_url": "https://riyadh.platinumlist.net/event-tickets/fontana-circus-riyadh"
       },
       {
-        "title": "ديربي السيدات: النصر × الهلال",
-        "place": "ملعب نادي النصر",
-        "start": "2026-10-22",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/108570/al-nasr-x-al-hilal"
+        "title": "بوش بشاشة: عرض كوميدي",
+        "place": "مركز سرد الثقافي",
+        "start": "2026-10-15",
+        "end": "2026-10-16",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/108546/boosh-bashasha-stand-up-comedy-show-in-riyadh"
       },
       {
         "title": "جون عشقر: «فينا نحكي» كوميدي",
         "place": "مسرح مدارس الرياض",
         "start": "2026-10-22",
+        "end": "2026-10-23",
         "source_url": "https://riyadh.platinumlist.net/event-tickets/106073/feena-nehke-stand-up-comedy-by-john-achkar-in-riyadh"
       }
     ],

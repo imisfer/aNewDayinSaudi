@@ -15,12 +15,15 @@
 
   // ---------- Dates ----------
   const now = new Date();
-  $("hijri").textContent = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura-nu-latn", {
-    timeZone: TZ, weekday: "long", day: "numeric", month: "long", year: "numeric"
-  }).format(now);
-  $("gregorian").textContent = new Intl.DateTimeFormat("ar-SA-u-ca-gregory-nu-latn", {
-    timeZone: TZ, day: "numeric", month: "long", year: "numeric"
-  }).format(now);
+  const part = (cal, opt) => new Intl.DateTimeFormat(`ar-SA-u-ca-${cal}-nu-latn`, { timeZone: TZ, ...opt }).format(now);
+  $("weekday").textContent = part("gregory", { weekday: "long" });
+  $("hijri-m").textContent = part("islamic-umalqura", { month: "long" });
+  $("hijri-d").textContent = part("islamic-umalqura", { day: "numeric" });
+  $("greg-m").textContent = part("gregory", { month: "long" });
+  $("greg-d").textContent = part("gregory", { day: "numeric" });
+  $("cal").setAttribute("aria-label",
+    part("islamic-umalqura", { day: "numeric", month: "long", year: "numeric" }) + "، " +
+    part("gregory", { day: "numeric", month: "long", year: "numeric" }));
 
   const fmtDate = (iso) => new Intl.DateTimeFormat("ar-SA-u-ca-gregory-nu-latn", {
     timeZone: TZ, day: "numeric", month: "long"

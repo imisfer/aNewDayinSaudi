@@ -52,7 +52,7 @@ a { color: inherit; text-decoration: none; }
 
 /* One row: title 70% · day name 20% · date tile 10% (the tile keeps at least its own width) */
 .masthead {
-  display: grid; grid-template-columns: 7fr 2fr minmax(max-content, 1fr); align-items: center;
+  display: grid; grid-template-columns: 7fr 2fr minmax(max-content, 1fr); align-items: start;
   gap: 8px;
   padding-bottom: 12px;
 }
@@ -81,7 +81,7 @@ a { color: inherit; text-decoration: none; }
 
 .lead { padding: 22px 0 14px; }
 .site-title { /* Thmanyah Serif Display Bold with swash letters (الحروف المرسلة) */
-  margin: 0; padding: .15em .1em .3em; /* room for the swash tails so text-clipped gradients don't cut them (Safari) */
+  margin: -.32em 0 0; padding: 0 .1em .3em; /* top: pulls the letters up to the row's top edge; bottom: room for the swash tails so text-clipped gradients don't cut them (Safari) */
   font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; font-weight: 700;
   font-size: 9.6cqw; line-height: 1.45; white-space: nowrap; /* fills its 70% cell */
   color: var(--gold); color: color-mix(in srgb, var(--gold) 60%, var(--bg)); /* fallback: soft gold */

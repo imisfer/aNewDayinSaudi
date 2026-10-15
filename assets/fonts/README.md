@@ -9,6 +9,6 @@ Planned: **Thmanyah Sans** (UI, dates) and **Thmanyah Serif Display** (site name
 - `thmanyahsans-Bold.woff2`
 - `thmanyahserifdisplay-Bold.woff2`
 
-**On hold.** The Thmanyah font licence forbids hosting the font files or making them downloadable, including through web embedding, and this repository is public. Don't commit them until Thmanyah gives written permission (request sent to ask@thmanyah.com). The `.gitignore` in this folder blocks font files until then; delete it once permission is confirmed.
+**Licence status: pending.** All 15 Thmanyah WOFF2 files (Sans, Serif Display and Serif Text, five weights each) are in this folder. The Thmanyah font licence forbids hosting the font files or making them downloadable, including through web embedding, and this repository is public. Written permission was requested from ask@thmanyah.com. If Thmanyah declines, delete these files and remove them from the git history.
 
-Until then the site keeps using IBM Plex Sans Arabic from Google Fonts.
+The site is not wired to these files yet; it keeps using IBM Plex Sans Arabic from Google Fonts.

@@ -233,9 +233,9 @@
       });
     };
     // Prayer times: the short Arabic name in very small text beside the line.
-    // Maghrib coincides with sunset, so its name sits just under the moon icon.
-    for (const [t, name, full] of [[pt.fajr, "فجر", "الفجر"], [pt.dhuhr, "ظهر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.maghrib, "مغرب", "المغرب"], [pt.isha, "عشاء", "العشاء"]]) {
-      const tick = el("span", "tl-tick" + (t < now ? " past" : "") + (t === pt.maghrib ? " under-icon" : ""), name);
+    // Maghrib is sunset, so it is drawn once below as the moon with its name under it.
+    for (const [t, name, full] of [[pt.fajr, "فجر", "الفجر"], [pt.dhuhr, "ظهر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.isha, "عشاء", "العشاء"]]) {
+      const tick = el("span", "tl-tick" + (t < now ? " past" : ""), name);
       tick.style.top = pos(t) + "%";
       timeBubble(tick, full, t, pos(t));
       track.append(tick);
@@ -245,9 +245,10 @@
     // Geometric sun with triangular rays (sunrise) and a solid crescent (sunset).
     const SUN_ICON = ICON(`<circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/><path d="M12 1l1.5 4h-3zM12 23l-1.5-4h3zM1 12l4-1.5v3zM23 12l-4 1.5v-3zM4.2 4.2l3.9 1.8-2.1 2.1zM19.8 19.8l-3.9-1.8 2.1-2.1zM4.2 19.8l1.8-3.9 2.1 2.1zM19.8 4.2l-1.8 3.9-2.1-2.1z" fill="currentColor" stroke="none"/>`);
     const MOON_ICON = ICON(`<path d="M12.22 3.59A8.5 8.5 0 1 0 19.32 13.74A6.2 6.2 0 0 1 12.22 3.59z" fill="currentColor" stroke="none"/>`);
-    for (const [t, up, name] of [[pt.sunrise, true, "الشروق"], [pt.maghrib, false, "الغروب"]]) {
+    for (const [t, up, name] of [[pt.sunrise, true, "الشروق"], [pt.maghrib, false, "المغرب · الغروب"]]) {
       const s = el("span", "tl-sun" + (t < now ? " past" : ""));
       s.innerHTML = up ? SUN_ICON : MOON_ICON;
+      if (!up) s.append(el("span", "tl-sub", "مغرب"));
       s.style.top = pos(t) + "%";
       timeBubble(s, name, t, pos(t));
       track.append(s);

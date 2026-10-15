@@ -216,9 +216,13 @@
     const pos = (t) => Math.min(100, Math.max(0, ((t - start) / (end - start)) * 100));
     // The day flows down the left rail: morning at the top, night at the bottom.
     track.style.setProperty("--elapsed", pos(now) + "%");
-    for (const t of [pt.fajr, pt.dhuhr, pt.asr, pt.maghrib, pt.isha]) {
-      const tick = el("span", "tl-tick" + (t < now ? " past" : ""));
+    // Prayer times: the short Arabic name in very small text beside the line.
+    // Maghrib coincides with sunset, so its name sits just under the moon icon.
+    for (const [t, name, full] of [[pt.fajr, "فجر", "الفجر"], [pt.dhuhr, "ظهر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.maghrib, "مغرب", "المغرب"], [pt.isha, "عشاء", "العشاء"]]) {
+      const tick = el("span", "tl-tick" + (t < now ? " past" : "") + (t === pt.maghrib ? " under-icon" : ""), name);
       tick.style.top = pos(t) + "%";
+      tick.title = `${full} ${clock.format(t)}`;
+      tick.setAttribute("aria-label", tick.title);
       track.append(tick);
     }
     // Sunrise (sun) and sunset (moon) icons beside the line.

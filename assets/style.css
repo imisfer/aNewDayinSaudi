@@ -71,8 +71,14 @@ a { color: inherit; text-decoration: none; }
 .site-title { /* Thmanyah Serif Display Bold with swash letters (الحروف المرسلة) */
   margin: 0 0 10px; font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; font-weight: 700;
   font-size: clamp(1.4rem, 7.4vw, 2.6rem); line-height: 1.45; white-space: nowrap;
-  color: var(--gold); color: color-mix(in srgb, var(--gold) 60%, var(--bg)); /* soft gold: quieter than the headline below */
+  color: var(--gold); color: color-mix(in srgb, var(--gold) 60%, var(--bg)); /* fallback: soft gold */
   font-feature-settings: "swsh" 1;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .site-title { /* soft gold at the top fading to the text colour (black, or white in dark mode) at the bottom */
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--gold) 60%, var(--bg)) 15%, var(--ink) 90%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
+  }
 }
 .eyebrow { margin: 0 0 6px; color: var(--gold); font-weight: 600; font-size: .85rem; }
 .lead h1 { margin: 0; font-size: clamp(1.35rem, 5vw, 1.75rem); line-height: 1.5; font-weight: 700; }

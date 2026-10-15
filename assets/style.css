@@ -56,7 +56,7 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 560px) { .brand-2 { display: block; } } /* phones: two clean lines, «يوم جديد / في السعودية» */
 .weekday { /* the day name, as tall as the date tiles beside it */
   display: flex; align-items: center; font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif;
-  font-size: 1.6rem; font-weight: 700; line-height: 1; color: var(--ink); white-space: nowrap; margin-inline-end: 4px;
+  font-size: 1.6rem; font-weight: 700; line-height: 1; color: var(--ink); white-space: nowrap; margin-inline: 2px;
 }
 
 /* Date tiles: Hijri (green) then Gregorian (gold), month band + day number */

@@ -1,61 +1,52 @@
 {
-  "edition_date": "2026-10-14",
+  "edition_date": "2026-10-15",
   "status": "pilot",
-  "headline": "«قطار الرياض» يضيف 94 قطارًا، و«صندوق النقد» يتوقع نموًا 7.9% في 2027، و«الهلال 2-0» على السد في الدوحة",
+  "headline": "«عينات حيوية» سعودية إلى الفضاء لأبحاث ألزهايمر، و«مصنع أنابيب» بـ2.1 مليار دولار في سبارك، و«جامعة البترول» بين أفضل 100 ماجستير تنفيذي",
   "cards": [
     {
-      "category": "نقل",
-      "keyword": "«قطار الرياض»",
-      "title": "الهيئة الملكية لمدينة الرياض تشتري 94 قطارًا جديدًا لقطار الرياض",
-      "summary": "عقود بنحو 5.5 مليارات ريال مع سيمنس وألستوم ترفع الأسطول من 183 إلى 277 قطارًا والطاقة الاستيعابية للشبكة 60%، ويبدأ التسليم في 2028.",
-      "date": "2026-10-13",
-      "source_name": "الهيئة الملكية لمدينة الرياض",
-      "source_url": "https://www.rcrc.gov.sa/en/riyadh-metro-fleet-expansion-94-trains-en/"
-    },
-    {
-      "category": "اقتصاد",
-      "keyword": "«صندوق النقد»",
-      "title": "صندوق النقد الدولي يتوقع نمو الاقتصاد السعودي 7.9% في 2027",
-      "summary": "توقّع تقرير آفاق الاقتصاد العالمي لشهر أكتوبر عودة الاقتصاد السعودي إلى نمو 7.9% في 2027 بعد انكماش متوقع 3.3% في 2026، متجاوزًا النمو العالمي المتوقع 3.4%.",
-      "date": "2026-10-13",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/business/saudi-arabia-to-outpace-global-growth-with-79-expansion-in-2027-imf-3006034"
-    },
-    {
-      "category": "رياضة",
-      "keyword": "«الهلال 2-0»",
-      "title": "الهلال يتغلب على السد 2-0 في الدوحة بدوري أبطال آسيا للنخبة",
-      "summary": "سجّل أولي واتكينز هدف الافتتاح وأضاف روبن نيفيز الثاني من ركلة جزاء، ليحافظ الهلال على سجله الكامل بفوزين في أول جولتين.",
-      "date": "2026-10-13",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/sport/revenge-for-al-hilal-in-afc-champions-league-after-elimination-by-al-sadd-last-season-3006161"
-    },
-    {
-      "category": "إنساني",
-      "keyword": "حملة القلب في نيجيريا",
-      "title": "مركز الملك سلمان للإغاثة يطلق حملة لجراحات القلب في أبوجا",
-      "summary": "يُجري فريق من 10 متطوعين سعوديين 108 إجراءات في مستشفى نظامية بالعاصمة النيجيرية، منها 28 عملية قلب مفتوح و80 قسطرة تشخيصية وعلاجية.",
-      "date": "2026-10-13",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-medical-campaign-in-nigeria-to-perform-108-heart-surgeries-and-procedures-3006219"
-    },
-    {
-      "category": "اقتصاد",
-      "keyword": "مؤشر المنشآت الصغيرة 53.8",
-      "title": "مؤشر مديري المشتريات للمنشآت الصغيرة والمتوسطة عند 53.8",
-      "summary": "سجّل المؤشر 53.8 نقطة في سبتمبر مع أسرع نمو للطلبات الجديدة منذ سبعة أشهر، وتحسّن متوسط الربع الثالث إلى 52.7 من 51.4 في الربع الثاني.",
-      "date": "2026-10-12",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/business/saudi-arabias-sme-pmi-at-538-as-new-orders-hit-7-month-high-3005898"
-    },
-    {
       "category": "علوم",
-      "keyword": "«لينكس» الأول عالميًا",
-      "title": "فريق «لينكس» السعودي يتصدر نهائيات أرامكو STEM Racing العالمية",
-      "summary": "حلّ الفريق القادم من الظهران أولًا بين 91 فريقًا في نهائيات سنغافورة، وحصدت الفرق السعودية ثلاث جوائز ضمن برنامج يقوده مركز إثراء.",
-      "date": "2026-10-08",
+      "keyword": "«عينات حيوية»",
+      "title": "المملكة ترسل عينات حيوية إلى الفضاء لدراسة الشيخوخة وأمراض الدماغ",
+      "summary": "أطلقت وكالة الفضاء السعودية وكاوست، بدعم من ناسا، مهمة «بيوغرافيتي-1» على رحلة SpaceX CRS-35 إلى محطة الفضاء الدولية، أولى ثلاث مهمات لأبحاث ألزهايمر والتصلب المتعدد.",
+      "date": "2026-10-14",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-researchers-launch-landmark-space-mission-to-study-aging-and-brain-disorders-3006413"
+    },
+    {
+      "category": "صناعة",
+      "keyword": "«مصنع أنابيب»",
+      "title": "مجمع لتصنيع أنابيب الطاقة في سبارك باستثمار 2.1 مليار دولار",
+      "summary": "عقد إيجار 25 عامًا على 1.03 مليون متر مربع في مدينة الملك سلمان للطاقة لتصنيع أنابيب فولاذية غير ملحومة للنفط والغاز وأنابيب لنقل الهيدروجين، بمرحلة أولى نحو 600 مليون دولار.",
+      "date": "2026-10-14",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/business/saudi-arabias-spark-dalipal-sign-21bn-energy-equipment-manufacturing-deal-3006265"
+    },
+    {
+      "category": "تعليم",
+      "keyword": "«جامعة البترول»",
+      "title": "جامعة الملك فهد للبترول والمعادن ضمن أفضل 100 ماجستير تنفيذي عالميًا",
+      "summary": "دخل برنامج الماجستير التنفيذي بكلية إدارة الأعمال في الجامعة تصنيف فايننشال تايمز لأول مرة في المرتبة 79 عالميًا، وهي الجامعة العربية الوحيدة في قائمة هذا العام.",
+      "date": "2026-10-14",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/kfupm-enters-financial-times-global-executive-mba-top-100-3006276"
+    },
+    {
+      "category": "طاقة",
+      "keyword": "توسعة محطة رابغ 2",
+      "title": "عقد بـ2.2 مليار دولار لتوسعة محطة رابغ 2 للكهرباء بقدرة 2.3 جيجاواط",
+      "summary": "وقّع تحالف السويدي إلكتريك وسينوهيدرو عقد الهندسة والتوريد والإنشاء لمحطة دورة مركبة تعمل بالغاز، ويُتوقع تشغيلها التجاري في مايو 2029 بعد تجاوز الإنجاز 39%.",
+      "date": "2026-10-14",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/business/egypts-elsewedy-electric-chinas-sinohydro-sign-22bn-saudi-power-plant-contract-3006269"
+    },
+    {
+      "category": "اقتصاد",
+      "keyword": "هيئة موحدة للتجارة والتصدير",
+      "title": "مجلس الوزراء يقرّ دمج هيئة التجارة الخارجية وهيئة تنمية الصادرات",
+      "summary": "تُدمج الجهتان في «الهيئة العامة للتجارة الخارجية والتصدير»، ويرأس مجلس إدارتها وزير الصناعة والثروة المعدنية بنيابة وزير التجارة، على أن تُستكمل الترتيبات خلال 180 يومًا.",
+      "date": "2026-10-13",
       "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2696356"
+      "source_url": "https://www.spa.gov.sa/en/N2700553"
     }
   ],
   "events": [
@@ -76,40 +67,28 @@
       "title": "مؤتمر ومعرض الحج في جدة (8–11 نوفمبر)"
     }
   ],
-  "timeline": [
-    {
-      "time": "2026-10-14T19:00:00+03:00",
-      "label": "التعاون × الريان",
-      "note": "أبطال آسيا 2 · بريدة",
-      "colors": [
-        "#FFCC00",
-        "#E30613"
-      ],
-      "source_url": "https://assets.the-afc.com/2026-27_ACL_Two/Downloads/AFC-Champions-League-Two-2026-27-Group-Stage-Match-Schedule-25Sep-upd.pdf"
-    }
-  ],
+  "timeline": [],
   "regions": {
     "riyadh": [
       {
-        "title": "سيرك فونتانا المائي",
-        "place": "قرب النخيل مول",
-        "start": "2026-10-14",
-        "end": "2026-12-19",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/fontana-circus-riyadh"
+        "title": "انطلاق موسم الرياض للسباقات",
+        "place": "ميدان الملك عبدالعزيز للفروسية",
+        "start": "2026-10-16",
+        "end": "2027-04-17",
+        "source_url": "https://webook.com/blog/riyadh-racing-season-2026-27-tickets-guide/"
       },
       {
-        "title": "بوش بشاشة: عرض كوميدي",
-        "place": "مركز سرد الثقافي",
-        "start": "2026-10-15",
-        "end": "2026-10-16",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/108546/boosh-bashasha-stand-up-comedy-show-in-riyadh"
+        "title": "انطلاق موسم الرياض 2026",
+        "place": "مناطق موسم الرياض",
+        "start": "2026-10-21",
+        "source_url": "https://www.spa.gov.sa/en/N2686677"
       },
       {
-        "title": "جون عشقر: «فينا نحكي» كوميدي",
-        "place": "مسرح مدارس الرياض",
-        "start": "2026-10-22",
-        "end": "2026-10-23",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/106073/feena-nehke-stand-up-comedy-by-john-achkar-in-riyadh"
+        "title": "بطولة Six Kings Slam للتنس",
+        "place": "ذا فينيو",
+        "start": "2026-10-21",
+        "end": "2026-10-24",
+        "source_url": "https://www.spa.gov.sa/en/N2690978"
       }
     ],
     "jeddah": [
@@ -124,13 +103,6 @@
         "place": "جمعية الثقافة والفنون بجدة",
         "start": "2026-10-16",
         "source_url": "https://jeddah.platinumlist.net/event-tickets/108273/stand-up-comedy-show-with-salah-al-dali-in-jeddah"
-      },
-      {
-        "title": "معرض «جواهر العالم» للمجوهرات",
-        "place": "هيلتون جدة",
-        "start": "2026-10-19",
-        "end": "2026-10-22",
-        "source_url": "https://www.arabnews.com/saudi-arabia/jewels-of-the-world-debuts-show-in-riyadh-3005903"
       }
     ],
     "other": [

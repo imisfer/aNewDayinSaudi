@@ -5,8 +5,8 @@
 @font-face { font-family: "Thmanyah Serif Display"; src: url("fonts/thmanyahserifdisplay-Bold.woff2") format("woff2"); font-weight: 600 700; font-display: swap; }
 
 :root {
-  --title-top: color-mix(in srgb, #a07a2c 60%, #f7f5f0);
-  --title-bottom: color-mix(in srgb, #a07a2c 75%, #000);
+  --title-top: color-mix(in srgb, #a07a2c 75%, #000);
+  --title-bottom: color-mix(in srgb, #a07a2c 60%, #f7f5f0);
   --bg: #f7f5f0;
   --surface: #ffffff;
   --ink: #1b1f1d;

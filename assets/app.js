@@ -69,6 +69,20 @@
     ["tabuk", "تبوك", 28.3835, 36.5662],
   ];
   const CITY_KEYS = CITIES.map((c) => c[0]);
+  // City icons (original line drawings; Riyadh: Masmak tower, Jeddah: roshan, Makkah: pointed arch, Madinah: palm,
+  // Dammam-Khobar: dhow, AlUla: Elephant Rock, Abha: Asiri house, Taif: rose, Tabuk: Jabal al-Lawz).
+  const CITY_ICON = {
+    riyadh: '<path d="M7 21l1.2-13h7.6L17 21z"/><path d="M8.2 8V5.5l1.3 1 1.2-1.5 1.3 1.5 1.3-1.5 1.2 1.5 1.3-1V8"/><path d="M10.5 21v-4h3v4"/><path d="M11 11.5h2"/>', // برج المصمك
+    jeddah: '<rect x="6" y="5" width="12" height="15" rx="1"/><path d="M6 9.5h12M6 14.5h12M10 5v15M14 5v15"/><path d="M5 5h14l-1.5-2h-11z"/><path d="M5 20h14"/>', // روشان حجازي
+    makkah: '<path d="M5 21V11c0-4 3-6.5 7-8.5 4 2 7 4.5 7 8.5v10"/><path d="M9 21v-8c0-2 1.3-3.2 3-4.2 1.7 1 3 2.2 3 4.2v8"/><path d="M3 21h18"/>', // قوس مدبّب
+    madinah: '<path d="M12 21c0-5-.5-9 0-12"/><path d="M12 9C10 6 7 5.5 4 7M12 9c2-3 5-3.5 8-2M12 9c-1-3-3-4.5-6-5M12 9c1-3 3-4.5 6-5M12 9c-3-.5-6 1-7.5 4M12 9c3-.5 6 1 7.5 4"/><path d="M8 21h8"/>', // نخلة
+    eastern: '<path d="M3 16h18l-3 4H6z"/><path d="M12 16V3"/><path d="M12 4c3 2 5 6 5.5 10H12"/><path d="M12 6c-2 2-3.5 5-4 8h4"/>', // مركب شراعي (داو)
+    alula: '<path d="M3 20c0-5 1.5-9 5-11 3-1.7 7-1.7 9.5 0 2.5 1.8 3.5 5 3.5 11"/><path d="M8 20c0-3.5 1.4-5.5 3.5-5.5S14 16.5 14 20"/><path d="M2 20h20"/>', // صخرة الفيل
+    abha: '<path d="M5 21V5h14v16"/><path d="M5 5l1.5-2L8 5l1.5-2L11 5l1.5-2L14 5l1.5-2L17 5l1.5-2L19 5"/><path d="M5 9h14M5 13h14M5 17h14" stroke-dasharray="1.6 1.6"/><path d="M10.5 21v-3h3v3"/>', // بيت عسيري بالقط
+    taif: '<path d="M12 12c-2.5 0-4-1.7-4-4 1.5.5 2.5 0 4-2 1.5 2 2.5 2.5 4 2 0 2.3-1.5 4-4 4z"/><path d="M12 6c-.8 1.5-.8 3 0 4.5.8-1.5.8-3 0-4.5z"/><path d="M12 12v9"/><path d="M12 17c-1.5-2-3.5-2.5-5-2 1 2 3 2.8 5 2zM12 15.5c1.5-1.8 3.3-2.2 4.8-1.8-.9 1.9-2.8 2.5-4.8 1.8z"/>', // الورد الطائفي
+    tabuk: '<path d="M2 20l7-12 4 6 2.5-3L22 20z"/><path d="M6.6 12.1l1.4.9 1-1.5 1.2 1.6 1.3-.6"/><path d="M14 13l1.5.5 1.4-1"/>', // جبل اللوز المكسو بالثلج
+  };
+  const cityIcon = (key) => `<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${CITY_ICON[key] || ""}</svg>`;
 
   // Current weather for every city, fetched once (Open-Meteo accepts a list of coordinates).
   const weatherByCity = {};
@@ -362,6 +376,7 @@
     }
     if (!byCity[key].length) ul.append(el("li", "ev-empty", "لا فعاليات بارزة هذا الأسبوع"));
     renderWeatherLine($("w-" + i), key);
+    $("ic-" + i).innerHTML = cityIcon(key);
   }
 
   function renderRegions(regions) {

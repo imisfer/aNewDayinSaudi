@@ -221,14 +221,13 @@
       tick.style.top = pos(t) + "%";
       track.append(tick);
     }
-    // Sunrise and sunset icons beside the line.
-    const SUN = (up) => `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">` +
-      `<path d="M6 17a6 6 0 0 1 12 0"/><path d="M2 17h20"/><path d="M12 3v4"/>` +
-      (up ? `<path d="M9.5 5.5 12 3l2.5 2.5"/>` : `<path d="M9.5 4.5 12 7l2.5-2.5"/>`) +
-      `<path d="m4.2 10.2 1.4 1.4M19.8 10.2l-1.4 1.4"/></svg>`;
+    // Sunrise (sun) and sunset (moon) icons beside the line.
+    const ICON = (body) => `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
+    const SUN_ICON = ICON(`<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>`);
+    const MOON_ICON = ICON(`<path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11z"/>`);
     for (const [t, up, name] of [[pt.sunrise, true, "الشروق"], [pt.maghrib, false, "الغروب"]]) {
       const s = el("span", "tl-sun" + (t < now ? " past" : ""));
-      s.innerHTML = SUN(up);
+      s.innerHTML = up ? SUN_ICON : MOON_ICON;
       s.style.top = pos(t) + "%";
       s.setAttribute("role", "img");
       s.setAttribute("aria-label", `${name} ${clock.format(t)}`);

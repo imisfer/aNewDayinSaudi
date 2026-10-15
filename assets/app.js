@@ -216,13 +216,28 @@
     const pos = (t) => Math.min(100, Math.max(0, ((t - start) / (end - start)) * 100));
     // The day flows down the left rail: morning at the top, night at the bottom.
     track.style.setProperty("--elapsed", pos(now) + "%");
+    // Hover, focus or tap a prayer name, the sun or the moon to see its time in a small bubble.
+    const timeBubble = (node, name, t, p) => {
+      node.tabIndex = 0;
+      node.setAttribute("role", "button");
+      node.setAttribute("aria-label", `${name} ${clock.format(t)}`);
+      const b = el("span", "tl-bubble tl-time" + (p < 6 ? " edge-start" : p > 94 ? " edge-end" : ""));
+      b.setAttribute("aria-hidden", "true");
+      b.append(el("strong", "", name), el("span", "", clock.format(t)));
+      node.append(b);
+      node.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        const wasOpen = node.classList.contains("open");
+        closeBubbles();
+        if (!wasOpen) node.classList.add("open");
+      });
+    };
     // Prayer times: the short Arabic name in very small text beside the line.
     // Maghrib coincides with sunset, so its name sits just under the moon icon.
     for (const [t, name, full] of [[pt.fajr, "فجر", "الفجر"], [pt.dhuhr, "ظهر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.maghrib, "مغرب", "المغرب"], [pt.isha, "عشاء", "العشاء"]]) {
       const tick = el("span", "tl-tick" + (t < now ? " past" : "") + (t === pt.maghrib ? " under-icon" : ""), name);
       tick.style.top = pos(t) + "%";
-      tick.title = `${full} ${clock.format(t)}`;
-      tick.setAttribute("aria-label", tick.title);
+      timeBubble(tick, full, t, pos(t));
       track.append(tick);
     }
     // Sunrise (sun) and sunset (moon) icons beside the line.
@@ -234,9 +249,7 @@
       const s = el("span", "tl-sun" + (t < now ? " past" : ""));
       s.innerHTML = up ? SUN_ICON : MOON_ICON;
       s.style.top = pos(t) + "%";
-      s.setAttribute("role", "img");
-      s.setAttribute("aria-label", `${name} ${clock.format(t)}`);
-      s.title = `${name} ${clock.format(t)}`;
+      timeBubble(s, name, t, pos(t));
       track.append(s);
     }
     // "Now" marker: hover or tap shows world clocks at this moment.
@@ -251,8 +264,9 @@
     nowWrap.append(nowBtn, clocks);
     nowBtn.addEventListener("click", (ev) => {
       ev.stopPropagation();
-      track.querySelectorAll(".tl-dot-wrap.open").forEach((h) => h.classList.remove("open"));
-      nowWrap.classList.toggle("open");
+      const wasOpen = nowWrap.classList.contains("open");
+      closeBubbles();
+      if (!wasOpen) nowWrap.classList.add("open");
       drawClocks(clocks);
     });
     nowWrap.addEventListener("mouseenter", () => drawClocks(clocks));
@@ -283,16 +297,17 @@
       dot.addEventListener("click", (ev) => {
         ev.stopPropagation();
         const wasOpen = holder.classList.contains("open");
-        track.querySelectorAll(".tl-dot-wrap.open").forEach((h) => h.classList.remove("open"));
+        closeBubbles();
         if (!wasOpen) holder.classList.add("open");
       });
       holder.append(bubble, dot);
       track.append(holder);
     }
   }
-  document.addEventListener("click", () => {
-    document.querySelectorAll(".tl-dot-wrap.open, .tl-now-wrap.open").forEach((h) => h.classList.remove("open"));
-  });
+  function closeBubbles() {
+    document.querySelectorAll(".tl-dot-wrap.open, .tl-now-wrap.open, .tl-tick.open, .tl-sun.open").forEach((h) => h.classList.remove("open"));
+  }
+  document.addEventListener("click", closeBubbles);
 
   // ---------- City events: Riyadh, Jeddah, other regions ----------
   const dayMonth = (iso) => fmtDate(iso);

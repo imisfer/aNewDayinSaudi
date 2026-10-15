@@ -21,9 +21,11 @@
   $("hijri-d").textContent = part("islamic-umalqura", { day: "numeric" });
   $("greg-m").textContent = part("gregory", { month: "long" });
   $("greg-d").textContent = part("gregory", { day: "numeric" });
-  $("cal").setAttribute("aria-label",
+  $("cal").setAttribute("aria-label", part("gregory", { weekday: "long" }) + "، " +
     part("islamic-umalqura", { day: "numeric", month: "long", year: "numeric" }) + "، " +
     part("gregory", { day: "numeric", month: "long", year: "numeric" }));
+  // One date tile: Gregorian, then Hijri, switching every 10 seconds.
+  setInterval(() => $("date-tile").classList.toggle("show-hijri"), 10e3);
 
   const fmtDate = (iso) => new Intl.DateTimeFormat("ar-SA-u-ca-gregory-nu-latn", {
     timeZone: TZ, day: "numeric", month: "long"

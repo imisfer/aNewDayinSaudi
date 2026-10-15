@@ -162,6 +162,7 @@ a { color: inherit; text-decoration: none; }
   content: ""; position: absolute; inset-inline-end: 3px; top: 9px; width: 6px; height: 6px;
   border: solid var(--gold); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); pointer-events: none;
 }
+.nowrap { white-space: nowrap; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .r-weather { display: flex; align-items: center; gap: 5px; margin: -2px 0 4px; font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; min-height: 1.3em; }
 .w-icon { line-height: 0; color: var(--gold); }

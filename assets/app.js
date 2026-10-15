@@ -161,7 +161,17 @@
     let pos = 0;
     for (const sp of spans) {
       if (sp.s < pos) continue;
-      p.append(document.createTextNode(brief.slice(pos, sp.s)), keyButton(brief.slice(sp.s, sp.e), cards[sp.i]));
+      let before = brief.slice(pos, sp.s);
+      const btn = keyButton(brief.slice(sp.s, sp.e), cards[sp.i]);
+      if (/(^|\s)و$/.test(before)) {
+        // Keep a joining «و» on the same line as its key phrase (no dangling «و» at a line end).
+        before = before.slice(0, -1);
+        const keep = el("span", "nowrap", "و");
+        keep.append(btn);
+        p.append(document.createTextNode(before), keep);
+      } else {
+        p.append(document.createTextNode(before), btn);
+      }
       placed.add(sp.i);
       pos = sp.e;
     }

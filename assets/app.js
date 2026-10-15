@@ -434,9 +434,9 @@
       return;
     }
 
-    // Today's edition → "موجز اليوم"; an older one is labelled honestly as the last update.
+    // Today's edition → "يومٌ جديد في السعوديـــة"; an older one is labelled honestly as the last update.
     $("edition-label").textContent = ed.edition_date === todayISO
-      ? "موجز اليوم"
+      ? "يومٌ جديد في السعوديـــة"
       : "آخر تحديث: " + fmtDate(ed.edition_date);
     if (ed.status === "pilot") $("pilot-note").hidden = false;
 

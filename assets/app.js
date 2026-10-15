@@ -434,10 +434,11 @@
       return;
     }
 
-    // Today's edition → "يومٌ جديد في السعوديـــة"; an older one is labelled honestly as the last update.
-    $("edition-label").textContent = ed.edition_date === todayISO
-      ? "يومٌ جديد في السعوديـــة"
-      : "آخر تحديث: " + fmtDate(ed.edition_date);
+    // An edition that isn't today's is labelled honestly as the last update.
+    if (ed.edition_date !== todayISO) {
+      $("edition-label").textContent = "آخر تحديث: " + fmtDate(ed.edition_date);
+      $("edition-label").hidden = false;
+    }
     if (ed.status === "pilot") $("pilot-note").hidden = false;
 
     renderHeadline(ed.headline || "", ed.cards.slice(0, 8));

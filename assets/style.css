@@ -119,10 +119,20 @@ a { color: inherit; text-decoration: none; }
 .regions, .events { margin-top: 20px; }
 .events h2 { font-size: .9rem; color: var(--muted); font-weight: 600; margin: 0 0 8px; }
 .regions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-.region h2 {
-  font-size: .9rem; color: var(--gold); font-weight: 600;
-  margin: 0 0 6px; padding-bottom: 4px; border-bottom: 1px solid var(--line);
+.r-pick { position: relative; display: block; margin: 0 0 6px; border-bottom: 1px solid var(--line); }
+.r-pick select {
+  appearance: none; -webkit-appearance: none; width: 100%;
+  font: inherit; font-size: .9rem; font-weight: 600; color: var(--gold);
+  background: transparent; border: 0; border-radius: 0; padding: 0 0 4px; padding-inline-end: 18px;
+  cursor: pointer; line-height: 1.7;
 }
+.r-pick select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.r-pick select option { color: var(--ink); background: var(--surface); }
+.r-pick::after {
+  content: ""; position: absolute; inset-inline-end: 3px; top: 9px; width: 6px; height: 6px;
+  border: solid var(--gold); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); pointer-events: none;
+}
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .r-weather { display: flex; align-items: center; gap: 5px; margin: -2px 0 4px; font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; min-height: 1.3em; }
 .w-icon { line-height: 0; color: var(--gold); }
 .region ul { list-style: none; margin: 0; padding: 0; }

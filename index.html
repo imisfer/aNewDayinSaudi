@@ -9,7 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b5d3b'/%3E%3Ccircle cx='16' cy='18' r='7' fill='%23f7f5f0'/%3E%3Crect x='6' y='23' width='20' height='4' fill='%230b5d3b'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/thmanyahsans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/thmanyahserifdisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=0.10">
+  <link rel="stylesheet" href="assets/style.css?v=0.11">
 </head>
 <body>
   <main class="page">
@@ -46,9 +46,9 @@
     </dialog>
 
     <section class="regions" id="regions-wrap" aria-label="فعاليات المدن" hidden>
-      <div class="region"><h2>الرياض</h2><p class="r-weather" id="w-riyadh"></p><ul id="r-riyadh"></ul></div>
-      <div class="region"><h2>جدة</h2><p class="r-weather" id="w-jeddah"></p><ul id="r-jeddah"></ul></div>
-      <div class="region"><h2>مناطق أخرى</h2><ul id="r-other"></ul></div>
+<div class="region"><label class="r-pick"><span class="sr-only">اختر المدينة</span><select id="pick-0"></select></label><p class="r-weather" id="w-0"></p><ul id="r-0"></ul></div>
+      <div class="region"><label class="r-pick"><span class="sr-only">اختر المدينة</span><select id="pick-1"></select></label><p class="r-weather" id="w-1"></p><ul id="r-1"></ul></div>
+      <div class="region"><label class="r-pick"><span class="sr-only">اختر المدينة</span><select id="pick-2"></select></label><p class="r-weather" id="w-2"></p><ul id="r-2"></ul></div>
     </section>
 
     <section class="events" id="events-wrap" hidden>
@@ -62,12 +62,12 @@
 
     <footer class="foot">
       <p>كل خبر مؤرخ ومربوط بمصدره. نلخّص ونحيل إلى المصدر، ولا نعيد نشر المقالات.</p>
-      <p class="ver">الإصدار v0.10 · 2026-10-15</p>
+      <p class="ver">الإصدار v0.11 · 2026-10-15</p>
       <p id="pilot-note" hidden>نسخة تجريبية تُحرَّر يدويًا.</p>
     </footer>
   </main>
 
   <script src="assets/adhan.min.js"></script>
-  <script src="assets/app.js?v=0.10"></script>
+  <script src="assets/app.js?v=0.11"></script>
 </body>
 </html>

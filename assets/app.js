@@ -56,32 +56,50 @@
     return `<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${body}</svg>`;
   }
 
-  // Small weather line under the Riyadh and Jeddah columns.
-  const WEATHER_CITIES = [["w-riyadh", 24.7136, 46.6753], ["w-jeddah", 21.4858, 39.1925]];
-  async function renderWeather() {
-    try {
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=${WEATHER_CITIES.map((c) => c[1]).join(",")}` +
-        `&longitude=${WEATHER_CITIES.map((c) => c[2]).join(",")}` +
-        `&current=temperature_2m,weather_code,is_day&timezone=${encodeURIComponent(TZ)}`;
-      const r = await fetch(url);
-      if (!r.ok) throw new Error(r.status);
-      let data = await r.json();
-      if (!Array.isArray(data)) data = [data];
-      const nf = new Intl.NumberFormat("ar-SA-u-nu-latn", { maximumFractionDigits: 0 });
-      WEATHER_CITIES.forEach(([id], i) => {
-        const d = data[i];
-        if (!d) return;
-        const code = d.current.weather_code;
-        const line = $(id);
-        line.textContent = "";
-        const icon = el("span", "w-icon");
-        icon.innerHTML = weatherIcon(code, d.current.is_day !== 0);
-        icon.setAttribute("role", "img");
-        icon.setAttribute("aria-label", WMO[code] || "");
-        icon.title = WMO[code] || "";
-        line.append(icon, el("span", "", `${nf.format(d.current.temperature_2m)}°`));
-      });
-    } catch (e) { /* the line simply stays empty */ }
+  // Cities offered in the event-column pickers: [key, Arabic name, lat, lng].
+  const CITIES = [
+    ["riyadh", "الرياض", 24.7136, 46.6753],
+    ["jeddah", "جدة", 21.4858, 39.1925],
+    ["makkah", "مكة المكرمة", 21.3891, 39.8579],
+    ["madinah", "المدينة المنورة", 24.5247, 39.5692],
+    ["eastern", "الدمام والخبر", 26.4207, 50.0888],
+    ["alula", "العلا", 26.6085, 37.9232],
+    ["abha", "أبها", 18.2164, 42.5053],
+    ["taif", "الطائف", 21.2703, 40.4158],
+    ["tabuk", "تبوك", 28.3835, 36.5662],
+  ];
+  const CITY_KEYS = CITIES.map((c) => c[0]);
+
+  // Current weather for every city, fetched once (Open-Meteo accepts a list of coordinates).
+  const weatherByCity = {};
+  let weatherReady = null;
+  function loadWeather() {
+    if (!weatherReady) weatherReady = (async () => {
+      try {
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${CITIES.map((c) => c[2]).join(",")}` +
+          `&longitude=${CITIES.map((c) => c[3]).join(",")}` +
+          `&current=temperature_2m,weather_code,is_day&timezone=${encodeURIComponent(TZ)}`;
+        const r = await fetch(url);
+        if (!r.ok) throw new Error(r.status);
+        let data = await r.json();
+        if (!Array.isArray(data)) data = [data];
+        CITIES.forEach(([key], i) => { if (data[i]) weatherByCity[key] = data[i].current; });
+      } catch (e) { /* weather lines simply stay empty */ }
+    })();
+    return weatherReady;
+  }
+  const nf0 = new Intl.NumberFormat("ar-SA-u-nu-latn", { maximumFractionDigits: 0 });
+  function renderWeatherLine(line, key) {
+    line.textContent = "";
+    const w = weatherByCity[key];
+    if (!w) return;
+    const code = w.weather_code;
+    const icon = el("span", "w-icon");
+    icon.innerHTML = weatherIcon(code, w.is_day !== 0);
+    icon.setAttribute("role", "img");
+    icon.setAttribute("aria-label", WMO[code] || "");
+    icon.title = WMO[code] || "";
+    line.append(icon, el("span", "", `${nf0.format(w.temperature_2m)}°`));
   }
 
   // ---------- Brief: key phrases open a detail overlay ----------
@@ -283,27 +301,91 @@
     const d = (iso) => new Intl.NumberFormat("ar-SA-u-nu-latn").format(+iso.slice(8, 10));
     return sm === em ? `${d(e.start)}–${dayMonth(end)}` : `${dayMonth(e.start)} – ${dayMonth(end)}`;
   }
+  // Three columns, each with a city picker. Choices are remembered on this device only.
+  const PICK_KEY = "cityColumns";
+  const loadPicks = () => {
+    try {
+      const v = JSON.parse(localStorage.getItem(PICK_KEY));
+      if (Array.isArray(v) && v.length === 3 && v.every((k) => CITY_KEYS.includes(k)) && new Set(v).size === 3) return v;
+    } catch (e) { /* storage unavailable */ }
+    return null;
+  };
+  const savePicks = (v) => { try { localStorage.setItem(PICK_KEY, JSON.stringify(v)); } catch (e) { /* ignore */ } };
+
+  // Older editions used an "other" bucket; place it under the matching city by name.
+  function normalizeRegions(regions) {
+    const out = {};
+    for (const key of CITY_KEYS) out[key] = (regions[key] || []).slice();
+    for (const e of regions.other || []) {
+      const hit = CITIES.find(([, name]) => (e.place || "").includes(name) || name.includes(e.place || "-"));
+      if (hit) out[hit[0]].push(e);
+    }
+    for (const key of CITY_KEYS) {
+      out[key] = out[key].filter((e) => (e.end || e.start) >= todayISO)
+        .sort((x, y) => (x.start < y.start ? -1 : 1)).slice(0, 5);
+    }
+    return out;
+  }
+
+  function renderColumn(i, key, byCity) {
+    const ul = $("r-" + i);
+    ul.textContent = "";
+    for (const e of byCity[key]) {
+      const li = el("li");
+      const a = el("a");
+      a.href = e.source_url; a.target = "_blank"; a.rel = "noopener";
+      a.append(el("span", "ev-title", e.title));
+      const meta = [when(e), e.place].filter(Boolean).join(" · ");
+      a.append(el("span", "ev-meta", meta));
+      li.append(a);
+      ul.append(li);
+    }
+    if (!byCity[key].length) ul.append(el("li", "ev-empty", "لا فعاليات بارزة هذا الأسبوع"));
+    renderWeatherLine($("w-" + i), key);
+  }
+
   function renderRegions(regions) {
     if (!regions) return;
-    let any = false;
-    for (const key of ["riyadh", "jeddah", "other"]) {
-      const ul = $("r-" + key);
-      ul.textContent = "";
-      const items = (regions[key] || []).filter((e) => (e.end || e.start) >= todayISO).slice(0, 5);
-      for (const e of items) {
-        const li = el("li");
-        const a = el("a");
-        a.href = e.source_url; a.target = "_blank"; a.rel = "noopener";
-        a.append(el("span", "ev-title", e.title));
-        const meta = [when(e), e.place].filter(Boolean).join(" · ");
-        a.append(el("span", "ev-meta", meta));
-        li.append(a);
-        ul.append(li);
-        any = true;
-      }
-      if (!items.length) ul.append(el("li", "ev-empty", "لا فعاليات بارزة هذا الأسبوع"));
+    const byCity = normalizeRegions(regions);
+    if (!CITY_KEYS.some((k) => byCity[k].length)) return;
+
+    let picks = loadPicks();
+    if (!picks) {
+      const third = CITY_KEYS.find((k) => !["riyadh", "jeddah"].includes(k) && byCity[k].length) || "makkah";
+      picks = ["riyadh", "jeddah", third];
     }
-    $("regions-wrap").hidden = !any;
+    const selects = [0, 1, 2].map((i) => $("pick-" + i));
+    selects.forEach((sel, i) => {
+      sel.textContent = "";
+      // Cities with events first, then the rest; names stay plain so the column title reads cleanly.
+      for (const [label, has] of [["فيها فعاليات", true], ["لا فعاليات هذا الأسبوع", false]]) {
+        const group = el("optgroup");
+        group.label = label;
+        for (const [key, name] of CITIES) {
+          if (!!byCity[key].length !== has) continue;
+          const o = el("option", "", name);
+          o.value = key;
+          group.append(o);
+        }
+        if (group.children.length) sel.append(group);
+      }
+      sel.value = picks[i];
+      sel.addEventListener("change", () => {
+        const next = sel.value, prev = picks[i];
+        const other = picks.indexOf(next);
+        if (other !== -1 && other !== i) { // the city is already in another column: swap them
+          picks[other] = prev;
+          selects[other].value = prev;
+          renderColumn(other, prev, byCity);
+        }
+        picks[i] = next;
+        savePicks(picks);
+        renderColumn(i, next, byCity);
+      });
+      renderColumn(i, picks[i], byCity);
+    });
+    $("regions-wrap").hidden = false;
+    loadWeather().then(() => picks.forEach((key, i) => renderWeatherLine($("w-" + i), key)));
   }
 
   // ---------- Edition ----------
@@ -337,6 +419,6 @@
   }
 
   renderTimeline([]);
-  renderWeather();
+  loadWeather();
   renderEdition();
 })();

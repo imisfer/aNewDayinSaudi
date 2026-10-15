@@ -83,13 +83,15 @@ cards.forEach((c, i) => {
 });
 if (ed.headline && BANNED_WORDS.test(ed.headline)) err("headline: sensational wording");
 
-// City events: three columns (Riyadh, Jeddah, other regions). Ticketing and tourism platforms are allowed here only.
+// City events, keyed by city (the page shows three columns, each with a city picker). Ticketing and tourism platforms are allowed here only.
+// "other" is the legacy catch-all bucket from older editions; it is still accepted but new editions should use the city keys.
+const CITY_KEYS = ["riyadh", "jeddah", "makkah", "madinah", "eastern", "alula", "abha", "taif", "tabuk"];
 const EVENT_HOSTS = /(^|\.)(webook\.com|platinumlist\.net|visitsaudi\.com|experiencealula\.com|riyadhseason\.com|jeddahseason\.sa)$/;
 if (ed.regions != null) {
-  if (typeof ed.regions !== "object" || Array.isArray(ed.regions)) err("regions must be an object with riyadh, jeddah, other");
+  if (typeof ed.regions !== "object" || Array.isArray(ed.regions)) err(`regions must be an object keyed by city (${CITY_KEYS.join(", ")})`);
   else {
-    for (const key of Object.keys(ed.regions)) if (!["riyadh", "jeddah", "other"].includes(key)) err(`regions: unknown key "${key}"`);
-    for (const key of ["riyadh", "jeddah", "other"]) {
+    for (const key of Object.keys(ed.regions)) if (![...CITY_KEYS, "other"].includes(key)) err(`regions: unknown key "${key}"`);
+    for (const key of [...CITY_KEYS, "other"]) {
       const list = ed.regions[key] || [];
       if (!Array.isArray(list)) { err(`regions.${key} must be an array`); continue; }
       if (list.length > 5) err(`regions.${key} has ${list.length} items; maximum is 5`);

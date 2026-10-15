@@ -6,7 +6,7 @@ A one-screen, Arabic-first daily briefing on what's happening in Saudi Arabia: d
 - `index.html`: the page (RTL, mobile-first, light/dark).
 - `data/edition.json`: today's edition. A headline, 5–8 cards, the day timeline, city events (Riyadh, Jeddah, other regions) and upcoming national events. **Every card needs a `date` and a `source_url`.**
 - `assets/app.js`: renders the edition, the Hijri (Umm al-Qura) and Gregorian dates, prayer times (computed on-device with [adhan-js](https://github.com/batoulapps/adhan-js), Umm al-Qura method), and weather ([Open-Meteo](https://open-meteo.com), no key).
-- No cookies, no analytics, no ads. The only third-party requests are Google Fonts and Open-Meteo.
+- No cookies, no analytics, no ads. The only third-party request is Open-Meteo. Fonts (Thmanyah Sans and Thmanyah Serif Display) are self-hosted in `assets/fonts/`.
 
 ## Publishing an edition (automatic, daily)
 - Every morning (~5:20 Riyadh) a scheduled Claude run researches the last days' news, writes `data/edition.json` following [`EDITORIAL.md`](EDITORIAL.md), and pushes to `main`. GitHub Pages redeploys in about a minute.

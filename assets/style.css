@@ -80,7 +80,7 @@ a { color: inherit; text-decoration: none; }
 }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .site-title { /* soft gold at the top fading to a deeper gold at the bottom */
-    background: linear-gradient(to bottom, var(--title-top) 15%, var(--title-bottom) 90%);
+    background: linear-gradient(to bottom, var(--title-top) 55%, var(--title-bottom) 95%);
     -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
   }
 }

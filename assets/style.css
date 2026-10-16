@@ -191,7 +191,7 @@ a { color: inherit; text-decoration: none; }
 }
 .tl-track { position: relative; height: 100%; --elapsed: 0%; }
 .tl-line, .tl-track::before {
-  content: ""; position: absolute; top: 0; bottom: 0; left: 13px; width: 2px; border-radius: 2px; background: var(--line);
+  content: ""; position: absolute; top: 0; bottom: 0; left: 10px; width: 8px; border-radius: 4px; background: var(--line);
 }
 .tl-track::before { z-index: 1; bottom: auto; height: var(--elapsed); background: var(--accent); opacity: .55; }
 .tl-tick {

@@ -125,6 +125,8 @@ for (const [i, x] of (ed.events || []).entries()) {
   if (!iso.test(x.date || "")) err(`event ${i + 1}: date not YYYY-MM-DD`);
   if (!x.title) err(`event ${i + 1}: missing title`);
   if (x.date && ed.edition_date && x.date < ed.edition_date) err(`event ${i + 1}: date is in the past`);
+  if (x.end && (!iso.test(x.end) || x.end < x.date)) err(`event ${i + 1}: end missing format or before date`);
+  if (x.title && /\(\s*\d/.test(x.title)) warn(`event ${i + 1}: title seems to include a date; use date/end instead`);
 }
 
 // Timeline: today's timed events shown as dots at the bottom (matches, openings, national moments).

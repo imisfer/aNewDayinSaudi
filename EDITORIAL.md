@@ -57,6 +57,7 @@ Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is t
 
 ## Upcoming national events
 - `events`: upcoming dated national events in the next 30 days, from official sources only.
+- Fields: `date` (first day, YYYY-MM-DD), optional `end` for multi-day events, and `title`. Don't put dates in the title; the page shows the date or range once, before the title.
 
 ## Publishing
 1. Write `data/edition.json` with `edition_date` = today (Asia/Riyadh) and `status: "pilot"`.

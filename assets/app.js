@@ -500,7 +500,10 @@
     if (ed.events && ed.events.length) {
       $("events-wrap").hidden = false;
       for (const ev of ed.events) {
-        $("events").append(el("li", "", `${fmtDate(ev.date)} — ${ev.title}`));
+        // Date (or date range) once, then the title; a date in brackets at the end of an older title is dropped.
+        const title = ev.title.replace(/\s*\([^)]*\d[^)]*\)\s*$/, "");
+        const range = ev.end && ev.end !== ev.date ? when({ start: ev.date, end: ev.end }) : fmtDate(ev.date);
+        $("events").append(el("li", "", `${range} — ${title}`));
       }
     }
   }

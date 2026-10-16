@@ -272,7 +272,18 @@
       [pt.isha, "#27305c"],               // nightfall
       [end, "#0b1430"],                   // midnight
     ];
-    track.style.setProperty("--sky", `linear-gradient(to bottom, ${sky.map(([t, c]) => `${c} ${pos(t).toFixed(2)}%`).join(", ")})`);
+    // Each colour holds, then blends into the next over a short window (about 15 minutes) before the next moment.
+    const BLEND = 15;
+    const stops = [];
+    sky.forEach(([t, c], i) => {
+      stops.push(`${c} ${pos(t).toFixed(2)}%`);
+      const next = sky[i + 1];
+      if (next) {
+        const hold = new Date(Math.max(t.getTime(), next[0].getTime() - BLEND * 60e3));
+        stops.push(`${c} ${pos(hold).toFixed(2)}%`);
+      }
+    });
+    track.style.setProperty("--sky", `linear-gradient(to bottom, ${stops.join(", ")})`);
     // Hover, focus or tap a prayer name, the sun or the moon to see its time in a small bubble.
     const timeBubble = (node, name, t, p) => {
       node.tabIndex = 0;

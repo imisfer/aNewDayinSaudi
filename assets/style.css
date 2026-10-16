@@ -254,13 +254,13 @@ a { color: inherit; text-decoration: none; }
   border: 0; background: transparent;
 }
 .tl-now:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
-.tl-track::after { /* two lavender rails beside the line mark the part of the day that has passed, from the tile down to now */
+.tl-track::after { /* thin lavender rails right against the line mark the part of the day that has passed, from the tile down to now */
   content: ""; position: absolute; z-index: 2; pointer-events: none;
   top: -36px; height: calc(var(--elapsed) + 36px);
-  left: calc(var(--rail-x) - 13px); width: 26px; /* 3px rail · 2px gap · 16px line · 2px gap · 3px rail */
+  left: calc(var(--rail-x) - 10px); width: 20px; /* 2px rail · 16px line · 2px rail, no gap */
   background:
-    linear-gradient(to right, var(--lavender-tip) 0 3px, transparent 3px calc(100% - 3px), var(--lavender-tip) calc(100% - 3px)) bottom / 100% 4px no-repeat,
-    linear-gradient(to right, var(--lavender) 0 3px, transparent 3px calc(100% - 3px), var(--lavender) calc(100% - 3px));
+    linear-gradient(to right, var(--lavender-tip) 0 2px, transparent 2px calc(100% - 2px), var(--lavender-tip) calc(100% - 2px)) bottom / 100% 4px no-repeat,
+    linear-gradient(to right, var(--lavender) 0 2px, transparent 2px calc(100% - 2px), var(--lavender) calc(100% - 2px));
 }
 :root { --lavender-tip: color-mix(in srgb, var(--lavender) 80%, #000); }
 /* World clocks tooltip */

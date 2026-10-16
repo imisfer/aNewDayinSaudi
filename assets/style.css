@@ -191,13 +191,13 @@ a { color: inherit; text-decoration: none; }
 }
 .tl-track { position: relative; height: 100%; --elapsed: 0%; }
 .tl-line, .tl-track::before {
-  content: ""; position: absolute; top: 0; bottom: 0; left: 10px; width: 8px; border-radius: 4px; background: var(--line);
+  content: ""; position: absolute; top: 0; bottom: 0; left: 6px; width: 16px; border-radius: 8px; background: var(--line);
 }
 .tl-track::before { z-index: 1; bottom: auto; height: var(--elapsed); background: var(--accent); opacity: .55; }
 .tl-tick {
   position: absolute; left: 14px; transform: translate(-50%, -50%); z-index: 2;
   font-size: 9px; line-height: 1; font-weight: 500; color: var(--muted); white-space: nowrap;
-  background: var(--bg); padding: 2px 0; /* masks the line behind the name */
+  background: var(--bg); padding: 2px 4px; border-radius: 6px; box-shadow: 0 0 0 1px var(--line); /* masks the line behind the name */
 }
 .tl-tick.past { color: color-mix(in srgb, var(--muted) 50%, var(--bg)); }
 .tl-sun {
@@ -209,7 +209,7 @@ a { color: inherit; text-decoration: none; }
 .tl-sun.past svg { opacity: .45; }
 .tl-sub { /* "مغرب" under the moon: same look as the prayer names */
   position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-  font-size: 9px; line-height: 1; font-weight: 500; color: var(--muted); white-space: nowrap; background: var(--bg); padding: 2px 0;
+  font-size: 9px; line-height: 1; font-weight: 500; color: var(--muted); white-space: nowrap; background: var(--bg); padding: 2px 4px; border-radius: 6px; box-shadow: 0 0 0 1px var(--line);
 }
 .tl-sun.past .tl-sub { color: color-mix(in srgb, var(--muted) 50%, var(--bg)); }
 .tl-now-wrap { position: absolute; left: 14px; z-index: 6; }

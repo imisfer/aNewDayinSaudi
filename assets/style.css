@@ -195,9 +195,10 @@ a { color: inherit; text-decoration: none; }
 }
 .tl-track::before { z-index: 1; bottom: auto; height: var(--elapsed); background: var(--accent); opacity: .55; }
 .tl-tick {
-  position: absolute; left: 14px; transform: translate(-50%, -50%); z-index: 2;
+  position: absolute; left: 14px; transform: translate(-50%, -50%) rotate(180deg); z-index: 2;
+  writing-mode: vertical-rl; /* with the 180° turn: text runs bottom-to-top (rotated 90° anti-clockwise) */
   font-size: 7px; line-height: 1; font-weight: 500; color: var(--muted); white-space: nowrap;
-  padding: 2px 0;
+  padding: 0 2px;
 }
 .tl-tick.past { color: var(--bg); } /* sits on the green "elapsed" part of the line */
 .tl-sun {
@@ -208,8 +209,8 @@ a { color: inherit; text-decoration: none; }
 .tl-sun svg { width: 18px; height: 18px; }
 .tl-sun.past svg { opacity: .45; }
 .tl-sub { /* "مغرب" under the moon: same look as the prayer names */
-  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-  font-size: 7px; line-height: 1; font-weight: 500; color: var(--muted); white-space: nowrap; padding: 2px 0;
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%) rotate(180deg); writing-mode: vertical-rl;
+  font-size: 7px; line-height: 1; font-weight: 500; color: var(--muted); white-space: nowrap; padding: 2px 2px 0;
 }
 .tl-sun.past .tl-sub { color: var(--bg); }
 .tl-now-wrap { position: absolute; left: 14px; z-index: 6; }

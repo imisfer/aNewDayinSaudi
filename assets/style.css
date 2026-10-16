@@ -199,8 +199,9 @@ a { color: inherit; text-decoration: none; }
 .foot p { margin: 2px 0; }
 .foot .ver { margin-top: 8px; opacity: .7; font-variant-numeric: tabular-nums; direction: rtl; }
 
-/* Day timeline: a vertical rail on the left, Fajr at the top, midnight at the bottom */
-/* --rail-left: where the rail column starts; --rail-x: the line's centre inside it */
+/* Day timeline: a vertical rail on the right, Fajr at the top, midnight at the bottom */
+/* The rail sits on the RIGHT edge (where Arabic reading starts). --rail-left is its distance from the right edge;
+   --rail-x is the line's centre inside the 44px column (centred, so it reads the same from either side) */
 :root {
   --rail-left: max(14px, calc(50% - 320px - 44px)); --rail-x: 22px; --src-h: 56px;
   --src-left: calc(var(--rail-left) + var(--rail-x) - 24px);
@@ -208,12 +209,12 @@ a { color: inherit; text-decoration: none; }
 }
 .timeline {
   position: fixed; z-index: 5; top: calc(var(--src-top) + var(--src-h) / 2); bottom: 20px;
-  left: var(--rail-left); width: 44px;
+  right: var(--rail-left); width: 44px;
 }
 /* The date tile is the "source" of the day: fixed at the top-left, centred on the rail; the line starts behind it */
 .cal-src {
   position: fixed; z-index: 8; top: var(--src-top);
-  left: var(--src-left); width: 48px; min-height: var(--src-h);
+  right: var(--src-left); width: 48px; min-height: var(--src-h);
 }
 .timeline::before { /* the stem from the tile down to the first hour */
   content: ""; position: absolute; top: 0; height: 36px; left: calc(var(--rail-x) - 8px); width: 16px;
@@ -257,13 +258,13 @@ a { color: inherit; text-decoration: none; }
 .tl-track::after { /* a thin lavender edge on the left of the line marks the part of the day that has passed, from the tile down to now */
   content: ""; position: absolute; z-index: 2; pointer-events: none;
   top: -36px; height: calc(var(--elapsed) + 36px);
-  left: calc(var(--rail-x) - 9px); width: 1px;
+  left: calc(var(--rail-x) + 8px); width: 1px; /* right-hand edge of the line */
   background: linear-gradient(to bottom, var(--lavender) calc(100% - 4px), var(--lavender-tip) calc(100% - 4px));
 }
 :root { --lavender-tip: color-mix(in srgb, var(--lavender) 80%, #000); }
 /* World clocks tooltip */
 .tl-clocks {
-  position: absolute; left: 18px; top: 0; transform: translateY(-50%);
+  position: absolute; right: 18px; top: 0; transform: translateY(-50%);
   display: none; flex-direction: column; gap: 8px; padding: 10px 14px 10px; direction: rtl;
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,.18);
@@ -303,9 +304,9 @@ a { color: inherit; text-decoration: none; }
 }
 .tl-dot:hover, .tl-dot:focus-visible { transform: scale(1.25); outline: none; box-shadow: 0 0 0 2px var(--accent); }
 .tl-dot.past { opacity: .4; }
-/* Bubbles open to the right of the dot, toward the content */
+/* Bubbles open to the left of the line, toward the content */
 .tl-bubble {
-  position: absolute; left: 16px; top: 0; transform: translateY(-50%);
+  position: absolute; right: 16px; top: 0; transform: translateY(-50%);
   display: none; flex-direction: column; gap: 1px; white-space: nowrap; direction: rtl;
   padding: 6px 10px; border-radius: 12px; font-size: .78rem; line-height: 1.5;
   /* same look as the world-clocks popup */
@@ -314,8 +315,8 @@ a { color: inherit; text-decoration: none; }
 .tl-bubble strong { font-size: .82rem; }
 .tl-bubble span { color: var(--muted); font-size: .72rem; }
 .tl-bubble::after { /* pointer: a small rotated square that shares the bubble's fill and border */
-  content: ""; position: absolute; left: -5px; top: 50%; width: 8px; height: 8px; margin-top: -4px;
-  background: var(--surface); border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); transform: rotate(45deg);
+  content: ""; position: absolute; right: -5px; top: 50%; width: 8px; height: 8px; margin-top: -4px;
+  background: var(--surface); border-right: 1px solid var(--line); border-top: 1px solid var(--line); transform: rotate(45deg);
 }
 /* Keep bubbles on screen near the top and bottom of the rail */
 .tl-bubble.edge-start { transform: translateY(-14px); }
@@ -326,7 +327,7 @@ a { color: inherit; text-decoration: none; }
 .tl-tick, .tl-sun { cursor: pointer; }
 .tl-tick:focus-visible, .tl-sun:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 .tl-tick:hover, .tl-tick:focus-visible, .tl-tick.open, .tl-sun:hover, .tl-sun:focus-visible, .tl-sun.open { z-index: 7; }
-.tl-bubble.tl-time { left: calc(100% + 8px); top: 50%; font-weight: 400; color: var(--ink); line-height: 1.5; }
+.tl-bubble.tl-time { right: calc(100% + 8px); top: 50%; font-weight: 400; color: var(--ink); line-height: 1.5; }
 .tl-bubble.tl-time.edge-start { top: 50%; }
 .tl-bubble.tl-time.edge-end { top: 50%; }
 .tl-tick:hover .tl-bubble, .tl-tick:focus-visible .tl-bubble, .tl-tick.open .tl-bubble,
@@ -335,9 +336,9 @@ a { color: inherit; text-decoration: none; }
 .tl-dot-wrap:hover .tl-bubble,
 .tl-dot-wrap:focus-within .tl-bubble { display: flex; }
 
-/* On narrow screens, make room for the rail on the left */
+/* On narrow screens, make room for the rail on the right */
 @media (max-width: 736px) {
-  .page { padding-left: 60px; }
+  .page { padding-right: 60px; }
   :root { --src-top: 12px; } /* the tile sits 12px from the left here, so the same gap from the top */
 }
 

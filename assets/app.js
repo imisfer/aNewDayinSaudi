@@ -292,7 +292,8 @@
     // Prayer times: the short Arabic name in very small text beside the line.
     // Maghrib is sunset, so it is drawn once below as the moon with its name under it.
     for (const [t, name, full] of [[pt.fajr, "فجر", "الفجر"], [pt.dhuhr, "ظهر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.isha, "عشاء", "العشاء"]]) {
-      const tick = el("span", "tl-tick" + (t < now ? " past" : ""), name);
+      const tick = el("span", "tl-tick" + (t < now ? " past" : ""));
+      tick.append(el("span", "tl-label", name)); // only the label is rotated, so the time bubble stays upright
       tick.style.top = pos(t) + "%";
       timeBubble(tick, full, t, pos(t));
       track.append(tick);

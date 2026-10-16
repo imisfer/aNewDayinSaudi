@@ -227,11 +227,13 @@ a { color: inherit; text-decoration: none; }
 .tl-track::before { /* the rest of the day is veiled; the elapsed part shows the sky at full colour */
   z-index: 1; top: var(--elapsed); bottom: 0; background: var(--bg); opacity: .5;
 }
-.tl-tick {
-  position: absolute; left: var(--rail-x); transform: translate(-50%, -50%) rotate(180deg); z-index: 2;
-  writing-mode: vertical-rl; /* with the 180° turn: text runs bottom-to-top (rotated 90° anti-clockwise) */
+.tl-tick { /* hover/tap area around the name; the bubble opens from here, unrotated */
+  position: absolute; left: var(--rail-x); transform: translate(-50%, -50%); z-index: 2;
+  display: grid; place-items: center; width: 34px; padding: 6px 0;
+}
+.tl-label {
+  writing-mode: vertical-rl; transform: rotate(180deg); /* text runs bottom-to-top (rotated 90° anti-clockwise) */
   font-size: 8px; line-height: 1; font-weight: 600; color: #fff; text-shadow: 0 0 2px rgba(0,0,0,.55); white-space: nowrap;
-  padding: 0 2px;
 }
 .tl-sun {
   position: absolute; left: var(--rail-x); width: 40px; height: 26px; transform: translate(-50%, -50%); /* generous hover/tap area around the dash */

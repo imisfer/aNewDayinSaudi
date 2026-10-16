@@ -256,6 +256,23 @@
     const pos = (t) => Math.min(100, Math.max(0, ((t - start) / (end - start)) * 100));
     // The day flows down the left rail: morning at the top, night at the bottom.
     track.style.setProperty("--elapsed", pos(now) + "%");
+    // Sky colours along the line, anchored to today's real dawn, sunrise, noon, sunset and nightfall.
+    const m = (t, min) => new Date(t.getTime() + min * 60e3);
+    const sky = [
+      [start, "#0e1838"],                 // night before dawn
+      [pt.fajr, "#26305f"],               // first light
+      [m(pt.sunrise, -25), "#b86b8f"],    // pink dawn
+      [pt.sunrise, "#f2a15e"],            // sunrise
+      [m(pt.sunrise, 70), "#8cc2e8"],     // morning blue
+      [pt.dhuhr, "#4c9fdc"],              // midday
+      [pt.asr, "#6ea8d6"],                // afternoon
+      [m(pt.maghrib, -35), "#f0b26b"],    // golden hour
+      [pt.maghrib, "#e06a4c"],            // sunset
+      [m(pt.maghrib, 25), "#6f4b8c"],     // dusk
+      [pt.isha, "#27305c"],               // nightfall
+      [end, "#0b1430"],                   // midnight
+    ];
+    track.style.setProperty("--sky", `linear-gradient(to bottom, ${sky.map(([t, c]) => `${c} ${pos(t).toFixed(2)}%`).join(", ")})`);
     // Hover, focus or tap a prayer name, the sun or the moon to see its time in a small bubble.
     const timeBubble = (node, name, t, p) => {
       node.tabIndex = 0;

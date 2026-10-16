@@ -201,32 +201,32 @@ a { color: inherit; text-decoration: none; }
 }
 .timeline::before { /* the stem from the tile down to the first hour */
   content: ""; position: absolute; top: 0; height: 36px; left: calc(var(--rail-x) - 8px); width: 16px;
-  background: var(--accent); opacity: .55;
+  background: #0e1838; /* night, the first colour of the sky gradient */
 }
 .tl-track { position: absolute; top: 36px; bottom: 0; left: 0; right: 0; --elapsed: 0%; }
 .tl-line, .tl-track::before {
   content: ""; position: absolute; top: 0; bottom: 0; left: calc(var(--rail-x) - 8px); width: 16px; border-radius: 0 0 8px 8px; background: var(--line);
 }
-.tl-track::before { z-index: 1; bottom: auto; height: var(--elapsed); background: var(--accent); opacity: .55; }
+.tl-line { background: var(--sky, var(--line)); } /* sky colours through the day (set in app.js) */
+.tl-track::before { /* the rest of the day is veiled; the elapsed part shows the sky at full colour */
+  z-index: 1; top: var(--elapsed); bottom: 0; background: var(--bg); opacity: .5;
+}
 .tl-tick {
   position: absolute; left: var(--rail-x); transform: translate(-50%, -50%) rotate(180deg); z-index: 2;
   writing-mode: vertical-rl; /* with the 180° turn: text runs bottom-to-top (rotated 90° anti-clockwise) */
-  font-size: 8px; line-height: 1; font-weight: 500; color: var(--muted); white-space: nowrap;
+  font-size: 8px; line-height: 1; font-weight: 600; color: #fff; text-shadow: 0 0 2px rgba(0,0,0,.55); white-space: nowrap;
   padding: 0 2px;
 }
-.tl-tick.past { color: var(--bg); } /* sits on the green "elapsed" part of the line */
 .tl-sun {
   position: absolute; left: var(--rail-x); width: 22px; height: 22px; transform: translate(-50%, -50%);
   display: grid; place-items: center; /* no background or border: the icon sits straight on the line */
-  color: var(--lavender); z-index: 3; line-height: 0;
+  color: #fff; filter: drop-shadow(0 0 1.5px rgba(0,0,0,.5)); z-index: 3; line-height: 0;
 }
 .tl-sun svg { width: 18px; height: 18px; }
-.tl-sun.past { color: var(--bg); } /* light icon on the green "elapsed" part, like the prayer names */
 .tl-sub { /* "مغرب" under the moon: same look as the prayer names */
   position: absolute; top: 100%; left: 50%; transform: translateX(-50%) rotate(180deg); writing-mode: vertical-rl;
-  font-size: 8px; line-height: 1; font-weight: 500; color: var(--muted); white-space: nowrap; padding: 2px 2px 0;
+  font-size: 8px; line-height: 1; font-weight: 600; color: #fff; text-shadow: 0 0 2px rgba(0,0,0,.55); white-space: nowrap; padding: 2px 2px 0;
 }
-.tl-sun.past .tl-sub { color: var(--bg); }
 .tl-now-wrap { position: absolute; left: var(--rail-x); z-index: 6; }
 .tl-now {
   position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; padding: 0; cursor: pointer;

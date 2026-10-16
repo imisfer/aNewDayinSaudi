@@ -25,7 +25,10 @@
   $("hijri-m").textContent = AR_SHORT[enDay] || part("gregory", { weekday: "long" });
   $("hijri-d").textContent = part("islamic-umalqura", { day: "numeric" });
   $("greg-mo").textContent = new Intl.DateTimeFormat("en-US", { timeZone: TZ, month: "long" }).format(now);
-  $("hijri-mo").textContent = part("islamic-umalqura", { month: "long" });
+  // Short Hijri month names for the small tile, e.g. «جماد أول» instead of «جمادى الأولى».
+  const HIJRI_SHORT = ["محرم", "صفر", "ربيع أول", "ربيع ثاني", "جماد أول", "جماد ثاني", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة"];
+  const hijriMonth = +new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn", { timeZone: TZ, month: "numeric" }).format(now);
+  $("hijri-mo").textContent = HIJRI_SHORT[hijriMonth - 1] || part("islamic-umalqura", { month: "long" });
   // The Hijri date must be the official Saudi calendar (Umm al-Qura). A browser that can't do Umm al-Qura
   // would silently fall back to another calendar and show a wrong day, so in that case show Gregorian only.
   const hasUmmAlQura = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura").resolvedOptions().calendar === "islamic-umalqura";

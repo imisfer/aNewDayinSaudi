@@ -263,7 +263,7 @@ a { color: inherit; text-decoration: none; }
 .tl-clocks {
   position: absolute; left: 18px; top: 0; transform: translateY(-50%);
   display: none; flex-direction: column; gap: 8px; padding: 10px 14px 10px; direction: rtl;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,.18);
 }
 .tl-clocks.edge-start { transform: translateY(-16px); }
@@ -305,25 +305,26 @@ a { color: inherit; text-decoration: none; }
 .tl-bubble {
   position: absolute; left: 16px; top: 0; transform: translateY(-50%);
   display: none; flex-direction: column; gap: 1px; white-space: nowrap; direction: rtl;
-  padding: 6px 10px; border-radius: 10px; font-size: .78rem; line-height: 1.5;
-  background: var(--ink); color: var(--bg); box-shadow: 0 6px 18px rgba(0,0,0,.2);
+  padding: 6px 10px; border-radius: 12px; font-size: .78rem; line-height: 1.5;
+  /* same look as the world-clocks popup */
+  background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: 0 10px 30px rgba(0,0,0,.18);
 }
 .tl-bubble strong { font-size: .82rem; }
-.tl-bubble span { opacity: .75; font-size: .72rem; }
-.tl-bubble::after {
-  content: ""; position: absolute; left: -5px; top: 50%; margin-top: -5px;
-  border: 5px solid transparent; border-left: 0; border-right-color: var(--ink);
+.tl-bubble span { color: var(--muted); font-size: .72rem; }
+.tl-bubble::after { /* pointer: a small rotated square that shares the bubble's fill and border */
+  content: ""; position: absolute; left: -5px; top: 50%; width: 8px; height: 8px; margin-top: -4px;
+  background: var(--surface); border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); transform: rotate(45deg);
 }
 /* Keep bubbles on screen near the top and bottom of the rail */
 .tl-bubble.edge-start { transform: translateY(-14px); }
 .tl-bubble.edge-start::after { top: 14px; }
 .tl-bubble.edge-end { transform: translateY(calc(-100% + 14px)); }
-.tl-bubble.edge-end::after { top: auto; bottom: 14px; margin-top: 0; margin-bottom: -5px; }
+.tl-bubble.edge-end::after { top: auto; bottom: 14px; margin-top: 0; margin-bottom: -4px; }
 /* Time bubbles on prayer names and the sun/moon icons */
 .tl-tick, .tl-sun { cursor: pointer; }
 .tl-tick:focus-visible, .tl-sun:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 .tl-tick:hover, .tl-tick:focus-visible, .tl-tick.open, .tl-sun:hover, .tl-sun:focus-visible, .tl-sun.open { z-index: 7; }
-.tl-bubble.tl-time { left: calc(100% + 8px); top: 50%; font-weight: 400; color: var(--bg); line-height: 1.5; }
+.tl-bubble.tl-time { left: calc(100% + 8px); top: 50%; font-weight: 400; color: var(--ink); line-height: 1.5; }
 .tl-bubble.tl-time.edge-start { top: 50%; }
 .tl-bubble.tl-time.edge-end { top: 50%; }
 .tl-tick:hover .tl-bubble, .tl-tick:focus-visible .tl-bubble, .tl-tick.open .tl-bubble,

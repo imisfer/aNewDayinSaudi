@@ -254,13 +254,11 @@ a { color: inherit; text-decoration: none; }
   border: 0; background: transparent;
 }
 .tl-now:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
-.tl-track::after { /* thin lavender rails right against the line mark the part of the day that has passed, from the tile down to now */
+.tl-track::after { /* a thin lavender edge on the left of the line marks the part of the day that has passed, from the tile down to now */
   content: ""; position: absolute; z-index: 2; pointer-events: none;
   top: -36px; height: calc(var(--elapsed) + 36px);
-  left: calc(var(--rail-x) - 9px); width: 18px; /* 1px rail · 16px line · 1px rail, no gap */
-  background:
-    linear-gradient(to right, var(--lavender-tip) 0 1px, transparent 1px calc(100% - 1px), var(--lavender-tip) calc(100% - 1px)) bottom / 100% 4px no-repeat,
-    linear-gradient(to right, var(--lavender) 0 1px, transparent 1px calc(100% - 1px), var(--lavender) calc(100% - 1px));
+  left: calc(var(--rail-x) - 9px); width: 1px;
+  background: linear-gradient(to bottom, var(--lavender) calc(100% - 4px), var(--lavender-tip) calc(100% - 4px));
 }
 :root { --lavender-tip: color-mix(in srgb, var(--lavender) 80%, #000); }
 /* World clocks tooltip */

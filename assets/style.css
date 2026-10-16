@@ -67,8 +67,8 @@ a { color: inherit; text-decoration: none; }
 .tile { min-width: 48px; text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 11px; overflow: hidden; line-height: 1; font-variant-numeric: tabular-nums; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
 .tile .face { padding: 4px 6px 3px; }
 .tile .m { display: block; font-size: .66rem; font-weight: 600; white-space: nowrap; line-height: 1.2; }
-.tile .d { display: block; font-family: "Thmanyah Sans", system-ui, sans-serif; font-size: 1.45rem; font-weight: 400; color: var(--ink); line-height: 1.1; letter-spacing: -.02em; }
-.tile .mo { display: block; font-size: .5rem; line-height: 1.2; white-space: nowrap; color: color-mix(in srgb, var(--muted) 55%, var(--surface)); }
+.tile .d { display: block; font-family: "Thmanyah Sans", system-ui, sans-serif; font-size: 1.85rem; font-weight: 400; color: var(--ink); line-height: 1.05; letter-spacing: -.02em; }
+.tile .mo { display: block; font-size: .42rem; line-height: 1.2; white-space: nowrap; color: color-mix(in srgb, var(--muted) 55%, var(--surface)); }
 .face.greg .m { color: var(--cal-red); }
 .face.hijri .m { color: var(--accent); }
 /* The two faces sit on top of each other and cross-fade every 10 seconds */

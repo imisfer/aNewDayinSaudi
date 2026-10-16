@@ -26,11 +26,14 @@
   $("hijri-d").textContent = part("islamic-umalqura", { day: "numeric" });
   $("greg-mo").textContent = new Intl.DateTimeFormat("en-US", { timeZone: TZ, month: "long" }).format(now);
   $("hijri-mo").textContent = part("islamic-umalqura", { month: "long" });
+  // The Hijri date must be the official Saudi calendar (Umm al-Qura). A browser that can't do Umm al-Qura
+  // would silently fall back to another calendar and show a wrong day, so in that case show Gregorian only.
+  const hasUmmAlQura = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura").resolvedOptions().calendar === "islamic-umalqura";
   $("date-tile").setAttribute("aria-label", part("gregory", { weekday: "long" }) + "، " +
-    part("islamic-umalqura", { day: "numeric", month: "long", year: "numeric" }) + "، " +
+    (hasUmmAlQura ? part("islamic-umalqura", { day: "numeric", month: "long", year: "numeric" }) + "، " : "") +
     part("gregory", { day: "numeric", month: "long", year: "numeric" }));
   // One date tile: Gregorian, then Hijri, switching every 10 seconds.
-  setInterval(() => $("date-tile").classList.toggle("show-hijri"), 10e3);
+  if (hasUmmAlQura) setInterval(() => $("date-tile").classList.toggle("show-hijri"), 10e3);
 
   const fmtDate = (iso) => new Intl.DateTimeFormat("ar-SA-u-ca-gregory-nu-latn", {
     timeZone: TZ, day: "numeric", month: "long"

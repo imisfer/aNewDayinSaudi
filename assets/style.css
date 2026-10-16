@@ -185,15 +185,19 @@ a { color: inherit; text-decoration: none; }
 
 /* Day timeline: a vertical rail on the left, Fajr at the top, midnight at the bottom */
 /* --rail-left: where the rail column starts; --rail-x: the line's centre inside it */
-:root { --rail-left: max(6px, calc(50% - 320px - 44px)); --rail-x: 22px; --src-h: 56px; }
+:root {
+  --rail-left: max(14px, calc(50% - 320px - 44px)); --rail-x: 22px; --src-h: 56px;
+  --src-left: calc(var(--rail-left) + var(--rail-x) - 24px);
+  --src-top: 20px;
+}
 .timeline {
-  position: fixed; z-index: 5; top: calc(20px + var(--src-h) / 2); bottom: 20px;
+  position: fixed; z-index: 5; top: calc(var(--src-top) + var(--src-h) / 2); bottom: 20px;
   left: var(--rail-left); width: 44px;
 }
 /* The date tile is the "source" of the day: fixed at the top-left, centred on the rail; the line starts behind it */
 .cal-src {
-  position: fixed; z-index: 8; top: 20px;
-  left: calc(var(--rail-left) + var(--rail-x) - 24px); width: 48px; min-height: var(--src-h);
+  position: fixed; z-index: 8; top: var(--src-top);
+  left: var(--src-left); width: 48px; min-height: var(--src-h);
 }
 .timeline::before { /* the stem from the tile down to the first hour */
   content: ""; position: absolute; top: 0; height: 36px; left: calc(var(--rail-x) - 8px); width: 16px;
@@ -306,6 +310,7 @@ a { color: inherit; text-decoration: none; }
 /* On narrow screens, make room for the rail on the left */
 @media (max-width: 736px) {
   .page { padding-left: 60px; }
+  :root { --src-top: 12px; } /* the tile sits 12px from the left here, so the same gap from the top */
 }
 
 

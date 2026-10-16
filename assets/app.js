@@ -17,10 +17,14 @@
   const now = new Date();
   const part = (cal, opt) => new Intl.DateTimeFormat(`ar-SA-u-ca-${cal}-nu-latn`, { timeZone: TZ, ...opt }).format(now);
   $("weekday").textContent = part("gregory", { weekday: "long" });
-  $("hijri-m").textContent = part("islamic-umalqura", { month: "long" });
-  $("hijri-d").textContent = part("islamic-umalqura", { day: "numeric" });
-  $("greg-m").textContent = part("gregory", { month: "long" });
+  // Calendar-icon tile: short weekday on top, day number below.
+  // Gregorian face in English («Fri 16»); Hijri face in Arabic with short day names («جمعة 5»).
+  const AR_SHORT = { Sun: "أحد", Mon: "إثنين", Tue: "ثلاثاء", Wed: "أربعاء", Thu: "خميس", Fri: "جمعة", Sat: "سبت" };
+  const enDay = new Intl.DateTimeFormat("en-US", { timeZone: TZ, weekday: "short" }).format(now);
+  $("greg-m").textContent = enDay;
   $("greg-d").textContent = part("gregory", { day: "numeric" });
+  $("hijri-m").textContent = AR_SHORT[enDay] || part("gregory", { weekday: "long" });
+  $("hijri-d").textContent = part("islamic-umalqura", { day: "numeric" });
   $("date-tile").setAttribute("aria-label",
     part("islamic-umalqura", { day: "numeric", month: "long", year: "numeric" }) + "، " +
     part("gregory", { day: "numeric", month: "long", year: "numeric" }));

@@ -5,6 +5,7 @@
 @font-face { font-family: "Thmanyah Serif Display"; src: url("fonts/thmanyahserifdisplay-Bold.woff2") format("woff2"); font-weight: 600 700; font-display: swap; }
 
 :root {
+  --cal-red: #e0382d;
   --title-top: color-mix(in srgb, #a07a2c 75%, #000);
   --title-bottom: color-mix(in srgb, #a07a2c 60%, #f7f5f0);
   --bg: #f7f5f0;
@@ -28,13 +29,14 @@
     --accent-soft: #1c2b23;
     --gold: #d1ae62;
     --gold-soft: #2a2418;
+    --cal-red: #ff6a5c;
     --title-top: #d1ae62;
     --title-bottom: color-mix(in srgb, #d1ae62 55%, #000);
   }
 }
 :root[data-theme="dark"] {
   --bg: #111513; --surface: #181d1a; --ink: #eef1ef; --muted: #9aa39e;
-  --line: #28302c; --accent: #4fb584; --accent-soft: #1c2b23; --gold: #d1ae62; --gold-soft: #2a2418; --title-top: #d1ae62; --title-bottom: color-mix(in srgb, #d1ae62 55%, #000);
+  --line: #28302c; --accent: #4fb584; --accent-soft: #1c2b23; --gold: #d1ae62; --gold-soft: #2a2418; --cal-red: #ff6a5c; --title-top: #d1ae62; --title-bottom: color-mix(in srgb, #d1ae62 55%, #000);
 }
 
 * { box-sizing: border-box; }
@@ -66,18 +68,19 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Date tiles: Hijri (green) then Gregorian (gold), month band + day number */
-.tile { min-width: 44px; text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; line-height: 1; font-variant-numeric: tabular-nums; }
-.tile .m { display: block; font-size: .6rem; font-weight: 700; padding: 2px 5px; white-space: nowrap; line-height: 1.25; }
-.tile .d { display: block; font-size: .95rem; font-weight: 600; color: var(--ink); padding: 1px 0 2px; line-height: 1.05; }
-.face.hijri .m { color: var(--accent); background: var(--accent-soft); }
-.face.greg .m { color: var(--gold); background: var(--gold-soft); }
+/* Calendar-icon tile (like the iOS Calendar icon): short weekday on top in colour, big day number below */
+.tile { min-width: 48px; text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 11px; overflow: hidden; line-height: 1; font-variant-numeric: tabular-nums; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+.tile .face { padding: 4px 6px 3px; }
+.tile .m { display: block; font-size: .66rem; font-weight: 600; white-space: nowrap; line-height: 1.2; }
+.tile .d { display: block; font-family: "Thmanyah Sans", system-ui, sans-serif; font-size: 1.45rem; font-weight: 400; color: var(--ink); line-height: 1.1; letter-spacing: -.02em; }
+.face.greg .m { color: var(--cal-red); }
+.face.hijri .m { color: var(--accent); }
 /* The two faces sit on top of each other and cross-fade every 10 seconds */
 .tile.swap { display: grid; }
 .tile.swap .face { grid-area: 1 / 1; transition: opacity .6s ease; }
 .tile.swap .face.hijri, .tile.swap.show-hijri .face.greg { opacity: 0; }
 .tile.swap.show-hijri .face.hijri { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .tile.swap .face { transition: none; } }
-@media (max-width: 340px) { .tile .m { padding: 2px 3px; } }
 
 .lead { padding: 22px 0 14px; }
 .site-title { /* Thmanyah Serif Display Bold with swash letters (الحروف المرسلة) */

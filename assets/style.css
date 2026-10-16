@@ -174,8 +174,20 @@ a { color: inherit; text-decoration: none; }
 .ev-title { font-size: .9rem; font-weight: 600; }
 .ev-meta { font-size: .75rem; color: var(--muted); }
 .ev-empty { font-size: .8rem; color: var(--muted); }
+/* Phones: keep the three city columns side by side, in a compact size */
 @media (max-width: 560px) {
-  .regions { grid-template-columns: 1fr; gap: 14px; }
+  .regions { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .r-pick { flex-wrap: wrap; gap: 2px 4px; padding-inline-end: 12px; }
+  .r-name { font-size: .78rem; line-height: 1.5; }
+  .r-icon svg { width: 13px; height: 13px; }
+  .r-weather { font-size: .66rem; flex-basis: 100%; gap: 3px; } /* weather drops under the name */
+  .r-weather .w-icon svg { width: 12px; height: 12px; }
+  .r-pick::after { width: 5px; height: 5px; top: 8px; inset-inline-end: 1px; }
+  .region li { padding: 5px 0; }
+  .region a { line-height: 1.4; }
+  .ev-title { font-size: .74rem; }
+  .ev-meta { font-size: .62rem; }
+  .ev-empty { font-size: .68rem; }
 }
 #events { margin: 0; padding-inline-start: 18px; }
 

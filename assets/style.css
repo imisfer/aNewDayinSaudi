@@ -54,11 +54,12 @@ a { color: inherit; text-decoration: none; }
 
 /* One row: the title fills the space, the date tile keeps its own width */
 .masthead {
-  display: grid; grid-template-columns: 1fr; align-items: start;
+  display: grid; grid-template-columns: 1fr max-content; align-items: start;
   gap: 8px;
   padding-bottom: 12px;
 }
 .m-title { container-type: inline-size; min-width: 0; }
+.masthead .tile { justify-self: end; }
 .lead h1, .detail h3 { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; }
 
 /* Date tile */
@@ -200,23 +201,10 @@ a { color: inherit; text-decoration: none; }
 .foot .ver { margin-top: 8px; opacity: .7; font-variant-numeric: tabular-nums; direction: rtl; }
 
 /* Day timeline: a vertical rail on the left edge, Fajr at the top, midnight at the bottom */
-/* The date tile sits flush in the top-left corner of the window (left: 0, top: 0) and the rail runs down from it.
-   --rail-x is the line's centre inside the 48px column, under the middle of the tile. */
-:root { --rail-x: 24px; --src-h: 56px; }
-.timeline {
-  position: fixed; z-index: 5; top: calc(var(--src-h) / 2); bottom: 0;
-  left: 0; width: 48px;
-}
-/* The date tile is the "source" of the day: fixed at the top-left, centred on the rail; the line starts behind it */
-.cal-src {
-  position: fixed; z-index: 8; top: 0; left: 0; width: 48px; min-height: var(--src-h);
-  border-width: 0 1px 1px 0; border-radius: 0 0 11px 0; /* flush with the window edges: only the inner corner is rounded */
-}
-.timeline::before { /* the stem from the tile down to the first hour */
-  content: ""; position: absolute; top: 0; height: 36px; left: calc(var(--rail-x) - 8px); width: 16px;
-  background: #0e1838; /* night, the first colour of the sky gradient */
-}
-.tl-track { position: absolute; top: 36px; bottom: 0; left: 0; right: 0; --elapsed: 0%; }
+/* The timeline runs down the left edge of the window, from the very top (left: 0, top: 0) to the bottom. */
+:root { --rail-x: 24px; }
+.timeline { position: fixed; z-index: 5; top: 0; bottom: 0; left: 0; width: 48px; }
+.tl-track { position: absolute; top: 0; bottom: 0; left: 0; right: 0; --elapsed: 0%; }
 .tl-line, .tl-track::before {
   content: ""; position: absolute; top: 0; bottom: 0; left: calc(var(--rail-x) - 8px); width: 16px; border-radius: 0 0 8px 8px; background: var(--line);
 }
@@ -251,9 +239,9 @@ a { color: inherit; text-decoration: none; }
   border: 0; background: transparent;
 }
 .tl-now:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
-.tl-track::after { /* a thin lavender edge on the left of the line marks the part of the day that has passed, from the tile down to now */
+.tl-track::after { /* a thin lavender edge on the right of the line marks the part of the day that has passed, from the top down to now */
   content: ""; position: absolute; z-index: 2; pointer-events: none;
-  top: -36px; height: calc(var(--elapsed) + 36px);
+  top: 0; height: var(--elapsed);
   left: calc(var(--rail-x) + 8px); width: 1px; /* right-hand edge of the line */
   background: linear-gradient(to bottom, var(--lavender) calc(100% - 4px), var(--lavender-tip) calc(100% - 4px));
 }

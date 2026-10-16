@@ -6,8 +6,8 @@
 
 :root {
   --cal-red: #e0382d;
-  --title-top: #6a5a9c;    /* lavender, deep */
-  --title-bottom: #b4a6da; /* lavender, soft */
+  --title-top: #6f58b0;    /* lavender, deep */
+  --title-bottom: #b6a8e0; /* lavender, soft */
   --bg: #f7f5f0;
   --surface: #ffffff;
   --ink: #1b1f1d;
@@ -15,8 +15,10 @@
   --line: #e4e0d6;
   --accent: #0b5d3b;
   --accent-soft: #e6f0eb;
-  --gold: #a07a2c;
-  --gold-soft: #f6efe0;
+  /* Lavender: the colour of Saudi Arabia's royal ceremonial carpets (Ministry of Culture & Royal Protocol, 2021),
+     inspired by the lavender and desert flowers that bloom in spring. No official code is published; this is a close match. */
+  --lavender: #6f58b0;
+  --lavender-soft: #eeeaf8;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -27,16 +29,16 @@
     --line: #28302c;
     --accent: #4fb584;
     --accent-soft: #1c2b23;
-    --gold: #d1ae62;
-    --gold-soft: #2a2418;
+    --lavender: #b8a5ee;
+    --lavender-soft: #24203a;
     --cal-red: #ff6a5c;
-    --title-top: #c9bcf0;
-    --title-bottom: #7d6db2;
+    --title-top: #cfc2f5;
+    --title-bottom: #8a76c8;
   }
 }
 :root[data-theme="dark"] {
   --bg: #111513; --surface: #181d1a; --ink: #eef1ef; --muted: #9aa39e;
-  --line: #28302c; --accent: #4fb584; --accent-soft: #1c2b23; --gold: #d1ae62; --gold-soft: #2a2418; --cal-red: #ff6a5c; --title-top: #c9bcf0; --title-bottom: #7d6db2;
+  --line: #28302c; --accent: #4fb584; --accent-soft: #1c2b23; --lavender: #b8a5ee; --lavender-soft: #24203a; --cal-red: #ff6a5c; --title-top: #cfc2f5; --title-bottom: #8a76c8;
 }
 
 * { box-sizing: border-box; }
@@ -62,7 +64,7 @@ a { color: inherit; text-decoration: none; }
 .masthead .tile { justify-self: end; }
 .lead h1, .detail h3 { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; }
 
-/* Date tiles: Hijri (green) then Gregorian (gold), month band + day number */
+/* Date tile */
 /* Calendar-icon tile (like the iOS Calendar icon): short weekday on top in colour, big day number below */
 .tile { min-width: 48px; text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 11px; overflow: hidden; line-height: 1; font-variant-numeric: tabular-nums; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
 .tile .face { padding: 4px 6px 3px; }
@@ -92,7 +94,7 @@ a { color: inherit; text-decoration: none; }
     -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
   }
 }
-.eyebrow { margin: 0 0 6px; color: var(--gold); font-weight: 600; font-size: .85rem; }
+.eyebrow { margin: 0 0 6px; color: var(--lavender); font-weight: 600; font-size: .85rem; }
 .lead h1 { margin: 0; font-size: clamp(1.35rem, 5vw, 1.75rem); line-height: 1.5; font-weight: 700; }
 
 /* Brief: one paragraph, key phrases open the detail overlay */
@@ -106,7 +108,7 @@ a { color: inherit; text-decoration: none; }
 .key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .lead h1 .key { font-weight: 700; text-underline-offset: 8px; }
 .also { display: flex; align-items: baseline; gap: 10px; margin: 12px 0 0; }
-.also-label { font-size: .8rem; color: var(--gold); font-weight: 600; white-space: nowrap; }
+.also-label { font-size: .8rem; color: var(--lavender); font-weight: 600; white-space: nowrap; }
 .more { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
 .more .key { font-size: .9rem; }
 .hint { margin: 8px 0 0; font-size: .75rem; color: var(--muted); }
@@ -147,11 +149,11 @@ a { color: inherit; text-decoration: none; }
 .events h2 { font-size: .9rem; color: var(--muted); font-weight: 600; margin: 0 0 8px; }
 .regions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .r-pick { position: relative; display: flex; align-items: center; gap: 6px; margin: 0 0 6px; border-bottom: 1px solid var(--line); }
-.r-icon { flex: none; line-height: 0; color: var(--gold); margin-bottom: 4px; }
+.r-icon { flex: none; line-height: 0; color: var(--lavender); margin-bottom: 4px; }
 .r-icon svg { width: 16px; height: 16px; }
 .r-pick select {
   appearance: none; -webkit-appearance: none; flex: 1; min-width: 0;
-  font: inherit; font-size: .9rem; font-weight: 600; color: var(--gold);
+  font: inherit; font-size: .9rem; font-weight: 600; color: var(--lavender);
   background: transparent; border: 0; border-radius: 0; padding: 0 0 4px; padding-inline-end: 18px;
   cursor: pointer; line-height: 1.7;
 }
@@ -159,12 +161,12 @@ a { color: inherit; text-decoration: none; }
 .r-pick select option { color: var(--ink); background: var(--surface); }
 .r-pick::after {
   content: ""; position: absolute; inset-inline-end: 3px; top: 9px; width: 6px; height: 6px;
-  border: solid var(--gold); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); pointer-events: none;
+  border: solid var(--lavender); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); pointer-events: none;
 }
 .nowrap { white-space: nowrap; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .r-weather { display: flex; align-items: center; gap: 5px; margin: -2px 0 4px; font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; min-height: 1.3em; }
-.w-icon { line-height: 0; color: var(--gold); }
+.w-icon { line-height: 0; color: var(--lavender); }
 .region ul { list-style: none; margin: 0; padding: 0; }
 .region li { padding: 6px 0; }
 .region li + li { border-top: 1px dashed var(--line); }
@@ -201,7 +203,7 @@ a { color: inherit; text-decoration: none; }
 .tl-sun {
   position: absolute; left: 14px; width: 22px; height: 22px; transform: translate(-50%, -50%);
   display: grid; place-items: center; background: var(--bg); border-radius: 50%; /* masks the line behind the icon */
-  color: var(--gold); z-index: 3; line-height: 0;
+  color: var(--lavender); z-index: 3; line-height: 0;
 }
 .tl-sun svg { width: 18px; height: 18px; }
 .tl-sun.past svg { opacity: .45; }

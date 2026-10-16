@@ -322,7 +322,7 @@
       const p = pos(e.at);
       const dot = el("button", "tl-dot" + (e.at < now ? " past" : ""));
       dot.type = "button";
-      const [c1, c2] = (e.colors && e.colors.length ? e.colors : ["var(--gold)"]);
+      const [c1, c2] = (e.colors && e.colors.length ? e.colors : ["var(--lavender)"]);
       dot.style.setProperty("--c1", c1);
       dot.style.setProperty("--c2", c2 || c1);
       const text = `${e.label} · ${clock.format(e.at)}`;

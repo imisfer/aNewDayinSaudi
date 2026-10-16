@@ -145,7 +145,10 @@ a { color: inherit; text-decoration: none; }
 
 .regions, .events { margin-top: 20px; }
 .events h2 { font-size: .9rem; color: var(--muted); font-weight: 600; margin: 0 0 8px; }
-.regions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.regions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.r-stack { display: grid; gap: 16px; min-width: 0; }
+.r-fixed { cursor: default; padding-inline-end: 0; }
+.r-fixed::after { display: none; }
 /* Column title: icon · city name · weather, then the chevron. A transparent <select> covers the whole row,
    so tapping anywhere opens the native city list while the visible text stays compact. */
 .r-pick { position: relative; display: flex; align-items: center; gap: 6px; margin: 0 0 6px; padding: 0 0 4px; padding-inline-end: 18px; border-bottom: 1px solid var(--line); cursor: pointer; }
@@ -174,20 +177,21 @@ a { color: inherit; text-decoration: none; }
 .ev-title { font-size: .9rem; font-weight: 600; }
 .ev-meta { font-size: .75rem; color: var(--muted); }
 .ev-empty { font-size: .8rem; color: var(--muted); }
-/* Phones: keep the three city columns side by side, in a compact size */
+/* Phones: Riyadh beside a stack of two cities, in a compact size */
 @media (max-width: 560px) {
-  .regions { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .regions { gap: 12px; }
+  .r-stack { gap: 12px; }
   .r-pick { flex-wrap: wrap; gap: 2px 4px; padding-inline-end: 12px; }
-  .r-name { font-size: .7rem; line-height: 1.5; }
+  .r-name { font-size: .8rem; line-height: 1.5; }
   .r-icon svg { width: 13px; height: 13px; }
-  .r-weather { font-size: .6rem; flex-basis: 100%; gap: 3px; } /* weather drops under the name */
+  .r-weather { font-size: .66rem; gap: 3px; } /* wraps under the name only if it doesn't fit */
   .r-weather .w-icon svg { width: 12px; height: 12px; }
   .r-pick::after { width: 5px; height: 5px; top: 8px; inset-inline-end: 1px; }
   .region li { padding: 5px 0; }
   .region a { line-height: 1.4; }
-  .ev-title { font-size: .66rem; }
-  .ev-meta { font-size: .56rem; }
-  .ev-empty { font-size: .6rem; }
+  .ev-title { font-size: .74rem; }
+  .ev-meta { font-size: .62rem; }
+  .ev-empty { font-size: .66rem; }
 }
 #events { margin: 0; padding-inline-start: 18px; }
 

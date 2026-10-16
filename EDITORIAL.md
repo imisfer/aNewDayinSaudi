@@ -44,8 +44,8 @@ Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is t
 - `colors`: 1–2 hex colours. For matches use each team's main kit colour (home first). Never use club logos.
 - Leave the array empty on days with nothing timed.
 
-## City events (three columns, each with a city picker)
-`regions` lists the top events per city. The page shows three columns; each reader picks the city for each column from a fixed list (default الرياض، جدة، and the first other city with events). So every city below needs its own research each day.
+## City events (Riyadh fixed, plus two cities the reader picks)
+`regions` lists the top events per city. The page always shows Riyadh, plus two cities each reader picks from a fixed list (default جدة and the first other city with events). So every city below needs its own research each day.
 - Keys and cities: `riyadh` الرياض · `jeddah` جدة · `makkah` مكة (مكة المكرمة) · `madinah` المدينة (المدينة المنورة) · `eastern` الشرقية (Dammam, Khobar, Dhahran) · `alula` العلا · `abha` أبها · `taif` الطائف · `tabuk` تبوك. Don't use `other` (legacy) and don't add keys outside this list; an event elsewhere is left out.
 - Sources: ticketing and tourism platforms are the primary source here. Check each in turn: webook.com, the city calendars on platinumlist.net (e.g. riyadh.platinumlist.net/calendar/this-weekend, jeddah.platinumlist.net/calendar/this-weekend, khobar.platinumlist.net), visitsaudi.com, experiencealula.com, the Riyadh/Jeddah season sites, and official announcements (SPA, ministries, Ministry of Culture, Events Investment Fund, regional municipalities). Link each item to its own event page.
 - Window: events running today or starting within the next 7 days. If a city has fewer than 2 such items, extend that city up to 30 days ahead, soonest first.

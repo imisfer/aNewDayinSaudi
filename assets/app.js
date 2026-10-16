@@ -383,7 +383,12 @@
   const loadPicks = () => {
     try {
       const v = JSON.parse(localStorage.getItem(PICK_KEY));
-      if (Array.isArray(v) && v.length === 3 && v.every((k) => CITY_KEYS.includes(k)) && new Set(v).size === 3) return v;
+      // Riyadh is always the first column; the reader picks the other two.
+      if (Array.isArray(v) && v.length === 3 && v.every((k) => CITY_KEYS.includes(k)) && new Set(v).size === 3) {
+        if (v[0] === "riyadh") return v;
+        const others = v.filter((k) => k !== "riyadh");
+        return ["riyadh", others[0], others[1] || CITY_KEYS.find((k) => k !== "riyadh" && !others.includes(k))];
+      }
     } catch (e) { /* storage unavailable */ }
     return null;
   };
@@ -433,15 +438,17 @@
       const third = CITY_KEYS.find((k) => !["riyadh", "jeddah"].includes(k) && byCity[k].length) || "makkah";
       picks = ["riyadh", "jeddah", third];
     }
-    const selects = [0, 1, 2].map((i) => $("pick-" + i));
-    selects.forEach((sel, i) => {
+    renderColumn(0, "riyadh", byCity);
+    const selects = { 1: $("pick-1"), 2: $("pick-2") };
+    [1, 2].forEach((i) => {
+      const sel = selects[i];
       sel.textContent = "";
       // Cities with events first, then the rest; names stay plain so the column title reads cleanly.
       for (const [label, has] of [["فيها فعاليات", true], ["لا فعاليات هذا الأسبوع", false]]) {
         const group = el("optgroup");
         group.label = label;
         for (const [key, name] of CITIES) {
-          if (!!byCity[key].length !== has) continue;
+          if (key === "riyadh" || !!byCity[key].length !== has) continue;
           const o = el("option", "", name);
           o.value = key;
           group.append(o);
@@ -452,7 +459,7 @@
       sel.addEventListener("change", () => {
         const next = sel.value, prev = picks[i];
         const other = picks.indexOf(next);
-        if (other !== -1 && other !== i) { // the city is already in another column: swap them
+        if (other > 0 && other !== i) { // the city is already in the other column: swap them
           picks[other] = prev;
           selects[other].value = prev;
           renderColumn(other, prev, byCity);

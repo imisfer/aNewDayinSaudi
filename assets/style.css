@@ -52,20 +52,15 @@ a { color: inherit; text-decoration: none; }
 
 .page { max-width: 640px; margin: 0 auto; padding: 20px 16px 40px; }
 
-/* One row: title 70% · day name 20% · date tile 10% (the tile keeps at least its own width) */
+/* One row: the title fills the space, the date tile keeps its own width */
 .masthead {
-  display: grid; grid-template-columns: 7fr 2fr minmax(max-content, 1fr); align-items: start;
+  display: grid; grid-template-columns: 1fr max-content; align-items: start;
   gap: 8px;
   padding-bottom: 12px;
 }
-.m-title, .m-day { container-type: inline-size; min-width: 0; }
-.m-day { display: flex; justify-content: center; }
+.m-title { container-type: inline-size; min-width: 0; }
 .masthead .tile { justify-self: end; }
 .lead h1, .detail h3 { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; }
-.weekday { /* the day name, as tall as the date tiles beside it */
-  display: flex; align-items: center; font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif;
-  font-size: min(1.6rem, 30cqw); font-weight: 700; line-height: 1; color: var(--ink); white-space: nowrap;
-}
 
 /* Date tiles: Hijri (green) then Gregorian (gold), month band + day number */
 /* Calendar-icon tile (like the iOS Calendar icon): short weekday on top in colour, big day number below */
@@ -73,6 +68,7 @@ a { color: inherit; text-decoration: none; }
 .tile .face { padding: 4px 6px 3px; }
 .tile .m { display: block; font-size: .66rem; font-weight: 600; white-space: nowrap; line-height: 1.2; }
 .tile .d { display: block; font-family: "Thmanyah Sans", system-ui, sans-serif; font-size: 1.45rem; font-weight: 400; color: var(--ink); line-height: 1.1; letter-spacing: -.02em; }
+.tile .mo { display: block; font-size: .5rem; line-height: 1.2; white-space: nowrap; color: color-mix(in srgb, var(--muted) 55%, var(--surface)); }
 .face.greg .m { color: var(--cal-red); }
 .face.hijri .m { color: var(--accent); }
 /* The two faces sit on top of each other and cross-fade every 10 seconds */

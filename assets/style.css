@@ -145,6 +145,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .regions, .events { margin-top: 20px; }
+.regions-title { grid-column: 1 / -1; font-size: .9rem; color: var(--muted); font-weight: 600; margin: 0 0 -6px; }
 .events h2 { font-size: .9rem; color: var(--muted); font-weight: 600; margin: 0 0 8px; }
 .regions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
 .r-stack { display: grid; gap: 16px; min-width: 0; }

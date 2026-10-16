@@ -74,8 +74,8 @@
     ["riyadh", "الرياض", 24.7136, 46.6753],
     ["jeddah", "جدة", 21.4858, 39.1925],
     ["makkah", "مكة المكرمة", 21.3891, 39.8579],
-    ["madinah", "المدينة المنورة", 24.5247, 39.5692],
-    ["eastern", "الدمام والخبر", 26.4207, 50.0888],
+    ["madinah", "المدينة", 24.5247, 39.5692],
+    ["eastern", "الشرقية", 26.4207, 50.0888],
     ["alula", "العلا", 26.6085, 37.9232],
     ["abha", "أبها", 18.2164, 42.5053],
     ["taif", "الطائف", 21.2703, 40.4158],
@@ -403,6 +403,7 @@
     if (!byCity[key].length) ul.append(el("li", "ev-empty", "لا فعاليات بارزة هذا الأسبوع"));
     renderWeatherLine($("w-" + i), key);
     $("ic-" + i).innerHTML = cityIcon(key);
+    $("nm-" + i).textContent = (CITIES.find((c) => c[0] === key) || [, key])[1];
   }
 
   function renderRegions(regions) {

@@ -110,6 +110,8 @@ a { color: inherit; text-decoration: none; }
 .also-label { font-size: .8rem; color: var(--lavender); font-weight: 600; white-space: nowrap; }
 .more { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
 .more .key { font-size: .9rem; color: var(--lavender); } /* «وأيضًا» chips */
+/* Headings share the events-heading type: Thmanyah Serif Display, bold, swashes off */
+.more .key, .ev-title, .r-name { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; font-weight: 700; font-feature-settings: "swsh" 0; }
 .hint { margin: 8px 0 0; font-size: .75rem; color: var(--muted); }
 
 .cat { color: var(--accent); font-weight: 600; }

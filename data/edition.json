@@ -1,63 +1,73 @@
 {
-  "edition_date": "2026-10-15",
+  "edition_date": "2026-10-16",
   "status": "pilot",
-  "headline": "«عينات حيوية» سعودية إلى الفضاء لأبحاث ألزهايمر، و«مصنع أنابيب» بـ2.1 مليار دولار في سبارك، و«جامعة البترول» بين أفضل 100 ماجستير تنفيذي",
+  "headline": "نجاح فصل «التوأم الفيجي» في الرياض، و«الاستثمار الأجنبي» يرتفع 33.5% في 2025، و«موسم سباقات الرياض» ينطلق اليوم",
   "cards": [
     {
-      "category": "علوم",
-      "keyword": "«عينات حيوية»",
-      "title": "المملكة ترسل عينات حيوية إلى الفضاء لدراسة الشيخوخة وأمراض الدماغ",
-      "summary": "أطلقت وكالة الفضاء السعودية وكاوست، بدعم من ناسا، مهمة «بيوغرافيتي-1» على رحلة SpaceX CRS-35 إلى محطة الفضاء الدولية، أولى ثلاث مهمات لأبحاث ألزهايمر والتصلب المتعدد.",
-      "date": "2026-10-14",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-researchers-launch-landmark-space-mission-to-study-aging-and-brain-disorders-3006413"
-    },
-    {
-      "category": "صناعة",
-      "keyword": "«مصنع أنابيب»",
-      "title": "مجمع لتصنيع أنابيب الطاقة في سبارك باستثمار 2.1 مليار دولار",
-      "summary": "عقد إيجار 25 عامًا على 1.03 مليون متر مربع في مدينة الملك سلمان للطاقة لتصنيع أنابيب فولاذية غير ملحومة للنفط والغاز وأنابيب لنقل الهيدروجين، بمرحلة أولى نحو 600 مليون دولار.",
-      "date": "2026-10-14",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/business/saudi-arabias-spark-dalipal-sign-21bn-energy-equipment-manufacturing-deal-3006265"
-    },
-    {
-      "category": "تعليم",
-      "keyword": "«جامعة البترول»",
-      "title": "جامعة الملك فهد للبترول والمعادن ضمن أفضل 100 ماجستير تنفيذي عالميًا",
-      "summary": "دخل برنامج الماجستير التنفيذي بكلية إدارة الأعمال في الجامعة تصنيف فايننشال تايمز لأول مرة في المرتبة 79 عالميًا، وهي الجامعة العربية الوحيدة في قائمة هذا العام.",
-      "date": "2026-10-14",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/kfupm-enters-financial-times-global-executive-mba-top-100-3006276"
-    },
-    {
-      "category": "طاقة",
-      "keyword": "توسعة محطة رابغ 2",
-      "title": "عقد بـ2.2 مليار دولار لتوسعة محطة رابغ 2 للكهرباء بقدرة 2.3 جيجاواط",
-      "summary": "وقّع تحالف السويدي إلكتريك وسينوهيدرو عقد الهندسة والتوريد والإنشاء لمحطة دورة مركبة تعمل بالغاز، ويُتوقع تشغيلها التجاري في مايو 2029 بعد تجاوز الإنجاز 39%.",
-      "date": "2026-10-14",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/business/egypts-elsewedy-electric-chinas-sinohydro-sign-22bn-saudi-power-plant-contract-3006269"
+      "category": "صحة",
+      "keyword": "«التوأم الفيجي»",
+      "title": "نجاح فصل التوأم الملتصق الفيجي «جسبيلي وديسيسيا» في الرياض",
+      "summary": "استغرقت الجراحة 12 ساعة و45 دقيقة عبر 9 مراحل بمشاركة 34 مختصًا في مستشفى الملك عبدالله التخصصي للأطفال، وهي العملية رقم 74 في البرنامج السعودي للتوائم الملتصقة.",
+      "date": "2026-10-15",
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/bqSv63K"
     },
     {
       "category": "اقتصاد",
-      "keyword": "هيئة موحدة للتجارة والتصدير",
-      "title": "مجلس الوزراء يقرّ دمج هيئة التجارة الخارجية وهيئة تنمية الصادرات",
-      "summary": "تُدمج الجهتان في «الهيئة العامة للتجارة الخارجية والتصدير»، ويرأس مجلس إدارتها وزير الصناعة والثروة المعدنية بنيابة وزير التجارة، على أن تُستكمل الترتيبات خلال 180 يومًا.",
-      "date": "2026-10-13",
+      "keyword": "«الاستثمار الأجنبي»",
+      "title": "تدفقات الاستثمار الأجنبي المباشر تبلغ 159 مليار ريال في 2025",
+      "summary": "ارتفعت التدفقات الواردة 33.5% مقارنة بعام 2024، فيما بلغ رصيد الاستثمار الأجنبي المباشر في المملكة 1.059 تريليون ريال بنمو 8.3%.",
+      "date": "2026-10-16",
       "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2700553"
+      "source_url": "https://www.spa.gov.sa/en/N2702753"
+    },
+    {
+      "category": "رياضة",
+      "keyword": "«موسم سباقات الرياض»",
+      "title": "انطلاق موسم سباقات الرياض للفروسية بجوائز 236.3 مليون ريال",
+      "summary": "يبدأ الموسم اليوم في ميدان الملك عبدالعزيز للفروسية ويستمر حتى 17 أبريل 2027، ويضم 50 حفلًا تُقام فيها 569 شوطًا.",
+      "date": "2026-10-15",
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/lbjxzxv"
+    },
+    {
+      "category": "صناعة",
+      "keyword": "438 رخصة صناعية",
+      "title": "438 رخصة صناعية جديدة و189 مصنعًا بدأت الإنتاج في يوليو",
+      "summary": "بلغت استثمارات الرخص الجديدة نحو 4.82 مليار ريال، فيما ضخّت المصانع التي بدأت الإنتاج 1.95 مليار ريال ووفّرت 2,807 وظائف.",
+      "date": "2026-10-14",
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/N2701217"
+    },
+    {
+      "category": "طاقة",
+      "keyword": "الربط الكهربائي مع مصر",
+      "title": "الربط الكهربائي السعودي المصري يقترب من التشغيل منتصف نوفمبر",
+      "summary": "قال وزير الكهرباء المصري إن التشغيل الرسمي للمشروع بقدرة 3,000 ميجاواط وتكلفة نحو 1.8 مليار دولار يُتوقع منتصف نوفمبر، بعد اختبارات تشغيلية تستمر نحو ثلاثة أسابيع.",
+      "date": "2026-10-15",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/electrical-interconnection-with-saudi-arabia-will-begin-in-mid-november-egyptian-energy-chief-3006456"
+    },
+    {
+      "category": "اقتصاد",
+      "keyword": "التضخم 1.9%",
+      "title": "معدل التضخم في المملكة 1.9% خلال سبتمبر 2026",
+      "summary": "أظهرت المؤشرات الرئيسية للهيئة العامة للإحصاء أن معدل التضخم السنوي بلغ 1.9% في سبتمبر 2026.",
+      "date": "2026-10-15",
+      "source_name": "الهيئة العامة للإحصاء",
+      "source_url": "https://www.stats.gov.sa/en/"
+    },
+    {
+      "category": "تقنية",
+      "keyword": "ناشئة سعودية في لندن",
+      "title": "شركة صحية ناشئة سعودية وصيفة مسابقة كلية لندن للأعمال",
+      "summary": "حلّت شركة SDM ثانية في مسابقة الشركات الناشئة لمنطقة الشرق الأوسط وشمال أفريقيا 2026 بجائزة 15 ألف دولار، عن أداة ذكاء اصطناعي تقدّم نتائج فحص العين خلال دقائق.",
+      "date": "2026-10-15",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/startups/saudi-health-tech-startup-lands-runner-up-spot-in-london-business-school-competition-3006491"
     }
   ],
   "events": [
-    {
-      "date": "2026-10-21",
-      "title": "انطلاق موسم الرياض 2026"
-    },
-    {
-      "date": "2026-10-21",
-      "title": "بطولة Six Kings Slam للتنس في الرياض (21–24 أكتوبر)"
-    },
     {
       "date": "2026-10-26",
       "title": "مؤتمر مبادرة مستقبل الاستثمار FII10 في الرياض (26–29 أكتوبر)"
@@ -67,28 +77,43 @@
       "title": "مؤتمر ومعرض الحج في جدة (8–11 نوفمبر)"
     }
   ],
-  "timeline": [],
+  "timeline": [
+    {
+      "time": "2026-10-16T16:15:00+03:00",
+      "label": "القادسية × أبها",
+      "note": "دوري روشن · الدمام",
+      "colors": [
+        "#D71920"
+      ],
+      "source_url": "https://sabq.org/article/x5sgjhl"
+    }
+  ],
   "regions": {
     "riyadh": [
       {
-        "title": "انطلاق موسم الرياض للسباقات",
+        "title": "افتتاح موسم سباقات الرياض",
         "place": "ميدان الملك عبدالعزيز للفروسية",
         "start": "2026-10-16",
         "end": "2027-04-17",
-        "source_url": "https://webook.com/blog/riyadh-racing-season-2026-27-tickets-guide/"
+        "source_url": "https://sabq.org/article/lbjxzxv"
       },
       {
-        "title": "انطلاق موسم الرياض 2026",
-        "place": "مناطق موسم الرياض",
-        "start": "2026-10-21",
-        "source_url": "https://www.spa.gov.sa/en/N2686677"
+        "title": "الدرعية × التعاون – دوري روشن",
+        "place": "ملعب الأول بارك",
+        "start": "2026-10-17",
+        "source_url": "https://sabq.org/article/x5sgjhl"
       },
       {
-        "title": "بطولة Six Kings Slam للتنس",
-        "place": "ذا فينيو",
-        "start": "2026-10-21",
-        "end": "2026-10-24",
-        "source_url": "https://www.spa.gov.sa/en/N2690978"
+        "title": "جون عشقر: عرض كوميدي «فينا نحكي»",
+        "place": "مسرح مدارس الرياض",
+        "start": "2026-10-22",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/106073/feena-nehke-stand-up-comedy-by-john-achkar-in-riyadh"
+      },
+      {
+        "title": "النصر × الهلال – الدوري الممتاز للسيدات",
+        "place": "ملعب نادي النصر",
+        "start": "2026-10-22",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/108570/al-nasr-x-al-hilal"
       }
     ],
     "jeddah": [
@@ -103,23 +128,81 @@
         "place": "جمعية الثقافة والفنون بجدة",
         "start": "2026-10-16",
         "source_url": "https://jeddah.platinumlist.net/event-tickets/108273/stand-up-comedy-show-with-salah-al-dali-in-jeddah"
+      },
+      {
+        "title": "جون عشقر: عرض كوميدي «فينا نحكي»",
+        "place": "جامعة دار الحكمة",
+        "start": "2026-10-23",
+        "source_url": "https://jeddah.platinumlist.net/event-tickets/106065/feena-nehke-stand-up-comedy-by-john-achkar-in-jeddah"
+      }
+    ],
+    "eastern": [
+      {
+        "title": "القادسية × أبها – دوري روشن",
+        "place": "ملعب الأمير محمد بن فهد",
+        "start": "2026-10-16",
+        "source_url": "https://sabq.org/article/x5sgjhl"
+      },
+      {
+        "title": "جون عشقر: عرض كوميدي «فينا نحكي»",
+        "place": "كواليس، الدمام",
+        "start": "2026-10-20",
+        "source_url": "https://dammam.platinumlist.net/event-tickets/106061/feena-nehke-stand-up-comedy-by-john-achkar-in-dammam"
+      }
+    ],
+    "madinah": [
+      {
+        "title": "مهرجان ومزاد المدينة المنورة للإبل",
+        "place": "محافظة الحناكية",
+        "start": "2026-10-12",
+        "end": "2026-10-17",
+        "source_url": "https://www.spa.gov.sa/N2699688"
+      },
+      {
+        "title": "العلا × الأهلي – الدوري الممتاز للسيدات",
+        "place": "ملعب نادي أحد",
+        "start": "2026-10-29",
+        "source_url": "https://madina.platinumlist.net/ar/event-tickets/108706/alula-x-al-ahli"
       }
     ],
     "alula": [
       {
-        "title": "جولة جيولوجيا الحِجر",
+        "title": "مهرجان نبض العلا",
         "place": "العلا",
+        "start": "2026-10-23",
+        "end": "2026-10-31",
+        "source_url": "https://www.experiencealula.com/ar/whats-on/festivals/alula-wellness-festival"
+      },
+      {
+        "title": "جولة جيولوجيا الحِجر",
+        "place": "الحِجر، العلا",
         "start": "2026-10-24",
         "end": "2026-12-12",
         "when": "كل سبت من 24 أكتوبر",
-        "source_url": "https://www.experiencealula.com/en/whats-on/hegra-geology-hike"
+        "source_url": "https://www.experiencealula.com/en/whats-on"
       },
       {
         "title": "مهرجان سماء العلا",
         "place": "العلا",
         "start": "2026-11-06",
         "end": "2026-11-15",
-        "source_url": "https://www.experiencealula.com/en/whats-on/festivals/alula-skies-festival"
+        "source_url": "https://www.experiencealula.com/ar/whats-on/festivals/alula-skies-festival"
+      }
+    ],
+    "abha": [
+      {
+        "title": "أبها × الفيصلي – دوري روشن",
+        "place": "أبها",
+        "start": "2026-10-27",
+        "source_url": "https://sabq.org/article/xlbu4tl"
+      }
+    ],
+    "tabuk": [
+      {
+        "title": "نيوم × الاتفاق – دوري روشن",
+        "place": "مدينة الملك خالد الرياضية",
+        "start": "2026-10-17",
+        "source_url": "https://sabq.org/article/x5sgjhl"
       }
     ]
   }

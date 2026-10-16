@@ -223,6 +223,9 @@
   function drawClocks(box) {
     const t = new Date();
     box.textContent = "";
+    box.append(el("div", "clocks-title", "الوقت الآن حول العالم"));
+    const row = el("div", "clocks-row");
+    box.append(row);
     for (const [name, zone] of WORLD) {
       const parts = Object.fromEntries(new Intl.DateTimeFormat("en-US", {
         timeZone: zone, hour: "numeric", minute: "numeric", hourCycle: "h23"
@@ -233,7 +236,7 @@
       const digital = new Intl.DateTimeFormat("ar-SA-u-nu-latn", { timeZone: zone, hour: "numeric", minute: "2-digit" }).format(t);
       cell.append(face, el("span", "clock-city", name), el("span", "clock-time", digital));
       cell.setAttribute("aria-label", `${name} ${digital}`);
-      box.append(cell);
+      row.append(cell);
     }
   }
   setInterval(() => document.querySelectorAll(".tl-now-wrap.open .tl-clocks, .tl-now-wrap:hover .tl-clocks").forEach(drawClocks), 30e3);

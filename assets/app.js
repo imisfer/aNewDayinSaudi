@@ -663,7 +663,7 @@
   function openCal() { view = { y: ty, m: tm - 1 }; picked = todayISO; renderCal(); cal.showModal(); }
 
   // ---------- Today agenda: hovering or tapping the date tile widens the timeline ----------
-  // Prayers and sunrise recur daily; timed items from the edition sit at their time; all-day events are listed on top.
+  // Timed items (matches, moments) sit at their time; all-day and recurring events are listed in their own box. Prayers stay on the line only.
   const WD = { "أحد": 0, "الأحد": 0, "إثنين": 1, "الإثنين": 1, "الاثنين": 1, "ثلاثاء": 2, "الثلاثاء": 2, "أربعاء": 3, "الأربعاء": 3,
     "خميس": 4, "الخميس": 4, "جمعة": 5, "الجمعة": 5, "سبت": 6, "السبت": 6 };
   const todayDow = utc(ty, tm - 1, +todayISO.slice(8, 10)).getUTCDay();
@@ -704,14 +704,13 @@
     }
     return out;
   }
-  const REPEAT = '<svg viewBox="0 0 16 16" width="11" height="11" aria-hidden="true"><path d="M3 7a5 5 0 0 1 9-2.5M13 9a5 5 0 0 1-9 2.5M12 1.5v3h-3M4 14.5v-3h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const tl = $("timeline"), agenda = $("tl-agenda"), tile = $("date-tile");
   let agRows = [];
   function buildAgenda() {
     agenda.textContent = "";
     agRows = [];
     if (!dayModel) return;
-    const { pt, items } = dayModel;
+    const { items } = dayModel;
     const head = el("div", "ag-head");
     const top = el("div", "ag-top");
     const date = el("p", "ag-date");
@@ -747,20 +746,12 @@
     if (allBox) agenda.append(allBox);
 
     const list = [
-      ...[[pt.fajr, "الفجر"], [pt.sunrise, "الشروق"], [pt.dhuhr, "الظهر"], [pt.asr, "العصر"], [pt.maghrib, "المغرب"], [pt.isha, "العشاء"]]
-        .map(([t, name]) => ({ t, kind: "daily", name })),
       ...items.map((e) => ({ t: e.at, end: e.end, kind: "event", name: e.label, note: e.note, url: e.source_url, colors: e.colors })),
       { t: now, kind: "now", name: "الآن" },
     ].sort((a, b) => a.t - b.t);
     for (const r of list) {
       const row = el(r.url ? "a" : "div", "ag-row " + r.kind + (r.kind !== "now" && r.t < now ? " past" : ""));
       if (r.url) { row.href = r.url; row.target = "_blank"; row.rel = "noopener"; }
-      if (r.kind === "daily") {
-        const ic = el("span", "ag-rec");
-        ic.innerHTML = REPEAT;
-        ic.title = "يتكرر يوميًا";
-        row.append(ic);
-      }
       if (r.kind === "event") {
         const [c1, c2] = r.colors && r.colors.length ? r.colors : ["var(--lavender)"];
         const dot = el("span", "ag-dot");

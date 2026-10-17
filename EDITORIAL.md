@@ -47,7 +47,7 @@ Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is t
 
 ## Match times (timeline and city events)
 Kick-off times change at short notice, sometimes the day before. Every match time in the edition follows these two rules:
-1. **Official fixtures only.** Take the time from the organiser's own fixtures page: spl.com.sa (Roshn Saudi League), saff.com.sa (national teams, King's Cup and other federation competitions), the-afc.com (AFC competitions). Never from round previews or news articles.
+1. **Official fixtures only.** Take the time from the organiser's own fixtures page: spl.com.sa (Roshn Saudi League), saff.com.sa (national teams, King's Cup and other federation competitions), the-afc.com (AFC competitions), or either club's official website. Never from round previews or news articles.
 2. **Checked on the day.** Re-check every match time on the edition date itself, even if it was confirmed earlier. If today's time can't be confirmed on the official page, drop the item from `timeline` and remove `time` from the city event so it shows as all-day, rather than risk a stale kick-off.
 
 ## City events (Riyadh fixed, plus two cities the reader picks)

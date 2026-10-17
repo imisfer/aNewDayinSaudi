@@ -1,4 +1,5 @@
 /* Thmanyah fonts, self-hosted in assets/fonts (licence permission pending: see assets/fonts/README.md). */
+@font-face { font-family: "Thmanyah Sans"; src: url("fonts/thmanyahsans-Light.woff2") format("woff2"); font-weight: 300; font-display: swap; }
 @font-face { font-family: "Thmanyah Sans"; src: url("fonts/thmanyahsans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Thmanyah Sans"; src: url("fonts/thmanyahsans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "Thmanyah Sans"; src: url("fonts/thmanyahsans-Bold.woff2") format("woff2"); font-weight: 600 700; font-display: swap; }
@@ -220,13 +221,13 @@ a { color: inherit; text-decoration: none; }
 .tl-track::before { /* the rest of the day is veiled; the elapsed part shows the sky at full colour */
   z-index: 1; top: var(--elapsed); bottom: 0; background: var(--bg); opacity: .5;
 }
-.tl-tick { /* hover/tap area around the name; the bubble opens from here, unrotated */
-  position: absolute; left: var(--rail-x); transform: translate(-50%, -50%); z-index: 2;
+.tl-tick { /* prayer name only: no hover or tap */
+  position: absolute; left: var(--rail-x); transform: translate(-50%, -50%); z-index: 2; pointer-events: none;
   display: grid; place-items: center; width: 34px; padding: 6px 0;
 }
 .tl-label {
   writing-mode: vertical-rl; transform: rotate(180deg); /* text runs bottom-to-top (rotated 90° anti-clockwise) */
-  font-size: 8px; line-height: 1; font-weight: 600; color: #fff; text-shadow: 0 0 2px rgba(0,0,0,.55); white-space: nowrap;
+  font-size: 8px; line-height: 1; font-weight: 300; color: #fff; opacity: .5; white-space: nowrap; /* lightest weight, half transparent */
 }
 .tl-sun {
   position: absolute; left: var(--rail-x); width: 40px; height: 26px; transform: translate(-50%, -50%); /* generous hover/tap area around the dash */
@@ -237,7 +238,7 @@ a { color: inherit; text-decoration: none; }
 .tl-dash { display: block; width: 16px; height: 2px; background: #fff; opacity: .7; } /* exactly the line's width */
 .tl-sub { /* "مغرب" under the moon: same look as the prayer names */
   position: absolute; top: calc(50% + 3px); left: 50%; transform: translateX(-50%) rotate(180deg); writing-mode: vertical-rl;
-  font-size: 8px; line-height: 1; font-weight: 600; color: #fff; text-shadow: 0 0 2px rgba(0,0,0,.55); white-space: nowrap; padding: 2px 2px 0;
+  font-size: 8px; line-height: 1; font-weight: 300; color: #fff; opacity: .5; white-space: nowrap; padding: 2px 2px 0; pointer-events: none;
 }
 .tl-now-wrap { position: absolute; left: var(--rail-x); z-index: 6; }
 /* "Now" has no dot: the elapsed part of the day is outlined instead (see .tl-track::after).
@@ -316,7 +317,7 @@ a { color: inherit; text-decoration: none; }
 .tl-bubble.edge-end { transform: translateY(calc(-100% + 14px)); }
 .tl-bubble.edge-end::after { top: auto; bottom: 14px; margin-top: 0; margin-bottom: -4px; }
 /* Time bubbles on prayer names and the sun/moon icons */
-.tl-tick, .tl-sun { cursor: pointer; }
+.tl-sun { cursor: pointer; }
 .tl-tick:focus-visible, .tl-sun:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 .tl-tick:hover, .tl-tick:focus-visible, .tl-tick.open, .tl-sun:hover, .tl-sun:focus-visible, .tl-sun.open { z-index: 7; }
 .tl-bubble.tl-time { left: calc(100% + 8px); top: 50%; font-weight: 400; color: var(--ink); line-height: 1.5; }

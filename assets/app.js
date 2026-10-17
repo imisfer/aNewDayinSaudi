@@ -299,7 +299,7 @@
       const tick = el("span", "tl-tick" + (t < now ? " past" : ""));
       tick.append(el("span", "tl-label", name)); // only the label is rotated, so the time bubble stays upright
       tick.style.top = pos(t) + "%";
-      timeBubble(tick, full, t, pos(t));
+      tick.setAttribute("aria-label", `${full} ${clock.format(t)}`); // read by screen readers; no hover or tap
       track.append(tick);
     }
     // Sunrise (sun) and sunset (moon) icons beside the line.

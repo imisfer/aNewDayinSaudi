@@ -444,3 +444,6 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 .ag-row.ag-card { display: block; height: auto; padding: 7px 10px; border-radius: 10px; background: var(--bg); white-space: normal; line-height: 1.4; }
 .ag-card > * { display: flex; flex-direction: column; min-width: 0; padding-inline-start: 8px; border-inline-start: 3px solid var(--muted); }
 .ag-card a:hover .ag-t { color: var(--accent); }
+/* While the today panel is open, the line's own bubbles (matches, sunrise/sunset, world clocks) stay quiet */
+.timeline.expanded .tl-track > * { pointer-events: none; }
+.timeline.expanded .tl-track .tl-bubble, .timeline.expanded .tl-track .tl-clocks { display: none !important; }

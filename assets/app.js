@@ -715,11 +715,11 @@
     if (h) date.append(el("span", "", ` · ${h.d} ${HIJRI_SHORT[h.m - 1]} ${h.y} هـ`));
     const month = el("button", "ag-btn", "الشهر");
     month.type = "button";
-    month.addEventListener("click", () => { collapse(); openCal(); });
+    month.addEventListener("click", () => { collapse(true); openCal(); });
     const x = el("button", "d-close", "✕");
     x.type = "button";
     x.setAttribute("aria-label", "إغلاق");
-    x.addEventListener("click", () => { collapse(); tile.focus(); });
+    x.addEventListener("click", () => { collapse(true); tile.focus({ preventScroll: true }); });
     top.append(date, month, x);
     head.append(top);
     const all = allDayToday();
@@ -812,6 +812,9 @@
     rows.forEach((r) => { r.row.style.top = r.y + "px"; });
   }
   let pinned = false, hideT = 0;
+  // After the panel is closed on purpose (✕, Esc, tap outside), the pointer is often still over the tile.
+  // Hover won't reopen it until the pointer has left the tile once; a click still does.
+  let hoverLock = false;
   function expand(pin) {
     clearTimeout(hideT);
     if (pin) pinned = true;
@@ -820,10 +823,12 @@
     agenda.hidden = false;
     tl.classList.add("expanded");
     tile.setAttribute("aria-expanded", "true");
+    closeBubbles(); // the panel already shows everything the line's bubbles would
     layoutAgenda();
   }
-  function collapse() {
+  function collapse(byUser) {
     clearTimeout(hideT);
+    if (byUser) hoverLock = true;
     pinned = false;
     tl.classList.remove("expanded");
     agenda.hidden = true;
@@ -831,17 +836,17 @@
   }
   const laterCollapse = () => { if (!pinned) { clearTimeout(hideT); hideT = setTimeout(collapse, 300); } };
   tile.setAttribute("aria-label", tile.getAttribute("aria-label") + ". اعرض أحداث اليوم");
-  tile.addEventListener("click", (e) => { e.stopPropagation(); if (pinned) collapse(); else expand(true); });
-  tile.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); if (pinned) collapse(); else expand(true); } });
+  tile.addEventListener("click", (e) => { e.stopPropagation(); if (pinned) collapse(true); else expand(true); });
+  tile.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); if (pinned) collapse(true); else expand(true); } });
   if (matchMedia("(hover: hover)").matches) {
-    tile.addEventListener("mouseenter", () => expand(false));
-    tile.addEventListener("mouseleave", laterCollapse);
+    tile.addEventListener("mouseenter", () => { if (!hoverLock) expand(false); });
+    tile.addEventListener("mouseleave", () => { hoverLock = false; laterCollapse(); });
     tl.addEventListener("mouseenter", () => clearTimeout(hideT));
     tl.addEventListener("mouseleave", laterCollapse);
   }
   agenda.addEventListener("click", (e) => { e.stopPropagation(); pinned = true; });
-  document.addEventListener("click", () => { if (tl.classList.contains("expanded")) collapse(); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && tl.classList.contains("expanded")) { collapse(); tile.focus(); } });
+  document.addEventListener("click", () => { if (tl.classList.contains("expanded")) collapse(true); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && tl.classList.contains("expanded")) { collapse(true); tile.focus({ preventScroll: true }); } });
   addEventListener("resize", layoutAgenda);
 
   renderTimeline([]);

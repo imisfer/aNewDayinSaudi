@@ -39,11 +39,16 @@ Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is t
 `timeline` holds today's timed moments. Each one shows as a dot at its time on a Fajr-to-midnight line, with a small bubble on tap. The next one within 3 hours shows its bubble automatically.
 - Include: Saudi national team matches; Roshn Saudi League and King's Cup matches for Al-Hilal, Al-Nassr, Al-Ittihad, Al-Ahli, Al-Qadsiah and Al-Shabab; Saudi clubs in AFC competitions; major tournaments hosted in Saudi Arabia (all their matches); official openings or national moments with a set time.
 - At most 6 items. If there are more, keep the national team first, then the biggest clubs.
-- `time`: ISO with +03:00, on today's date, verified against a fixture source (spl.com.sa, saff.com.sa, the-afc.com or a reputable outlet).
+- `time`: ISO with +03:00, on today's date, following the match-time rules below.
 - `label` ≤ 40 chars: the match written as «الهلال × النصر», or the event name. `note` ≤ 40 chars: competition · city.
 - `colors`: 1–2 hex colours. For matches use each team's main kit colour (home first). Never use club logos.
 - Optional `duration` in minutes. Matches (a label with «×») default to 105 minutes (used to fade them once over); every timed item shows as a two-colour dot at its start time, and the text shows the start time only.
 - Leave the array empty on days with nothing timed.
+
+## Match times (timeline and city events)
+Kick-off times change at short notice, sometimes the day before. Every match time in the edition follows these two rules:
+1. **Official fixtures only.** Take the time from the organiser's own fixtures page: spl.com.sa (Roshn Saudi League), saff.com.sa (national teams, King's Cup and other federation competitions), the-afc.com (AFC competitions). Never from round previews or news articles.
+2. **Checked on the day.** Re-check every match time on the edition date itself, even if it was confirmed earlier. If today's time can't be confirmed on the official page, drop the item from `timeline` and remove `time` from the city event so it shows as all-day, rather than risk a stale kick-off.
 
 ## City events (Riyadh fixed, plus two cities the reader picks)
 `regions` lists the top events per city. The page always shows Riyadh, plus two cities each reader picks from a fixed list (default جدة and the first other city with events). So every city below needs its own research each day.
@@ -53,7 +58,7 @@ Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is t
 - What counts as "top": festivals, national and international sports, exhibitions and fairs, concerts by well-known artists, theatre and comedy by known names, family attractions with a limited run, and for Makkah and Madinah notable cultural or service openings and exhibitions. Prefer what a general family audience would want to know about.
 - Leave out: nightclub-style parties, brunches, restaurants, beach-club or pool passes, gyms, and permanent attractions (theme parks, standing venues) unless something new opens.
 - 0–5 items per city, ordered by date. If nothing qualifies, leave the city's array empty or omit the key; the page says «لا فعاليات بارزة هذا الأسبوع». Never pad.
-- Fields: `title` ≤ 45 chars (the event in plain Arabic, e.g. «حفل ندى القلعة», «افتتاح موسم الرياض للسباقات»); `place` ≤ 30 chars (venue or district); `start` and optional `end` as YYYY-MM-DD; optional `when` ≤ 25 chars for recurring items («كل سبت من 24 أكتوبر», «يوميًا»); the today panel (hover/tap the date tile) shows an item on the days its `when` matches; optional `time` (HH:MM, Riyadh time, verified on the fixture or event page) puts the item on today's line on its day instead of the all-day list, with optional `duration` (minutes; matches default to 105) and `colors` (1–2 hex, home kit first, for matches); `source_url`.
+- Fields: `title` ≤ 45 chars (the event in plain Arabic, e.g. «حفل ندى القلعة», «افتتاح موسم الرياض للسباقات»); `place` ≤ 30 chars (venue or district); `start` and optional `end` as YYYY-MM-DD; optional `when` ≤ 25 chars for recurring items («كل سبت من 24 أكتوبر», «يوميًا»); the today panel (hover/tap the date tile) shows an item on the days its `when` matches; optional `time` (HH:MM, Riyadh time; matches follow the match-time rules above, other events are verified on their event page) puts the item on today's line on its day instead of the all-day list, with optional `duration` (minutes; matches default to 105) and `colors` (1–2 hex, home kit first, for matches); `source_url`.
 - Verify the dates on the event page itself. If a listing contradicts itself, use the event page or drop the item.
 
 ## Upcoming national events

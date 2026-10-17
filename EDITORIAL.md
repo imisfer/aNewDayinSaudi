@@ -42,7 +42,7 @@ Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is t
 - `time`: ISO with +03:00, on today's date, verified against a fixture source (spl.com.sa, saff.com.sa, the-afc.com or a reputable outlet).
 - `label` ≤ 40 chars: the match written as «الهلال × النصر», or the event name. `note` ≤ 40 chars: competition · city.
 - `colors`: 1–2 hex colours. For matches use each team's main kit colour (home first). Never use club logos.
-- Optional `duration` in minutes. Matches (a label with «×») default to 105 minutes and show as a tiny two-colour mark along the line for their length; other moments are a single dot.
+- Optional `duration` in minutes. Matches (a label with «×») default to 105 minutes (used to fade them once over); every timed item shows as a two-colour dot at its start time, and the text shows the start time only.
 - Leave the array empty on days with nothing timed.
 
 ## City events (Riyadh fixed, plus two cities the reader picks)

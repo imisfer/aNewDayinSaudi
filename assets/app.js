@@ -251,7 +251,7 @@
   function renderTimeline(items) {
     const wrap = $("timeline");
     const track = $("tl-track");
-    track.querySelectorAll(".tl-tick, .tl-dot-wrap, .tl-span-wrap, .tl-now-wrap, .tl-sun").forEach((n) => n.remove());
+    track.querySelectorAll(".tl-tick, .tl-dot-wrap, .tl-now-wrap, .tl-sun").forEach((n) => n.remove());
     if (!window.adhan) return;
     const a = window.adhan;
     const pt = new a.PrayerTimes(new a.Coordinates(LOCATION.lat, LOCATION.lng), now, a.CalculationMethod.UmmAlQura());
@@ -347,20 +347,19 @@
     const soon = today.find((e) => e.at > now && e.at - now < 3 * 3600e3);
     for (const e of today) {
       const p = pos(e.at);
-      const dot = el("button", "tl-dot" + (e.at < now ? " past" : ""));
+      const dot = el("button", "tl-dot" + ((e.end || e.at) < now ? " past" : ""));
       dot.type = "button";
       const [c1, c2] = (e.colors && e.colors.length ? e.colors : ["var(--lavender)"]);
       dot.style.setProperty("--c1", c1);
       dot.style.setProperty("--c2", c2 || c1);
-      const span = e.end ? `${clock.format(e.at)} – ${clock.format(e.end)}` : clock.format(e.at);
+      const span = clock.format(e.at); // start time only
       const text = `${e.label} · ${span}`;
       dot.setAttribute("aria-label", e.note ? `${text} · ${e.note}` : text);
       const bubble = el(e.source_url ? "a" : "span", "tl-bubble" + (p < 6 ? " edge-start" : p > 94 ? " edge-end" : ""));
       if (e.source_url) { bubble.href = e.source_url; bubble.target = "_blank"; bubble.rel = "noopener"; }
       bubble.append(el("strong", "", e.label), el("span", "", `${span}${e.note ? " · " + e.note : ""}`));
-      const holder = el("span", (e.end ? "tl-span-wrap" : "tl-dot-wrap") + (e === soon ? " open" : ""));
+      const holder = el("span", "tl-dot-wrap" + (e === soon ? " open" : ""));
       holder.style.top = p + "%";
-      if (e.end) dot.className = "tl-mini" + (e.end < now ? " past" : ""); // matches: a tiny two-colour dot inside the line at kick-off
       dot.addEventListener("click", (ev) => {
         ev.stopPropagation();
         const wasOpen = holder.classList.contains("open");
@@ -372,7 +371,7 @@
     }
   }
   function closeBubbles() {
-    document.querySelectorAll(".tl-span-wrap.open, .tl-dot-wrap.open, .tl-now-wrap.open, .tl-tick.open, .tl-sun.open").forEach((h) => h.classList.remove("open"));
+    document.querySelectorAll(".tl-dot-wrap.open, .tl-now-wrap.open, .tl-tick.open, .tl-sun.open").forEach((h) => h.classList.remove("open"));
   }
   document.addEventListener("click", closeBubbles);
 
@@ -753,7 +752,7 @@
         row = el("div", "ag-row ag-card" + (past ? " past" : ""));
         const body = r.url ? el("a") : el("div");
         if (r.url) { body.href = r.url; body.target = "_blank"; body.rel = "noopener"; }
-        const range = r.end ? `${clock.format(r.t)} – ${clock.format(r.end)}` : clock.format(r.t);
+        const range = clock.format(r.t); // start time only
         body.append(el("span", "ag-t", r.name), el("span", "ag-m", [range, r.note].filter(Boolean).join(" · ")));
         row.append(body);
       } else {

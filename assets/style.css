@@ -110,8 +110,8 @@ a { color: inherit; text-decoration: none; }
 .also-label { font-size: .8rem; color: var(--lavender); font-weight: 600; white-space: nowrap; }
 .more { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; }
 .more .key { font-size: .9rem; color: var(--lavender); } /* «وأيضًا» chips */
-/* Headings share the events-heading type: Thmanyah Serif Display, bold, swashes off */
-.more .key, .ev-title, .r-name { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; font-weight: 700; font-feature-settings: "swsh" 0; }
+/* Labels (chips, city names, event titles): Thmanyah Sans 600, lavender */
+.more .key, .ev-title, .r-name { font-family: "Thmanyah Sans", system-ui, sans-serif; font-weight: 600; }
 .hint { margin: 8px 0 0; font-size: .75rem; color: var(--muted); }
 
 .cat { color: var(--accent); font-weight: 600; }
@@ -147,11 +147,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 .regions, .events { margin-top: 20px; }
-.regions-title { /* Thmanyah Serif Display, bold, swashes off */
-  grid-column: 1 / -1; margin: 0 0 -4px; font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif;
+/* Section headings («احجز…», «قادم»): Thmanyah Serif Display, bold, swashes off, ink */
+.regions-title, .events h2 {
+  font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif;
   font-weight: 700; font-size: clamp(1.25rem, 5.4vw, 1.7rem); line-height: 1.5; color: var(--ink); font-feature-settings: "swsh" 0;
 }
-.events h2 { font-size: .9rem; color: var(--muted); font-weight: 600; margin: 0 0 8px; }
+.regions-title { grid-column: 1 / -1; margin: 0 0 -4px; }
+.events h2 { margin: 0 0 8px; }
 .regions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
 .r-stack { display: grid; gap: 16px; min-width: 0; }
 .r-fixed { cursor: default; padding-inline-end: 0; }

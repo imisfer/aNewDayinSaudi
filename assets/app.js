@@ -244,12 +244,14 @@
   // ---------- Day timeline: Fajr → midnight, prayer ticks, event dots with bubbles ----------
   const todayISO = new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(now);
   const clock = new Intl.DateTimeFormat("ar-SA-u-nu-latn", { timeZone: TZ, hour: "numeric", minute: "2-digit" });
+  const MATCH_MIN = 105;
+  const isMatch = (e) => /×/.test(e.label || e.title || "");
   let dayModel = null; // today's prayer times, line positions and timed items, for the expanded agenda
   let edition = null;
   function renderTimeline(items) {
     const wrap = $("timeline");
     const track = $("tl-track");
-    track.querySelectorAll(".tl-tick, .tl-dot-wrap, .tl-now-wrap, .tl-sun").forEach((n) => n.remove());
+    track.querySelectorAll(".tl-tick, .tl-dot-wrap, .tl-span-wrap, .tl-now-wrap, .tl-sun").forEach((n) => n.remove());
     if (!window.adhan) return;
     const a = window.adhan;
     const pt = new a.PrayerTimes(new a.Coordinates(LOCATION.lat, LOCATION.lng), now, a.CalculationMethod.UmmAlQura());
@@ -332,7 +334,12 @@
     track.append(nowWrap);
 
     const today = (items || []).filter((e) => e.time && e.time.slice(0, 10) === todayISO)
-      .map((e) => ({ ...e, at: new Date(e.time) }))
+      .map((e) => {
+        const at = new Date(e.time);
+        // Matches last about 1h45 unless a duration is given; other timed moments are a single point.
+        const dur = e.duration || (isMatch(e) ? MATCH_MIN : 0);
+        return { ...e, at, end: dur ? new Date(at.getTime() + dur * 60e3) : null };
+      })
       .sort((x, y) => x.at - y.at);
     wrap.hidden = false;
     dayModel = { pos, pt, items: today };
@@ -345,13 +352,18 @@
       const [c1, c2] = (e.colors && e.colors.length ? e.colors : ["var(--lavender)"]);
       dot.style.setProperty("--c1", c1);
       dot.style.setProperty("--c2", c2 || c1);
-      const text = `${e.label} · ${clock.format(e.at)}`;
+      const span = e.end ? `${clock.format(e.at)} – ${clock.format(e.end)}` : clock.format(e.at);
+      const text = `${e.label} · ${span}`;
       dot.setAttribute("aria-label", e.note ? `${text} · ${e.note}` : text);
       const bubble = el(e.source_url ? "a" : "span", "tl-bubble" + (p < 6 ? " edge-start" : p > 94 ? " edge-end" : ""));
       if (e.source_url) { bubble.href = e.source_url; bubble.target = "_blank"; bubble.rel = "noopener"; }
-      bubble.append(el("strong", "", e.label), el("span", "", `${clock.format(e.at)}${e.note ? " · " + e.note : ""}`));
-      const holder = el("span", "tl-dot-wrap" + (e === soon ? " open" : ""));
+      bubble.append(el("strong", "", e.label), el("span", "", `${span}${e.note ? " · " + e.note : ""}`));
+      const holder = el("span", (e.end ? "tl-span-wrap" : "tl-dot-wrap") + (e === soon ? " open" : ""));
       holder.style.top = p + "%";
+      if (e.end) { // matches: a tiny two-colour mark beside the line, as long as the match
+        dot.className = "tl-span" + (e.end < now ? " past" : "");
+        holder.style.height = Math.max(0.6, pos(e.end) - p) + "%";
+      }
       dot.addEventListener("click", (ev) => {
         ev.stopPropagation();
         const wasOpen = holder.classList.contains("open");
@@ -363,7 +375,7 @@
     }
   }
   function closeBubbles() {
-    document.querySelectorAll(".tl-dot-wrap.open, .tl-now-wrap.open, .tl-tick.open, .tl-sun.open").forEach((h) => h.classList.remove("open"));
+    document.querySelectorAll(".tl-span-wrap.open, .tl-dot-wrap.open, .tl-now-wrap.open, .tl-tick.open, .tl-sun.open").forEach((h) => h.classList.remove("open"));
   }
   document.addEventListener("click", closeBubbles);
 
@@ -494,7 +506,7 @@
     if (ed.status === "pilot") $("pilot-note").hidden = false;
 
     renderHeadline(ed.headline || "", ed.cards.slice(0, 8));
-    renderTimeline(ed.timeline);
+    renderTimeline(timedToday(ed));
 
     renderRegions(ed.regions);
     collectEvents(ed);
@@ -662,6 +674,21 @@
     const m = e.when.match(/كل\s+(\S+)/);
     return m && m[1] in WD ? WD[m[1]] === todayDow : true;
   }
+  // Timed items for today's line: the edition's timeline plus city events that carry a start time.
+  function timedToday(ed) {
+    const out = (ed.timeline || []).slice();
+    const seen = new Set(out.map((x) => x.label + x.time));
+    for (const [key, name] of CITIES) {
+      for (const e of (ed.regions || {})[key] || []) {
+        if (!e.time || !happensToday(e, e.start, e.end)) continue;
+        const time = `${todayISO}T${e.time}:00+03:00`;
+        if (seen.has(e.title + time)) continue;
+        seen.add(e.title + time);
+        out.push({ time, label: isMatch(e) ? e.title.replace(/\s*[–-]\s*[^–×-]*$/, "") : e.title, note: [name, e.place].join(" · "), source_url: e.source_url, colors: e.colors, duration: e.duration });
+      }
+    }
+    return out;
+  }
   function allDayToday() {
     if (!edition) return [];
     const out = [];
@@ -670,7 +697,7 @@
     }
     for (const [key, name] of CITIES) {
       for (const e of (edition.regions || {})[key] || []) {
-        if (!happensToday(e, e.start, e.end)) continue;
+        if (e.time || !happensToday(e, e.start, e.end)) continue; // timed events sit on the line instead
         const span = e.when || (e.end && e.end !== e.start ? when(e) : "");
         out.push({ kind: "city", title: e.title, url: e.source_url, meta: [name, e.place, span].filter(Boolean).join(" · ") });
       }
@@ -722,7 +749,7 @@
     const list = [
       ...[[pt.fajr, "الفجر"], [pt.sunrise, "الشروق"], [pt.dhuhr, "الظهر"], [pt.asr, "العصر"], [pt.maghrib, "المغرب"], [pt.isha, "العشاء"]]
         .map(([t, name]) => ({ t, kind: "daily", name })),
-      ...items.map((e) => ({ t: e.at, kind: "event", name: e.label, note: e.note, url: e.source_url, colors: e.colors })),
+      ...items.map((e) => ({ t: e.at, end: e.end, kind: "event", name: e.label, note: e.note, url: e.source_url, colors: e.colors })),
       { t: now, kind: "now", name: "الآن" },
     ].sort((a, b) => a.t - b.t);
     for (const r of list) {
@@ -743,9 +770,9 @@
       }
       row.append(el("span", "ag-name", r.name));
       if (r.note) row.append(el("span", "ag-note", r.note));
-      row.append(el("span", "ag-time", clock.format(r.t)));
+      row.append(el("span", "ag-time", r.end ? `${clock.format(r.t)} – ${clock.format(r.end)}` : clock.format(r.t)));
       agenda.append(row);
-      agRows.push({ row, t: r.t });
+      agRows.push({ row, t: r.t, end: r.end, colors: r.colors });
     }
     const lead = document.createElementNS(SVGNS, "svg");
     lead.classList.add("ag-leaders");
@@ -759,7 +786,7 @@
     const headH = agenda.querySelector(".ag-head").offsetHeight;
     const box = agenda.querySelector(".ag-allbox");
     const place = (floor) => {
-      const rows = agRows.map(({ row, t }) => ({ row, a: (dayModel.pos(t) / 100) * H, h: row.offsetHeight }));
+      const rows = agRows.map(({ row, t, end, colors }) => ({ row, a: (dayModel.pos(t) / 100) * H, b: end ? (dayModel.pos(end) / 100) * H : null, colors, h: row.offsetHeight }));
       let prev = floor;
       for (const r of rows) { r.y = Math.max(r.a - r.h / 2, prev); prev = r.y + r.h + 3; }
       let next = H - 6;
@@ -792,7 +819,11 @@
     svg.setAttribute("height", H);
     svg.innerHTML = rows.map((r) => {
       const ym = r.y + r.h / 2;
-      return `<path d="M0 ${r.a.toFixed(1)} H6 L18 ${ym.toFixed(1)} H24"/>`;
+      // A match also gets a short two-colour bar for its 1h45 length.
+      const [c1, c2] = r.colors && r.colors.length ? r.colors : ["var(--lavender)"];
+      const bar = r.b == null ? "" : `<line class="ag-dur" x1="2" x2="2" y1="${r.a.toFixed(1)}" y2="${((r.a + r.b) / 2).toFixed(1)}" style="stroke:${c1}"/>` +
+        `<line class="ag-dur" x1="2" x2="2" y1="${((r.a + r.b) / 2).toFixed(1)}" y2="${r.b.toFixed(1)}" style="stroke:${c2 || c1}"/>`;
+      return bar + `<path d="M0 ${r.a.toFixed(1)} H6 L18 ${ym.toFixed(1)} H24"/>`;
     }).join("");
     rows.forEach((r) => { r.row.style.top = r.y + "px"; });
   }

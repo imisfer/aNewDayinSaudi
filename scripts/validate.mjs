@@ -108,6 +108,9 @@ if (ed.regions != null) {
         if (last && ed.edition_date && last < ed.edition_date) err(`${n}: event already over (${last})`);
         if (x.start && ed.edition_date && daysBetween(ed.edition_date, x.start) > 30) err(`${n}: starts more than 30 days ahead (${x.start})`);
         if (x.when && x.when.length > 25) err(`${n}: when longer than 25 chars`);
+        if (x.time != null && !/^([01]\d|2[0-3]):[0-5]\d$/.test(x.time)) err(`${n}: time must be HH:MM (Riyadh time), e.g. 21:00`);
+        if (x.duration != null && !(Number.isInteger(x.duration) && x.duration >= 15 && x.duration <= 600)) err(`${n}: duration must be whole minutes, 15–600`);
+        if (x.colors != null && (!Array.isArray(x.colors) || x.colors.length < 1 || x.colors.length > 2 || !x.colors.every((c) => /^#[0-9a-fA-F]{6}$/.test(c)))) err(`${n}: colors must be 1–2 hex values like #00732F`);
         for (const t of [x.title, x.place]) if (t && BANNED_WORDS.test(t)) err(`${n}: sensational wording`);
         try {
           const u = new URL(x.source_url);
@@ -139,6 +142,7 @@ tl.forEach((x, i) => {
   else if (x.time.slice(0, 10) !== ed.edition_date) err(`${n}: time is not on the edition date`);
   if (!x.label || x.label.length > 40) err(`${n}: label missing or longer than 40 chars`);
   if (x.note && x.note.length > 40) err(`${n}: note longer than 40 chars`);
+  if (x.duration != null && !(Number.isInteger(x.duration) && x.duration >= 15 && x.duration <= 600)) err(`${n}: duration must be whole minutes, 15–600`);
   if (!Array.isArray(x.colors) || x.colors.length < 1 || x.colors.length > 2 || !x.colors.every((c) => /^#[0-9a-fA-F]{6}$/.test(c))) err(`${n}: colors must be 1–2 hex values like #00732F`);
   if (x.source_url) {
     try {

@@ -35,8 +35,9 @@
   $("date-tile").setAttribute("aria-label", part("gregory", { weekday: "long" }) + "، " +
     (hasUmmAlQura ? part("islamic-umalqura", { day: "numeric", month: "long", year: "numeric" }) + "، " : "") +
     part("gregory", { day: "numeric", month: "long", year: "numeric" }));
-  // One date tile: Gregorian, then Hijri, switching every 10 seconds.
-  if (hasUmmAlQura) setInterval(() => $("date-tile").classList.toggle("show-hijri"), 10e3);
+  // One date tile: Hijri first (the official calendar), then Gregorian, switching every 10 seconds.
+  if (hasUmmAlQura) setInterval(() => $("date-tile").classList.toggle("show-greg"), 10e3);
+  else $("date-tile").classList.add("show-greg");
 
   const fmtDate = (iso) => new Intl.DateTimeFormat("ar-SA-u-ca-gregory-nu-latn", {
     timeZone: TZ, day: "numeric", month: "long"
@@ -637,8 +638,11 @@
     const dt = utc(y, m - 1, d);
     const h = hijriOf(dt);
     const head = el("p", "cal-day-head");
-    head.append(el("b", "", `${WEEK[dt.getUTCDay()]} ${d} ${MONTHS[m - 1]}`));
-    if (h) head.append(el("span", "", ` · ${h.d} ${HIJRI_SHORT[h.m - 1]} ${h.y} هـ`));
+    // Hijri first and bold (the official calendar), Gregorian after it.
+    if (h) {
+      head.append(el("b", "", `${WEEK[dt.getUTCDay()]} ${h.d} ${HIJRI_SHORT[h.m - 1]} ${h.y} هـ`));
+      head.append(el("span", "", ` · ${d} ${MONTHS[m - 1]}`));
+    } else head.append(el("b", "", `${WEEK[dt.getUTCDay()]} ${d} ${MONTHS[m - 1]}`));
     box.append(head);
     const evs = eventsOn(picked);
     if (!evs.length) { box.append(el("p", "cal-empty", "لا فعاليات مسجّلة في هذا اليوم.")); return; }
@@ -658,13 +662,18 @@
   }
   function renderCal() {
     const { y, m } = view;
-    $("cal-month").textContent = MONTHS[m];
-    $("cal-year").textContent = y;
     const first = utc(y, m, 1), last = utc(y, m + 1, 0);
     const h1 = hijriOf(first), h2 = hijriOf(last);
-    $("cal-hijri").textContent = !h1 ? "" : h1.m === h2.m
-      ? `${HIJRI_SHORT[h1.m - 1]} ${h1.y} هـ`
-      : `${HIJRI_SHORT[h1.m - 1]}${h1.y !== h2.y ? " " + h1.y : ""} – ${HIJRI_SHORT[h2.m - 1]} ${h2.y} هـ`;
+    // Title: the Hijri month(s) this page covers, bold; the Gregorian month under it.
+    if (h1) {
+      $("cal-month").textContent = h1.m === h2.m ? HIJRI_SHORT[h1.m - 1] : `${HIJRI_SHORT[h1.m - 1]}${h1.y !== h2.y ? " " + h1.y : ""} – ${HIJRI_SHORT[h2.m - 1]}`;
+      $("cal-year").textContent = `${h2.y} هـ`;
+      $("cal-hijri").textContent = `${MONTHS[m]} ${y}`;
+    } else {
+      $("cal-month").textContent = MONTHS[m];
+      $("cal-year").textContent = y;
+      $("cal-hijri").textContent = "";
+    }
 
     const grid = $("cal-grid");
     grid.textContent = "";
@@ -681,8 +690,12 @@
       if (iso === picked) cell.classList.add("picked");
       const h = hijriOf(dt);
       const num = el("span", "cal-num");
-      num.append(el("span", "cal-g", dt.getUTCDate()));
-      if (h) num.append(el("span", "cal-h", h.d === 1 ? `1 ${HIJRI_SHORT[h.m - 1]}` : h.d));
+      // Hijri day big and bold; the Gregorian day small beside it (month names on the first of each month).
+      const gd = dt.getUTCDate(), gLabel = gd === 1 ? `1 ${MONTHS[dt.getUTCMonth()]}` : gd;
+      if (h) {
+        num.append(el("span", "cal-g", h.d));
+        num.append(el("span", "cal-h", h.d === 1 ? HIJRI_SHORT[h.m - 1] : gLabel));
+      } else num.append(el("span", "cal-g", gd));
       cell.append(num);
       const evs = eventsOn(iso);
       const lines = el("span", "cal-evs");
@@ -691,7 +704,7 @@
       const dots = el("span", "cal-dots");
       evs.slice(0, 4).forEach((e) => dots.append(el("i", e.kind)));
       cell.append(lines, dots);
-      cell.setAttribute("aria-label", `${dt.getUTCDate()} ${MONTHS[dt.getUTCMonth()]}${evs.length ? "، " + evs.length + " فعاليات" : ""}`);
+      cell.setAttribute("aria-label", `${h ? `${h.d} ${HIJRI_SHORT[h.m - 1]}، ` : ""}${dt.getUTCDate()} ${MONTHS[dt.getUTCMonth()]}${evs.length ? "، " + evs.length + " فعاليات" : ""}`);
       cell.addEventListener("click", () => {
         picked = iso;
         if (dt.getUTCMonth() !== m) { view = { y: dt.getUTCFullYear(), m: dt.getUTCMonth() }; renderCal(); return; }
@@ -770,16 +783,19 @@
     const top = el("div", "ag-top");
     const date = el("p", "ag-date");
     const h = hijriOf(utc(ty, tm - 1, +todayISO.slice(8, 10)));
-    date.append(el("b", "", `${part("gregory", { weekday: "long" })} ${+todayISO.slice(8, 10)} ${MONTHS[tm - 1]}`));
-    if (h) date.append(el("span", "", ` · ${h.d} ${HIJRI_SHORT[h.m - 1]} ${h.y} هـ`));
-    const month = el("button", "ag-btn", "الشهر");
-    month.type = "button";
-    month.addEventListener("click", () => { collapse(true); openCal(); });
-    const x = el("button", "d-close", "✕");
-    x.type = "button";
-    x.setAttribute("aria-label", "إغلاق");
-    x.addEventListener("click", () => { collapse(true); tile.focus({ preventScroll: true }); });
-    top.append(date, month, x);
+    const wd = part("gregory", { weekday: "long" });
+    if (h) { // Hijri first and bold (the official calendar), Gregorian after it
+      date.append(el("b", "", `${wd} ${h.d} ${HIJRI_SHORT[h.m - 1]} ${h.y} هـ`));
+      date.append(" ", el("span", "", `${+todayISO.slice(8, 10)} ${MONTHS[tm - 1]}`)); // may wrap as a whole under the Hijri date
+    } else date.append(el("b", "", `${wd} ${+todayISO.slice(8, 10)} ${MONTHS[tm - 1]}`));
+    // Header like the reader's sketch: just the date beside the tile, no buttons. Tapping the date opens the month;
+    // the tile, Esc or a tap outside closes the panel.
+    const open = el("button", "ag-date-btn");
+    open.type = "button";
+    open.title = "عرض الشهر";
+    open.addEventListener("click", () => { collapse(true); openCal(); });
+    open.append(date);
+    top.append(open);
     head.append(top);
     const all = allDayToday();
     let allBox = null;
@@ -892,7 +908,13 @@
     if (!head) return;
     const t = tile.getBoundingClientRect(), a = agenda.getBoundingClientRect();
     const overlaps = t.left < a.right && t.right > a.left && t.bottom > a.top;
-    head.style.paddingTop = overlaps ? Math.round(t.bottom - a.top + 10) + "px" : "";
+    head.style.paddingTop = head.style.minHeight = head.style.paddingLeft = "";
+    if (!overlaps) return;
+    // Put the date on the same line as the tile, centred on it, and keep it clear of the tile.
+    const row = head.querySelector(".ag-top").offsetHeight;
+    head.style.paddingTop = Math.max(8, Math.round(t.top - a.top + (t.height - row) / 2)) + "px";
+    head.style.minHeight = Math.round(t.bottom - a.top + 8) + "px";
+    head.style.paddingLeft = Math.round(t.right - a.left + 12) + "px";
   }
   function collapse(byUser) {
     clearTimeout(hideT);

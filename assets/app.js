@@ -364,7 +364,7 @@
       track.append(tick);
     }
     // Sunrise (sun) and sunset (moon) icons beside the line.
-    for (const [t, up, name] of [[pt.sunrise, true, "الشروق"], [pt.maghrib, false, "المغرب · الغروب"]]) {
+    for (const [t, up, name] of [[pt.sunrise, true, "الشروق"], [pt.maghrib, false, "الغروب"]]) {
       const s = el("span", "tl-sun" + (t < now ? " past" : ""));
       s.innerHTML = `<span class="tl-dash" aria-hidden="true"></span>`; // a short dash across the line marks sunrise / sunset
       if (!up) s.append(el("span", "tl-sub", "مغرب"));

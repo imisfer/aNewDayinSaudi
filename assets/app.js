@@ -499,7 +499,6 @@
       $("edition-label").hidden = false;
     }
     edition = ed;
-    if (ed.status === "pilot") $("pilot-note").hidden = false;
 
     renderHeadline(ed.headline || "", ed.cards.slice(0, 8));
     renderTimeline(timedToday(ed));

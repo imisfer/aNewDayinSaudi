@@ -244,6 +244,8 @@
   // ---------- Day timeline: Fajr → midnight, prayer ticks, event dots with bubbles ----------
   const todayISO = new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(now);
   const clock = new Intl.DateTimeFormat("ar-SA-u-nu-latn", { timeZone: TZ, hour: "numeric", minute: "2-digit" });
+  let dayModel = null; // today's prayer times, line positions and timed items, for the expanded agenda
+  let edition = null;
   function renderTimeline(items) {
     const wrap = $("timeline");
     const track = $("tl-track");
@@ -333,6 +335,7 @@
       .map((e) => ({ ...e, at: new Date(e.time) }))
       .sort((x, y) => x.at - y.at);
     wrap.hidden = false;
+    dayModel = { pos, pt, items: today };
     // The next event within 3 hours shows its bubble without a tap.
     const soon = today.find((e) => e.at > now && e.at - now < 3 * 3600e3);
     for (const e of today) {
@@ -487,6 +490,7 @@
       $("edition-label").textContent = "آخر تحديث: " + fmtDate(ed.edition_date);
       $("edition-label").hidden = false;
     }
+    edition = ed;
     if (ed.status === "pilot") $("pilot-note").hidden = false;
 
     renderHeadline(ed.headline || "", ed.cards.slice(0, 8));
@@ -645,10 +649,185 @@
   cal.addEventListener("click", (e) => { if (e.target === cal) cal.close(); });
   cal.addEventListener("close", () => $("date-tile").focus());
   function openCal() { view = { y: ty, m: tm - 1 }; picked = todayISO; renderCal(); cal.showModal(); }
-  const tile = $("date-tile");
-  tile.setAttribute("aria-label", tile.getAttribute("aria-label") + ". افتح التقويم");
-  tile.addEventListener("click", openCal);
-  tile.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCal(); } });
+
+  // ---------- Today agenda: hovering or tapping the date tile widens the timeline ----------
+  // Prayers and sunrise recur daily; timed items from the edition sit at their time; all-day events are listed on top.
+  const WD = { "أحد": 0, "الأحد": 0, "إثنين": 1, "الإثنين": 1, "الاثنين": 1, "ثلاثاء": 2, "الثلاثاء": 2, "أربعاء": 3, "الأربعاء": 3,
+    "خميس": 4, "الخميس": 4, "جمعة": 5, "الجمعة": 5, "سبت": 6, "السبت": 6 };
+  const todayDow = utc(ty, tm - 1, +todayISO.slice(8, 10)).getUTCDay();
+  function happensToday(e, start, end) {
+    if (todayISO < start || todayISO > (end || start)) return false;
+    if (!e.when) return true;
+    if (/يومي|كل يوم/.test(e.when)) return true;
+    const m = e.when.match(/كل\s+(\S+)/);
+    return m && m[1] in WD ? WD[m[1]] === todayDow : true;
+  }
+  function allDayToday() {
+    if (!edition) return [];
+    const out = [];
+    for (const ev of edition.events || []) {
+      if (happensToday(ev, ev.date, ev.end)) out.push({ kind: "national", title: ev.title.replace(/\s*\([^)]*\d[^)]*\)\s*$/, ""), meta: "وطني" + (ev.end && ev.end !== ev.date ? " · " + when({ start: ev.date, end: ev.end }) : "") });
+    }
+    for (const [key, name] of CITIES) {
+      for (const e of (edition.regions || {})[key] || []) {
+        if (!happensToday(e, e.start, e.end)) continue;
+        const span = e.when || (e.end && e.end !== e.start ? when(e) : "");
+        out.push({ kind: "city", title: e.title, url: e.source_url, meta: [name, e.place, span].filter(Boolean).join(" · ") });
+      }
+    }
+    return out;
+  }
+  const REPEAT = '<svg viewBox="0 0 16 16" width="11" height="11" aria-hidden="true"><path d="M3 7a5 5 0 0 1 9-2.5M13 9a5 5 0 0 1-9 2.5M12 1.5v3h-3M4 14.5v-3h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const tl = $("timeline"), agenda = $("tl-agenda"), tile = $("date-tile");
+  let agRows = [];
+  function buildAgenda() {
+    agenda.textContent = "";
+    agRows = [];
+    if (!dayModel) return;
+    const { pt, items } = dayModel;
+    const head = el("div", "ag-head");
+    const top = el("div", "ag-top");
+    const date = el("p", "ag-date");
+    const h = hijriOf(utc(ty, tm - 1, +todayISO.slice(8, 10)));
+    date.append(el("b", "", `${part("gregory", { weekday: "long" })} ${+todayISO.slice(8, 10)} ${MONTHS[tm - 1]}`));
+    if (h) date.append(el("span", "", ` · ${h.d} ${HIJRI_SHORT[h.m - 1]} ${h.y} هـ`));
+    const month = el("button", "ag-btn", "الشهر");
+    month.type = "button";
+    month.addEventListener("click", () => { collapse(); openCal(); });
+    const x = el("button", "d-close", "✕");
+    x.type = "button";
+    x.setAttribute("aria-label", "إغلاق");
+    x.addEventListener("click", () => { collapse(); tile.focus(); });
+    top.append(date, month, x);
+    head.append(top);
+    const all = allDayToday();
+    let allBox = null;
+    if (all.length) {
+      allBox = el("div", "ag-allbox");
+      allBox.append(el("p", "ag-sec", "طوال اليوم"));
+      const ul = el("ul", "ag-all");
+      for (const e of all) {
+        const li = el("li", e.kind);
+        const body = e.url ? el("a") : el("div");
+        if (e.url) { body.href = e.url; body.target = "_blank"; body.rel = "noopener"; }
+        body.append(el("span", "ag-t", e.title), el("span", "ag-m", e.meta));
+        li.append(body);
+        ul.append(li);
+      }
+      allBox.append(ul);
+    }
+    agenda.append(head);
+    if (allBox) agenda.append(allBox);
+
+    const list = [
+      ...[[pt.fajr, "الفجر"], [pt.sunrise, "الشروق"], [pt.dhuhr, "الظهر"], [pt.asr, "العصر"], [pt.maghrib, "المغرب"], [pt.isha, "العشاء"]]
+        .map(([t, name]) => ({ t, kind: "daily", name })),
+      ...items.map((e) => ({ t: e.at, kind: "event", name: e.label, note: e.note, url: e.source_url, colors: e.colors })),
+      { t: now, kind: "now", name: "الآن" },
+    ].sort((a, b) => a.t - b.t);
+    for (const r of list) {
+      const row = el(r.url ? "a" : "div", "ag-row " + r.kind + (r.kind !== "now" && r.t < now ? " past" : ""));
+      if (r.url) { row.href = r.url; row.target = "_blank"; row.rel = "noopener"; }
+      if (r.kind === "daily") {
+        const ic = el("span", "ag-rec");
+        ic.innerHTML = REPEAT;
+        ic.title = "يتكرر يوميًا";
+        row.append(ic);
+      }
+      if (r.kind === "event") {
+        const [c1, c2] = r.colors && r.colors.length ? r.colors : ["var(--lavender)"];
+        const dot = el("span", "ag-dot");
+        dot.style.setProperty("--c1", c1);
+        dot.style.setProperty("--c2", c2 || c1);
+        row.append(dot);
+      }
+      row.append(el("span", "ag-name", r.name));
+      if (r.note) row.append(el("span", "ag-note", r.note));
+      row.append(el("span", "ag-time", clock.format(r.t)));
+      agenda.append(row);
+      agRows.push({ row, t: r.t });
+    }
+    const lead = document.createElementNS(SVGNS, "svg");
+    lead.classList.add("ag-leaders");
+    lead.setAttribute("aria-hidden", "true");
+    agenda.append(lead);
+  }
+  // Each row sits at its time on the line; rows that would overlap are nudged apart and joined to their time by a thin leader.
+  function layoutAgenda() {
+    if (!dayModel || agenda.hidden) return;
+    const H = agenda.clientHeight;
+    const headH = agenda.querySelector(".ag-head").offsetHeight;
+    const box = agenda.querySelector(".ag-allbox");
+    const place = (floor) => {
+      const rows = agRows.map(({ row, t }) => ({ row, a: (dayModel.pos(t) / 100) * H, h: row.offsetHeight }));
+      let prev = floor;
+      for (const r of rows) { r.y = Math.max(r.a - r.h / 2, prev); prev = r.y + r.h + 3; }
+      let next = H - 6;
+      for (let i = rows.length - 1; i >= 0; i--) { const r = rows[i]; r.y = Math.min(r.y, next - r.h); next = r.y - 3; }
+      return rows;
+    };
+    let rows = place(headH + 4);
+    // All-day events float in the largest quiet stretch of the day (usually late morning), so timed rows keep their place.
+    if (box) {
+      box.style.maxHeight = "";
+      const need = Math.min(box.scrollHeight, 150);
+      let best = { top: headH, size: 0 };
+      const edges = [headH, ...rows.flatMap((r) => [r.y, r.y + r.h]), H];
+      for (let i = 0; i < edges.length; i += 2) {
+        const size = edges[i + 1] - edges[i];
+        if (size > best.size) best = { top: edges[i], size };
+      }
+      if (best.size - 16 >= need) {
+        box.style.top = best.top + 8 + "px";
+        box.style.maxHeight = best.size - 16 + "px";
+      } else { // no room: list them under the header and let the timed rows follow
+        box.style.top = headH + "px";
+        box.style.maxHeight = Math.round(H * 0.4) + "px";
+        rows = place(headH + box.offsetHeight + 8);
+      }
+    }
+    if (box) box.classList.toggle("more", box.scrollHeight > box.clientHeight + 2); // fade hints that the list scrolls
+    const svg = agenda.querySelector("svg.ag-leaders");
+    svg.setAttribute("width", 24);
+    svg.setAttribute("height", H);
+    svg.innerHTML = rows.map((r) => {
+      const ym = r.y + r.h / 2;
+      return `<path d="M0 ${r.a.toFixed(1)} H6 L18 ${ym.toFixed(1)} H24"/>`;
+    }).join("");
+    rows.forEach((r) => { r.row.style.top = r.y + "px"; });
+  }
+  let pinned = false, hideT = 0;
+  function expand(pin) {
+    clearTimeout(hideT);
+    if (pin) pinned = true;
+    if (tl.classList.contains("expanded")) return;
+    buildAgenda();
+    agenda.hidden = false;
+    tl.classList.add("expanded");
+    tile.setAttribute("aria-expanded", "true");
+    layoutAgenda();
+  }
+  function collapse() {
+    clearTimeout(hideT);
+    pinned = false;
+    tl.classList.remove("expanded");
+    agenda.hidden = true;
+    tile.setAttribute("aria-expanded", "false");
+  }
+  const laterCollapse = () => { if (!pinned) { clearTimeout(hideT); hideT = setTimeout(collapse, 300); } };
+  tile.setAttribute("aria-label", tile.getAttribute("aria-label") + ". اعرض أحداث اليوم");
+  tile.addEventListener("click", (e) => { e.stopPropagation(); if (pinned) collapse(); else expand(true); });
+  tile.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); if (pinned) collapse(); else expand(true); } });
+  if (matchMedia("(hover: hover)").matches) {
+    tile.addEventListener("mouseenter", () => expand(false));
+    tile.addEventListener("mouseleave", laterCollapse);
+    tl.addEventListener("mouseenter", () => clearTimeout(hideT));
+    tl.addEventListener("mouseleave", laterCollapse);
+  }
+  agenda.addEventListener("click", (e) => { e.stopPropagation(); pinned = true; });
+  document.addEventListener("click", () => { if (tl.classList.contains("expanded")) collapse(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && tl.classList.contains("expanded")) { collapse(); tile.focus(); } });
+  addEventListener("resize", layoutAgenda);
 
   renderTimeline([]);
   loadWeather();

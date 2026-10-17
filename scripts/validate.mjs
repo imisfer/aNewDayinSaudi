@@ -13,6 +13,8 @@ const OFFICIAL = /(^|\.)gov\.sa$|(^|\.)spa\.gov\.sa$|(^|\.)pif\.gov\.sa$|(^|\.)s
 const REPUTABLE = /(^|\.)(arabnews\.com|aljazeera\.net|alyaum\.com|the-afc\.com|thenationalnews\.com|reuters\.com|bloomberg\.com|aawsat\.com|alarabiya\.net|okaz\.com\.sa|alriyadh\.com|aleqt\.com|argaam\.com|sabq\.org|saudigazette\.com\.sa|spl\.com\.sa|saff\.com\.sa)$/;
 // Arabic letters that join to the following letter (excludes ا أ إ آ د ذ ر ز و ؤ ة ء).
 const JOINING = /[\u0626\u0628\u062A-\u062E\u0633-\u063A\u0640-\u0647\u0649\u064A]/;
+// Foreign clubs allowed on the timeline as fill-in (see EDITORIAL.md): their official sites count as fixture sources.
+const FOREIGN_CLUBS = /(^|\.)(realmadrid\.com|fcbarcelona\.com|mancity\.com|liverpoolfc\.com|manutd\.com|fcbayern\.com)$/;
 const BANNED_WORDS = /(صادم|عاجل|كارثة|فضيحة|لن تصدق|مذهل|الأعظم في التاريخ)/;
 
 const errors = [];
@@ -153,6 +155,7 @@ for (const [i, x] of (ed.events || []).entries()) {
 const tl = ed.timeline || [];
 if (!Array.isArray(tl)) err("timeline must be an array");
 if (tl.length > 6) err(`timeline has ${tl.length} items; maximum is 6`);
+let seenForeign = false; // foreign-club matches only fill in after every Saudi item
 tl.forEach((x, i) => {
   const n = `timeline ${i + 1}`;
   if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?\+03:00$/.test(x.time || "")) err(`${n}: time must be ISO with +03:00 (e.g. 2026-09-27T21:00:00+03:00)`);
@@ -164,7 +167,9 @@ tl.forEach((x, i) => {
   if (x.source_url) {
     try {
       const h = new URL(x.source_url).hostname.replace(/^www\./, "");
-      if (!OFFICIAL.test(h) && !REPUTABLE.test(h)) err(`${n}: source ${h} is not on the allowed list`);
+      if (FOREIGN_CLUBS.test(h)) seenForeign = true;
+      else if (seenForeign) err(`${n}: Saudi items must come before foreign-club matches`);
+      if (!FOREIGN_CLUBS.test(h) && !OFFICIAL.test(h) && !REPUTABLE.test(h)) err(`${n}: source ${h} is not on the allowed list`);
     } catch { err(`${n}: source_url is not a valid URL`); }
   } else err(`${n}: missing source_url`);
 });

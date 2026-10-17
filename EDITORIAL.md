@@ -47,6 +47,18 @@ Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is t
 `timeline` holds today's timed moments. Each one shows as a dot at its time on a Fajr-to-midnight line, with a small bubble on tap. The next one within 3 hours shows its bubble automatically.
 - Include: Saudi national team matches; Roshn Saudi League and King's Cup matches for Al-Hilal, Al-Nassr, Al-Ittihad, Al-Ahli, Al-Qadsiah and Al-Shabab; Saudi clubs in AFC competitions; major tournaments hosted in Saudi Arabia (all their matches); official openings or national moments with a set time.
 - At most 6 items. If there are more, keep the national team first, then the biggest clubs.
+- **Foreign clubs (fill-in only).** On days they play, matches of these clubs may also go on the line, after every Saudi item and only while there is room within the 6:
+
+  | Club | Label | Official fixtures | Kit colour |
+  |---|---|---|---|
+  | Real Madrid | ريال مدريد | realmadrid.com | #ffffff |
+  | FC Barcelona | برشلونة | fcbarcelona.com | #a50044, #004d98 |
+  | Manchester City | مانشستر سيتي | mancity.com | #6cabdd |
+  | Liverpool | ليفربول | liverpoolfc.com | #c8102e |
+  | Manchester United | مانشستر يونايتد | manutd.com | #da291c |
+  | Bayern Munich | بايرن ميونخ | fcbayern.com | #dc052d |
+
+  Take the kick-off from the club's own fixtures page (or the competition's) on the day, convert it to Riyadh time, and skip matches that start after midnight Riyadh time. `note` is the competition · city, e.g. «الدوري الإسباني · مدريد». Changing this list is an editorial decision: edit the table and the validator's `FOREIGN_CLUBS` together.
 - `time`: ISO with +03:00, on today's date, following the match-time rules below.
 - `label` ≤ 40 chars: the match written as «الهلال × النصر», or the event name. `note` ≤ 40 chars: competition · city.
 - `colors`: 1–2 hex colours. For matches use each team's main kit colour (home first). Never use club logos.

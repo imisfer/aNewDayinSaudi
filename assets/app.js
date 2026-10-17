@@ -235,9 +235,53 @@
     const h = +new Intl.DateTimeFormat("en-US", { timeZone: zone, hour: "numeric", hourCycle: "h23" }).format(t);
     return h >= 6 && h < 18;
   }
+  // Where the sun is overhead right now (low-precision solar position; plenty for a background map).
+  function subsolar(t) {
+    const d = t.getTime() / 864e5 - 10957.5; // days since J2000.0
+    const rad = Math.PI / 180;
+    const g = (357.529 + 0.98560028 * d) * rad;
+    const q = 280.459 + 0.98564736 * d;
+    const L = (q + 1.915 * Math.sin(g) + 0.02 * Math.sin(2 * g)) * rad;
+    const e = (23.439 - 0.00000036 * d) * rad;
+    const ra = Math.atan2(Math.cos(e) * Math.sin(L), Math.cos(L)) / rad;
+    const dec = Math.asin(Math.sin(e) * Math.sin(L)) / rad;
+    const gmst = 280.46061837 + 360.98564736629 * d;
+    const lon = ((ra - gmst) % 360 + 540) % 360 - 180;
+    return { lat: dec, lon };
+  }
+  // Background for the clocks: the world map with tonight's side shaded, edge = the day/night curve.
+  // Map coordinates are equirectangular: x = lon + 180, y = 90 − lat.
+  function worldNightMap(t) {
+    if (!window.WORLD_LAND) return null;
+    const sun = subsolar(t);
+    const rad = Math.PI / 180;
+    const dec = Math.abs(sun.lat) < 0.1 ? 0.1 : sun.lat; // avoid a flat line at the equinox
+    const pts = [];
+    for (let lon = -180; lon <= 180; lon += 2) {
+      const lat = Math.atan(-Math.cos((lon - sun.lon) * rad) / Math.tan(dec * rad)) / rad;
+      pts.push(`${(lon + 180).toFixed(1)},${(90 - lat).toFixed(1)}`);
+    }
+    // Night wraps the pole that is tilted away from the sun.
+    const edge = dec > 0 ? "180" : "0";
+    const night = `M0,${edge} L${pts.join(" L")} L360,${edge} Z`;
+    const cities = WORLD.map(([, , lat, lng]) => `<circle cx="${(lng + 180).toFixed(1)}" cy="${(90 - lat).toFixed(1)}" r="1.6"/>`).join("");
+    const svg = document.createElementNS(SVGNS, "svg");
+    svg.setAttribute("class", "clocks-map");
+    svg.setAttribute("viewBox", "0 0 360 180"); // whole world; the box crops a little at the poles, never the longitudes
+    svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
+    svg.setAttribute("aria-hidden", "true");
+    svg.innerHTML = `<defs><filter id="nm-soft" x="-5%" y="-10%" width="110%" height="120%"><feGaussianBlur stdDeviation="2.2"/></filter></defs>` +
+      `<path class="m-land" d="${window.WORLD_LAND}"/>` +
+      `<path class="m-night" d="${night}" filter="url(#nm-soft)"/>` +
+      `<circle class="m-sun" cx="${(sun.lon + 180).toFixed(1)}" cy="${(90 - sun.lat).toFixed(1)}" r="4"/>` +
+      `<g class="m-cities">${cities}</g>`;
+    return svg;
+  }
   function drawClocks(box) {
     const t = new Date();
     box.textContent = "";
+    const map = worldNightMap(t);
+    if (map) box.append(map);
     box.append(el("div", "clocks-title", "الوقت الآن حول العالم"));
     const row = el("div", "clocks-row");
     box.append(row);

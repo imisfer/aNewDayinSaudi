@@ -360,10 +360,7 @@
       bubble.append(el("strong", "", e.label), el("span", "", `${span}${e.note ? " · " + e.note : ""}`));
       const holder = el("span", (e.end ? "tl-span-wrap" : "tl-dot-wrap") + (e === soon ? " open" : ""));
       holder.style.top = p + "%";
-      if (e.end) { // matches: a tiny two-colour mark beside the line, as long as the match
-        dot.className = "tl-span" + (e.end < now ? " past" : "");
-        holder.style.height = Math.max(0.6, pos(e.end) - p) + "%";
-      }
+      if (e.end) dot.className = "tl-mini" + (e.end < now ? " past" : ""); // matches: a tiny two-colour dot inside the line at kick-off
       dot.addEventListener("click", (ev) => {
         ev.stopPropagation();
         const wasOpen = holder.classList.contains("open");
@@ -750,18 +747,19 @@
       { t: now, kind: "now", name: "الآن" },
     ].sort((a, b) => a.t - b.t);
     for (const r of list) {
-      const row = el(r.url ? "a" : "div", "ag-row " + r.kind + (r.kind !== "now" && r.t < now ? " past" : ""));
-      if (r.url) { row.href = r.url; row.target = "_blank"; row.rel = "noopener"; }
-      if (r.kind === "event") {
-        const [c1, c2] = r.colors && r.colors.length ? r.colors : ["var(--lavender)"];
-        const dot = el("span", "ag-dot");
-        dot.style.setProperty("--c1", c1);
-        dot.style.setProperty("--c2", c2 || c1);
-        row.append(dot);
+      const past = r.kind !== "now" && (r.end || r.t) < now;
+      let row;
+      if (r.kind === "event") { // same card as the all-day events: title, then time · city · place
+        row = el("div", "ag-row ag-card" + (past ? " past" : ""));
+        const body = r.url ? el("a") : el("div");
+        if (r.url) { body.href = r.url; body.target = "_blank"; body.rel = "noopener"; }
+        const range = r.end ? `${clock.format(r.t)} – ${clock.format(r.end)}` : clock.format(r.t);
+        body.append(el("span", "ag-t", r.name), el("span", "ag-m", [range, r.note].filter(Boolean).join(" · ")));
+        row.append(body);
+      } else {
+        row = el("div", "ag-row " + r.kind);
+        row.append(el("span", "ag-name", r.name), el("span", "ag-time", clock.format(r.t)));
       }
-      row.append(el("span", "ag-name", r.name));
-      if (r.note) row.append(el("span", "ag-note", r.note));
-      row.append(el("span", "ag-time", r.end ? `${clock.format(r.t)} – ${clock.format(r.end)}` : clock.format(r.t)));
       agenda.append(row);
       agRows.push({ row, t: r.t, end: r.end, colors: r.colors });
     }
@@ -810,11 +808,7 @@
     svg.setAttribute("height", H);
     svg.innerHTML = rows.map((r) => {
       const ym = r.y + r.h / 2;
-      // A match also gets a short two-colour bar for its 1h45 length.
-      const [c1, c2] = r.colors && r.colors.length ? r.colors : ["var(--lavender)"];
-      const bar = r.b == null ? "" : `<line class="ag-dur" x1="2" x2="2" y1="${r.a.toFixed(1)}" y2="${((r.a + r.b) / 2).toFixed(1)}" style="stroke:${c1}"/>` +
-        `<line class="ag-dur" x1="2" x2="2" y1="${((r.a + r.b) / 2).toFixed(1)}" y2="${r.b.toFixed(1)}" style="stroke:${c2 || c1}"/>`;
-      return bar + `<path d="M0 ${r.a.toFixed(1)} H6 L18 ${ym.toFixed(1)} H24"/>`;
+      return `<path d="M0 ${r.a.toFixed(1)} H6 L18 ${ym.toFixed(1)} H24"/>`;
     }).join("");
     rows.forEach((r) => { r.row.style.top = r.y + "px"; });
   }

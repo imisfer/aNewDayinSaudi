@@ -89,7 +89,7 @@ if (ed.headline && BANNED_WORDS.test(ed.headline)) err("headline: sensational wo
 // City events, keyed by city (the page shows three columns, each with a city picker). Ticketing and tourism platforms are allowed here only.
 // "other" is the legacy catch-all bucket from older editions; it is still accepted but new editions should use the city keys.
 const CITY_KEYS = ["riyadh", "jeddah", "makkah", "madinah", "eastern", "alula", "abha", "taif", "tabuk"];
-const EVENT_HOSTS = /(^|\.)(webook\.com|platinumlist\.net|visitsaudi\.com|experiencealula\.com|riyadhseason\.com|jeddahseason\.sa)$/;
+const EVENT_HOSTS = /(^|\.)(webook\.com|platinumlist\.net|visitsaudi\.com|experiencealula\.com|riyadhseason\.com|jeddahseason\.sa|redseaglobal\.com|soudahdevelopment\.com)$/;
 if (ed.regions != null) {
   if (typeof ed.regions !== "object" || Array.isArray(ed.regions)) err(`regions must be an object keyed by city (${CITY_KEYS.join(", ")})`);
   else {
@@ -98,13 +98,22 @@ if (ed.regions != null) {
       const list = ed.regions[key] || [];
       if (!Array.isArray(list)) { err(`regions.${key} must be an array`); continue; }
       if (list.length > 5) err(`regions.${key} has ${list.length} items; maximum is 5`);
+      if (list.filter((x) => x.kind === "experience").length > 2) err(`regions.${key}: at most 2 experiences per city`);
       const urls = new Set();
       list.forEach((x, i) => {
         const n = `regions.${key} ${i + 1}`;
         if (!x.title || x.title.length > 45) err(`${n}: title missing or longer than 45 chars`);
         if (!x.place || x.place.length > 30) err(`${n}: place missing or longer than 30 chars`);
         if (key === "other" && x.place && /^(الرياض|جدة)$/.test(x.place)) err(`${n}: "other" items must be outside Riyadh and Jeddah`);
-        if (!iso.test(x.start || "")) err(`${n}: start not YYYY-MM-DD`);
+        const exp = x.kind === "experience";
+        if (x.kind != null && !exp) err(`${n}: kind must be "experience" or absent`);
+        if (exp) { // bookable experiences with no set date (tours, hikes, dives): see EDITORIAL.md
+          if (!x.available || x.available.length > 30) err(`${n}: experience needs "available" (≤ 30 chars), e.g. «يوميًا حتى مارس»`);
+          if (x.start || x.end || x.time || x.when) err(`${n}: an experience has no start/end/time/when; use "available" and optional "until"`);
+          if (x.until && (!iso.test(x.until) || (ed.edition_date && x.until < ed.edition_date))) err(`${n}: until must be YYYY-MM-DD, today or later`);
+          if (list.slice(i + 1).some((y) => y.kind !== "experience")) err(`${n}: experiences go after the dated events`);
+        }
+        if (!exp && !iso.test(x.start || "")) err(`${n}: start not YYYY-MM-DD`);
         if (x.end && !iso.test(x.end)) err(`${n}: end not YYYY-MM-DD`);
         if (x.end && x.start && x.end < x.start) err(`${n}: end before start`);
         const last = x.end || x.start;

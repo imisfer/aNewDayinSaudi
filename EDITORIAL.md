@@ -80,6 +80,11 @@ Kick-off times change at short notice, sometimes the day before. Every match tim
 - Leave out: nightclub-style parties, brunches, restaurants, beach-club or pool passes, gyms, and permanent attractions (theme parks, standing venues) unless something new opens.
 - 0–5 items per city, ordered by date. If nothing qualifies, leave the city's array empty or omit the key; the page says «لا فعاليات بارزة هذا الأسبوع». Never pad.
 - Fields: `title` ≤ 45 chars (the event in plain Arabic, e.g. «حفل ندى القلعة», «افتتاح موسم الرياض للسباقات»); `place` ≤ 30 chars (venue or district); `start` and optional `end` as YYYY-MM-DD; optional `when` ≤ 25 chars for recurring items («كل سبت من 24 أكتوبر», «يوميًا»); the today panel (hover/tap the date tile) shows an item on the days its `when` matches; optional `time` (HH:MM, Riyadh time; matches follow the match-time rules above, other events are verified on their event page) puts the item on today's line on its day instead of the all-day list, with optional `duration` (minutes; matches default to 105) and `colors` (1–2 hex, home kit first, for matches); `source_url`.
+- **Experiences (no set date).** Besides dated events, a city may list up to 2 bookable experiences that run on most days: guided hikes, heritage and desert tours, diving and snorkelling trips, stargazing, cooking or craft workshops. They appear after the dated events with a small «تجربة» tag, so the heading «احجـز لحظتك هـذا الأسبـوع» always has something to book.
+  - Fields: `kind: "experience"`, `title`, `place`, `available` ≤ 30 chars («يوميًا», «يوميًا حتى مارس», «الخميس والجمعة»), optional `until` (YYYY-MM-DD, end of season), `source_url` to the booking page. No `start`, `end`, `time` or `when`.
+  - Only experiences that are bookable now: check the booking page shows open dates this week and that the season is running (summer heat closes many outdoor trips).
+  - Sources: visitsaudi.com, experiencealula.com, webook.com, the Red Sea and Soudah destination sites, and official regional tourism pages.
+  - Family-friendly and safe; no extreme or unlicensed operators. Rotate: don't show the same experience in the same city two editions running when another qualifies.
 - Verify the dates on the event page itself. If a listing contradicts itself, use the event page or drop the item.
 
 ## Upcoming national events

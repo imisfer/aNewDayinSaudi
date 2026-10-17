@@ -481,3 +481,5 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 .clocks-map.ag-map { inset: 0 0 auto 0; height: auto; aspect-ratio: 2 / 1;
   -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent); mask-image: linear-gradient(to bottom, #000 80%, transparent); } /* fades out, no hard edge */
 .tl-agenda > :not(.ag-map) { z-index: 1; }
+/* Bookable experiences (no set date) in the city columns: a small «تجربة» tag leads the line under the title */
+.ev-meta .ev-tag { color: var(--lavender); font-weight: 600; }

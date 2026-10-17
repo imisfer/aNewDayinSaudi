@@ -461,6 +461,7 @@
   const savePicks = (v) => { try { localStorage.setItem(PICK_KEY, JSON.stringify(v)); } catch (e) { /* ignore */ } };
 
   // Older editions used an "other" bucket; place it under the matching city by name.
+  const isExp = (e) => e.kind === "experience";
   function normalizeRegions(regions) {
     const out = {};
     for (const key of CITY_KEYS) out[key] = (regions[key] || []).slice();
@@ -468,9 +469,11 @@
       const hit = CITIES.find(([, name]) => (e.place || "").includes(name) || name.includes(e.place || "-"));
       if (hit) out[hit[0]].push(e);
     }
+    // Dated events first (soonest first), then up to two bookable experiences that have no set date.
     for (const key of CITY_KEYS) {
-      out[key] = out[key].filter((e) => (e.end || e.start) >= todayISO)
-        .sort((x, y) => (x.start < y.start ? -1 : 1)).slice(0, 5);
+      const dated = out[key].filter((e) => !isExp(e) && (e.end || e.start) >= todayISO).sort((x, y) => (x.start < y.start ? -1 : 1));
+      const exps = out[key].filter((e) => isExp(e) && (!e.until || e.until >= todayISO)).slice(0, 2);
+      out[key] = [...dated.slice(0, 5 - Math.min(exps.length, 2)), ...exps].slice(0, 5);
     }
     return out;
   }
@@ -483,8 +486,12 @@
       const a = el("a");
       a.href = e.source_url; a.target = "_blank"; a.rel = "noopener";
       a.append(el("span", "ev-title", e.title));
-      const meta = [when(e), e.place].filter(Boolean).join(" · ");
-      a.append(el("span", "ev-meta", meta));
+      if (isExp(e)) { // an experience: no date, so say so and when it's available
+        li.className = "ev-exp";
+        const meta = el("span", "ev-meta");
+        meta.append(el("span", "ev-tag", "تجربة"), " · " + [e.available, e.place].filter(Boolean).join(" · "));
+        a.append(meta);
+      } else a.append(el("span", "ev-meta", [when(e), e.place].filter(Boolean).join(" · ")));
       li.append(a);
       ul.append(li);
     }
@@ -762,7 +769,7 @@
     }
     for (const [key, name] of CITIES) {
       for (const e of (edition.regions || {})[key] || []) {
-        if (e.time || !happensToday(e, e.start, e.end)) continue; // timed events sit on the line instead
+        if (isExp(e) || e.time || !happensToday(e, e.start, e.end)) continue; // timed events sit on the line; experiences aren't dated
         const span = e.when || (e.end && e.end !== e.start ? when(e) : "");
         out.push({ kind: "city", title: e.title, url: e.source_url, meta: [name, e.place, span].filter(Boolean).join(" · ") });
       }

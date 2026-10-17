@@ -165,15 +165,14 @@ a { color: inherit; text-decoration: none; }
 .events h2 { margin: 0 0 8px; }
 .regions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
 .r-stack { display: grid; gap: 16px; min-width: 0; }
-.r-fixed { cursor: default; padding-inline-end: 0; }
-.r-fixed::after { display: none; }
+
 /* Column title: icon · city name · weather, then the chevron. A transparent <select> covers the whole row,
    so tapping anywhere opens the native city list while the visible text stays compact. */
 .r-pick { position: relative; display: flex; align-items: center; gap: 6px; margin: 0 0 6px; padding: 0 0 4px; padding-inline-end: 18px; border-bottom: 1px solid var(--line); cursor: pointer; }
 .r-pick:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-.r-icon { flex: none; line-height: 0; color: var(--lavender); }
+.r-icon { flex: none; line-height: 0; color: var(--ink); }
 .r-icon svg { width: 16px; height: 16px; }
-.r-name { font-size: 1.05rem; color: var(--lavender); line-height: 1.6; white-space: nowrap; }
+.r-name { font-size: 1.05rem; color: var(--ink); line-height: 1.6; white-space: nowrap; }
 .r-pick select {
   position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;
   appearance: none; -webkit-appearance: none; font: inherit; font-size: 16px; border: 0;
@@ -185,6 +184,9 @@ a { color: inherit; text-decoration: none; }
 }
 .nowrap { white-space: nowrap; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* Riyadh is fixed: not a picker, so no pointer, no arrow, no hover */
+.r-pick.r-fixed { cursor: default; padding-inline-end: 0; pointer-events: none; }
+.r-pick.r-fixed::after { display: none; }
 .r-weather { display: inline-flex; align-items: center; gap: 4px; font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .w-icon { line-height: 0; color: var(--lavender); }
 .region ul { list-style: none; margin: 0; padding: 0; }

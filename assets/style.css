@@ -480,6 +480,6 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 .clock.night svg .c-nums text { fill: #e8ebf5; }
 .clock.night svg .c-pin { fill: #b8a5ee; }
 /* Today panel: the world day/night map as background, top-aligned, full width, drawn once (no repeat) */
-.clocks-map.ag-map { inset: 0 0 auto 0; height: auto; aspect-ratio: 2 / 1; opacity: .8;
-  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent); mask-image: linear-gradient(to bottom, #000 55%, transparent); } /* fades out, no hard edge */
+.clocks-map.ag-map { inset: 0 0 auto 0; height: auto; aspect-ratio: 2 / 1;
+  -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent); mask-image: linear-gradient(to bottom, #000 80%, transparent); } /* fades out, no hard edge */
 .tl-agenda > :not(.ag-map) { z-index: 1; }

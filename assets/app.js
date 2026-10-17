@@ -913,16 +913,13 @@
   function clearTile() {
     const head = agenda.querySelector(".ag-head");
     if (!head) return;
-    const t = tile.getBoundingClientRect(), a = agenda.getBoundingClientRect();
-    const overlaps = t.left < a.right && t.right > a.left && t.bottom > a.top;
     head.style.paddingTop = head.style.minHeight = head.style.paddingLeft = "";
-    if (!overlaps) return;
-    // Put the date on the same line as the tile, centred on it, when there's room beside it; otherwise under it.
-    if (a.right - t.right - 26 < 210) { head.style.paddingTop = Math.round(t.bottom - a.top + 10) + "px"; return; }
-    const row = head.querySelector(".ag-top").offsetHeight;
-    head.style.paddingTop = Math.max(8, Math.round(t.top - a.top + (t.height - row) / 2)) + "px";
-    head.style.minHeight = Math.round(t.bottom - a.top + 8) + "px";
-    head.style.paddingLeft = Math.round(t.right - a.left + 12) + "px";
+    // The day's details start under the world map (and under the tile, if it reaches lower), so the map stays clear.
+    const a = agenda.getBoundingClientRect(), t = tile.getBoundingClientRect();
+    const map = agenda.querySelector(".ag-map");
+    let below = map ? map.getBoundingClientRect().bottom - a.top : 0;
+    if (t.left < a.right && t.right > a.left && t.bottom > a.top) below = Math.max(below, t.bottom - a.top);
+    if (below) head.style.paddingTop = Math.round(below + 8) + "px";
   }
   function collapse(byUser) {
     clearTimeout(hideT);

@@ -278,8 +278,6 @@ a { color: inherit; text-decoration: none; }
 .clocks-map { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 .clocks-map .m-land { fill: var(--line); }
 .clocks-map .m-night { fill: #0e1838; opacity: .24; }
-.clocks-map .m-sun { fill: #f2b84b; opacity: .55; }
-.clocks-map .m-cities circle { fill: var(--lavender); }
 :root[data-theme="dark"] .clocks-map .m-night { opacity: .6; }
 :root[data-theme="dark"] .clocks-map .m-land { fill: #3a443f; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .clocks-map .m-night { opacity: .6; } :root:not([data-theme="light"]) .clocks-map .m-land { fill: #3a443f; } }

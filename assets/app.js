@@ -265,7 +265,6 @@
     // Night wraps the pole that is tilted away from the sun.
     const edge = dec > 0 ? "180" : "0";
     const night = `M0,${edge} L${pts.join(" L")} L360,${edge} Z`;
-    const cities = WORLD.map(([, , lat, lng]) => `<circle cx="${(lng + 180).toFixed(1)}" cy="${(90 - lat).toFixed(1)}" r="1.6"/>`).join("");
     const svg = document.createElementNS(SVGNS, "svg");
     svg.setAttribute("class", "clocks-map");
     svg.setAttribute("viewBox", "0 0 360 180"); // whole world; the box crops a little at the poles, never the longitudes
@@ -273,9 +272,7 @@
     svg.setAttribute("aria-hidden", "true");
     svg.innerHTML = `<defs><filter id="${id}-soft" x="-5%" y="-10%" width="110%" height="120%"><feGaussianBlur stdDeviation="2.2"/></filter></defs>` +
       `<path class="m-land" d="${window.WORLD_LAND}"/>` +
-      `<path class="m-night" d="${night}" filter="url(#${id}-soft)"/>` +
-      `<circle class="m-sun" cx="${(sun.lon + 180).toFixed(1)}" cy="${(90 - sun.lat).toFixed(1)}" r="4"/>` +
-      `<g class="m-cities">${cities}</g>`;
+      `<path class="m-night" d="${night}" filter="url(#${id}-soft)"/>`;
     return svg;
   }
   function drawClocks(box) {

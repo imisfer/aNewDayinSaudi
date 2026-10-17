@@ -121,7 +121,7 @@ a { color: inherit; text-decoration: none; }
 /* Labels (chips, city names, event titles): Thmanyah Sans 600, lavender */
 .more .key, .ev-title { font-family: "Thmanyah Sans", system-ui, sans-serif; font-weight: 600; }
 /* City names: Serif Display, so the column title reads apart from the event titles under it (Sans) */
-.r-name { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; font-weight: 700; font-feature-settings: "swsh" 0; }
+.r-name { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; font-weight: 700; font-feature-settings: "swsh" 1; } /* swash letters (الحروف المرسلة) */
 .hint { margin: 8px 0 0; font-size: .75rem; color: var(--muted); }
 
 .cat { color: var(--accent); font-weight: 600; }
@@ -173,7 +173,7 @@ a { color: inherit; text-decoration: none; }
 .r-pick:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 .r-icon { flex: none; line-height: 0; color: var(--ink); }
 .r-icon svg { width: 16px; height: 16px; }
-.r-name { font-size: 1.05rem; color: var(--ink); line-height: 1.6; white-space: nowrap; }
+.r-name { font-size: 1.05rem; color: var(--ink); line-height: 1.6; white-space: nowrap; padding-bottom: .15em; }
 .r-pick select {
   position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;
   appearance: none; -webkit-appearance: none; font: inherit; font-size: 16px; border: 0;

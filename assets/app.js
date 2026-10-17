@@ -76,12 +76,15 @@
     ["jeddah", "جدة", 21.4858, 39.1925],
     ["makkah", "مكة", 21.3891, 39.8579],
     ["madinah", "المدينة", 24.5247, 39.5692],
-    ["eastern", "الشرقية", 26.4207, 50.0888],
+    ["eastern", "الدمام", 26.4207, 50.0888],
     ["alula", "العلا", 26.6085, 37.9232],
     ["abha", "أبها", 18.2164, 42.5053],
     ["taif", "الطائف", 21.2703, 40.4158],
     ["tabuk", "تبوك", 28.3835, 36.5662],
   ];
+  // Column titles: the names as the editor styled them (diacritics, stretched letters), shown with swash letters.
+  const CITY_TITLES = { riyadh: "الرِّياض", makkah: "مكَّة", madinah: "المـدينَة", eastern: "الدَّمـام", jeddah: "جـدَّة",
+    alula: "العُـــــلا", abha: "أبْهَـــــا", tabuk: "تبـُوك", taif: "الطَّـائِف" };
   const CITY_KEYS = CITIES.map((c) => c[0]);
   // City icons (original line drawings; Riyadh: Masmak tower, Jeddah: roshan, Makkah: pointed arch, Madinah: palm,
   // Dammam-Khobar: dhow, AlUla: Elephant Rock, Abha: Asiri house, Taif: rose, Tabuk: Jabal al-Lawz).
@@ -498,7 +501,7 @@
     if (!byCity[key].length) ul.append(el("li", "ev-empty", "لا فعاليات بارزة هذا الأسبوع"));
     renderWeatherLine($("w-" + i), key);
     $("ic-" + i).innerHTML = cityIcon(key);
-    $("nm-" + i).textContent = (CITIES.find((c) => c[0] === key) || [, key])[1];
+    $("nm-" + i).textContent = CITY_TITLES[key] || (CITIES.find((c) => c[0] === key) || [, key])[1];
   }
 
   function renderRegions(regions) {

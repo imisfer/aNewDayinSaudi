@@ -61,7 +61,7 @@ a { color: inherit; text-decoration: none; }
   padding-bottom: 12px;
 }
 .m-title { container-type: inline-size; min-width: 0; }
-.masthead .tile { justify-self: end; }
+.masthead .tile { justify-self: end; position: relative; z-index: 31; } /* above the today panel (z-index 30) */
 .lead h1, .detail h3 { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; }
 
 /* Date tile */

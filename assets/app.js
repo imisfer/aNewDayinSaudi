@@ -883,7 +883,16 @@
     tl.classList.add("expanded");
     tile.setAttribute("aria-expanded", "true");
     closeBubbles(); // the panel already shows everything the line's bubbles would
+    clearTile();
     layoutAgenda();
+  }
+  // The date tile stays on top of the open panel; the panel's header starts below it wherever they overlap.
+  function clearTile() {
+    const head = agenda.querySelector(".ag-head");
+    if (!head) return;
+    const t = tile.getBoundingClientRect(), a = agenda.getBoundingClientRect();
+    const overlaps = t.left < a.right && t.right > a.left && t.bottom > a.top;
+    head.style.paddingTop = overlaps ? Math.round(t.bottom - a.top + 10) + "px" : "";
   }
   function collapse(byUser) {
     clearTimeout(hideT);
@@ -906,7 +915,7 @@
   agenda.addEventListener("click", (e) => { e.stopPropagation(); pinned = true; });
   document.addEventListener("click", () => { if (tl.classList.contains("expanded")) collapse(true); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && tl.classList.contains("expanded")) { collapse(true); tile.focus({ preventScroll: true }); } });
-  addEventListener("resize", layoutAgenda);
+  addEventListener("resize", () => { clearTile(); layoutAgenda(); });
 
   renderTimeline([]);
   loadWeather();

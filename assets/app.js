@@ -493,6 +493,7 @@
     renderTimeline(ed.timeline);
 
     renderRegions(ed.regions);
+    collectEvents(ed);
 
     if (ed.events && ed.events.length) {
       $("events-wrap").hidden = false;
@@ -504,6 +505,150 @@
       }
     }
   }
+
+  // ---------- Month calendar (opens from the date tile) ----------
+  // Saudi week: Sunday first; Friday and Saturday are the weekend.
+  const WEEK = ["أحد", "إثنين", "ثلاثاء", "أربعاء", "خميس", "جمعة", "سبت"];
+  const MONTHS = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
+  const hijriFmt = hasUmmAlQura
+    ? new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn", { timeZone: "UTC", day: "numeric", month: "numeric", year: "numeric" })
+    : null;
+  const utc = (y, m, d) => new Date(Date.UTC(y, m, d, 12));
+  const isoOf = (dt) => dt.toISOString().slice(0, 10);
+  function hijriOf(dt) {
+    if (!hijriFmt) return null;
+    const p = Object.fromEntries(hijriFmt.formatToParts(dt).map((x) => [x.type, x.value]));
+    return { d: +p.day, m: +p.month, y: parseInt(p.year, 10) };
+  }
+  let calEvents = [];
+  // Events by day. Short runs (a week or less) show on every day; long seasons show on their first and last day only.
+  function eventsOn(iso) {
+    const out = [];
+    for (const e of calEvents) {
+      const end = e.end || e.start;
+      if (iso < e.start || iso > end) continue;
+      const days = (Date.parse(end) - Date.parse(e.start)) / 864e5;
+      if (days > 7 && iso !== e.start && iso !== end) continue;
+      out.push({ ...e, closing: days > 7 && iso === end && iso !== e.start });
+    }
+    return out;
+  }
+  function collectEvents(ed) {
+    const list = [];
+    for (const ev of ed.events || []) {
+      list.push({ kind: "national", start: ev.date, end: ev.end || ev.date, title: ev.title.replace(/\s*\([^)]*\d[^)]*\)\s*$/, "") });
+    }
+    if (ed.regions) {
+      const byCity = {};
+      for (const key of CITY_KEYS) byCity[key] = (ed.regions[key] || []).slice();
+      for (const [key, items] of Object.entries(byCity)) {
+        const city = (CITIES.find((c) => c[0] === key) || [, key])[1];
+        for (const e of items) list.push({ kind: "city", city, start: e.start, end: e.end || e.start, title: e.title, place: e.place, url: e.source_url, when: e.when });
+      }
+    }
+    calEvents = list.filter((e) => e.start && !e.when).sort((a, b) => (a.start < b.start ? -1 : 1));
+  }
+
+  const cal = $("cal");
+  const [ty, tm] = todayISO.split("-").map(Number);
+  let view = { y: ty, m: tm - 1 };
+  let picked = todayISO;
+
+  function eventLine(e, tag) {
+    const n = el(tag, "cal-ev " + e.kind);
+    n.append(el("span", "cal-ev-t", (e.closing ? "ختام: " : "") + e.title));
+    return n;
+  }
+  function renderDay() {
+    const box = $("cal-day");
+    box.textContent = "";
+    const [y, m, d] = picked.split("-").map(Number);
+    const dt = utc(y, m - 1, d);
+    const h = hijriOf(dt);
+    const head = el("p", "cal-day-head");
+    head.append(el("b", "", `${WEEK[dt.getUTCDay()]} ${d} ${MONTHS[m - 1]}`));
+    if (h) head.append(el("span", "", ` · ${h.d} ${HIJRI_SHORT[h.m - 1]} ${h.y} هـ`));
+    box.append(head);
+    const evs = eventsOn(picked);
+    if (!evs.length) { box.append(el("p", "cal-empty", "لا فعاليات مسجّلة في هذا اليوم.")); return; }
+    const ul = el("ul", "cal-list");
+    for (const e of evs) {
+      const li = el("li", "cal-item " + e.kind);
+      const body = e.url ? el("a") : el("div");
+      if (e.url) { body.href = e.url; body.target = "_blank"; body.rel = "noopener"; }
+      body.append(el("span", "cal-item-t", (e.closing ? "ختام: " : "") + e.title));
+      const range = e.end !== e.start ? when({ start: e.start, end: e.end }) : "";
+      const meta = [e.kind === "national" ? "وطني" : e.city, e.place, range].filter(Boolean).join(" · ");
+      body.append(el("span", "cal-item-m", meta));
+      li.append(body);
+      ul.append(li);
+    }
+    box.append(ul);
+  }
+  function renderCal() {
+    const { y, m } = view;
+    $("cal-month").textContent = MONTHS[m];
+    $("cal-year").textContent = y;
+    const first = utc(y, m, 1), last = utc(y, m + 1, 0);
+    const h1 = hijriOf(first), h2 = hijriOf(last);
+    $("cal-hijri").textContent = !h1 ? "" : h1.m === h2.m
+      ? `${HIJRI_SHORT[h1.m - 1]} ${h1.y} هـ`
+      : `${HIJRI_SHORT[h1.m - 1]}${h1.y !== h2.y ? " " + h1.y : ""} – ${HIJRI_SHORT[h2.m - 1]} ${h2.y} هـ`;
+
+    const grid = $("cal-grid");
+    grid.textContent = "";
+    WEEK.forEach((w, i) => grid.append(el("div", "cal-wd" + (i >= 5 ? " wkend" : ""), w)));
+    const start = utc(y, m, 1 - first.getUTCDay());
+    const weeks = Math.ceil((first.getUTCDay() + last.getUTCDate()) / 7);
+    for (let i = 0; i < weeks * 7; i++) {
+      const dt = utc(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate() + i);
+      const iso = isoOf(dt);
+      const cell = el("button", "cal-cell");
+      cell.type = "button";
+      if (dt.getUTCMonth() !== m) cell.classList.add("out");
+      if (iso === todayISO) cell.classList.add("today");
+      if (iso === picked) cell.classList.add("picked");
+      const h = hijriOf(dt);
+      const num = el("span", "cal-num");
+      num.append(el("span", "cal-g", dt.getUTCDate()));
+      if (h) num.append(el("span", "cal-h", h.d === 1 ? `1 ${HIJRI_SHORT[h.m - 1]}` : h.d));
+      cell.append(num);
+      const evs = eventsOn(iso);
+      const lines = el("span", "cal-evs");
+      evs.slice(0, 3).forEach((e) => lines.append(eventLine(e, "span")));
+      if (evs.length > 3) lines.append(el("span", "cal-more", `+${evs.length - 3}`));
+      const dots = el("span", "cal-dots");
+      evs.slice(0, 4).forEach((e) => dots.append(el("i", e.kind)));
+      cell.append(lines, dots);
+      cell.setAttribute("aria-label", `${dt.getUTCDate()} ${MONTHS[dt.getUTCMonth()]}${evs.length ? "، " + evs.length + " فعاليات" : ""}`);
+      cell.addEventListener("click", () => {
+        picked = iso;
+        if (dt.getUTCMonth() !== m) { view = { y: dt.getUTCFullYear(), m: dt.getUTCMonth() }; renderCal(); return; }
+        grid.querySelectorAll(".picked").forEach((c) => c.classList.remove("picked"));
+        cell.classList.add("picked");
+        renderDay();
+      });
+      grid.append(cell);
+    }
+    renderDay();
+  }
+  function step(n) {
+    const d = new Date(Date.UTC(view.y, view.m + n, 1));
+    view = { y: d.getUTCFullYear(), m: d.getUTCMonth() };
+    picked = view.y === ty && view.m === tm - 1 ? todayISO : isoOf(utc(view.y, view.m, 1));
+    renderCal();
+  }
+  $("cal-prev").addEventListener("click", () => step(-1));
+  $("cal-next").addEventListener("click", () => step(1));
+  $("cal-today").addEventListener("click", () => { view = { y: ty, m: tm - 1 }; picked = todayISO; renderCal(); });
+  $("cal-close").addEventListener("click", () => cal.close());
+  cal.addEventListener("click", (e) => { if (e.target === cal) cal.close(); });
+  cal.addEventListener("close", () => $("date-tile").focus());
+  function openCal() { view = { y: ty, m: tm - 1 }; picked = todayISO; renderCal(); cal.showModal(); }
+  const tile = $("date-tile");
+  tile.setAttribute("aria-label", tile.getAttribute("aria-label") + ". افتح التقويم");
+  tile.addEventListener("click", openCal);
+  tile.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCal(); } });
 
   renderTimeline([]);
   loadWeather();

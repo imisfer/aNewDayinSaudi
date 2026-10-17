@@ -26,6 +26,14 @@ Crime, accidents, disputes, politics and foreign conflicts, rumours, anything th
 - 5–8 cards. If fewer than 5 items pass verification, publish fewer (minimum 3). Never pad with weak items.
 - Mix categories; avoid more than 2 cards from the same category.
 
+## News register (each story once in 30 days)
+The same news often surfaces on different platforms days apart. Every card published in the last 30 days is in the register, built from the git history of `data/edition.json`, and a story may be used only once in that window.
+- Before choosing cards, run `node scripts/register.mjs` and read it. Skip anything already there, even if today's source is different, newer or worded differently.
+- Give each card a `story` id: a short lowercase English slug for the underlying news (e.g. `riyadh-season-2026-launch`, `inflation-2026-09`). The same news always gets the same id.
+- A genuinely new development of an earlier story (results after an opening, a final after a semi-final, a new figure) may run, with `follows` set to the earlier card's `story` id or edition date. It must add a new fact; a restatement is a repeat.
+- Link each card to the specific article or release page, not a site's home page.
+- The validator blocks a card that reuses a register entry's link or `story` id, or whose title clearly matches one, and warns on close matches. Read the warnings.
+
 ## Headline (the lead readers tap)
 Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is the lead: it names the 2–3 strongest items, and each card's `keyword` that appears in it becomes a tappable phrase opening that card's details and source. Cards whose keyword isn't in the headline appear under it as "وأيضًا" chips.
 - Every card needs a `keyword`: 1–4 words. At least 2 keywords must appear verbatim in the headline.
@@ -68,6 +76,6 @@ Kick-off times change at short notice, sometimes the day before. Every match tim
 
 ## Publishing
 1. Write `data/edition.json` with `edition_date` = today (Asia/Riyadh) and `status: "pilot"`.
-2. Run `node scripts/validate.mjs --today`. If it fails, fix the edition and re-run. Never publish a failing edition.
+2. Run `node scripts/validate.mjs --today` (it also checks the news register). If it fails, fix the edition and re-run. Never publish a failing edition.
 3. If a valid edition can't be produced, change nothing. The page will label the previous edition "آخر تحديث".
 4. Commit to `main` as `edition: YYYY-MM-DD` and push.

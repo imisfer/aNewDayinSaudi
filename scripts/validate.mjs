@@ -2,6 +2,7 @@
 // Gate for automatic publishing. Exits non-zero if data/edition.json breaks the editorial contract.
 // Usage: node scripts/validate.mjs [path] [--today]   (--today also requires edition_date == today in Riyadh)
 import { readFileSync } from "node:fs";
+import { loadRegister, findRepeats } from "./register.mjs";
 
 const args = process.argv.slice(2);
 const file = args.find((a) => !a.startsWith("--")) || "data/edition.json";
@@ -130,6 +131,22 @@ for (const [i, x] of (ed.events || []).entries()) {
   if (x.date && ed.edition_date && x.date < ed.edition_date) err(`event ${i + 1}: date is in the past`);
   if (x.end && (!iso.test(x.end) || x.end < x.date)) err(`event ${i + 1}: end missing format or before date`);
   if (x.title && /\(\s*\d/.test(x.title)) warn(`event ${i + 1}: title seems to include a date; use date/end instead`);
+}
+
+// News register: a story may be used only once in 30 days (read from the git history of this file).
+{
+  const reg = loadRegister({ before: ed.edition_date });
+  if (!reg.ok) warn("news register unavailable (no git history); repeats were not checked");
+  cards.forEach((c, i) => {
+    if (c.story != null && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(c.story)) err(`card ${i + 1}: story must be a short lowercase slug, e.g. "riyadh-season-2026-launch"`);
+    for (const h of findRepeats(c, reg.entries)) {
+      const m = `card ${i + 1}: ${h.why} with ${h.e.date} «${h.e.title}»`;
+      if (h.level === "error") err(m + " — already used; pick another story or mark a genuine new development with \"follows\"");
+      else warn(m);
+    }
+  });
+  const ids = cards.map((c) => c.story).filter(Boolean);
+  if (new Set(ids).size !== ids.length) err("two cards share the same story id");
 }
 
 // Timeline: today's timed events shown as dots at the bottom (matches, openings, national moments).

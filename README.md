@@ -10,7 +10,8 @@ A one-screen, Arabic-first daily briefing on what's happening in Saudi Arabia: d
 
 ## Publishing an edition (automatic, daily)
 - Every morning (~5:20 Riyadh) a scheduled Claude run researches the last days' news, writes `data/edition.json` following [`EDITORIAL.md`](EDITORIAL.md), and pushes to `main`. GitHub Pages redeploys in about a minute.
-- `scripts/validate.mjs` is the gate: the run only publishes if `node scripts/validate.mjs --today` passes (fields, dates, 3–8 cards, allowed sources, length limits, no sensational wording).
+- `scripts/validate.mjs` is the gate: the run only publishes if `node scripts/validate.mjs --today` passes (fields, dates, 3–8 cards, allowed sources, length limits, no sensational wording, and no story repeated from the last 30 days).
+- `scripts/register.mjs` prints the news register: every card used in the last 30 days, read from the git history of `data/edition.json`. The validator uses it to block repeats.
 - If no valid edition can be produced, nothing is pushed and the page labels the previous edition "آخر تحديث".
 - To change what gets selected or how it's written, edit `EDITORIAL.md`.
 

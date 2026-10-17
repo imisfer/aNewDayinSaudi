@@ -201,8 +201,8 @@
 
   // ---------- World clocks (tooltip on the timeline's "now" marker) ----------
   const WORLD = [
-    ["طوكيو", "Asia/Tokyo"], ["الرياض", "Asia/Riyadh"],
-    ["لندن", "Europe/London"], ["نيويورك", "America/New_York"]
+    ["طوكيو", "Asia/Tokyo", 35.68, 139.69], ["الرياض", "Asia/Riyadh", 24.71, 46.68],
+    ["لندن", "Europe/London", 51.51, -0.13], ["نيويورك", "America/New_York", 40.71, -74.01]
   ];
   const SVGNS = "http://www.w3.org/2000/svg";
   function clockFace(h, m) {
@@ -220,22 +220,38 @@
       `<line x1="0" y1="8" x2="0" y2="-34" class="c-min" transform="rotate(${ma})"/>` +
       `<circle r="3.2" class="c-pin"/></svg>`;
   }
+  // Day or night at a city right now: between that city's real sunrise and sunset (from adhan), else 6:00–18:00 local.
+  function isDaytime(lat, lng, zone, t) {
+    if (window.adhan) {
+      const a = window.adhan;
+      const c = new a.Coordinates(lat, lng);
+      for (const shift of [-1, 0, 1]) {
+        const d = new Date(t.getTime() + shift * 864e5);
+        const pt = new a.PrayerTimes(c, d, a.CalculationMethod.MuslimWorldLeague());
+        if (t >= pt.sunrise && t < pt.maghrib) return true;
+      }
+      return false;
+    }
+    const h = +new Intl.DateTimeFormat("en-US", { timeZone: zone, hour: "numeric", hourCycle: "h23" }).format(t);
+    return h >= 6 && h < 18;
+  }
   function drawClocks(box) {
     const t = new Date();
     box.textContent = "";
     box.append(el("div", "clocks-title", "الوقت الآن حول العالم"));
     const row = el("div", "clocks-row");
     box.append(row);
-    for (const [name, zone] of WORLD) {
+    for (const [name, zone, lat, lng] of WORLD) {
       const parts = Object.fromEntries(new Intl.DateTimeFormat("en-US", {
         timeZone: zone, hour: "numeric", minute: "numeric", hourCycle: "h23"
       }).formatToParts(t).map((p) => [p.type, p.value]));
-      const cell = el("div", "clock");
+      const day = isDaytime(lat, lng, zone, t);
+      const cell = el("div", "clock " + (day ? "day" : "night"));
       const face = el("div", "clock-face");
       face.innerHTML = clockFace(+parts.hour, +parts.minute);
       const digital = new Intl.DateTimeFormat("ar-SA-u-nu-latn", { timeZone: zone, hour: "numeric", minute: "2-digit" }).format(t);
       cell.append(face, el("span", "clock-city", name), el("span", "clock-time", digital));
-      cell.setAttribute("aria-label", `${name} ${digital}`);
+      cell.setAttribute("aria-label", `${name} ${digital} · ${day ? "نهار" : "ليل"}`);
       row.append(cell);
     }
   }

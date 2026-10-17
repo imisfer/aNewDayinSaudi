@@ -457,3 +457,12 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 /* While the today panel is open, the line's own bubbles (matches, sunrise/sunset, world clocks) stay quiet */
 .timeline.expanded .tl-track > * { pointer-events: none; }
 .timeline.expanded .tl-track .tl-bubble, .timeline.expanded .tl-track .tl-clocks { display: none !important; }
+/* World clocks: the face says day or night in that city (fixed colours, same in light and dark mode) */
+.clock.day svg .c-face { fill: #fff6dc; stroke: #e9b44c; }
+.clock.day svg .c-ticks line, .clock.day svg .c-hour, .clock.day svg .c-min { stroke: #1b1f1d; }
+.clock.day svg .c-nums text { fill: #1b1f1d; }
+.clock.day svg .c-pin { fill: #e0882d; }
+.clock.night svg .c-face { fill: #1c2442; stroke: #3a4570; }
+.clock.night svg .c-ticks line, .clock.night svg .c-hour, .clock.night svg .c-min { stroke: #e8ebf5; }
+.clock.night svg .c-nums text { fill: #e8ebf5; }
+.clock.night svg .c-pin { fill: #b8a5ee; }

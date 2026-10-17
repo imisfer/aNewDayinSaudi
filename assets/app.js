@@ -252,7 +252,7 @@
   }
   // Background for the clocks: the world map with tonight's side shaded, edge = the day/night curve.
   // Map coordinates are equirectangular: x = lon + 180, y = 90 − lat.
-  function worldNightMap(t) {
+  function worldNightMap(t, id = "nm") {
     if (!window.WORLD_LAND) return null;
     const sun = subsolar(t);
     const rad = Math.PI / 180;
@@ -271,9 +271,9 @@
     svg.setAttribute("viewBox", "0 0 360 180"); // whole world; the box crops a little at the poles, never the longitudes
     svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
     svg.setAttribute("aria-hidden", "true");
-    svg.innerHTML = `<defs><filter id="nm-soft" x="-5%" y="-10%" width="110%" height="120%"><feGaussianBlur stdDeviation="2.2"/></filter></defs>` +
+    svg.innerHTML = `<defs><filter id="${id}-soft" x="-5%" y="-10%" width="110%" height="120%"><feGaussianBlur stdDeviation="2.2"/></filter></defs>` +
       `<path class="m-land" d="${window.WORLD_LAND}"/>` +
-      `<path class="m-night" d="${night}" filter="url(#nm-soft)"/>` +
+      `<path class="m-night" d="${night}" filter="url(#${id}-soft)"/>` +
       `<circle class="m-sun" cx="${(sun.lon + 180).toFixed(1)}" cy="${(90 - sun.lat).toFixed(1)}" r="4"/>` +
       `<g class="m-cities">${cities}</g>`;
     return svg;
@@ -776,6 +776,13 @@
   let agRows = [];
   function buildAgenda() {
     agenda.textContent = "";
+    // Same live day/night world map as the world clocks, across the top of the panel at full width.
+    const map = worldNightMap(new Date(), "ag");
+    if (map) {
+      map.setAttribute("class", "clocks-map ag-map");
+      map.setAttribute("preserveAspectRatio", "xMidYMin meet");
+      agenda.append(map);
+    }
     agRows = [];
     if (!dayModel) return;
     const { items } = dayModel;
@@ -910,7 +917,8 @@
     const overlaps = t.left < a.right && t.right > a.left && t.bottom > a.top;
     head.style.paddingTop = head.style.minHeight = head.style.paddingLeft = "";
     if (!overlaps) return;
-    // Put the date on the same line as the tile, centred on it, and keep it clear of the tile.
+    // Put the date on the same line as the tile, centred on it, when there's room beside it; otherwise under it.
+    if (a.right - t.right - 26 < 210) { head.style.paddingTop = Math.round(t.bottom - a.top + 10) + "px"; return; }
     const row = head.querySelector(".ag-top").offsetHeight;
     head.style.paddingTop = Math.max(8, Math.round(t.top - a.top + (t.height - row) / 2)) + "px";
     head.style.minHeight = Math.round(t.bottom - a.top + 8) + "px";

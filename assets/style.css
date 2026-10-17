@@ -484,3 +484,9 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 .tl-agenda > :not(.ag-map) { z-index: 1; }
 /* Bookable experiences (no set date) in the city columns: a small «تجربة» tag leads the line under the title */
 .ev-meta .ev-tag { color: var(--lavender); font-weight: 600; }
+/* Wide screens: the date tile keeps the same spot as on a phone — top-left, just right of the timeline —
+   instead of following the centred page column. It still scrolls with the page. */
+@media (min-width: 737px) {
+  .masthead { grid-template-columns: 1fr; }
+  .masthead .tile { position: absolute; top: 20px; left: 32px; }
+}

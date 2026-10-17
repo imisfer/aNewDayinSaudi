@@ -465,7 +465,7 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 .ag-allbox.more { -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent); }
 /* Timed events in the today panel use the all-day card look */
 .ag-row.ag-card { display: block; height: auto; padding: 4px 0; white-space: normal; line-height: 1.4; }
-.ag-card > * { display: flex; flex-direction: column; min-width: 0; padding-inline-start: 8px; border-inline-start: 3px solid var(--muted); }
+.ag-card > * { display: flex; flex-direction: column; min-width: 0; text-align: left; padding-left: 8px; border-left: 3px solid var(--muted); } /* timed events hug the line: left-aligned, border on the line side */
 .ag-card a:hover .ag-t { color: var(--accent); }
 /* While the today panel is open, the line's own bubbles (matches, sunrise/sunset, world clocks) stay quiet */
 .timeline.expanded .tl-track > * { pointer-events: none; }

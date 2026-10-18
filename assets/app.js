@@ -313,24 +313,13 @@
     const team = (c) => (Array.isArray(c) ? [c[0], c[1] || c[0]] : [c, c]);
     return [team(colors[0]), team(colors[1] || colors[0])];
   }
-  // A small two-colour tile per club (sharp diagonal split), in place of a crest we have no rights to use.
-  function clubTile([a, b]) {
-    const t = el("i", "club-tile");
-    t.setAttribute("aria-hidden", "true");
-    t.style.setProperty("--a", a);
-    t.style.setProperty("--b", b);
-    return t;
-  }
-  // «home × away» with each club's tile beside its name (home on the right, away on the left).
-  function matchTitle(tag, cls, text, colors) {
-    const n = el(tag, cls);
+  // Club banner: each club as a two-colour tile (sharp diagonal split), home on the right, away on the left,
+  // drawn as a band across the top of a match popup or card, in place of crests we have no rights to use.
+  function clubBanner(node, colors) {
     const tc = teamColors(colors);
-    const parts = text.split(/\s*×\s*/);
-    if (!tc || parts.length !== 2) { n.textContent = text; return n; }
-    const away = parts[1].match(/^(.*?)(\s*[–-].*)?$/); // keep a trailing «– دوري روشن» after the away tile
-    n.append(clubTile(tc[0]), parts[0] + " × " + away[1], clubTile(tc[1]));
-    if (away[2]) n.append(away[2]);
-    return n;
+    if (!tc) return;
+    node.classList.add("club-banner");
+    [["--h1", tc[0][0]], ["--h2", tc[0][1]], ["--a1", tc[1][0]], ["--a2", tc[1][1]]].forEach(([k, v]) => node.style.setProperty(k, v));
   }
   let dayModel = null; // today's prayer times, line positions and timed items, for the expanded agenda
   let edition = null;
@@ -444,12 +433,8 @@
       dot.setAttribute("aria-label", e.note ? `${text} · ${e.note}` : text);
       const bubble = el(e.source_url ? "a" : "span", "tl-bubble" + (p < 6 ? " edge-start" : p > 94 ? " edge-end" : ""));
       if (e.source_url) { bubble.href = e.source_url; bubble.target = "_blank"; bubble.rel = "noopener"; }
-      if (isMatch(e) && e.colors && e.colors.length) { // a band of the two kits across the top: home on the right, away on the left
-        bubble.classList.add("match");
-        bubble.style.setProperty("--c1", c1);
-        bubble.style.setProperty("--c2", c2 || c1);
-      }
-      bubble.append(isMatch(e) ? matchTitle("strong", "", e.label, e.colors) : el("strong", "", e.label), el("span", "", `${span}${e.note ? " · " + e.note : ""}`));
+      if (isMatch(e)) clubBanner(bubble, e.colors);
+      bubble.append(el("strong", "", e.label), el("span", "", `${span}${e.note ? " · " + e.note : ""}`));
       const holder = el("span", "tl-dot-wrap" + (e === soon ? " open" : ""));
       holder.style.top = p + "%";
       dot.addEventListener("click", (ev) => {
@@ -519,7 +504,7 @@
       const li = el("li");
       const a = el("a");
       a.href = e.source_url; a.target = "_blank"; a.rel = "noopener";
-      a.append(e.colors && isMatch(e) ? matchTitle("span", "ev-title", e.title, e.colors) : el("span", "ev-title", e.title));
+      a.append(el("span", "ev-title", e.title));
       if (isExp(e)) { // an experience: no date, so say so and when it's available
         li.className = "ev-exp";
         const meta = el("span", "ev-meta");
@@ -873,7 +858,8 @@
         const body = r.url ? el("a") : el("div");
         if (r.url) { body.href = r.url; body.target = "_blank"; body.rel = "noopener"; }
         const range = clock.format(r.t); // start time only
-        body.append(matchTitle("span", "ag-t", r.name, r.colors), el("span", "ag-m", [range, r.note].filter(Boolean).join(" · ")));
+        body.append(el("span", "ag-t", r.name), el("span", "ag-m", [range, r.note].filter(Boolean).join(" · ")));
+        if (/×/.test(r.name)) clubBanner(row, r.colors);
         row.append(body);
       } else {
         row = el("div", "ag-row " + r.kind);

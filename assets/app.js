@@ -418,8 +418,6 @@
       .sort((x, y) => x.at - y.at);
     wrap.hidden = false;
     dayModel = { pos, pt, items: today };
-    // The next event within 3 hours shows its bubble without a tap.
-    const soon = today.find((e) => e.at > now && e.at - now < 3 * 3600e3);
     for (const e of today) {
       const p = pos(e.at);
       const dot = el("button", "tl-dot" + ((e.end || e.at) < now ? " past" : ""));
@@ -435,7 +433,7 @@
       if (e.source_url) { bubble.href = e.source_url; bubble.target = "_blank"; bubble.rel = "noopener"; }
       if (isMatch(e)) clubBanner(bubble, e.colors);
       bubble.append(el("strong", "", e.label), el("span", "", `${span}${e.note ? " · " + e.note : ""}`));
-      const holder = el("span", "tl-dot-wrap" + (e === soon ? " open" : ""));
+      const holder = el("span", "tl-dot-wrap"); // popups start closed; hover or tap opens them
       holder.style.top = p + "%";
       dot.addEventListener("click", (ev) => {
         ev.stopPropagation();

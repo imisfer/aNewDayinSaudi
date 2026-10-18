@@ -230,8 +230,8 @@ a { color: inherit; text-decoration: none; }
   content: ""; position: absolute; top: 0; bottom: 0; left: calc(var(--rail-x) - 8px); width: 16px; border-radius: 0 0 8px 8px; background: var(--line);
 }
 .tl-line { background: var(--sky, var(--line)); } /* sky colours through the day (set in app.js) */
-.tl-track::before { /* the rest of the day is veiled; the elapsed part shows the sky at full colour */
-  z-index: 1; top: var(--elapsed); bottom: 0; background: var(--bg); opacity: .5;
+.tl-track::before { /* the part of the day already gone is veiled; what's still ahead shows the sky at full colour */
+  z-index: 1; top: 0; bottom: auto; height: var(--elapsed); border-radius: 0; background: var(--bg); opacity: .5;
 }
 .tl-tick { /* prayer name only: no hover or tap */
   position: absolute; left: var(--rail-x); transform: translate(-50%, -50%); z-index: 2; pointer-events: none;
@@ -253,7 +253,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 8px; line-height: 1; font-weight: 300; color: #fff; opacity: .5; white-space: nowrap; padding: 2px 2px 0; pointer-events: none;
 }
 .tl-now-wrap { position: absolute; left: var(--rail-x); z-index: 6; }
-/* "Now" has no dot: the veil over the rest of the day shows where now is.
+/* "Now" has no dot: the veil over the part of the day already gone ends at now.
    An invisible button at that point still opens the world clocks. */
 .tl-now {
   position: absolute; left: -17px; top: -10px; width: 34px; height: 20px; padding: 0; cursor: pointer;

@@ -72,8 +72,14 @@
       "label": "ليدز يونايتد × مانشستر يونايتد",
       "note": "الدوري الإنجليزي · ليدز",
       "colors": [
-        "#ffffff",
-        "#da291c"
+        [
+          "#ffffff",
+          "#1d428a"
+        ],
+        [
+          "#da291c",
+          "#000000"
+        ]
       ],
       "source_url": "https://www.manutd.com/en/matches/mens-team/leeds-united-fc-v-manchester-united-premier-league-20261018"
     },
@@ -82,8 +88,14 @@
       "label": "ريال مدريد × إشبيلية",
       "note": "الدوري الإسباني · مدريد",
       "colors": [
-        "#ffffff",
-        "#ffffff"
+        [
+          "#ffffff",
+          "#00529f"
+        ],
+        [
+          "#ffffff",
+          "#d4021d"
+        ]
       ],
       "source_url": "https://www.realmadrid.com/de-DE/news/fussball/erste-mannshaft/latest-news/el-real-madrid-sevilla-se-jugara-el-domingo-18-de-octubre-a-las-21-00-h-16-09-2026"
     }

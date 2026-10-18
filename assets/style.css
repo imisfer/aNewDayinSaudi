@@ -347,7 +347,7 @@ a { color: inherit; text-decoration: none; }
 
 /* On narrow screens, make room for the rail on the left */
 @media (max-width: 736px) {
-  .page { padding-left: 46px; } /* room for the line and its hour labels */
+  .page { padding-left: 50px; } /* room for the line and its hour labels */
 }
 
 
@@ -483,7 +483,7 @@ a.ag-row:hover .ag-name { color: var(--accent); }
    instead of following the centred page column. It still scrolls with the page. */
 @media (min-width: 737px) {
   .masthead { grid-template-columns: 1fr; }
-  .masthead .tile { position: absolute; top: 20px; left: 46px; }
+  .masthead .tile { position: absolute; top: 20px; left: 50px; }
 }
 /* Club banner: a band across the top, home club's tile on the right half, away club's on the left half;
    each tile is the club's two colours split by a sharp diagonal. */
@@ -503,5 +503,11 @@ a.ag-row:hover .ag-name { color: var(--accent); }
   font-size: 8px; line-height: 1; font-weight: 300; color: var(--muted); white-space: nowrap; direction: rtl; font-variant-numeric: tabular-nums;
 }
 /* Prayer names and sunrise/sunset now sit beside the line like the hour labels (the old rotated labels are unused) */
-.tl-hour.tl-tick { transform: none; display: block; padding: 0; width: 6px; place-items: initial; }
+/* Prayers, sunrise and sunset: a small ◀︎ just outside the line pointing at their time, then the name */
+.tl-hour.tl-tick { transform: none; display: block; padding: 0; place-items: initial; left: 16px; width: 7px; background: none; opacity: 1; }
+.tl-hour.tl-tick::before {
+  content: "\25C0\FE0E"; position: absolute; left: 0; top: 0; transform: translateY(-50%);
+  font-size: 7px; line-height: 1; color: var(--muted);
+}
+.tl-hour.tl-tick .tl-hlabel { left: calc(100% + 2px); }
 .tl-sun .tl-hlabel { left: 32px; } /* the sun/moon box spans 40px centred on the line; this lines the label up with the hour labels */

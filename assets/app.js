@@ -418,6 +418,11 @@
       dot.setAttribute("aria-label", e.note ? `${text} · ${e.note}` : text);
       const bubble = el(e.source_url ? "a" : "span", "tl-bubble" + (p < 6 ? " edge-start" : p > 94 ? " edge-end" : ""));
       if (e.source_url) { bubble.href = e.source_url; bubble.target = "_blank"; bubble.rel = "noopener"; }
+      if (isMatch(e) && e.colors && e.colors.length) { // a band of the two kits across the top: home on the right, away on the left
+        bubble.classList.add("match");
+        bubble.style.setProperty("--c1", c1);
+        bubble.style.setProperty("--c2", c2 || c1);
+      }
       bubble.append(el("strong", "", e.label), el("span", "", `${span}${e.note ? " · " + e.note : ""}`));
       const holder = el("span", "tl-dot-wrap" + (e === soon ? " open" : ""));
       holder.style.top = p + "%";

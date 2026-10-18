@@ -485,3 +485,9 @@ a.ag-row:hover .ag-name { color: var(--accent); }
   .masthead { grid-template-columns: 1fr; }
   .masthead .tile { position: absolute; top: 20px; left: 32px; }
 }
+/* Match popup: the top 20% shows the two kit colours, home team on the right, away team on the left */
+.tl-bubble.match {
+  background: linear-gradient(var(--line), var(--line)) 0 20% / 100% 1px no-repeat, /* hairline, so a white kit still shows */
+    linear-gradient(to left, var(--c1) 50%, var(--c2) 50%) top / 100% 20% no-repeat, var(--surface);
+  padding-top: 16px; overflow: visible;
+}

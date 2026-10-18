@@ -83,7 +83,7 @@ Kick-off times change at short notice, sometimes the day before. Every match tim
 - **Experiences (no set date).** Besides dated events, a city may list up to 2 bookable experiences that run on most days: guided hikes, heritage and desert tours, diving and snorkelling trips, stargazing, cooking or craft workshops. They appear after the dated events with a small «تجربة» tag, so the heading «احجـز لحظتك هـذا الأسبـوع» always has something to book.
   - Fields: `kind: "experience"`, `title`, `place`, `available` ≤ 30 chars («يوميًا», «يوميًا حتى مارس», «الخميس والجمعة»), optional `until` (YYYY-MM-DD, end of season), `source_url` to the booking page. No `start`, `end`, `time` or `when`.
   - Only experiences that are bookable now: check the booking page shows open dates this week and that the season is running (summer heat closes many outdoor trips).
-  - Sources: visitsaudi.com, experiencealula.com, webook.com, the Red Sea and Soudah destination sites, and official regional tourism pages.
+  - Sources: start with the city's webook explore page (e.g. webook.com/en/explore/sa/ruh for Riyadh), which lists experiences with their season dates; then visitsaudi.com, experiencealula.com, the Red Sea and Soudah destination sites, and official regional tourism pages. Use the listing's validity window for `available`/`until`, and leave out kids' play centres, escape rooms and venue-only listings.
   - Family-friendly and safe; no extreme or unlicensed operators. Rotate: don't show the same experience in the same city two editions running when another qualifies.
 - Verify the dates on the event page itself. If a listing contradicts itself, use the event page or drop the item.
 

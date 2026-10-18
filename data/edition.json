@@ -1,70 +1,57 @@
 {
-  "edition_date": "2026-10-17",
+  "edition_date": "2026-10-18",
   "status": "pilot",
-  "headline": "«مؤتمر WPC للطاقة» يُختتم في الرياض بأكثر من 33 ألف مسجّل، و«عينات حيوية» سعودية تنطلق إلى الفضاء، وإطلاق أعمال «المؤرخين الرواد»",
+  "headline": "«سوق الأمن السيبراني» يبلغ 16.3 مليار ريال، و«الدوسري والبريكان» يتنافسان على لقب أفضل لاعب في آسيا، و«القادسية يتصدر» دوري روشن",
   "cards": [
     {
-      "category": "طاقة",
-      "keyword": "«مؤتمر WPC للطاقة»",
-      "title": "مؤتمر WPC للطاقة يُختتم في الرياض بأكثر من 33 ألف مسجّل",
-      "summary": "عُقدت النسخة الخامسة والعشرون من 11 إلى 15 أكتوبر بمشاركين من 135 دولة، في أعلى عدد تسجيلات بتاريخ المؤتمر الممتد 93 عامًا، واستقطب هاكاثون الطاقة المصاحب أكثر من 6,700 مشارك.",
+      "category": "تقنية",
+      "keyword": "«سوق الأمن السيبراني»",
+      "story": "nca-cybersecurity-indicators-2026",
+      "title": "سوق الأمن السيبراني في المملكة يبلغ 16.3 مليار ريال في 2025",
+      "summary": "يبيّن تقرير الهيئة الوطنية للأمن السيبراني أن القطاع أسهم بنحو 20 مليار ريال في الناتج المحلي، ويعمل فيه أكثر من 22 ألف مختص تمثّل النساء 33% منهم.",
       "date": "2026-10-15",
-      "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2702722"
-    },
-    {
-      "category": "علوم",
-      "keyword": "«عينات حيوية»",
-      "title": "إطلاق عينات حيوية سعودية إلى محطة الفضاء الدولية",
-      "summary": "أطلقت وكالة الفضاء السعودية وجامعة كاوست مهمة «بايوغرافيتي-1» على متن رحلة SpaceX CRS-35، لدراسة التغيرات الخلوية المرتبطة بالشيخوخة وأمراض كالزهايمر والتصلب المتعدد.",
-      "date": "2026-10-14",
-      "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2701584"
-    },
-    {
-      "category": "ثقافة",
-      "keyword": "«المؤرخين الرواد»",
-      "title": "دارة الملك عبدالعزيز تدشّن برنامج الأعمال الكاملة للمؤرخين الرواد",
-      "summary": "تضم المرحلة الأولى خمسة مؤرخين، منهم عثمان بن بشر ومحمد بن لعبون وخالد الفرج، وباكورة إصداراتها كتاب «عنوان المجد في تاريخ نجد» لابن بشر.",
-      "date": "2026-10-14",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/vfzfdcv"
-    },
-    {
-      "category": "زراعة",
-      "keyword": "جائزتان دوليتان للري",
-      "title": "المملكة تحصد جائزتين من اللجنة الدولية للري والصرف في مرسيليا",
-      "summary": "نالت المملكة جائزة المزارع الموفّر للمياه 2026، وجائزة منشآت الري التراثية العالمية عن نظام الري التقليدي في واحة الأحساء المسجلة لدى اليونسكو منذ 2018.",
-      "date": "2026-10-15",
-      "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2702266"
+      "source_name": "الهيئة الوطنية للأمن السيبراني",
+      "source_url": "https://nca.gov.sa/ar/studies-and-reports/reports/report-on-key-economic-indicators-in-the-cybersecurity-sector-in-the-kingdom-2026/"
     },
     {
       "category": "رياضة",
-      "keyword": "منتخب الكريكت يتصدّر",
-      "title": "منتخب الكريكت يتصدّر مجموعته في التصفيات الآسيوية لكأس العالم 2028",
-      "summary": "حقق المنتخب خمسة انتصارات دون خسارة برصيد 10 نقاط في ماليزيا، ليتأهل إلى المرحلة التالية من التصفيات المقررة في 2027.",
-      "date": "2026-10-14",
-      "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/N2701684"
+      "keyword": "«الدوسري والبريكان»",
+      "story": "afc-awards-2026-nominees",
+      "title": "الدوسري والبريكان ضمن ثلاثة مرشحين لجائزة أفضل لاعب في آسيا 2026",
+      "summary": "أعلن الاتحاد الآسيوي لكرة القدم قائمة المرشحين التي تضم معهما الإيراني علي رضا بيرانفاند، على أن يُعلن الفائز في حفل الجوائز ببانكوك يوم 19 نوفمبر.",
+      "date": "2026-10-16",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/sport/saudi/2271030"
     },
     {
-      "category": "مدن",
-      "keyword": "ميدان التلاقي في الخبر",
-      "title": "افتتاح «ميدان التلاقي» في الخبر معلمًا حضريًا مستوحى من النخلة",
-      "summary": "يمتد الميدان على نحو 6,000 متر مربع على طريق الملك سلمان، ويضم 13 عمودًا ترمز إلى مناطق المملكة الإدارية، وهو المشروع الفائز في النسخة السابعة من مسابقة «مجسّم وطن».",
-      "date": "2026-10-14",
+      "category": "رياضة",
+      "keyword": "«القادسية يتصدر»",
+      "story": "qadsiah-top-rsl-abha-2026-10",
+      "title": "القادسية يتصدر دوري روشن بفوزه على أبها 2-1",
+      "summary": "سجّل ماتيو ريتيغي ومحمد أبو الشامات هدفي القادسية على أرضه، ليرتقي الفريق إلى المركز الأول متقدمًا على الهلال.",
+      "date": "2026-10-16",
+      "source_name": "رابطة الدوري السعودي للمحترفين",
+      "source_url": "https://www.spl.com.sa/en/news/brendan-rodgers-praises-fight-and-courage-as-al-qadsiah-go-top"
+    },
+    {
+      "category": "اقتصاد",
+      "keyword": "مليار دولار للناشئة",
+      "story": "startup-funding-q3-2026",
+      "title": "المملكة تتصدر تمويل الشركات الناشئة في المنطقة خلال الربع الثالث",
+      "summary": "جمعت الشركات الناشئة السعودية نحو مليار دولار عبر 62 صفقة في الربع الثالث من 2026، من أصل 1.65 مليار دولار جمعتها المنطقة في 145 صفقة.",
+      "date": "2026-10-17",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/startups/startup-wrap-mega-rounds-sustain-mena-funding-as-saudi-arabia-powers-quarterly-rebound-3006576"
+    },
+    {
+      "category": "سياحة",
+      "keyword": "تقسيط غرامات المنشآت السياحية",
+      "story": "tourism-fines-installments-2026",
+      "title": "وزارة السياحة تتيح تقسيط الغرامات المالية للمنشآت السياحية",
+      "summary": "تستقبل الوزارة الطلبات عبر موقعها الإلكتروني حتى 31 ديسمبر 2026 من منشآت القطاعين الخاص وغير الربحي المستوفية للشروط، وتبتّ وزارة المالية في كل طلب.",
+      "date": "2026-10-16",
       "source_name": "سبق",
-      "source_url": "https://sabq.org/article/9eb5l0y"
-    },
-    {
-      "category": "تقنية",
-      "keyword": "التوعية بالتزييف العميق",
-      "title": "حملة وطنية للتوعية بمخاطر المقاطع المزيّفة بالذكاء الاصطناعي",
-      "summary": "أطلقت سدايا وهيئة الاتصالات والفضاء والتقنية حملة تدعو إلى التحقق من المحتوى ومصادره قبل تصديقه أو مشاركته، وإلى حماية البيانات الشخصية والهوية المرئية والصوتية.",
-      "date": "2026-10-15",
-      "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/w2702185"
+      "source_url": "https://sabq.org/article/purrv0o"
     }
   ],
   "events": [
@@ -79,22 +66,26 @@
       "end": "2026-11-11"
     }
   ],
-  "timeline": [],
+  "timeline": [
+    {
+      "time": "2026-10-18T16:00:00+03:00",
+      "label": "ليدز يونايتد × مانشستر يونايتد",
+      "note": "الدوري الإنجليزي · ليدز",
+      "colors": ["#ffffff", "#da291c"],
+      "source_url": "https://www.manutd.com/en/matches/mens-team/leeds-united-fc-v-manchester-united-premier-league-20261018"
+    },
+    {
+      "time": "2026-10-18T22:00:00+03:00",
+      "label": "ريال مدريد × إشبيلية",
+      "note": "الدوري الإسباني · مدريد",
+      "colors": ["#ffffff", "#ffffff"],
+      "source_url": "https://www.realmadrid.com/de-DE/news/fussball/erste-mannshaft/latest-news/el-real-madrid-sevilla-se-jugara-el-domingo-18-de-octubre-a-las-21-00-h-16-09-2026"
+    }
+  ],
   "regions": {
     "riyadh": [
       {
-        "title": "الدرعية × التعاون – دوري روشن",
-        "place": "ملعب الأول بارك",
-        "start": "2026-10-17",
-        "source_url": "https://sabq.org/article/x5sgjhl",
-        "time": "21:00",
-        "colors": [
-          "#cdb38b",
-          "#f7c600"
-        ]
-      },
-      {
-        "title": "افتتاح موسم سباقات الرياض",
+        "title": "موسم سباقات الرياض للفروسية",
         "place": "ميدان الملك عبدالعزيز للفروسية",
         "start": "2026-10-16",
         "end": "2027-04-17",
@@ -104,8 +95,7 @@
         "title": "جون عشقر: عرض كوميدي «فينا نحكي»",
         "place": "مسرح مدارس الرياض",
         "start": "2026-10-22",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/106073/feena-nehke-stand-up-comedy-by-john-achkar-in-riyadh",
-        "end": "2026-10-23"
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/106073/feena-nehke-stand-up-comedy-by-john-achkar-in-riyadh"
       }
     ],
     "jeddah": [
@@ -114,12 +104,6 @@
         "place": "جامعة دار الحكمة",
         "start": "2026-10-23",
         "source_url": "https://jeddah.platinumlist.net/event-tickets/106065/feena-nehke-stand-up-comedy-by-john-achkar-in-jeddah"
-      },
-      {
-        "title": "شاكر الشريف: ليلة كوميدية",
-        "place": "ذا ستوريتيلرز",
-        "start": "2026-10-29",
-        "source_url": "https://jeddah.platinumlist.net/event-tickets/stand-up-comedy-night-with-shakir-al-sharif-in-jeddah"
       }
     ],
     "eastern": [
@@ -128,21 +112,6 @@
         "place": "كواليس، الدمام",
         "start": "2026-10-20",
         "source_url": "https://dammam.platinumlist.net/event-tickets/106061/feena-nehke-stand-up-comedy-by-john-achkar-in-dammam"
-      }
-    ],
-    "madinah": [
-      {
-        "title": "مهرجان ومزاد المدينة المنورة للإبل",
-        "place": "محافظة الحناكية",
-        "start": "2026-10-12",
-        "end": "2026-10-17",
-        "source_url": "https://www.spa.gov.sa/N2699688"
-      },
-      {
-        "title": "العلا × الأهلي – الدوري الممتاز للسيدات",
-        "place": "ملعب نادي أحد",
-        "start": "2026-10-29",
-        "source_url": "https://madina.platinumlist.net/ar/event-tickets/108706/alula-x-al-ahli"
       }
     ],
     "alula": [
@@ -154,26 +123,11 @@
         "source_url": "https://www.experiencealula.com/ar/whats-on/festivals/alula-wellness-festival"
       },
       {
-        "title": "جولة جيولوجيا الحِجر",
-        "place": "الحِجر، العلا",
-        "start": "2026-10-24",
-        "end": "2026-12-12",
-        "when": "كل سبت من 24 أكتوبر",
-        "source_url": "https://www.experiencealula.com/en/whats-on"
-      },
-      {
         "title": "مهرجان سماء العلا",
         "place": "العلا",
         "start": "2026-11-06",
         "end": "2026-11-15",
-        "source_url": "https://www.experiencealula.com/ar/whats-on/festivals/alula-skies-festival"
-      },
-      {
-        "kind": "experience",
-        "title": "جولة الحِجر النهارية",
-        "place": "الحِجر، العلا",
-        "available": "يوميًا طوال العام",
-        "source_url": "https://www.experiencealula.com/en/things-to-do/experiences/hegra-tour"
+        "source_url": "https://english.aawsat.com/node/5324136"
       }
     ],
     "abha": [
@@ -181,19 +135,7 @@
         "title": "أبها × الفيصلي – دوري روشن",
         "place": "أبها",
         "start": "2026-10-27",
-        "source_url": "https://sabq.org/article/xlbu4tl"
-      }
-    ],
-    "tabuk": [
-      {
-        "title": "نيوم × الاتفاق – دوري روشن",
-        "place": "مدينة الملك خالد الرياضية",
-        "start": "2026-10-17",
-        "source_url": "https://sabq.org/article/x5sgjhl",
-        "colors": [
-          "#1e5bd8",
-          "#007a3d"
-        ]
+        "source_url": "https://www.spl.com.sa/en/news/spl-announces-postponement-of-abha-s-home-match-with-al-faisaly"
       }
     ]
   }

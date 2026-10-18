@@ -495,3 +495,10 @@ a.ag-row:hover .ag-name { color: var(--accent); }
     var(--surface);
   padding-top: 16px;
 }
+/* Hour marks: tiny dashes on the line's right edge each hour; every 4 hours a small time label just outside the line */
+.tl-hour { position: absolute; left: calc(var(--rail-x) + 4px); width: 4px; height: 1px; margin-top: -.5px; background: #fff; opacity: .55; z-index: 2; pointer-events: none; }
+.tl-hour.major { left: calc(var(--rail-x) + 2px); width: 6px; opacity: .8; }
+.tl-hlabel {
+  position: absolute; left: calc(100% + 4px); top: 50%; transform: translateY(-50%);
+  font-size: 8px; line-height: 1; font-weight: 300; color: var(--muted); white-space: nowrap; direction: rtl; font-variant-numeric: tabular-nums;
+}

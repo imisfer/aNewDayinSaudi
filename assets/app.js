@@ -326,7 +326,7 @@
   function renderTimeline(items) {
     const wrap = $("timeline");
     const track = $("tl-track");
-    track.querySelectorAll(".tl-tick, .tl-dot-wrap, .tl-now-wrap, .tl-sun").forEach((n) => n.remove());
+    track.querySelectorAll(".tl-tick, .tl-dot-wrap, .tl-now-wrap, .tl-sun, .tl-hour").forEach((n) => n.remove());
     if (!window.adhan) return;
     const a = window.adhan;
     const pt = new a.PrayerTimes(new a.Coordinates(LOCATION.lat, LOCATION.lng), now, a.CalculationMethod.UmmAlQura());
@@ -368,6 +368,16 @@
         if (!wasOpen) node.classList.add("open");
       });
     };
+    // Hour marks: a tiny dash every hour along the line's right edge; every 4 hours a small label beside it (4 ص، 8 ص، 12 م …).
+    for (let h = 1; h < 24; h++) {
+      const t = new Date(`${todayISO}T${String(h).padStart(2, "0")}:00:00+03:00`);
+      const p = pos(t);
+      if (p <= 0.5 || p >= 99.5) continue;
+      const mark = el("span", "tl-hour" + (h % 4 === 0 ? " major" : ""));
+      mark.style.top = p + "%";
+      if (h % 4 === 0) mark.append(el("span", "tl-hlabel", h === 12 ? "12 م" : h < 12 ? `${h} ص` : `${h - 12} م`));
+      track.append(mark);
+    }
     // Prayer times: the short Arabic name in very small text beside the line.
     // Maghrib is sunset, so it is drawn once below as the moon with its name under it.
     for (const [t, name, full] of [[pt.fajr, "فجر", "الفجر"], [pt.dhuhr, "ظهر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.isha, "عشاء", "العشاء"]]) {

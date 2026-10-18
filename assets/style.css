@@ -495,9 +495,3 @@ a.ag-row:hover .ag-name { color: var(--accent); }
     var(--surface);
   padding-top: 16px;
 }
-.ag-row.ag-card.club-banner {
-  background:
-    linear-gradient(135deg, var(--h1) 50%, var(--h2) 50%) right top / 50% 6px no-repeat,
-    linear-gradient(135deg, var(--a1) 50%, var(--a2) 50%) left top / 50% 6px no-repeat;
-  padding-top: 12px; border-radius: 3px 3px 0 0;
-}

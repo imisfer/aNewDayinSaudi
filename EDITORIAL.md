@@ -63,7 +63,7 @@ Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is t
   Take the kick-off from the club's own fixtures page (or the competition's) on the day, convert it to Riyadh time, and skip matches that start after midnight Riyadh time. `note` is the competition · city, e.g. «الدوري الإسباني · مدريد». Changing this list is an editorial decision: edit the table and the validator's `FOREIGN_CLUBS` together.
 - `time`: ISO with +03:00, on today's date, following the match-time rules below.
 - `label` ≤ 40 chars: the match written as «الهلال × النصر», or the event name. `note` ≤ 40 chars: competition · city.
-- `colors`: for matches, two colours per club, home first: `[["#home1", "#home2"], ["#away1", "#away2"]]` (main kit colour, then its trim). The page draws a banner across the top of the match popup and the today-panel card: the home club's two colours on the right half, the away club's on the left, each split by a sharp diagonal; the timeline dot uses the first colour of each. Never use club logos or crests (they are trademarks we have no licence for). Non-match items: 1–2 hex colours.
+- `colors`: for matches, two colours per club, home first: `[["#home1", "#home2"], ["#away1", "#away2"]]` (main kit colour, then its trim). The page draws a banner across the top of the match popup on the timeline (not in the today panel): the home club's two colours on the right half, the away club's on the left, each split by a sharp diagonal; the timeline dot uses the first colour of each. Never use club logos or crests (they are trademarks we have no licence for). Non-match items: 1–2 hex colours.
 - Club colours for the regulars (use these exact values so a club always looks the same):
 
   | Club | Colours |

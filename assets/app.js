@@ -859,7 +859,6 @@
         if (r.url) { body.href = r.url; body.target = "_blank"; body.rel = "noopener"; }
         const range = clock.format(r.t); // start time only
         body.append(el("span", "ag-t", r.name), el("span", "ag-m", [range, r.note].filter(Boolean).join(" · ")));
-        if (/×/.test(r.name)) clubBanner(row, r.colors);
         row.append(body);
       } else {
         row = el("div", "ag-row " + r.kind);

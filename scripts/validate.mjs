@@ -15,6 +15,10 @@ const REPUTABLE = /(^|\.)(arabnews\.com|aljazeera\.net|alyaum\.com|the-afc\.com|
 const JOINING = /[\u0626\u0628\u062A-\u062E\u0633-\u063A\u0640-\u0647\u0649\u064A]/;
 // Foreign clubs allowed on the timeline as fill-in (see EDITORIAL.md): their official sites count as fixture sources.
 const FOREIGN_CLUBS = /(^|\.)(realmadrid\.com|fcbarcelona\.com|mancity\.com|liverpoolfc\.com|manutd\.com|fcbayern\.com)$/;
+// Match colours: [home, away] with one hex each, or [[home1, home2], [away1, away2]] with two per club.
+const HEX = /^#[0-9a-fA-F]{6}$/;
+const validColors = (c) => Array.isArray(c) && c.length >= 1 && c.length <= 2 &&
+  (c.every((x) => typeof x === "string" && HEX.test(x)) || c.every((x) => Array.isArray(x) && x.length >= 1 && x.length <= 2 && x.every((y) => HEX.test(y))));
 const BANNED_WORDS = /(صادم|عاجل|كارثة|فضيحة|لن تصدق|مذهل|الأعظم في التاريخ)/;
 
 const errors = [];
@@ -122,7 +126,7 @@ if (ed.regions != null) {
         if (x.when && x.when.length > 25) err(`${n}: when longer than 25 chars`);
         if (x.time != null && !/^([01]\d|2[0-3]):[0-5]\d$/.test(x.time)) err(`${n}: time must be HH:MM (Riyadh time), e.g. 21:00`);
         if (x.duration != null && !(Number.isInteger(x.duration) && x.duration >= 15 && x.duration <= 600)) err(`${n}: duration must be whole minutes, 15–600`);
-        if (x.colors != null && (!Array.isArray(x.colors) || x.colors.length < 1 || x.colors.length > 2 || !x.colors.every((c) => /^#[0-9a-fA-F]{6}$/.test(c)))) err(`${n}: colors must be 1–2 hex values like #00732F`);
+        if (x.colors != null && !validColors(x.colors)) err(`${n}: colors must be [home, away] hex values, or [[home1, home2], [away1, away2]]`);
         for (const t of [x.title, x.place]) if (t && BANNED_WORDS.test(t)) err(`${n}: sensational wording`);
         try {
           const u = new URL(x.source_url);
@@ -172,7 +176,7 @@ tl.forEach((x, i) => {
   if (!x.label || x.label.length > 40) err(`${n}: label missing or longer than 40 chars`);
   if (x.note && x.note.length > 40) err(`${n}: note longer than 40 chars`);
   if (x.duration != null && !(Number.isInteger(x.duration) && x.duration >= 15 && x.duration <= 600)) err(`${n}: duration must be whole minutes, 15–600`);
-  if (!Array.isArray(x.colors) || x.colors.length < 1 || x.colors.length > 2 || !x.colors.every((c) => /^#[0-9a-fA-F]{6}$/.test(c))) err(`${n}: colors must be 1–2 hex values like #00732F`);
+  if (!validColors(x.colors)) err(`${n}: colors must be [home, away] hex values, or [[home1, home2], [away1, away2]]`);
   if (x.source_url) {
     try {
       const h = new URL(x.source_url).hostname.replace(/^www\./, "");

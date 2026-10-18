@@ -307,6 +307,31 @@
   const clock = new Intl.DateTimeFormat("ar-SA-u-nu-latn", { timeZone: TZ, hour: "numeric", minute: "2-digit" });
   const MATCH_MIN = 105;
   const isMatch = (e) => /×/.test(e.label || e.title || "");
+  // Club colours: either [home, away] (one colour each) or [[home1, home2], [away1, away2]] (two per club).
+  function teamColors(colors) {
+    if (!colors || !colors.length) return null;
+    const team = (c) => (Array.isArray(c) ? [c[0], c[1] || c[0]] : [c, c]);
+    return [team(colors[0]), team(colors[1] || colors[0])];
+  }
+  // A small two-colour tile per club (sharp diagonal split), in place of a crest we have no rights to use.
+  function clubTile([a, b]) {
+    const t = el("i", "club-tile");
+    t.setAttribute("aria-hidden", "true");
+    t.style.setProperty("--a", a);
+    t.style.setProperty("--b", b);
+    return t;
+  }
+  // «home × away» with each club's tile beside its name (home on the right, away on the left).
+  function matchTitle(tag, cls, text, colors) {
+    const n = el(tag, cls);
+    const tc = teamColors(colors);
+    const parts = text.split(/\s*×\s*/);
+    if (!tc || parts.length !== 2) { n.textContent = text; return n; }
+    const away = parts[1].match(/^(.*?)(\s*[–-].*)?$/); // keep a trailing «– دوري روشن» after the away tile
+    n.append(clubTile(tc[0]), parts[0] + " × " + away[1], clubTile(tc[1]));
+    if (away[2]) n.append(away[2]);
+    return n;
+  }
   let dayModel = null; // today's prayer times, line positions and timed items, for the expanded agenda
   let edition = null;
   function renderTimeline(items) {
@@ -410,7 +435,8 @@
       const p = pos(e.at);
       const dot = el("button", "tl-dot" + ((e.end || e.at) < now ? " past" : ""));
       dot.type = "button";
-      const [c1, c2] = (e.colors && e.colors.length ? e.colors : ["var(--lavender)"]);
+      const tc = teamColors(e.colors);
+      const [c1, c2] = tc ? [tc[0][0], tc[1][0]] : ["var(--lavender)"];
       dot.style.setProperty("--c1", c1);
       dot.style.setProperty("--c2", c2 || c1);
       const span = clock.format(e.at); // start time only
@@ -423,7 +449,7 @@
         bubble.style.setProperty("--c1", c1);
         bubble.style.setProperty("--c2", c2 || c1);
       }
-      bubble.append(el("strong", "", e.label), el("span", "", `${span}${e.note ? " · " + e.note : ""}`));
+      bubble.append(isMatch(e) ? matchTitle("strong", "", e.label, e.colors) : el("strong", "", e.label), el("span", "", `${span}${e.note ? " · " + e.note : ""}`));
       const holder = el("span", "tl-dot-wrap" + (e === soon ? " open" : ""));
       holder.style.top = p + "%";
       dot.addEventListener("click", (ev) => {
@@ -493,7 +519,7 @@
       const li = el("li");
       const a = el("a");
       a.href = e.source_url; a.target = "_blank"; a.rel = "noopener";
-      a.append(el("span", "ev-title", e.title));
+      a.append(e.colors && isMatch(e) ? matchTitle("span", "ev-title", e.title, e.colors) : el("span", "ev-title", e.title));
       if (isExp(e)) { // an experience: no date, so say so and when it's available
         li.className = "ev-exp";
         const meta = el("span", "ev-meta");
@@ -847,7 +873,7 @@
         const body = r.url ? el("a") : el("div");
         if (r.url) { body.href = r.url; body.target = "_blank"; body.rel = "noopener"; }
         const range = clock.format(r.t); // start time only
-        body.append(el("span", "ag-t", r.name), el("span", "ag-m", [range, r.note].filter(Boolean).join(" · ")));
+        body.append(matchTitle("span", "ag-t", r.name, r.colors), el("span", "ag-m", [range, r.note].filter(Boolean).join(" · ")));
         row.append(body);
       } else {
         row = el("div", "ag-row " + r.kind);

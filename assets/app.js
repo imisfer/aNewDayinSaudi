@@ -352,22 +352,6 @@
       [end, "#0b1430"],                   // midnight
     ];
     track.style.setProperty("--sky", `linear-gradient(to bottom, ${sky.map(([t, c]) => `${c} ${pos(t).toFixed(2)}%`).join(", ")})`);
-    // Hover, focus or tap a prayer name, the sun or the moon to see its time in a small bubble.
-    const timeBubble = (node, name, t, p) => {
-      node.tabIndex = 0;
-      node.setAttribute("role", "button");
-      node.setAttribute("aria-label", `${name} ${clock.format(t)}`);
-      const b = el("span", "tl-bubble tl-time" + (p < 6 ? " edge-start" : p > 94 ? " edge-end" : ""));
-      b.setAttribute("aria-hidden", "true");
-      b.append(el("strong", "", name), el("span", "", clock.format(t)));
-      node.append(b);
-      node.addEventListener("click", (ev) => {
-        ev.stopPropagation();
-        const wasOpen = node.classList.contains("open");
-        closeBubbles();
-        if (!wasOpen) node.classList.add("open");
-      });
-    };
     // Hour marks: a tiny dash every hour along the line's right edge; every 4 hours a small label beside it (4 ص، 8 ص، 12 م …).
     for (let h = 1; h < 24; h++) {
       const t = new Date(`${todayISO}T${String(h).padStart(2, "0")}:00:00+03:00`);
@@ -382,21 +366,13 @@
     }
     // Prayer times: a dash on the line and the short name beside it, in the same style as the hour labels.
     // Maghrib is sunset, so it is drawn once below as the moon with its name under it.
-    for (const [t, name, full] of [[pt.fajr, "فجر", "الفجر"], [pt.dhuhr, "ظهر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.isha, "عشاء", "العشاء"]]) {
+    // Sunrise and sunset (Maghrib) are marked the same way.
+    for (const [t, name, full] of [[pt.fajr, "فجر", "الفجر"], [pt.sunrise, "شروق", "الشروق"], [pt.dhuhr, "ظهر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.maghrib, "مغرب", "المغرب"], [pt.isha, "عشاء", "العشاء"]]) {
       const tick = el("span", "tl-hour major tl-tick" + (t < now ? " past" : ""));
       tick.append(el("span", "tl-hlabel", name));
       tick.style.top = pos(t) + "%";
       tick.setAttribute("aria-label", `${full} ${clock.format(t)}`); // read by screen readers; no hover or tap
       track.append(tick);
-    }
-    // Sunrise (sun) and sunset (moon) icons beside the line.
-    for (const [t, up, name] of [[pt.sunrise, true, "الشروق"], [pt.maghrib, false, "الغروب"]]) {
-      const s = el("span", "tl-sun" + (t < now ? " past" : ""));
-      s.innerHTML = `<span class="tl-dash" aria-hidden="true"></span>`; // a short dash across the line marks sunrise / sunset
-      s.append(el("span", "tl-hlabel", up ? "شروق" : "مغرب")); // beside the line, like the hour labels
-      s.style.top = pos(t) + "%";
-      timeBubble(s, name, t, pos(t));
-      track.append(s);
     }
     // "Now" marker: hover or tap shows world clocks at this moment.
     const pn = pos(now);

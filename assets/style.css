@@ -502,3 +502,6 @@ a.ag-row:hover .ag-name { color: var(--accent); }
   position: absolute; left: calc(100% + 4px); top: 50%; transform: translateY(-50%);
   font-size: 8px; line-height: 1; font-weight: 300; color: var(--muted); white-space: nowrap; direction: rtl; font-variant-numeric: tabular-nums;
 }
+/* Prayer names and sunrise/sunset now sit beside the line like the hour labels (the old rotated labels are unused) */
+.tl-hour.tl-tick { transform: none; display: block; padding: 0; width: 6px; place-items: initial; }
+.tl-sun .tl-hlabel { left: 32px; } /* the sun/moon box spans 40px centred on the line; this lines the label up with the hour labels */

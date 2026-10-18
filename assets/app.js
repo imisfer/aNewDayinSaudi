@@ -375,14 +375,16 @@
       if (p <= 0.5 || p >= 99.5) continue;
       const mark = el("span", "tl-hour" + (h % 4 === 0 ? " major" : ""));
       mark.style.top = p + "%";
-      if (h % 4 === 0) mark.append(el("span", "tl-hlabel", h === 12 ? "12 م" : h < 12 ? `${h} ص` : `${h - 12} م`));
+      // Skip the hour's label when a prayer or sunrise/sunset label sits within 25 minutes of it.
+      const crowded = [pt.fajr, pt.sunrise, pt.dhuhr, pt.asr, pt.maghrib, pt.isha].some((x) => Math.abs(x - t) < 25 * 60e3);
+      if (h % 4 === 0 && !crowded) mark.append(el("span", "tl-hlabel", h === 12 ? "12 م" : h < 12 ? `${h} ص` : `${h - 12} م`));
       track.append(mark);
     }
-    // Prayer times: the short Arabic name in very small text beside the line.
+    // Prayer times: a dash on the line and the short name beside it, in the same style as the hour labels.
     // Maghrib is sunset, so it is drawn once below as the moon with its name under it.
     for (const [t, name, full] of [[pt.fajr, "فجر", "الفجر"], [pt.dhuhr, "ظهر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.isha, "عشاء", "العشاء"]]) {
-      const tick = el("span", "tl-tick" + (t < now ? " past" : ""));
-      tick.append(el("span", "tl-label", name)); // only the label is rotated, so the time bubble stays upright
+      const tick = el("span", "tl-hour major tl-tick" + (t < now ? " past" : ""));
+      tick.append(el("span", "tl-hlabel", name));
       tick.style.top = pos(t) + "%";
       tick.setAttribute("aria-label", `${full} ${clock.format(t)}`); // read by screen readers; no hover or tap
       track.append(tick);
@@ -391,7 +393,7 @@
     for (const [t, up, name] of [[pt.sunrise, true, "الشروق"], [pt.maghrib, false, "الغروب"]]) {
       const s = el("span", "tl-sun" + (t < now ? " past" : ""));
       s.innerHTML = `<span class="tl-dash" aria-hidden="true"></span>`; // a short dash across the line marks sunrise / sunset
-      if (!up) s.append(el("span", "tl-sub", "مغرب"));
+      s.append(el("span", "tl-hlabel", up ? "شروق" : "مغرب")); // beside the line, like the hour labels
       s.style.top = pos(t) + "%";
       timeBubble(s, name, t, pos(t));
       track.append(s);

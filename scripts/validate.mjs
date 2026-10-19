@@ -14,7 +14,7 @@ const requireToday = args.includes("--today");
 // Mawhiba and KSrelief.
 const SAUDI_TRUSTED = /(^|\.)(gov\.sa|edu\.sa|med\.sa|mawhiba\.org|mawhiba\.sa|ksrelief\.org|kacst\.edu\.sa|kaust\.edu\.sa)$/;
 const OFFICIAL = /(^|\.)(edu\.sa|med\.sa|mawhiba\.org|mawhiba\.sa|ksrelief\.org)$|(^|\.)gov\.sa$|(^|\.)spa\.gov\.sa$|(^|\.)pif\.gov\.sa$|(^|\.)sama\.gov\.sa$|(^|\.)stats\.gov\.sa$|(^|\.)vision2030\.gov\.sa$|(^|\.)saudiexchange\.sa$|(^|\.)aramco\.com$|(^|\.)ncm\.gov\.sa$|(^|\.)my\.gov\.sa$/;
-const REPUTABLE = /(^|\.)(arabnews\.com|aljazeera\.net|alyaum\.com|the-afc\.com|thenationalnews\.com|reuters\.com|bloomberg\.com|aawsat\.com|alarabiya\.net|okaz\.com\.sa|alriyadh\.com|aleqt\.com|argaam\.com|sabq\.org|saudigazette\.com\.sa|spl\.com\.sa|saff\.com\.sa)$/;
+const REPUTABLE = /(^|\.)(arabnews\.com|arabnews\.pk|aljazeera\.net|alyaum\.com|the-afc\.com|thenationalnews\.com|reuters\.com|bloomberg\.com|aawsat\.com|alarabiya\.net|okaz\.com\.sa|alriyadh\.com|aleqt\.com|argaam\.com|sabq\.org|saudigazette\.com\.sa|spl\.com\.sa|saff\.com\.sa)$/;
 // Arabic letters that join to the following letter (excludes ا أ إ آ د ذ ر ز و ؤ ة ء).
 const JOINING = /[\u0626\u0628\u062A-\u062E\u0633-\u063A\u0640-\u0647\u0649\u064A]/;
 // Foreign clubs allowed on the timeline as fill-in (see EDITORIAL.md): their official sites count as fixture sources.
@@ -199,7 +199,7 @@ if (world.length > 2) err(`world has ${world.length} items; maximum is 2`);
     for (const [k, u] of pairs) {
       try {
         const h = new URL(u).hostname.replace(/^www\./, "");
-        if (!WORLD.test(h) && !OFFICIAL.test(h)) err(`${n}: ${k} host ${h} is not on the world-news list`);
+        if (!WORLD.test(h) && !OFFICIAL.test(h) && !REPUTABLE.test(h)) err(`${n}: ${k} host ${h} is not on the world-news list`); // Saudi outlets (Sabq, Okaz, Al-Riyadh, Arab News …) count too
         hosts.push(h.split(".").slice(/\.(gov|edu|med|org|com|net)\.sa$/.test(h) ? -3 : -2).join(".")); // the organisation, not «gov.sa»
       } catch { err(`${n}: ${k} missing or not a valid URL`); }
     }

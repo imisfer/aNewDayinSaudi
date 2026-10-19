@@ -187,7 +187,7 @@ if (world.length > 2) err(`world has ${world.length} items; maximum is 2`);
     if (!WORLD_CATS.includes(x.category)) err(`${n}: category must be one of ${WORLD_CATS.join("، ")}`);
     if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(x.story || "")) err(`${n}: story must be a short lowercase slug`);
     if (!iso.test(x.date || "")) err(`${n}: date not YYYY-MM-DD`);
-    else if (ed.edition_date && (x.date > ed.edition_date || daysBetween(x.date, ed.edition_date) > 7)) err(`${n}: date must be within the 7 days before the edition`);
+    else if (ed.edition_date && (x.date > ed.edition_date || daysBetween(x.date, ed.edition_date) > 30)) err(`${n}: date must be within the 30 days before the edition`); // a slow-moving track
     for (const t of [x.title, x.summary]) if (t && BANNED_WORDS.test(t)) err(`${n}: sensational wording`);
     for (const t of [x.title, x.summary]) if (t && PRODUCT_NEWS.test(t)) err(`${n}: reads like company or product news, which «السعودية في العالم» excludes`);
     const hosts = [];

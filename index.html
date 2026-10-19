@@ -9,7 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b5d3b'/%3E%3Ccircle cx='16' cy='18' r='7' fill='%23f7f5f0'/%3E%3Crect x='6' y='23' width='20' height='4' fill='%230b5d3b'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/thmanyahsans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/thmanyahserifdisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=1.48">
+  <link rel="stylesheet" href="assets/style.css?v=1.49">
 </head>
 <body>
   <main class="page">
@@ -63,16 +63,6 @@
       <div class="cal-day" id="cal-day" aria-live="polite"></div>
     </dialog>
 
-    <!-- The Kingdom abroad, laid out like the city events: one column per continent instead of per city.
-         The continent with the most stories is fixed first; the reader picks the other two (saved on this device). -->
-    <section class="regions world-regions" id="world-wrap" aria-labelledby="world-title" hidden>
-      <h2 class="regions-title" id="world-title">ما وراء البحار</h2>
-      <div class="region r-main"><div class="r-pick r-fixed"><span class="r-icon" id="wic-0"></span><span class="r-name" id="wnm-0"></span></div><ul id="wr-0"></ul></div>
-      <div class="r-stack" id="w-stack">
-        <div class="region"><label class="r-pick"><span class="r-icon" id="wic-1"></span><span class="r-name" id="wnm-1" aria-hidden="true"></span><span class="sr-only">اختر القارة</span><select id="wpick-1"></select></label><ul id="wr-1"></ul></div>
-        <div class="region"><label class="r-pick"><span class="r-icon" id="wic-2"></span><span class="r-name" id="wnm-2" aria-hidden="true"></span><span class="sr-only">اختر القارة</span><select id="wpick-2"></select></label><ul id="wr-2"></ul></div>
-      </div>
-    </section>
 
     <!-- Riyadh is fixed in the first column; the second column stacks two cities the reader picks -->
     <section class="regions" id="regions-wrap" aria-labelledby="regions-title" hidden>
@@ -89,6 +79,17 @@
       <ul id="events"></ul>
     </section>
 
+    <!-- The Kingdom abroad, laid out like the city events: one column per continent instead of per city.
+         The continent with the most stories is fixed first; the reader picks the other two (saved on this device). -->
+    <section class="regions world-regions" id="world-wrap" aria-labelledby="world-title" hidden>
+      <h2 class="regions-title" id="world-title">ما وراء البحار</h2>
+      <div class="region r-main"><div class="r-pick r-fixed"><span class="r-icon" id="wic-0"></span><span class="r-name" id="wnm-0"></span></div><ul id="wr-0"></ul></div>
+      <div class="r-stack" id="w-stack">
+        <div class="region"><label class="r-pick"><span class="r-icon" id="wic-1"></span><span class="r-name" id="wnm-1" aria-hidden="true"></span><span class="sr-only">اختر القارة</span><select id="wpick-1"></select></label><ul id="wr-1"></ul></div>
+        <div class="region"><label class="r-pick"><span class="r-icon" id="wic-2"></span><span class="r-name" id="wnm-2" aria-hidden="true"></span><span class="sr-only">اختر القارة</span><select id="wpick-2"></select></label><ul id="wr-2"></ul></div>
+      </div>
+    </section>
+
     <section class="timeline" id="timeline" aria-label="اليوم" hidden>
       <div class="tl-track" id="tl-track"><span class="tl-line"></span></div>
       <div class="tl-agenda" id="tl-agenda" hidden></div>
@@ -96,12 +97,12 @@
 
     <footer class="foot">
       <p class="about">موجز يومي هادئ: إنجازات ومشاريع ومؤشرات وخدمات وفعاليات، احتفاءً بالمحتوى المحلي وإثراءً له. كل خبر مؤرخ ومربوط بمصدره. نلخّص ونحيل إلى المصدر، ولا نعيد نشر المقالات.</p>
-      <p class="ver">الإصدار v1.48 · 2026-10-19</p>
+      <p class="ver">الإصدار v1.49 · 2026-10-19</p>
     </footer>
   </main>
 
   <script src="assets/adhan.min.js"></script>
-  <script src="assets/world.js?v=1.48"></script>
-  <script src="assets/app.js?v=1.48"></script>
+  <script src="assets/world.js?v=1.49"></script>
+  <script src="assets/app.js?v=1.49"></script>
 </body>
 </html>

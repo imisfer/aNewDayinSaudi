@@ -559,6 +559,71 @@
     loadWeather().then(() => picks.forEach((key, i) => renderWeatherLine($("w-" + i), key)));
   }
 
+  // ---------- «ما وراء البحار»: the Kingdom abroad, by continent (same layout as the city events) ----------
+  const CONTINENTS = [["asia", "آسيا"], ["africa", "أفريقيا"], ["europe", "أوروبا"], ["namerica", "أمريكا الشمالية"], ["samerica", "أمريكا الجنوبية"], ["oceania", "أوقيانوسيا"]];
+  const CONT_KEYS = CONTINENTS.map((c) => c[0]);
+  const contName = (k) => (CONTINENTS.find((c) => c[0] === k) || [, k])[1];
+  const GLOBE = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21M12 3C9.5 5.6 8.2 8.6 8.2 12s1.3 6.4 3.8 9"/></svg>';
+  const W_PICK_KEY = "continentColumns";
+  function renderWorldColumn(i, key, byCont) {
+    const ul = $("wr-" + i);
+    ul.textContent = "";
+    for (const w of byCont[key]) {
+      const li = el("li");
+      const a = el("a");
+      a.href = w.source_url; a.target = "_blank"; a.rel = "noopener";
+      a.append(el("span", "ev-title", w.title), el("span", "ev-meta", [fmtDate(w.date), w.place, w.source_name].filter(Boolean).join(" · ")));
+      li.append(a);
+      ul.append(li);
+    }
+    if (!byCont[key].length) ul.append(el("li", "ev-empty", "لا أخبار هذا الشهر"));
+    $("wic-" + i).innerHTML = GLOBE;
+    $("wnm-" + i).textContent = contName(key);
+  }
+  function renderWorld(items) {
+    const byCont = Object.fromEntries(CONT_KEYS.map((k) => [k, []]));
+    for (const w of items || []) if (byCont[w.continent]) byCont[w.continent].push(w);
+    for (const k of CONT_KEYS) byCont[k] = byCont[k].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 5);
+    const withNews = CONT_KEYS.filter((k) => byCont[k].length).sort((a, b) => byCont[b].length - byCont[a].length);
+    if (!withNews.length) return;
+    const main = withNews[0];
+    renderWorldColumn(0, main, byCont);
+    $("world-wrap").hidden = false;
+    // With news from one continent only, it takes the full width; otherwise the reader picks two more.
+    if (withNews.length < 2) { $("world-wrap").classList.add("solo"); $("w-stack").hidden = true; return; }
+    let picks = null;
+    try { const v = JSON.parse(localStorage.getItem(W_PICK_KEY)); if (Array.isArray(v) && v.length === 2 && v.every((k) => CONT_KEYS.includes(k) && k !== main) && v[0] !== v[1]) picks = v; } catch (e) { /* storage unavailable */ }
+    if (!picks) {
+      const rest = [...withNews.slice(1), ...CONT_KEYS.filter((k) => k !== main && !withNews.includes(k))];
+      picks = [rest[0], rest[1]];
+    }
+    const selects = { 1: $("wpick-1"), 2: $("wpick-2") };
+    [1, 2].forEach((i) => {
+      const sel = selects[i];
+      sel.textContent = "";
+      for (const [label, has] of [["فيها أخبار", true], ["لا أخبار هذا الشهر", false]]) {
+        const group = el("optgroup");
+        group.label = label;
+        for (const [key, name] of CONTINENTS) {
+          if (key === main || !!byCont[key].length !== has) continue;
+          const o = el("option", "", name);
+          o.value = key;
+          group.append(o);
+        }
+        if (group.children.length) sel.append(group);
+      }
+      sel.value = picks[i - 1];
+      sel.addEventListener("change", () => {
+        const next = sel.value, other = i === 1 ? 2 : 1;
+        if (picks[other - 1] === next) { picks[other - 1] = picks[i - 1]; selects[other].value = picks[other - 1]; renderWorldColumn(other, picks[other - 1], byCont); }
+        picks[i - 1] = next;
+        try { localStorage.setItem(W_PICK_KEY, JSON.stringify(picks)); } catch (e) { /* ignore */ }
+        renderWorldColumn(i, next, byCont);
+      });
+      renderWorldColumn(i, picks[i - 1], byCont);
+    });
+  }
+
   // ---------- Edition ----------
   async function renderEdition() {
     let ed;
@@ -583,19 +648,7 @@
     renderRegions(ed.regions);
     collectEvents(ed);
 
-    // «السعودية في العالم»: up to two stories about the Kingdom abroad; each opens its source.
-    if (ed.world && ed.world.length) {
-      $("world-wrap").hidden = false;
-      for (const w of ed.world.slice(0, 2)) {
-        const li = el("li");
-        const link = el("a");
-        link.href = w.source_url; link.target = "_blank"; link.rel = "noopener";
-        link.append(el("span", "w-title", w.title), el("span", "w-sum", w.summary),
-          el("span", "w-meta", [w.category, w.place, fmtDate(w.date), w.source_name].filter(Boolean).join(" · ")));
-        li.append(link);
-        $("world").append(li);
-      }
-    }
+    renderWorld(ed.world);
     if (ed.events && ed.events.length) {
       $("events-wrap").hidden = false;
       for (const ev of ed.events) {

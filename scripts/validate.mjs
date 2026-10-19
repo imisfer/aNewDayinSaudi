@@ -176,13 +176,16 @@ for (const [i, x] of (ed.events || []).entries()) {
 // «السعودية في العالم»: 0–2 stories about the Kingdom abroad, each confirmed by a second, independent source.
 const world = ed.world || [];
 if (!Array.isArray(world)) err("world must be an array");
-if (world.length > 2) err(`world has ${world.length} items; maximum is 2`);
+if (world.length > 10) err(`world has ${world.length} items; maximum is 10`);
+const CONTS = ["asia", "africa", "europe", "namerica", "samerica", "oceania"];
+for (const c of CONTS) if (world.filter((x) => x.continent === c).length > 5) err(`world: more than 5 items for ${c}`);
 {
   const reg = loadRegister({ before: ed.edition_date });
   world.forEach((x, i) => {
     const n = `world ${i + 1}`;
     if (!x.title || x.title.length > 70) err(`${n}: title missing or longer than 70 chars`);
-    if (!x.summary || x.summary.length > 220) err(`${n}: summary missing or longer than 220 chars`);
+    if (x.summary && x.summary.length > 220) err(`${n}: summary longer than 220 chars`);
+    if (!CONTS.includes(x.continent)) err(`${n}: continent must be one of ${CONTS.join(", ")}`);
     if (!x.place || x.place.length > 25) err(`${n}: place (country or city, in Arabic) missing or longer than 25 chars`);
     if (!WORLD_CATS.includes(x.category)) err(`${n}: category must be one of ${WORLD_CATS.join("، ")}`);
     if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(x.story || "")) err(`${n}: story must be a short lowercase slug`);

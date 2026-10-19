@@ -521,3 +521,8 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 .world a:hover .w-title { color: var(--accent); }
 .world .w-sum { font-size: .9rem; line-height: 1.8; color: var(--muted); }
 .world .w-meta { font-size: .75rem; color: var(--muted); }
+/* Prayer, sunrise and sunset times: a small figure just above the name */
+.tl-ptime {
+  position: absolute; bottom: calc(100% + 2px); left: 0; direction: ltr;
+  font-size: 7px; line-height: 1; font-weight: 400; color: #808080; font-variant-numeric: tabular-nums; white-space: nowrap;
+}

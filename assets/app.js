@@ -370,7 +370,11 @@
     // Sunrise and sunset (Maghrib) are marked the same way.
     for (const [t, name, full] of [[pt.fajr, "فجر", "الفجر"], [pt.sunrise, "شروق", "الشروق"], [pt.dhuhr, "ظهر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.maghrib, "مغرب", "المغرب"], [pt.isha, "عشاء", "العشاء"]]) {
       const tick = el("span", "tl-hour major tl-tick" + (t < now ? " past" : ""));
-      tick.append(el("span", "tl-hlabel", name));
+      // The time sits just above the name, small (e.g. 11:34 over «ظهر»).
+      const hm = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit", hour12: true }).formatToParts(t).map((x) => [x.type, x.value]));
+      const lab = el("span", "tl-hlabel", name);
+      lab.append(el("span", "tl-ptime", `${hm.hour}:${hm.minute}`));
+      tick.append(lab);
       tick.style.top = pos(t) + "%";
       tick.setAttribute("aria-label", `${full} ${clock.format(t)}`); // read by screen readers; no hover or tap
       track.append(tick);

@@ -175,5 +175,18 @@
         "source_url": "https://english.aawsat.com/node/5324136"
       }
     ]
-  }
+  },
+  "world": [
+    {
+      "title": "مركز الملك سلمان للإغاثة يوصل آلاف السلال الغذائية إلى عدن ومأرب",
+      "summary": "وصلت تسع شاحنات تحمل 3,240 سلة غذائية إلى مديرية خور مكسر في عدن، ووُزّعت 580 سلة في مأرب استفاد منها 4,060 فردًا، ضمن مشاريع الأمن الغذائي في اليمن.",
+      "category": "إغاثة",
+      "place": "اليمن",
+      "date": "2026-10-11",
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/zcg15yr",
+      "check_url": "https://www.arabnews.pk/saudi-arabia/saudi-arabia-delivers-thousands-of-food-baskets-to-vulnerable-families-across-yemen-3003925",
+      "story": "ksrelief-yemen-food-baskets-2026-10"
+    }
+  ]
 }

@@ -502,7 +502,7 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 }
 /* Prayer names and sunrise/sunset now sit beside the line like the hour labels (the old rotated labels are unused) */
 /* Prayers, sunrise and sunset: a small ◀︎ just outside the line pointing at their time, then the name */
-.tl-hour.tl-tick { transform: none; display: block; padding: 0; place-items: initial; left: 14px; width: 7px; background: none; opacity: 1; }
+.tl-hour.tl-tick { transform: none; display: block; padding: 0; place-items: initial; left: 12px; width: 7px; background: none; opacity: 1; }
 .tl-hour.tl-tick::before {
   content: "\25C0\FE0E"; position: absolute; left: 0; top: 0; transform: translateY(-50%);
   font-size: 7px; line-height: 1; color: var(--muted);

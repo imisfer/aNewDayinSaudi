@@ -19,6 +19,9 @@ const FOREIGN_CLUBS = /(^|\.)(realmadrid\.com|fcbarcelona\.com|mancity\.com|live
 const HEX = /^#[0-9a-fA-F]{6}$/;
 const validColors = (c) => Array.isArray(c) && c.length >= 1 && c.length <= 2 &&
   (c.every((x) => typeof x === "string" && HEX.test(x)) || c.every((x) => Array.isArray(x) && x.length >= 1 && x.length <= 2 && x.every((y) => HEX.test(y))));
+// «من العالم»: worldwide human-centred good news. Primary sources (journals, UN agencies, space agencies) and global wires.
+const WORLD = /(^|\.)(reuters\.com|apnews\.com|afp\.com|bbc\.com|bbc\.co\.uk|who\.int|un\.org|unicef\.org|unhcr\.org|wfp\.org|fao\.org|unesco\.org|undp\.org|worldbank\.org|nature\.com|science\.org|thelancet\.com|nejm\.org|bmj\.com|cell\.com|nih\.gov|nasa\.gov|esa\.int|europa\.eu|aljazeera\.net|alarabiya\.net|aawsat\.com|thenationalnews\.com|arabnews\.com|bloomberg\.com|ft\.com|theguardian\.com|nytimes\.com|washingtonpost\.com|npr\.org|dw\.com|france24\.com|euronews\.com|nhk\.or\.jp|abc\.net\.au|cbc\.ca)$/;
+const WORLD_CATS = ["صحة", "علوم", "بيئة", "إنسانية", "تعليم", "تقنية", "رياضة", "ثقافة"];
 const BANNED_WORDS = /(صادم|عاجل|كارثة|فضيحة|لن تصدق|مذهل|الأعظم في التاريخ)/;
 
 const errors = [];
@@ -162,6 +165,39 @@ for (const [i, x] of (ed.events || []).entries()) {
   });
   const ids = cards.map((c) => c.story).filter(Boolean);
   if (new Set(ids).size !== ids.length) err("two cards share the same story id");
+}
+
+// «من العالم»: 0–2 worldwide good-news items, each confirmed by a second, independent source.
+const world = ed.world || [];
+if (!Array.isArray(world)) err("world must be an array");
+if (world.length > 2) err(`world has ${world.length} items; maximum is 2`);
+{
+  const reg = loadRegister({ before: ed.edition_date });
+  world.forEach((x, i) => {
+    const n = `world ${i + 1}`;
+    if (!x.title || x.title.length > 70) err(`${n}: title missing or longer than 70 chars`);
+    if (!x.summary || x.summary.length > 220) err(`${n}: summary missing or longer than 220 chars`);
+    if (!x.place || x.place.length > 25) err(`${n}: place (country or city, in Arabic) missing or longer than 25 chars`);
+    if (!WORLD_CATS.includes(x.category)) err(`${n}: category must be one of ${WORLD_CATS.join("، ")}`);
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(x.story || "")) err(`${n}: story must be a short lowercase slug`);
+    if (!iso.test(x.date || "")) err(`${n}: date not YYYY-MM-DD`);
+    else if (ed.edition_date && (x.date > ed.edition_date || daysBetween(x.date, ed.edition_date) > 7)) err(`${n}: date must be within the 7 days before the edition`);
+    for (const t of [x.title, x.summary]) if (t && BANNED_WORDS.test(t)) err(`${n}: sensational wording`);
+    const hosts = [];
+    for (const [k, u] of [["source_url", x.source_url], ["check_url", x.check_url]]) {
+      try {
+        const h = new URL(u).hostname.replace(/^www\./, "");
+        if (!WORLD.test(h) && !OFFICIAL.test(h)) err(`${n}: ${k} host ${h} is not on the world-news list`);
+        hosts.push(h.split(".").slice(-2).join("."));
+      } catch { err(`${n}: ${k} missing or not a valid URL`); }
+    }
+    if (hosts.length === 2 && hosts[0] === hosts[1]) err(`${n}: check_url must be a different, independent source from source_url`);
+    if (!x.source_name) err(`${n}: source_name missing`);
+    for (const h of findRepeats({ ...x, keyword: "" }, reg.entries)) {
+      const m = `${n}: ${h.why} with ${h.e.date} «${h.e.title}»`;
+      if (h.level === "error") err(m + " — already used"); else warn(m);
+    }
+  });
 }
 
 // Timeline: today's timed events shown as dots at the bottom (matches, openings, national moments).

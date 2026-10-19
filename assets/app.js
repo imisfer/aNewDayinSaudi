@@ -579,6 +579,19 @@
     renderRegions(ed.regions);
     collectEvents(ed);
 
+    // «من العالم»: up to two worldwide good-news items; each opens its source.
+    if (ed.world && ed.world.length) {
+      $("world-wrap").hidden = false;
+      for (const w of ed.world.slice(0, 2)) {
+        const li = el("li");
+        const link = el("a");
+        link.href = w.source_url; link.target = "_blank"; link.rel = "noopener";
+        link.append(el("span", "w-title", w.title), el("span", "w-sum", w.summary),
+          el("span", "w-meta", [w.category, w.place, fmtDate(w.date), w.source_name].filter(Boolean).join(" · ")));
+        li.append(link);
+        $("world").append(li);
+      }
+    }
     if (ed.events && ed.events.length) {
       $("events-wrap").hidden = false;
       for (const ev of ed.events) {

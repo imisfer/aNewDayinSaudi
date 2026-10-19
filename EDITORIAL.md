@@ -105,6 +105,14 @@ Kick-off times change at short notice, sometimes the day before. Every match tim
   - Family-friendly and safe; no extreme or unlicensed operators. Rotate: don't show the same experience in the same city two editions running when another qualifies.
 - Verify the dates on the event page itself. If a listing contradicts itself, use the event page or drop the item.
 
+## «من العالم» (good news from around the world)
+`world` holds 0–2 human-centred positive stories from outside Saudi Arabia: a medical or scientific advance that helps people, a humanitarian success, a conservation win, an act of courage or community, an education or development milestone, a sporting moment with a human story.
+- **Fact-checked, not feel-good.** Every item needs two independent sources: `source_url` (the primary source when one exists: the journal paper, the UN agency, the official statement) and `check_url` (a second outlet that confirms it independently). Both must be on the world-news list in the validator (global wires, UN agencies, major journals, space agencies, established international outlets). Viral posts, aggregators and "good news" blogs never count.
+- **Recent and factual:** `date` within the 7 days before the edition; the summary states what happened, with a number where possible, and no hype ("a cure for…", "miracle"). Report early-stage research as early-stage.
+- **Suitable for a Saudi family audience:** no politics, conflict framing, celebrity gossip or content at odds with local values. Skip anything about Saudi Arabia here; it belongs in the cards.
+- Fields: `title` ≤ 70 chars, `summary` ≤ 220 chars, `category` (صحة، علوم، بيئة، إنسانية، تعليم، تقنية، رياضة، ثقافة), `place` (country or city in Arabic), `date`, `source_name`, `source_url`, `check_url`, `story` (slug). These go into the news register too, so a story runs once in 30 days.
+- On days with nothing that clears this bar, leave `world` empty; the section hides itself.
+
 ## Upcoming national events
 - `events`: upcoming dated national events in the next 30 days, from official sources only.
 - Fields: `date` (first day, YYYY-MM-DD), optional `end` for multi-day events, and `title`. Don't put dates in the title; the page shows the date or range once, before the title.

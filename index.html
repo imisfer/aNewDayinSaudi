@@ -9,7 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b5d3b'/%3E%3Ccircle cx='16' cy='18' r='7' fill='%23f7f5f0'/%3E%3Crect x='6' y='23' width='20' height='4' fill='%230b5d3b'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/thmanyahsans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/thmanyahserifdisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=1.45">
+  <link rel="stylesheet" href="assets/style.css?v=1.46">
 </head>
 <body>
   <main class="page">
@@ -63,6 +63,12 @@
       <div class="cal-day" id="cal-day" aria-live="polite"></div>
     </dialog>
 
+    <!-- The Kingdom abroad: Saudi research, aid, wins and rankings beyond its borders, fact-checked against a second source -->
+    <section class="world" id="world-wrap" hidden>
+      <h2>السعودية في العالم</h2>
+      <ul id="world"></ul>
+    </section>
+
     <!-- Riyadh is fixed in the first column; the second column stacks two cities the reader picks -->
     <section class="regions" id="regions-wrap" aria-labelledby="regions-title" hidden>
       <h2 class="regions-title" id="regions-title">احجـز لحظتك هـذا الأسبـوع</h2>
@@ -71,12 +77,6 @@
         <div class="region"><label class="r-pick"><span class="r-icon" id="ic-1"></span><span class="r-name" id="nm-1" aria-hidden="true"></span><span class="r-weather" id="w-1"></span><span class="sr-only">اختر المدينة</span><select id="pick-1"></select></label><ul id="r-1"></ul></div>
         <div class="region"><label class="r-pick"><span class="r-icon" id="ic-2"></span><span class="r-name" id="nm-2" aria-hidden="true"></span><span class="r-weather" id="w-2"></span><span class="sr-only">اختر المدينة</span><select id="pick-2"></select></label><ul id="r-2"></ul></div>
       </div>
-    </section>
-
-    <!-- The Kingdom abroad: Saudi research, aid, wins and rankings beyond its borders, fact-checked against a second source -->
-    <section class="world" id="world-wrap" hidden>
-      <h2>السعودية في العالم</h2>
-      <ul id="world"></ul>
     </section>
 
     <section class="events" id="events-wrap" hidden>
@@ -91,12 +91,12 @@
 
     <footer class="foot">
       <p class="about">موجز يومي هادئ: إنجازات ومشاريع ومؤشرات وخدمات وفعاليات، احتفاءً بالمحتوى المحلي وإثراءً له. كل خبر مؤرخ ومربوط بمصدره. نلخّص ونحيل إلى المصدر، ولا نعيد نشر المقالات.</p>
-      <p class="ver">الإصدار v1.45 · 2026-10-19</p>
+      <p class="ver">الإصدار v1.46 · 2026-10-19</p>
     </footer>
   </main>
 
   <script src="assets/adhan.min.js"></script>
-  <script src="assets/world.js?v=1.45"></script>
-  <script src="assets/app.js?v=1.45"></script>
+  <script src="assets/world.js?v=1.46"></script>
+  <script src="assets/app.js?v=1.46"></script>
 </body>
 </html>

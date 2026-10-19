@@ -352,16 +352,17 @@
       [end, "#0b1430"],                   // midnight
     ];
     track.style.setProperty("--sky", `linear-gradient(to bottom, ${sky.map(([t, c]) => `${c} ${pos(t).toFixed(2)}%`).join(", ")})`);
-    // Hour marks: a tiny dash every hour along the line's right edge; every 4 hours a small label beside it (4 ص، 8 ص، 12 م …).
+    // Hour marks: a tiny dash every hour along the line's right edge; every even hour a small label beside it (6 ص، 8 ص، 10 ص …).
     for (let h = 1; h < 24; h++) {
       const t = new Date(`${todayISO}T${String(h).padStart(2, "0")}:00:00+03:00`);
       const p = pos(t);
       if (p <= 0.5 || p >= 99.5) continue;
-      const mark = el("span", "tl-hour" + (h % 4 === 0 ? " major" : ""));
+      const mark = el("span", "tl-hour" + (h % 2 === 0 ? " major" : ""));
       mark.style.top = p + "%";
-      // Skip the hour's label when a prayer or sunrise/sunset label sits within 25 minutes of it.
-      const crowded = [pt.fajr, pt.sunrise, pt.dhuhr, pt.asr, pt.maghrib, pt.isha].some((x) => Math.abs(x - t) < 25 * 60e3);
-      if (h % 4 === 0 && !crowded) mark.append(el("span", "tl-hlabel", h === 12 ? "12 م" : h < 12 ? `${h} ص` : `${h - 12} م`));
+      // Skip the hour's label when a prayer, sunrise/sunset or match dot sits within 25 minutes of it.
+      const dots = (items || []).filter((e) => e.time && e.time.slice(0, 10) === todayISO).map((e) => new Date(e.time));
+      const crowded = [pt.fajr, pt.sunrise, pt.dhuhr, pt.asr, pt.maghrib, pt.isha, ...dots].some((x) => Math.abs(x - t) < 25 * 60e3);
+      if (h % 2 === 0 && !crowded) mark.append(el("span", "tl-hlabel", h === 12 ? "12 م" : h < 12 ? `${h} ص` : `${h - 12} م`));
       track.append(mark);
     }
     // Prayer times: a dash on the line and the short name beside it, in the same style as the hour labels.

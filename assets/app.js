@@ -579,7 +579,7 @@
     renderRegions(ed.regions);
     collectEvents(ed);
 
-    // «من العالم»: up to two worldwide good-news items; each opens its source.
+    // «السعودية في العالم»: up to two stories about the Kingdom abroad; each opens its source.
     if (ed.world && ed.world.length) {
       $("world-wrap").hidden = false;
       for (const w of ed.world.slice(0, 2)) {

@@ -19,9 +19,9 @@ const FOREIGN_CLUBS = /(^|\.)(realmadrid\.com|fcbarcelona\.com|mancity\.com|live
 const HEX = /^#[0-9a-fA-F]{6}$/;
 const validColors = (c) => Array.isArray(c) && c.length >= 1 && c.length <= 2 &&
   (c.every((x) => typeof x === "string" && HEX.test(x)) || c.every((x) => Array.isArray(x) && x.length >= 1 && x.length <= 2 && x.every((y) => HEX.test(y))));
-// «من العالم»: worldwide human-centred good news. Primary sources (journals, UN agencies, space agencies) and global wires.
-const WORLD = /(^|\.)(reuters\.com|apnews\.com|afp\.com|bbc\.com|bbc\.co\.uk|who\.int|un\.org|unicef\.org|unhcr\.org|wfp\.org|fao\.org|unesco\.org|undp\.org|worldbank\.org|nature\.com|science\.org|thelancet\.com|nejm\.org|bmj\.com|cell\.com|nih\.gov|nasa\.gov|esa\.int|europa\.eu|aljazeera\.net|alarabiya\.net|aawsat\.com|thenationalnews\.com|arabnews\.com|bloomberg\.com|ft\.com|theguardian\.com|nytimes\.com|washingtonpost\.com|npr\.org|dw\.com|france24\.com|euronews\.com|nhk\.or\.jp|abc\.net\.au|cbc\.ca|pnas\.org|newscientist\.com|iaea\.org|home\.cern|jaxa\.jp|isro\.gov\.in|nist\.gov|noaa\.gov|[a-z0-9-]+\.edu|[a-z0-9-]+\.ac\.uk)$/; // + university press offices (.edu, .ac.uk)
-const WORLD_CATS = ["صحة", "علوم", "بيئة", "إنسانية", "تعليم", "تقنية", "رياضة", "ثقافة"];
+// «السعودية في العالم»: the Kingdom abroad. Primary sources (journals, UN agencies, university and agency releases) and global wires.
+const WORLD = /(^|\.)(reuters\.com|apnews\.com|afp\.com|bbc\.com|bbc\.co\.uk|who\.int|un\.org|unicef\.org|unhcr\.org|wfp\.org|fao\.org|unesco\.org|undp\.org|worldbank\.org|nature\.com|science\.org|thelancet\.com|nejm\.org|bmj\.com|cell\.com|nih\.gov|nasa\.gov|esa\.int|europa\.eu|aljazeera\.net|alarabiya\.net|aawsat\.com|thenationalnews\.com|arabnews\.com|bloomberg\.com|ft\.com|theguardian\.com|nytimes\.com|washingtonpost\.com|npr\.org|dw\.com|france24\.com|euronews\.com|nhk\.or\.jp|abc\.net\.au|cbc\.ca|pnas\.org|newscientist\.com|iaea\.org|home\.cern|jaxa\.jp|isro\.gov\.in|nist\.gov|noaa\.gov|[a-z0-9-]+\.edu|[a-z0-9-]+\.ac\.uk|kaust\.edu\.sa|ksu\.edu\.sa|kfupm\.edu\.sa|ksrelief\.org|saudiarabia\.un\.org)$/; // + university press offices (.edu, .ac.uk)
+const WORLD_CATS = ["علوم", "صحة", "إغاثة", "تعليم", "رياضة", "ثقافة", "اقتصاد", "بيئة"];
 // Science and technology items must be research or public-institution news, not a company's product news.
 const PRODUCT_NEWS = /(يطلق هاتف|هاتف جديد|تطلق تطبيق|إطلاق تطبيق|إصدار جديد من|نموذج ذكاء اصطناعي جديد|جولة تمويل|طرح عام|أرباح|سهم|آيفون|أندرويد)/;
 const BANNED_WORDS = /(صادم|عاجل|كارثة|فضيحة|لن تصدق|مذهل|الأعظم في التاريخ)/;
@@ -169,7 +169,7 @@ for (const [i, x] of (ed.events || []).entries()) {
   if (new Set(ids).size !== ids.length) err("two cards share the same story id");
 }
 
-// «من العالم»: 0–2 worldwide good-news items, each confirmed by a second, independent source.
+// «السعودية في العالم»: 0–2 stories about the Kingdom abroad, each confirmed by a second, independent source.
 const world = ed.world || [];
 if (!Array.isArray(world)) err("world must be an array");
 if (world.length > 2) err(`world has ${world.length} items; maximum is 2`);
@@ -185,7 +185,7 @@ if (world.length > 2) err(`world has ${world.length} items; maximum is 2`);
     if (!iso.test(x.date || "")) err(`${n}: date not YYYY-MM-DD`);
     else if (ed.edition_date && (x.date > ed.edition_date || daysBetween(x.date, ed.edition_date) > 7)) err(`${n}: date must be within the 7 days before the edition`);
     for (const t of [x.title, x.summary]) if (t && BANNED_WORDS.test(t)) err(`${n}: sensational wording`);
-    for (const t of [x.title, x.summary]) if (t && PRODUCT_NEWS.test(t)) err(`${n}: reads like company or product news, which «من العالم» excludes`);
+    for (const t of [x.title, x.summary]) if (t && PRODUCT_NEWS.test(t)) err(`${n}: reads like company or product news, which «السعودية في العالم» excludes`);
     const hosts = [];
     for (const [k, u] of [["source_url", x.source_url], ["check_url", x.check_url]]) {
       try {

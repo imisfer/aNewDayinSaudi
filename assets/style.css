@@ -512,7 +512,7 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 .tl-sun .tl-hlabel { left: 32px; } /* the sun/moon box spans 40px centred on the line; this lines the label up with the hour labels */
 /* Hour labels (8 ص، 10 ص …): 50% grey in both light and dark mode */
 .tl-hour:not(.tl-tick) .tl-hlabel { color: #808080; }
-/* «من العالم»: worldwide good news, under the city events */
+/* «السعودية في العالم»: the Kingdom abroad, under the city events */
 .world { margin-top: 20px; }
 .world h2 { margin: 0 0 8px; }
 .world ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }

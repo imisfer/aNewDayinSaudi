@@ -528,3 +528,8 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 }
 /* Prayer, sunrise and sunset labels (name and time) in Thmanyah Serif Display; hour labels stay in Thmanyah Sans */
 .tl-hour.tl-tick .tl-hlabel, .tl-hour.tl-tick .tl-ptime { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; font-weight: 300; }
+/* World clocks text (city names and times): 20% grey in light mode, 80% grey in dark mode */
+:root { --clock-text: #333333; }
+:root[data-theme="dark"] { --clock-text: #cccccc; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --clock-text: #cccccc; } }
+.clock-city, .clock-time { color: var(--clock-text); }

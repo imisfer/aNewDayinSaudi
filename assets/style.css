@@ -510,8 +510,6 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 }
 .tl-hour.tl-tick .tl-hlabel { left: calc(100% + 2px); }
 .tl-sun .tl-hlabel { left: 32px; } /* the sun/moon box spans 40px centred on the line; this lines the label up with the hour labels */
-/* Hour labels (8 ص، 10 ص …): 50% grey in both light and dark mode */
-.tl-hour:not(.tl-tick) .tl-hlabel { color: #808080; }
 /* «السعودية في العالم»: the Kingdom abroad, under the city events */
 .world { margin-top: 20px; }
 .world h2 { margin: 0 0 8px; }
@@ -528,8 +526,8 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 }
 /* Prayer, sunrise and sunset labels (name and time) in Thmanyah Serif Display; hour labels stay in Thmanyah Sans */
 .tl-hour.tl-tick .tl-hlabel, .tl-hour.tl-tick .tl-ptime { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; font-weight: 300; }
-/* World clocks text (city names and times): 20% grey in light mode, 80% grey in dark mode */
-:root { --clock-text: #333333; }
-:root[data-theme="dark"] { --clock-text: #cccccc; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --clock-text: #cccccc; } }
-.clock-city, .clock-time { color: var(--clock-text); }
+/* Timeline hour labels: 20% grey in light mode, 80% grey in dark mode */
+:root { --hour-text: #333333; }
+:root[data-theme="dark"] { --hour-text: #cccccc; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --hour-text: #cccccc; } }
+.tl-hour:not(.tl-tick) .tl-hlabel { color: var(--hour-text); }

@@ -105,7 +105,7 @@ Kick-off times change at short notice, sometimes the day before. Every match tim
   - Family-friendly and safe; no extreme or unlicensed operators. Rotate: don't show the same experience in the same city two editions running when another qualifies.
 - Verify the dates on the event page itself. If a listing contradicts itself, use the event page or drop the item.
 
-## «السعودية في العالم» (the Kingdom's footprint abroad)
+## «ما وراء البحار» (the Kingdom's footprint abroad; formerly «السعودية في العالم»)
 `world` holds 0–2 stories about Saudi Arabia's presence and contributions beyond its borders. This is still Saudi news; it complements the cards, which cover what happens inside the Kingdom.
 - **What qualifies:** research by Saudi universities and labs published in a major journal (KAUST, KACST, KSU, KFUPM …); KSrelief and other Saudi aid projects delivered; Saudi athletes, scientists, students or artists winning abroad; Saudi cities, universities or agencies rising in an established global ranking; Saudi-led international milestones (a Saudi astronaut, a Saudi-built satellite, a heritage site inscribed by UNESCO).
 - **Science and technology** count when Saudi researchers or institutions are behind the result: a peer-reviewed paper, a space or engineering first. **No company or product news:** no launches, devices, apps, AI model releases, funding rounds, earnings or share prices.

@@ -510,3 +510,5 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 }
 .tl-hour.tl-tick .tl-hlabel { left: calc(100% + 2px); }
 .tl-sun .tl-hlabel { left: 32px; } /* the sun/moon box spans 40px centred on the line; this lines the label up with the hour labels */
+/* Hour labels (8 ص، 10 ص …): 50% grey in both light and dark mode */
+.tl-hour:not(.tl-tick) .tl-hlabel { color: #808080; }

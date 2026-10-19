@@ -526,8 +526,8 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 }
 /* Prayer, sunrise and sunset labels (name and time) in Thmanyah Serif Display; hour labels stay in Thmanyah Sans */
 .tl-hour.tl-tick .tl-hlabel, .tl-hour.tl-tick .tl-ptime { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; font-weight: 300; }
-/* Timeline hour labels: 20% grey in light mode, 80% grey in dark mode */
-:root { --hour-text: #333333; }
-:root[data-theme="dark"] { --hour-text: #cccccc; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --hour-text: #cccccc; } }
+/* Timeline hour labels, kept quiet: light grey (80%) in light mode, dark grey (20%) in dark mode */
+:root { --hour-text: #cccccc; }
+:root[data-theme="dark"] { --hour-text: #333333; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --hour-text: #333333; } }
 .tl-hour:not(.tl-tick) .tl-hlabel { color: var(--hour-text); }

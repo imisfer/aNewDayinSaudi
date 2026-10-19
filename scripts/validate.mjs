@@ -9,7 +9,11 @@ const file = args.find((a) => !a.startsWith("--")) || "data/edition.json";
 const requireToday = args.includes("--today");
 
 // Official Saudi sources are preferred; these reputable outlets are allowed when no official release exists.
-const OFFICIAL = /(^|\.)gov\.sa$|(^|\.)spa\.gov\.sa$|(^|\.)pif\.gov\.sa$|(^|\.)sama\.gov\.sa$|(^|\.)stats\.gov\.sa$|(^|\.)vision2030\.gov\.sa$|(^|\.)saudiexchange\.sa$|(^|\.)aramco\.com$|(^|\.)ncm\.gov\.sa$|(^|\.)my\.gov\.sa$/;
+// Trusted Saudi sources: enough on their own, no second source needed. Government entities (ministries, authorities,
+// SADAIA, health clusters …), all Saudi universities, tertiary government hospitals and medical cities, KACST, KAUST,
+// Mawhiba and KSrelief.
+const SAUDI_TRUSTED = /(^|\.)(gov\.sa|edu\.sa|med\.sa|mawhiba\.org|mawhiba\.sa|ksrelief\.org|kacst\.edu\.sa|kaust\.edu\.sa)$/;
+const OFFICIAL = /(^|\.)(edu\.sa|med\.sa|mawhiba\.org|mawhiba\.sa|ksrelief\.org)$|(^|\.)gov\.sa$|(^|\.)spa\.gov\.sa$|(^|\.)pif\.gov\.sa$|(^|\.)sama\.gov\.sa$|(^|\.)stats\.gov\.sa$|(^|\.)vision2030\.gov\.sa$|(^|\.)saudiexchange\.sa$|(^|\.)aramco\.com$|(^|\.)ncm\.gov\.sa$|(^|\.)my\.gov\.sa$/;
 const REPUTABLE = /(^|\.)(arabnews\.com|aljazeera\.net|alyaum\.com|the-afc\.com|thenationalnews\.com|reuters\.com|bloomberg\.com|aawsat\.com|alarabiya\.net|okaz\.com\.sa|alriyadh\.com|aleqt\.com|argaam\.com|sabq\.org|saudigazette\.com\.sa|spl\.com\.sa|saff\.com\.sa)$/;
 // Arabic letters that join to the following letter (excludes ا أ إ آ د ذ ر ز و ؤ ة ء).
 const JOINING = /[\u0626\u0628\u062A-\u062E\u0633-\u063A\u0640-\u0647\u0649\u064A]/;
@@ -187,11 +191,16 @@ if (world.length > 2) err(`world has ${world.length} items; maximum is 2`);
     for (const t of [x.title, x.summary]) if (t && BANNED_WORDS.test(t)) err(`${n}: sensational wording`);
     for (const t of [x.title, x.summary]) if (t && PRODUCT_NEWS.test(t)) err(`${n}: reads like company or product news, which «السعودية في العالم» excludes`);
     const hosts = [];
-    for (const [k, u] of [["source_url", x.source_url], ["check_url", x.check_url]]) {
+    // A trusted Saudi source stands on its own; anything else needs check_url from a second, independent outlet.
+    let trusted = false;
+    try { trusted = SAUDI_TRUSTED.test(new URL(x.source_url).hostname.replace(/^www\./, "")); } catch { /* reported below */ }
+    const pairs = [["source_url", x.source_url]];
+    if (x.check_url || !trusted) pairs.push(["check_url", x.check_url]);
+    for (const [k, u] of pairs) {
       try {
         const h = new URL(u).hostname.replace(/^www\./, "");
         if (!WORLD.test(h) && !OFFICIAL.test(h)) err(`${n}: ${k} host ${h} is not on the world-news list`);
-        hosts.push(h.split(".").slice(-2).join("."));
+        hosts.push(h.split(".").slice(/\.(gov|edu|med|org|com|net)\.sa$/.test(h) ? -3 : -2).join(".")); // the organisation, not «gov.sa»
       } catch { err(`${n}: ${k} missing or not a valid URL`); }
     }
     if (hosts.length === 2 && hosts[0] === hosts[1]) err(`${n}: check_url must be a different, independent source from source_url`);

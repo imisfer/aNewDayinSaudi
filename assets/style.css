@@ -223,11 +223,12 @@ a { color: inherit; text-decoration: none; }
 
 /* Day timeline: a vertical rail on the left edge, Fajr at the top, midnight at the bottom */
 /* The timeline runs down the left edge of the window, from the very top (left: 0, top: 0) to the bottom. */
-:root { --rail-x: 5px; --rail-w: 10px; } /* the 10px line starts right at the window edge; --rail-x is its centre */
+
+:root { --rail-x: 4px; --rail-w: 8px; } /* the 8px line starts right at the window edge; --rail-x is its centre */
 .timeline { position: fixed; z-index: 5; top: 0; bottom: 0; left: 0; width: var(--rail-w); }
 .tl-track { position: absolute; top: 0; bottom: 0; left: 0; right: 0; --elapsed: 0%; }
 .tl-line, .tl-track::before {
-  content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: var(--rail-w); border-radius: 0 0 5px 5px; background: var(--line);
+  content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: var(--rail-w); border-radius: 0 0 4px 4px; background: var(--line);
 }
 .tl-line { background: var(--sky, var(--line)); } /* sky colours through the day (set in app.js) */
 .tl-track::before { display: none; } /* no veil: the whole day shows in full sky colour */
@@ -494,8 +495,8 @@ a.ag-row:hover .ag-name { color: var(--accent); }
   padding-top: 16px;
 }
 /* Hour marks: tiny dashes on the line's right edge each hour; every 4 hours a small time label just outside the line */
-.tl-hour { position: absolute; left: calc(var(--rail-w) - 4px); width: 4px; height: 1px; margin-top: -.5px; background: #fff; opacity: .9; z-index: 2; pointer-events: none; }
-.tl-hour.major { left: calc(var(--rail-w) - 6px); width: 6px; opacity: 1; }
+.tl-hour { position: absolute; left: calc(var(--rail-w) - 4px); width: 4px; height: 1px; margin-top: -.5px; background: rgba(255,255,255,.5); opacity: 1; z-index: 2; pointer-events: none; }
+.tl-hour.major { left: calc(var(--rail-w) - 6px); width: 6px; }
 .tl-hlabel {
   position: absolute; left: calc(100% + 4px); top: 50%; transform: translateY(-50%);
   font-size: 8px; line-height: 1; font-weight: 300; color: var(--muted); white-space: nowrap; direction: rtl; font-variant-numeric: tabular-nums;
@@ -505,7 +506,7 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 .tl-hour.tl-tick { transform: none; display: block; padding: 0; place-items: initial; left: calc(var(--rail-w) - 5px); width: 7px; background: none; opacity: 1; }
 .tl-hour.tl-tick::before {
   content: "\25C0\FE0E"; position: absolute; left: 0; top: 0; transform: translateY(-50%);
-  font-size: 7px; line-height: 1; color: #fff;
+  font-size: 7px; line-height: 1; color: rgba(255,255,255,.5);
 }
 .tl-hour.tl-tick .tl-hlabel { left: calc(100% + 2px); }
 .tl-sun .tl-hlabel { left: 32px; } /* the sun/moon box spans 40px centred on the line; this lines the label up with the hour labels */

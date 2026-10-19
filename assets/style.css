@@ -526,3 +526,5 @@ a.ag-row:hover .ag-name { color: var(--accent); }
   position: absolute; bottom: calc(100% + 2px); left: 0; direction: ltr;
   font-size: 7px; line-height: 1; font-weight: 400; color: #808080; font-variant-numeric: tabular-nums; white-space: nowrap;
 }
+/* Prayer, sunrise and sunset labels (name and time) in Thmanyah Serif Display; hour labels stay in Thmanyah Sans */
+.tl-hour.tl-tick .tl-hlabel, .tl-hour.tl-tick .tl-ptime { font-family: "Thmanyah Serif Display", "Thmanyah Sans", serif; font-weight: 300; }

@@ -368,7 +368,7 @@
     // Prayer times: a dash on the line and the short name beside it, in the same style as the hour labels.
     // Maghrib is sunset, so it is drawn once below as the moon with its name under it.
     // Sunrise and sunset (Maghrib) are marked the same way.
-    for (const [t, name, full] of [[pt.fajr, "فجر", "الفجر"], [pt.sunrise, "شروق", "الشروق"], [pt.dhuhr, "ظهر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.maghrib, "مغرب", "المغرب"], [pt.isha, "عشاء", "العشاء"]]) {
+    for (const [t, name, full] of [[pt.fajr, "فجــــر", "الفجر"], [pt.sunrise, "شروق", "الشروق"], [pt.dhuhr, "ظهـــر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.maghrib, "مغرب", "المغرب"], [pt.isha, "عشـاء", "العشاء"]]) {
       const tick = el("span", "tl-hour major tl-tick" + (t < now ? " past" : ""));
       // The time sits just above the name, small (e.g. 11:34 over «ظهر»).
       const hm = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit", hour12: true }).formatToParts(t).map((x) => [x.type, x.value]));

@@ -1,57 +1,68 @@
 {
-  "edition_date": "2026-10-18",
+  "edition_date": "2026-10-19",
   "status": "pilot",
-  "headline": "«سوق الأمن السيبراني» يبلغ 16.3 مليار ريال، و«الدوسري والبريكان» يتنافسان على لقب أفضل لاعب في آسيا، و«القادسية يتصدر» دوري روشن",
+  "headline": "«خمس جوائز آسيوية» لهيئة المياه، وضوابط جديدة لتأجير «قوارب النزهة»، و«الجولة العاشرة» من دوري روشن تُستكمل اليوم",
   "cards": [
     {
-      "category": "تقنية",
-      "keyword": "«سوق الأمن السيبراني»",
-      "story": "nca-cybersecurity-indicators-2026",
-      "title": "سوق الأمن السيبراني في المملكة يبلغ 16.3 مليار ريال في 2025",
-      "summary": "يبيّن تقرير الهيئة الوطنية للأمن السيبراني أن القطاع أسهم بنحو 20 مليار ريال في الناتج المحلي، ويعمل فيه أكثر من 22 ألف مختص تمثّل النساء 33% منهم.",
-      "date": "2026-10-15",
-      "source_name": "الهيئة الوطنية للأمن السيبراني",
-      "source_url": "https://nca.gov.sa/ar/studies-and-reports/reports/report-on-key-economic-indicators-in-the-cybersecurity-sector-in-the-kingdom-2026/"
-    },
-    {
-      "category": "رياضة",
-      "keyword": "«الدوسري والبريكان»",
-      "story": "afc-awards-2026-nominees",
-      "title": "الدوسري والبريكان ضمن ثلاثة مرشحين لجائزة أفضل لاعب في آسيا 2026",
-      "summary": "أعلن الاتحاد الآسيوي لكرة القدم قائمة المرشحين التي تضم معهما الإيراني علي رضا بيرانفاند، على أن يُعلن الفائز في حفل الجوائز ببانكوك يوم 19 نوفمبر.",
-      "date": "2026-10-16",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/sport/saudi/2271030"
-    },
-    {
-      "category": "رياضة",
-      "keyword": "«القادسية يتصدر»",
-      "story": "qadsiah-top-rsl-abha-2026-10",
-      "title": "القادسية يتصدر دوري روشن بفوزه على أبها 2-1",
-      "summary": "سجّل ماتيو ريتيغي ومحمد أبو الشامات هدفي القادسية على أرضه، ليرتقي الفريق إلى المركز الأول متقدمًا على الهلال.",
-      "date": "2026-10-16",
-      "source_name": "رابطة الدوري السعودي للمحترفين",
-      "source_url": "https://www.spl.com.sa/en/news/brendan-rodgers-praises-fight-and-courage-as-al-qadsiah-go-top"
-    },
-    {
-      "category": "اقتصاد",
-      "keyword": "مليار دولار للناشئة",
-      "story": "startup-funding-q3-2026",
-      "title": "المملكة تتصدر تمويل الشركات الناشئة في المنطقة خلال الربع الثالث",
-      "summary": "جمعت الشركات الناشئة السعودية نحو مليار دولار عبر 62 صفقة في الربع الثالث من 2026، من أصل 1.65 مليار دولار جمعتها المنطقة في 145 صفقة.",
-      "date": "2026-10-17",
+      "category": "ابتكار",
+      "keyword": "«خمس جوائز آسيوية»",
+      "story": "swa-asian-water-awards-2026",
+      "title": "الهيئة السعودية للمياه تحصد خمس جوائز في جوائز المياه الآسيوية",
+      "summary": "نالت الهيئة عبر معهد «وتيرة» جوائز في كوالالمبور، أبرزها «ابتكار العام» عن تقنية نانوية لاستخلاص المغنيسيوم من مياه البحر في الشعيبة، تخدم أكثر من 1.3 مليون نسمة.",
+      "date": "2026-10-18",
       "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/startups/startup-wrap-mega-rounds-sustain-mena-funding-as-saudi-arabia-powers-quarterly-rebound-3006576"
+      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-water-authority-wins-five-international-awards-for-water-and-energy-innovation-3007044"
     },
     {
       "category": "سياحة",
-      "keyword": "تقسيط غرامات المنشآت السياحية",
-      "story": "tourism-fines-installments-2026",
-      "title": "وزارة السياحة تتيح تقسيط الغرامات المالية للمنشآت السياحية",
-      "summary": "تستقبل الوزارة الطلبات عبر موقعها الإلكتروني حتى 31 ديسمبر 2026 من منشآت القطاعين الخاص وغير الربحي المستوفية للشروط، وتبتّ وزارة المالية في كل طلب.",
-      "date": "2026-10-16",
+      "keyword": "«قوارب النزهة»",
+      "story": "red-sea-boat-rental-rules-2026",
+      "title": "اشتراطات جديدة لتأجير قوارب النزهة في البحر الأحمر",
+      "summary": "أصدرت الهيئة السعودية للبحر الأحمر أول متطلبات للنشاط: ترخيص لكل قارب مدته 12 شهرًا، وإفصاح مسبق عن الأسعار وسياسات الإلغاء والاسترداد، وتسري بعد 180 يومًا من نشرها.",
+      "date": "2026-10-18",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/tourism-transport/saudi-red-sea-authority-issues-requirements-and-regulations-for-recreational-boat-rental-activities-3006995"
+    },
+    {
+      "category": "رياضة",
+      "keyword": "«الجولة العاشرة»",
+      "story": "rsl-round-10-2026-monday",
+      "title": "الجولة العاشرة من دوري روشن تُستكمل اليوم بثلاث مباريات",
+      "summary": "يلتقي الهلال مع الحزم، والأهلي مع الفيحاء، والشباب مع الفيصلي، وتُختتم الجولة غدًا بأربع مباريات بينها النصر مع نيوم والاتفاق مع الاتحاد.",
+      "date": "2026-10-19",
       "source_name": "سبق",
-      "source_url": "https://sabq.org/article/purrv0o"
+      "source_url": "https://sabq.org/article/hlth8qh"
+    },
+    {
+      "category": "علوم",
+      "keyword": "جائزتان لكابسارك",
+      "story": "kapsarc-wpc-best-paper-2026",
+      "title": "كابسارك يحصد جائزتي أفضل ورقة بحثية في مؤتمر البترول العالمي",
+      "summary": "شارك أكثر من 20 من قيادات المركز وخبرائه في 18 جلسة بالمؤتمر الذي استضافته الرياض، وفاز ببحثين عن البتروكيماويات في تحول الطاقة وتمويل الطهي النظيف في أفريقيا.",
+      "date": "2026-10-18",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/business/kapsarc-reinforces-saudi-role-in-global-energy-dialogue-3007031"
+    },
+    {
+      "category": "إنساني",
+      "keyword": "75 إجراءً قلبيًا",
+      "story": "ksrelief-abuja-cardiac-results-2026",
+      "follows": "2026-10-14",
+      "title": "مركز الملك سلمان للإغاثة ينفذ 75 إجراءً قلبيًا في أبوجا خلال 4 أيام",
+      "summary": "أجرى فريق تطوعي سعودي من 10 أعضاء 10 عمليات قلب مفتوح و65 قسطرة، ضمن مشروع يستهدف 28 عملية قلب مفتوح و80 قسطرة تشخيصية وعلاجية.",
+      "date": "2026-10-19",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/ksrelief-volunteers-perform-75-cardiac-operations-in-nigeria-in-four-days-3007053"
+    },
+    {
+      "category": "رياضة",
+      "keyword": "برونزية الكاراتيه",
+      "story": "barqawi-karate-world-bronze-2026",
+      "title": "بدر برقاوي يحرز برونزية بطولة العالم للكاراتيه في بولندا",
+      "summary": "أضاف لاعب نادي القادسية والمنتخب السعودي ميدالية برونزية للمملكة في بطولة العالم للكاراتيه المقامة في بولندا.",
+      "date": "2026-10-17",
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/db07mvz"
     }
   ],
   "events": [
@@ -68,36 +79,52 @@
   ],
   "timeline": [
     {
-      "time": "2026-10-18T16:00:00+03:00",
-      "label": "ليدز يونايتد × مانشستر يونايتد",
-      "note": "الدوري الإنجليزي · ليدز",
+      "time": "2026-10-19T18:05:00+03:00",
+      "label": "الفيحاء × الأهلي",
+      "note": "دوري روشن · المجمعة",
       "colors": [
         [
-          "#ffffff",
-          "#1d428a"
+          "#f47920",
+          "#1e3a8a"
         ],
         [
-          "#da291c",
-          "#000000"
+          "#007a3d",
+          "#ffffff"
         ]
       ],
-      "source_url": "https://www.manutd.com/en/matches/mens-team/leeds-united-fc-v-manchester-united-premier-league-20261018"
+      "source_url": "https://www.saff.com.sa/championship.php?id=415"
     },
     {
-      "time": "2026-10-18T22:00:00+03:00",
-      "label": "ريال مدريد × إشبيلية",
-      "note": "الدوري الإسباني · مدريد",
+      "time": "2026-10-19T21:00:00+03:00",
+      "label": "الهلال × الحزم",
+      "note": "دوري روشن · الرياض",
+      "colors": [
+        [
+          "#0050a0",
+          "#ffffff"
+        ],
+        [
+          "#d71920",
+          "#fcd116"
+        ]
+      ],
+      "source_url": "https://www.saff.com.sa/championship.php?id=415"
+    },
+    {
+      "time": "2026-10-19T21:00:00+03:00",
+      "label": "الشباب × الفيصلي",
+      "note": "دوري روشن · الرياض",
       "colors": [
         [
           "#ffffff",
-          "#00529f"
+          "#000000"
         ],
         [
-          "#ffffff",
-          "#d4021d"
+          "#7b1e3a",
+          "#ffffff"
         ]
       ],
-      "source_url": "https://www.realmadrid.com/de-DE/news/fussball/erste-mannshaft/latest-news/el-real-madrid-sevilla-se-jugara-el-domingo-18-de-octubre-a-las-21-00-h-16-09-2026"
+      "source_url": "https://www.saff.com.sa/championship.php?id=415"
     }
   ],
   "regions": {
@@ -114,14 +141,6 @@
         "place": "مسرح مدارس الرياض",
         "start": "2026-10-22",
         "source_url": "https://riyadh.platinumlist.net/event-tickets/106073/feena-nehke-stand-up-comedy-by-john-achkar-in-riyadh"
-      },
-      {
-        "kind": "experience",
-        "title": "سفاري البَقي في الرمال الحمراء",
-        "place": "الرمال الحمراء، الرياض",
-        "available": "حتى 13 يناير",
-        "until": "2027-01-13",
-        "source_url": "https://webook.com/en/SA/RUH/activities-adventures/experiences/buggy-safari"
       }
     ],
     "jeddah": [
@@ -154,14 +173,6 @@
         "start": "2026-11-06",
         "end": "2026-11-15",
         "source_url": "https://english.aawsat.com/node/5324136"
-      }
-    ],
-    "abha": [
-      {
-        "title": "أبها × الفيصلي – دوري روشن",
-        "place": "أبها",
-        "start": "2026-10-27",
-        "source_url": "https://www.spl.com.sa/en/news/spl-announces-postponement-of-abha-s-home-match-with-al-faisaly"
       }
     ]
   }

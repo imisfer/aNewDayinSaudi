@@ -1,129 +1,107 @@
 {
-  "edition_date": "2026-10-19",
+  "edition_date": "2026-10-20",
   "status": "pilot",
-  "headline": "«خمس جوائز آسيوية» لهيئة المياه، وضوابط جديدة لتأجير «قوارب النزهة»، و«الجولة العاشرة» من دوري روشن تُستكمل اليوم",
+  "headline": "اعتماد «19 مشروع ضيافة» بـ6.7 مليارات ريال، والمملكة «الأولى عالميًا» في تأمين توجيه الإنترنت، وانطلاق «مسرّعة التصدير»",
   "cards": [
     {
-      "category": "ابتكار",
-      "keyword": "«خمس جوائز آسيوية»",
-      "story": "swa-asian-water-awards-2026",
-      "title": "الهيئة السعودية للمياه تحصد خمس جوائز في جوائز المياه الآسيوية",
-      "summary": "نالت الهيئة عبر معهد «وتيرة» جوائز في كوالالمبور، أبرزها «ابتكار العام» عن تقنية نانوية لاستخلاص المغنيسيوم من مياه البحر في الشعيبة، تخدم أكثر من 1.3 مليون نسمة.",
-      "date": "2026-10-18",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-water-authority-wins-five-international-awards-for-water-and-energy-innovation-3007044"
+      "category": "اقتصاد",
+      "keyword": "«19 مشروع ضيافة»",
+      "story": "hospitality-enablers-first-batch-2026",
+      "title": "اعتماد 19 مشروعًا فندقيًا ضمن برنامج ممكنات الاستثمار في الضيافة",
+      "summary": "اعتمدت وزارتا السياحة والاستثمار الدفعة الأولى في خمس وجهات سياحية، باستثمارات متوقعة تبلغ 6.7 مليارات ريال وأكثر من 17 ألف وظيفة و3 آلاف غرفة، ويبدأ تشغيل أولها بنهاية 2026.",
+      "date": "2026-10-19",
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/b4hm36s"
     },
     {
-      "category": "سياحة",
-      "keyword": "«قوارب النزهة»",
-      "story": "red-sea-boat-rental-rules-2026",
-      "title": "اشتراطات جديدة لتأجير قوارب النزهة في البحر الأحمر",
-      "summary": "أصدرت الهيئة السعودية للبحر الأحمر أول متطلبات للنشاط: ترخيص لكل قارب مدته 12 شهرًا، وإفصاح مسبق عن الأسعار وسياسات الإلغاء والاسترداد، وتسري بعد 180 يومًا من نشرها.",
+      "category": "تقنية",
+      "keyword": "«الأولى عالميًا»",
+      "story": "cst-rpki-rov-first-2026",
+      "title": "المملكة الأولى عالميًا في تفعيل تقنية تأمين توجيه حركة الإنترنت",
+      "summary": "بلغت نسبة تفعيل تقنية RPKI RoV في المملكة 99.8% وفق أحدث قياسات APNIC، وحلّت ضمن أفضل خمس دول في مؤشر IPv6، والأولى بين دول مجموعة العشرين في مؤشر DNSSEC.",
       "date": "2026-10-18",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/tourism-transport/saudi-red-sea-authority-issues-requirements-and-regulations-for-recreational-boat-rental-activities-3006995"
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/x13k6kv"
+    },
+    {
+      "category": "اقتصاد",
+      "keyword": "«مسرّعة التصدير»",
+      "story": "saudi-exim-export-accelerator-2026",
+      "title": "بنك التصدير والاستيراد يطلق مسرّعة أعمال التصدير بمشاركة 50 منشأة",
+      "summary": "يمتد البرنامج من 18 أكتوبر إلى 17 ديسمبر 2026، ويقدّم للمنشآت المحلية تقييمًا للجاهزية وخططًا تصديرية وجلسات استشارية، تمهيدًا لحلول التمويل وتأمين الصادرات.",
+      "date": "2026-10-19",
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/mdzv7nv"
     },
     {
       "category": "رياضة",
-      "keyword": "«الجولة العاشرة»",
-      "story": "rsl-round-10-2026-monday",
-      "title": "الجولة العاشرة من دوري روشن تُستكمل اليوم بثلاث مباريات",
-      "summary": "يلتقي الهلال مع الحزم، والأهلي مع الفيحاء، والشباب مع الفيصلي، وتُختتم الجولة غدًا بأربع مباريات بينها النصر مع نيوم والاتفاق مع الاتحاد.",
+      "keyword": "فوز الهلال على الحزم",
+      "story": "rsl-hilal-hazm-2026-10",
+      "follows": "rsl-round-10-2026-monday",
+      "title": "الهلال يتغلب على الحزم بهدف متأخر لمارتينيلي في دوري روشن",
+      "summary": "حسم الهلال مواجهته مع الحزم 1-0 على ملعب المملكة أرينا بالرياض، وفاز الأهلي على الفيحاء 3-2، وتُختتم الجولة العاشرة الليلة بأربع مباريات.",
       "date": "2026-10-19",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-pro-league/late-gabriel-martinelli-header-gives-al-hilal-the-win-over-surprisingly-resilient-al-hazem-3007210"
+    },
+    {
+      "category": "مجتمع",
+      "keyword": "المسجد النبوي: 21.6 مليونًا",
+      "story": "prophets-mosque-visitors-2026-09",
+      "title": "أكثر من 21.6 مليون زائر للمسجد النبوي خلال سبتمبر",
+      "summary": "أعلنت الهيئة العامة للعناية بشؤون المسجد الحرام والمسجد النبوي أن نحو 1.45 مليون زائر صلّوا في الروضة الشريفة، واستفاد أكثر من 355 ألفًا من خدمات الإرشاد المكاني.",
+      "date": "2026-10-19",
+      "source_name": "الشرق الأوسط",
+      "source_url": "https://english.aawsat.com/gulf/5331148-prophet%E2%80%99s-mosque-receives-over-21-million-visitors-september"
+    },
+    {
+      "category": "بيئة",
+      "keyword": "حماية 18.3% من الأراضي",
+      "story": "cop17-saudi-biodiversity-2026",
+      "title": "المملكة تستعرض في COP17 حماية 18.3% من أراضيها و16.2% من بحارها",
+      "summary": "أوضح الوفد السعودي برئاسة المركز الوطني لتنمية الحياة الفطرية في يريفان تأهيل أكثر من مليون هكتار، وزراعة أكثر من 159 مليون شجرة، وإطلاق أكثر من 10 آلاف كائن فطري.",
+      "date": "2026-10-17",
       "source_name": "سبق",
-      "source_url": "https://sabq.org/article/hlth8qh"
+      "source_url": "https://sabq.org/article/v0swe20"
     },
     {
       "category": "علوم",
-      "keyword": "جائزتان لكابسارك",
-      "story": "kapsarc-wpc-best-paper-2026",
-      "title": "كابسارك يحصد جائزتي أفضل ورقة بحثية في مؤتمر البترول العالمي",
-      "summary": "شارك أكثر من 20 من قيادات المركز وخبرائه في 18 جلسة بالمؤتمر الذي استضافته الرياض، وفاز ببحثين عن البتروكيماويات في تحول الطاقة وتمويل الطهي النظيف في أفريقيا.",
-      "date": "2026-10-18",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/business/kapsarc-reinforces-saudi-role-in-global-energy-dialogue-3007031"
-    },
-    {
-      "category": "إنساني",
-      "keyword": "75 إجراءً قلبيًا",
-      "story": "ksrelief-abuja-cardiac-results-2026",
-      "follows": "2026-10-14",
-      "title": "مركز الملك سلمان للإغاثة ينفذ 75 إجراءً قلبيًا في أبوجا خلال 4 أيام",
-      "summary": "أجرى فريق تطوعي سعودي من 10 أعضاء 10 عمليات قلب مفتوح و65 قسطرة، ضمن مشروع يستهدف 28 عملية قلب مفتوح و80 قسطرة تشخيصية وعلاجية.",
+      "keyword": "ذروة شهب الجباريات",
+      "story": "orionids-peak-2026",
+      "title": "زخة شهب الجباريات تبلغ ذروتها ليلة 21 أكتوبر في سماء المملكة",
+      "summary": "يمكن رصد 10 إلى 20 شهابًا في الساعة بالعين المجردة من المواقع المظلمة ليلة 21–22 أكتوبر، وأفضل وقت للمشاهدة بين الثانية والخامسة فجرًا.",
       "date": "2026-10-19",
       "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/ksrelief-volunteers-perform-75-cardiac-operations-in-nigeria-in-four-days-3007053"
-    },
-    {
-      "category": "رياضة",
-      "keyword": "برونزية الكاراتيه",
-      "story": "barqawi-karate-world-bronze-2026",
-      "title": "بدر برقاوي يحرز برونزية بطولة العالم للكاراتيه في بولندا",
-      "summary": "أضاف لاعب نادي القادسية والمنتخب السعودي ميدالية برونزية للمملكة في بطولة العالم للكاراتيه المقامة في بولندا.",
-      "date": "2026-10-17",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/db07mvz"
+      "source_url": "https://www.arabnews.com/saudi-arabia/orionid-meteor-shower-to-peak-this-week-will-light-up-saudi-skies-3007172"
     }
   ],
   "events": [
     {
-      "date": "2026-10-26",
-      "title": "مؤتمر مبادرة مستقبل الاستثمار FII10 في الرياض",
-      "end": "2026-10-29"
-    },
-    {
       "date": "2026-11-08",
-      "title": "مؤتمر ومعرض الحج في جدة",
-      "end": "2026-11-11"
+      "end": "2026-11-11",
+      "title": "مؤتمر ومعرض الحج في جدة"
     }
   ],
   "timeline": [
     {
-      "time": "2026-10-19T18:05:00+03:00",
-      "label": "الفيحاء × الأهلي",
-      "note": "دوري روشن · المجمعة",
-      "colors": [
-        [
-          "#f47920",
-          "#1e3a8a"
-        ],
-        [
-          "#007a3d",
-          "#ffffff"
-        ]
-      ],
+      "time": "2026-10-20T18:10:00+03:00",
+      "label": "التعاون × القادسية",
+      "note": "دوري روشن · بريدة",
+      "colors": [["#ffcc00", "#000000"], ["#d71920", "#fcd116"]],
       "source_url": "https://www.saff.com.sa/championship.php?id=415"
     },
     {
-      "time": "2026-10-19T21:00:00+03:00",
-      "label": "الهلال × الحزم",
-      "note": "دوري روشن · الرياض",
-      "colors": [
-        [
-          "#0050a0",
-          "#ffffff"
-        ],
-        [
-          "#d71920",
-          "#fcd116"
-        ]
-      ],
+      "time": "2026-10-20T21:00:00+03:00",
+      "label": "الاتفاق × الاتحاد",
+      "note": "دوري روشن · الدمام",
+      "colors": [["#00843d", "#d71920"], ["#fcd116", "#000000"]],
       "source_url": "https://www.saff.com.sa/championship.php?id=415"
     },
     {
-      "time": "2026-10-19T21:00:00+03:00",
-      "label": "الشباب × الفيصلي",
+      "time": "2026-10-20T21:00:00+03:00",
+      "label": "النصر × نيوم",
       "note": "دوري روشن · الرياض",
-      "colors": [
-        [
-          "#ffffff",
-          "#000000"
-        ],
-        [
-          "#7b1e3a",
-          "#ffffff"
-        ]
-      ],
+      "colors": [["#fcd116", "#003a8c"], ["#ffffff", "#1e4fa3"]],
       "source_url": "https://www.saff.com.sa/championship.php?id=415"
     }
   ],
@@ -134,13 +112,27 @@
         "place": "ميدان الملك عبدالعزيز للفروسية",
         "start": "2026-10-16",
         "end": "2027-04-17",
-        "source_url": "https://sabq.org/article/lbjxzxv"
+        "when": "الجمعة والسبت",
+        "source_url": "https://www.spa.gov.sa/N2703270"
       },
       {
         "title": "جون عشقر: عرض كوميدي «فينا نحكي»",
         "place": "مسرح مدارس الرياض",
         "start": "2026-10-22",
         "source_url": "https://riyadh.platinumlist.net/event-tickets/106073/feena-nehke-stand-up-comedy-by-john-achkar-in-riyadh"
+      },
+      {
+        "title": "عبدالله صبيح: عرض كوميدي",
+        "place": "مركز سرد، جامعة الملك سعود",
+        "start": "2026-10-22",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/108867/abedulla-sbieh-stand-up-comedy-show-in-riyadh"
+      },
+      {
+        "title": "الدوري السعودي لقفز الحواجز: الجولة الأولى",
+        "place": "حديقة الخيل، العمّارية",
+        "start": "2026-10-22",
+        "end": "2026-10-24",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/109234/saudi-show-jumping-league-in-riyadh"
       }
     ],
     "jeddah": [
@@ -148,7 +140,7 @@
         "title": "جون عشقر: عرض كوميدي «فينا نحكي»",
         "place": "جامعة دار الحكمة",
         "start": "2026-10-23",
-        "source_url": "https://jeddah.platinumlist.net/event-tickets/106065/feena-nehke-stand-up-comedy-by-john-achkar-in-jeddah"
+        "source_url": "https://jeddah.platinumlist.net/ar/event-tickets/106065/feena-nehke-stand-up-comedy-by-john-achkar-in-jeddah"
       }
     ],
     "eastern": [
@@ -161,33 +153,55 @@
     ],
     "alula": [
       {
-        "title": "مهرجان نبض العلا",
-        "place": "العلا",
-        "start": "2026-10-23",
-        "end": "2026-10-31",
-        "source_url": "https://www.experiencealula.com/ar/whats-on/festivals/alula-wellness-festival"
+        "title": "مسار المشي بين معالم الحِجر الجيولوجية",
+        "place": "الحِجر، العلا",
+        "start": "2026-10-24",
+        "end": "2026-12-12",
+        "when": "كل سبت من 24 أكتوبر",
+        "source_url": "https://www.experiencealula.com/ar/whats-on/hegra-geology-hike"
       },
       {
         "title": "مهرجان سماء العلا",
         "place": "العلا",
         "start": "2026-11-06",
         "end": "2026-11-15",
-        "source_url": "https://english.aawsat.com/node/5324136"
+        "source_url": "https://www.experiencealula.com/ar/whats-on/festivals/alula-skies-festival"
       }
     ]
   },
   "world": [
     {
-      "title": "مركز الملك سلمان للإغاثة يوصل آلاف السلال الغذائية إلى عدن ومأرب",
-      "summary": "وصلت تسع شاحنات تحمل 3,240 سلة غذائية إلى مديرية خور مكسر في عدن، ووُزّعت 580 سلة في مأرب استفاد منها 4,060 فردًا، ضمن مشاريع الأمن الغذائي في اليمن.",
+      "continent": "asia",
+      "title": "مركز الملك سلمان للإغاثة يوقّع برنامجًا لتأهيل مدرستين ومرفق في حمص",
+      "summary": "يشمل البرنامج 53 فصلًا دراسيًا و17 مكتبًا إداريًا مع التأثيث وأنظمة الطاقة الشمسية، ويستفيد منه 2,715 شخصًا مباشرة، ضمن جهود ترميم شملت 62 مدرسة في سوريا.",
+      "category": "تعليم",
+      "place": "حمص، سوريا",
+      "date": "2026-10-16",
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/en/N2703164",
+      "story": "ksrelief-homs-schools-2026-10"
+    },
+    {
+      "continent": "asia",
+      "title": "مطبخ مركز الملك سلمان للإغاثة يقدّم 25 ألف وجبة ساخنة في غزة",
+      "summary": "استفاد منها 25 ألف شخص من الفئات الأشد احتياجًا في وسط قطاع غزة وجنوبه، ضمن الحملة السعودية لدعم الشعب الفلسطيني الشقيق في قطاع غزة.",
       "category": "إغاثة",
-      "place": "اليمن",
+      "place": "غزة",
+      "date": "2026-10-14",
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/en/N2701779",
+      "story": "ksrelief-gaza-hot-meals-2026-10"
+    },
+    {
+      "continent": "africa",
+      "title": "مركز الملك سلمان للإغاثة يوزّع 640 حقيبة إيواء في ولاية الخرطوم",
+      "summary": "استفاد منها 4,745 فردًا من الأسر النازحة والعائدة، ضمن مبادرة «مدد» 2026 في السودان.",
+      "category": "إغاثة",
+      "place": "الخرطوم، السودان",
       "date": "2026-10-11",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/zcg15yr",
-      "check_url": "https://www.arabnews.pk/saudi-arabia/saudi-arabia-delivers-thousands-of-food-baskets-to-vulnerable-families-across-yemen-3003925",
-      "story": "ksrelief-yemen-food-baskets-2026-10",
-      "continent": "asia"
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/en/N2698004",
+      "story": "ksrelief-sudan-shelter-kits-2026-10"
     }
   ]
 }

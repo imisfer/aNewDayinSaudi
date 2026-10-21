@@ -1,78 +1,77 @@
 {
-  "edition_date": "2026-10-20",
+  "edition_date": "2026-10-21",
   "status": "pilot",
-  "headline": "اعتماد «19 مشروع ضيافة» بـ6.7 مليارات ريال، والمملكة «الأولى عالميًا» في تأمين توجيه الإنترنت، وانطلاق «مسرّعة التصدير»",
+  "headline": "إقرار «4 أنظمة للملكية الفكرية»، و«40.9 مليون راكب» عبر قطارات المملكة، و«ذهبية سفياني» في الألعاب الآسيوية البارالمبية",
   "cards": [
     {
-      "category": "اقتصاد",
-      "keyword": "«19 مشروع ضيافة»",
-      "story": "hospitality-enablers-first-batch-2026",
-      "title": "اعتماد 19 مشروعًا فندقيًا ضمن برنامج ممكنات الاستثمار في الضيافة",
-      "summary": "اعتمدت وزارتا السياحة والاستثمار الدفعة الأولى في خمس وجهات سياحية، باستثمارات متوقعة تبلغ 6.7 مليارات ريال وأكثر من 17 ألف وظيفة و3 آلاف غرفة، ويبدأ تشغيل أولها بنهاية 2026.",
-      "date": "2026-10-19",
+      "category": "تنظيم",
+      "keyword": "«4 أنظمة للملكية الفكرية»",
+      "story": "cabinet-ip-laws-2026-10",
+      "title": "مجلس الوزراء يقرّ أربعة أنظمة جديدة للملكية الفكرية",
+      "summary": "شملت براءات الاختراع ونماذج المنفعة، وحماية الأصناف النباتية الجديدة، والتصميمات التخطيطية للدارات المتكاملة، والتصاميم، ووصفتها رئيسة مجلس إدارة الهيئة السعودية للملكية الفكرية بأنها خطوة مهمة لتطوير المنظومة التشريعية.",
+      "date": "2026-10-20",
       "source_name": "سبق",
-      "source_url": "https://sabq.org/article/b4hm36s"
+      "source_url": "https://sabq.org/article/hwaes4s"
     },
     {
-      "category": "تقنية",
-      "keyword": "«الأولى عالميًا»",
-      "story": "cst-rpki-rov-first-2026",
-      "title": "المملكة الأولى عالميًا في تفعيل تقنية تأمين توجيه حركة الإنترنت",
-      "summary": "بلغت نسبة تفعيل تقنية RPKI RoV في المملكة 99.8% وفق أحدث قياسات APNIC، وحلّت ضمن أفضل خمس دول في مؤشر IPv6، والأولى بين دول مجموعة العشرين في مؤشر DNSSEC.",
-      "date": "2026-10-18",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/x13k6kv"
-    },
-    {
-      "category": "اقتصاد",
-      "keyword": "«مسرّعة التصدير»",
-      "story": "saudi-exim-export-accelerator-2026",
-      "title": "بنك التصدير والاستيراد يطلق مسرّعة أعمال التصدير بمشاركة 50 منشأة",
-      "summary": "يمتد البرنامج من 18 أكتوبر إلى 17 ديسمبر 2026، ويقدّم للمنشآت المحلية تقييمًا للجاهزية وخططًا تصديرية وجلسات استشارية، تمهيدًا لحلول التمويل وتأمين الصادرات.",
-      "date": "2026-10-19",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/mdzv7nv"
+      "category": "نقل",
+      "keyword": "«40.9 مليون راكب»",
+      "story": "rail-passengers-q3-2026",
+      "title": "قطارات المملكة تنقل 40.9 مليون راكب في الربع الثالث من 2026",
+      "summary": "بزيادة 5% على الفترة نفسها من 2025 وفق المؤشر الربعي للهيئة العامة للنقل، واستحوذ مترو الرياض على 30.4 مليون راكب بنمو 21%.",
+      "date": "2026-10-20",
+      "source_name": "أرقام",
+      "source_url": "https://www.argaam.com/ar/article/articledetail/id/1945633"
     },
     {
       "category": "رياضة",
-      "keyword": "فوز الهلال على الحزم",
-      "story": "rsl-hilal-hazm-2026-10",
-      "follows": "rsl-round-10-2026-monday",
-      "title": "الهلال يتغلب على الحزم بهدف متأخر لمارتينيلي في دوري روشن",
-      "summary": "حسم الهلال مواجهته مع الحزم 1-0 على ملعب المملكة أرينا بالرياض، وفاز الأهلي على الفيحاء 3-2، وتُختتم الجولة العاشرة الليلة بأربع مباريات.",
-      "date": "2026-10-19",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-pro-league/late-gabriel-martinelli-header-gives-al-hilal-the-win-over-surprisingly-resilient-al-hazem-3007210"
+      "keyword": "«ذهبية سفياني»",
+      "story": "sofiani-asian-para-games-gold-2026",
+      "title": "إدريس سفياني يحرز ذهبية 400 متر في الألعاب الآسيوية البارالمبية",
+      "summary": "توّج بزمن 48.25 ثانية في فئة T20 بدورة آيتشي-ناغويا 2026، لترتفع حصيلة البعثة السعودية إلى 9 ميداليات: ذهبيتان وست فضيات وبرونزية.",
+      "date": "2026-10-20",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/sport/saudi/2271666"
     },
     {
-      "category": "مجتمع",
-      "keyword": "المسجد النبوي: 21.6 مليونًا",
-      "story": "prophets-mosque-visitors-2026-09",
-      "title": "أكثر من 21.6 مليون زائر للمسجد النبوي خلال سبتمبر",
-      "summary": "أعلنت الهيئة العامة للعناية بشؤون المسجد الحرام والمسجد النبوي أن نحو 1.45 مليون زائر صلّوا في الروضة الشريفة، واستفاد أكثر من 355 ألفًا من خدمات الإرشاد المكاني.",
-      "date": "2026-10-19",
-      "source_name": "الشرق الأوسط",
-      "source_url": "https://english.aawsat.com/gulf/5331148-prophet%E2%80%99s-mosque-receives-over-21-million-visitors-september"
+      "category": "زراعة",
+      "keyword": "زيت زيتون الجوف",
+      "story": "jouf-olive-oil-season-2026",
+      "title": "معاصر الجوف تبدأ موسم إنتاج زيت الزيتون",
+      "summary": "تضم المنطقة أكثر من 30 مليون شجرة زيتون على مساحة تتجاوز 20 ألف هكتار، وأنتجت في 2025 أكثر من 160 ألف طن من الزيتون، منها نحو 25 ألف طن من الزيت.",
+      "date": "2026-10-20",
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/en/N2705587"
     },
     {
-      "category": "بيئة",
-      "keyword": "حماية 18.3% من الأراضي",
-      "story": "cop17-saudi-biodiversity-2026",
-      "title": "المملكة تستعرض في COP17 حماية 18.3% من أراضيها و16.2% من بحارها",
-      "summary": "أوضح الوفد السعودي برئاسة المركز الوطني لتنمية الحياة الفطرية في يريفان تأهيل أكثر من مليون هكتار، وزراعة أكثر من 159 مليون شجرة، وإطلاق أكثر من 10 آلاف كائن فطري.",
-      "date": "2026-10-17",
+      "category": "إسكان",
+      "keyword": "أولى أسر «قمرة» بصفوى",
+      "story": "nhc-qamra-safwa-occupancy-2026",
+      "title": "الوطنية للإسكان تبدأ تسكين أولى الأسر في وجهة «قمرة» بصفوى",
+      "summary": "تمتد الوجهة في المنطقة الشرقية على أكثر من 1.4 مليون متر مربع، وتضم وحدات سكنية متنوعة ومساجد ومدارس وحدائق ومركزًا صحيًا ومرافق تجارية.",
+      "date": "2026-10-20",
       "source_name": "سبق",
-      "source_url": "https://sabq.org/article/v0swe20"
+      "source_url": "https://sabq.org/article/bv1j5e7"
     },
     {
-      "category": "علوم",
-      "keyword": "ذروة شهب الجباريات",
-      "story": "orionids-peak-2026",
-      "title": "زخة شهب الجباريات تبلغ ذروتها ليلة 21 أكتوبر في سماء المملكة",
-      "summary": "يمكن رصد 10 إلى 20 شهابًا في الساعة بالعين المجردة من المواقع المظلمة ليلة 21–22 أكتوبر، وأفضل وقت للمشاهدة بين الثانية والخامسة فجرًا.",
-      "date": "2026-10-19",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/orionid-meteor-shower-to-peak-this-week-will-light-up-saudi-skies-3007172"
+      "category": "اقتصاد",
+      "keyword": "سجلات المعارض +15%",
+      "story": "events-industry-registrations-q3-2026",
+      "title": "سجلات تنظيم المؤتمرات والمعارض ترتفع 15% بنهاية الربع الثالث",
+      "summary": "بلغت 32,511 سجلًا مقارنة بـ28,330 قبل عام وفق نشرة قطاع الأعمال لوزارة التجارة، وتصدّرت الرياض بـ16,965 سجلًا تلتها منطقة مكة المكرمة بـ8,586.",
+      "date": "2026-10-20",
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/y7b4nmx"
+    },
+    {
+      "category": "تقنية",
+      "keyword": "بيانات مفتوحة للأخطار المهنية",
+      "story": "gosi-occupational-hazards-open-data-2026",
+      "title": "التأمينات الاجتماعية تطلق صفحة بيانات مفتوحة للأخطار المهنية",
+      "summary": "تضم لوحة تفاعلية وأكثر من 60 مجموعة بيانات قابلة للتنزيل، ومساعدًا بالذكاء الاصطناعي التوليدي يجيب عن الأسئلة وينشئ رسومًا بيانية، وأُطلقت تزامنًا مع اليوم العالمي للإحصاء.",
+      "date": "2026-10-20",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/local/na/2271681"
     }
   ],
   "events": [
@@ -84,25 +83,36 @@
   ],
   "timeline": [
     {
-      "time": "2026-10-20T18:10:00+03:00",
-      "label": "التعاون × القادسية",
-      "note": "دوري روشن · بريدة",
-      "colors": [["#ffcc00", "#000000"], ["#d71920", "#fcd116"]],
-      "source_url": "https://www.saff.com.sa/championship.php?id=415"
+      "time": "2026-10-21T22:00:00+03:00",
+      "label": "ريال مدريد × لايبزيغ",
+      "note": "دوري أبطال أوروبا · مدريد",
+      "colors": [
+        [
+          "#ffffff",
+          "#00529f"
+        ],
+        [
+          "#ffffff",
+          "#dd0741"
+        ]
+      ],
+      "source_url": "https://realmadrid.com/en-US/news/football/first-team/latest-news/calendarios-del-real-madrid-en-la-primera-fase-de-la-champions-2026-27-29-08-2026"
     },
     {
-      "time": "2026-10-20T21:00:00+03:00",
-      "label": "الاتفاق × الاتحاد",
-      "note": "دوري روشن · الدمام",
-      "colors": [["#00843d", "#d71920"], ["#fcd116", "#000000"]],
-      "source_url": "https://www.saff.com.sa/championship.php?id=415"
-    },
-    {
-      "time": "2026-10-20T21:00:00+03:00",
-      "label": "النصر × نيوم",
-      "note": "دوري روشن · الرياض",
-      "colors": [["#fcd116", "#003a8c"], ["#ffffff", "#1e4fa3"]],
-      "source_url": "https://www.saff.com.sa/championship.php?id=415"
+      "time": "2026-10-21T22:00:00+03:00",
+      "label": "بايرن ميونخ × آرسنال",
+      "note": "دوري أبطال أوروبا · ميونخ",
+      "colors": [
+        [
+          "#dc052d",
+          "#ffffff"
+        ],
+        [
+          "#ef0107",
+          "#ffffff"
+        ]
+      ],
+      "source_url": "https://fcbayern.com/en/news/2026/08/bayerns-champions-league-league-phase-fixtures-scheduled"
     }
   ],
   "regions": {
@@ -114,6 +124,13 @@
         "end": "2027-04-17",
         "when": "الجمعة والسبت",
         "source_url": "https://www.spa.gov.sa/N2703270"
+      },
+      {
+        "title": "المعرض الزراعي السعودي 2026",
+        "place": "مركز الرياض الدولي للمؤتمرات",
+        "start": "2026-10-19",
+        "end": "2026-10-22",
+        "source_url": "https://sabq.org/article/qrhfl92"
       },
       {
         "title": "جون عشقر: عرض كوميدي «فينا نحكي»",
@@ -143,14 +160,6 @@
         "source_url": "https://jeddah.platinumlist.net/ar/event-tickets/106065/feena-nehke-stand-up-comedy-by-john-achkar-in-jeddah"
       }
     ],
-    "eastern": [
-      {
-        "title": "جون عشقر: عرض كوميدي «فينا نحكي»",
-        "place": "كواليس، الدمام",
-        "start": "2026-10-20",
-        "source_url": "https://dammam.platinumlist.net/event-tickets/106061/feena-nehke-stand-up-comedy-by-john-achkar-in-dammam"
-      }
-    ],
     "alula": [
       {
         "title": "مسار المشي بين معالم الحِجر الجيولوجية",
@@ -172,36 +181,25 @@
   "world": [
     {
       "continent": "asia",
-      "title": "مركز الملك سلمان للإغاثة يوقّع برنامجًا لتأهيل مدرستين ومرفق في حمص",
-      "summary": "يشمل البرنامج 53 فصلًا دراسيًا و17 مكتبًا إداريًا مع التأثيث وأنظمة الطاقة الشمسية، ويستفيد منه 2,715 شخصًا مباشرة، ضمن جهود ترميم شملت 62 مدرسة في سوريا.",
-      "category": "تعليم",
-      "place": "حمص، سوريا",
+      "title": "مركز الملك سلمان للإغاثة يوزّع 1,269 سلة غذائية في محافظة أبين",
+      "summary": "استفاد منها 6,146 فردًا، ضمن المرحلة الثانية من مشروع التدخل الغذائي الطارئ في اليمن.",
+      "category": "إغاثة",
+      "place": "أبين، اليمن",
       "date": "2026-10-16",
       "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2703164",
-      "story": "ksrelief-homs-schools-2026-10"
-    },
-    {
-      "continent": "asia",
-      "title": "مطبخ مركز الملك سلمان للإغاثة يقدّم 25 ألف وجبة ساخنة في غزة",
-      "summary": "استفاد منها 25 ألف شخص من الفئات الأشد احتياجًا في وسط قطاع غزة وجنوبه، ضمن الحملة السعودية لدعم الشعب الفلسطيني الشقيق في قطاع غزة.",
-      "category": "إغاثة",
-      "place": "غزة",
-      "date": "2026-10-14",
-      "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2701779",
-      "story": "ksrelief-gaza-hot-meals-2026-10"
+      "source_url": "https://www.spa.gov.sa/en/N2703233",
+      "story": "ksrelief-abyan-food-baskets-2026-10"
     },
     {
       "continent": "africa",
-      "title": "مركز الملك سلمان للإغاثة يوزّع 640 حقيبة إيواء في ولاية الخرطوم",
-      "summary": "استفاد منها 4,745 فردًا من الأسر النازحة والعائدة، ضمن مبادرة «مدد» 2026 في السودان.",
+      "title": "مركز الملك سلمان للإغاثة يوزّع 2,000 حقيبة صحية في شمال كردفان",
+      "summary": "استفاد منها 8,339 فردًا من النازحين في ولاية شمال كردفان بالسودان.",
       "category": "إغاثة",
-      "place": "الخرطوم، السودان",
-      "date": "2026-10-11",
+      "place": "شمال كردفان، السودان",
+      "date": "2026-10-13",
       "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2698004",
-      "story": "ksrelief-sudan-shelter-kits-2026-10"
+      "source_url": "https://www.spa.gov.sa/en/N2700713",
+      "story": "ksrelief-north-kordofan-hygiene-kits-2026-10"
     }
   ]
 }

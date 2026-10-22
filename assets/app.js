@@ -192,7 +192,8 @@
     }
     p.append(document.createTextNode(brief.slice(pos)));
     // Any card not referenced in the brief stays reachable as a chip.
-    const rest = cards.filter((_, i) => !placed.has(i));
+    // A chip needs a label and something to open; without any, «وأيضًا» is hidden.
+    const rest = cards.filter((c, i) => !placed.has(i) && c && (c.keyword || c.title || "").trim() && (c.title || c.summary || c.source_url));
     const more = $("more");
     more.textContent = "";
     $("more-wrap").hidden = rest.length === 0;
@@ -636,6 +637,7 @@
       ed = await r.json();
     } catch (e) {
       $("headline").textContent = "تعذّر تحميل موجز اليوم. حاول مرة أخرى بعد قليل.";
+      $("more-wrap").hidden = true;
       return;
     }
 
@@ -646,22 +648,14 @@
     }
     edition = ed;
 
-    renderHeadline(ed.headline || "", ed.cards.slice(0, 8));
+    renderHeadline(ed.headline || "", (ed.cards || []).slice(0, 8));
     renderTimeline(timedToday(ed));
 
     renderRegions(ed.regions);
     collectEvents(ed);
 
     renderWorld(ed.world);
-    if (ed.events && ed.events.length) {
-      $("events-wrap").hidden = false;
-      for (const ev of ed.events) {
-        // Date (or date range) once, then the title; a date in brackets at the end of an older title is dropped.
-        const title = ev.title.replace(/\s*\([^)]*\d[^)]*\)\s*$/, "");
-        const range = ev.end && ev.end !== ev.date ? when({ start: ev.date, end: ev.end }) : fmtDate(ev.date);
-        $("events").append(el("li", "", `${range} — ${title}`));
-      }
-    }
+    renderOccasions();
   }
 
   // ---------- Month calendar (opens from the date tile) ----------
@@ -690,6 +684,52 @@
       out.push({ ...e, closing: days > 7 && iso === end && iso !== e.start });
     }
     return out;
+  }
+  // ---------- «قادم»: holidays and celebrated days, from a static list reviewed once a year ----------
+  const dayDiff = (iso) => Math.round((Date.parse(iso + "T00:00:00Z") - Date.parse(todayISO + "T00:00:00Z")) / 864e5);
+  function countdown(n) {
+    if (n === 0) return "اليوم";
+    if (n === 1) return "غدًا";
+    if (n === 2) return "بعد يومين";
+    const r = n % 100;
+    return `بعد ${n} ${r >= 3 && r <= 10 ? "أيام" : n >= 100 && r <= 2 ? "يوم" : "يومًا"}`;
+  }
+  function occasionItem(title, meta) {
+    const li = el("li");
+    const box = el("div", "occ");
+    box.append(el("span", "ev-title", title), el("span", "ev-meta", meta.filter(Boolean).join(" · ")));
+    li.append(box);
+    return li;
+  }
+  async function renderOccasions() {
+    let data;
+    try {
+      const r = await fetch("data/occasions.json", { cache: "no-cache" });
+      if (!r.ok) return;
+      data = await r.json();
+    } catch (e) { return; }
+    const est = (x) => (x.estimated ? " (متوقع)" : "");
+    // Holidays: anything not yet over, ordered by the day it starts.
+    const hol = (data.holidays || []).map((h) => ({ ...h, date: h.date || h.start, end: h.end || h.start }))
+      .filter((h) => h.end >= todayISO).sort((x, y) => (x.start || x.date).localeCompare(y.start || y.date)).slice(0, 3);
+    // Celebrated days: yearly ones ("MM-DD") roll to their next date; dated ones stay put.
+    const year = +todayISO.slice(0, 4);
+    const days = (data.days || []).map((d) => {
+      let iso = d.on.length === 5 ? `${year}-${d.on}` : d.on;
+      if (d.on.length === 5 && iso < todayISO) iso = `${year + 1}-${d.on}`;
+      return { ...d, iso };
+    }).filter((d) => d.iso >= todayISO).sort((x, y) => x.iso.localeCompare(y.iso)).slice(0, 3);
+    const hl = $("occ-hol"), dl = $("occ-days");
+    hl.textContent = ""; dl.textContent = "";
+    for (const h of hol) {
+      const ongoing = h.start <= todayISO && h.end >= todayISO && h.end !== h.start;
+      const span = h.end !== h.start && !h.note ? when({ start: h.start, end: h.end }) : fmtDate(h.date);
+      const cd = ongoing ? (h.date > todayISO ? countdown(dayDiff(h.date)) : "حتى " + fmtDate(h.end)) : countdown(dayDiff(h.date));
+      hl.append(occasionItem(h.title, [span + est(h), h.note, cd]));
+    }
+    for (const d of days) dl.append(occasionItem(d.title, [fmtDate(d.iso) + est(d), d.tag, countdown(dayDiff(d.iso))]));
+    if (!hol.length) hl.append(el("li", "ev-empty", "لا إجازات قريبة."));
+    $("events-wrap").hidden = !(hol.length || days.length);
   }
   function collectEvents(ed) {
     const list = [];

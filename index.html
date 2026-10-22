@@ -9,7 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b5d3b'/%3E%3Ccircle cx='16' cy='18' r='7' fill='%23f7f5f0'/%3E%3Crect x='6' y='23' width='20' height='4' fill='%230b5d3b'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/thmanyahsans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/thmanyahserifdisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=1.52">
+  <link rel="stylesheet" href="assets/style.css?v=1.60">
 </head>
 <body>
   <main class="page">
@@ -28,7 +28,6 @@
         <span class="also-label">وأيضًا</span>
         <ul class="more" id="more" aria-label="أخبار أخرى"></ul>
       </div>
-      <p class="hint">اضغط على العبارات الملوّنة للتفاصيل والمصدر.</p>
     </section>
 
 
@@ -74,9 +73,11 @@
       </div>
     </section>
 
-    <section class="events" id="events-wrap" hidden>
-      <h2>قادم</h2>
-      <ul id="events"></ul>
+    <!-- Holidays (official and school) beside celebrated days; data/occasions.json is reviewed once a year -->
+    <section class="regions occasions" id="events-wrap" aria-labelledby="events-title" hidden>
+      <h2 class="regions-title" id="events-title">قادم</h2>
+      <div class="region"><div class="r-pick r-fixed"><span class="r-name">إجازات</span></div><ul id="occ-hol"></ul></div>
+      <div class="region"><div class="r-pick r-fixed"><span class="r-name">أيام نحتفي بها</span></div><ul id="occ-days"></ul></div>
     </section>
 
     <!-- The Kingdom abroad, laid out like the city events: one column per continent instead of per city.
@@ -97,12 +98,12 @@
 
     <footer class="foot">
       <p class="about">موجز يومي هادئ: إنجازات ومشاريع ومؤشرات وخدمات وفعاليات، احتفاءً بالمحتوى المحلي وإثراءً له. كل خبر مؤرخ ومربوط بمصدره. نلخّص ونحيل إلى المصدر، ولا نعيد نشر المقالات.</p>
-      <p class="ver">الإصدار v1.52 · 2026-10-22</p>
+      <p class="ver">الإصدار v1.60 · 2026-10-22</p>
     </footer>
   </main>
 
   <script src="assets/adhan.min.js"></script>
-  <script src="assets/world.js?v=1.52"></script>
-  <script src="assets/app.js?v=1.52"></script>
+  <script src="assets/world.js?v=1.60"></script>
+  <script src="assets/app.js?v=1.60"></script>
 </body>
 </html>

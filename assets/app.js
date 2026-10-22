@@ -359,7 +359,8 @@
       const t = new Date(`${todayISO}T${String(h).padStart(2, "0")}:00:00+03:00`);
       const p = pos(t);
       if (p <= 0.5 || p >= 99.5) continue;
-      const mark = el("span", "tl-hour" + (h % 2 === 0 ? " major" : ""));
+      // Hours in the next 1h30 are drawn in 50% grey.
+      const mark = el("span", "tl-hour" + (h % 2 === 0 ? " major" : "") + (t >= now && t - now <= 90 * 60e3 ? " soon" : ""));
       mark.style.top = p + "%";
       // Skip the hour's label when a prayer, sunrise/sunset or match dot sits within 25 minutes of it.
       const dots = (items || []).filter((e) => e.time && e.time.slice(0, 10) === todayISO).map((e) => new Date(e.time));

@@ -524,4 +524,6 @@ a.ag-row:hover .ag-name { color: var(--accent); }
 :root[data-theme="dark"] { --hour-text: #333333; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --hour-text: #333333; } }
 .tl-hour:not(.tl-tick) .tl-hlabel { color: var(--hour-text); }
+.tl-hour.soon:not(.tl-tick) { background: #808080; }
+.tl-hour.soon:not(.tl-tick) .tl-hlabel { color: #808080; }
 .r-stack[hidden] { display: none; }

@@ -352,8 +352,8 @@
       [end, "#0b1430"],                   // midnight
     ];
     track.style.setProperty("--sky", `linear-gradient(to bottom, ${sky.map(([t, c]) => `${c} ${pos(t).toFixed(2)}%`).join(", ")})`);
-    // A prayer, sunrise or sunset that passed 15 minutes to 10 hours ago is hidden from the line.
-    const stale = (t) => now - t >= 15 * 60e3 && now - t <= 10 * 3600e3;
+    // A prayer, sunrise or sunset that passed 15 minutes to 16 hours ago is hidden from the line.
+    const stale = (t) => now - t >= 15 * 60e3 && now - t <= 16 * 3600e3;
     // Hour marks: a tiny dash every hour along the line's right edge; every even hour a small label beside it (6 ص، 8 ص، 10 ص …).
     for (let h = 1; h < 24; h++) {
       const t = new Date(`${todayISO}T${String(h).padStart(2, "0")}:00:00+03:00`);

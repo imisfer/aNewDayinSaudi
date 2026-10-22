@@ -352,6 +352,8 @@
       [end, "#0b1430"],                   // midnight
     ];
     track.style.setProperty("--sky", `linear-gradient(to bottom, ${sky.map(([t, c]) => `${c} ${pos(t).toFixed(2)}%`).join(", ")})`);
+    // A prayer, sunrise or sunset that passed 15 minutes to 10 hours ago is hidden from the line.
+    const stale = (t) => now - t >= 15 * 60e3 && now - t <= 10 * 3600e3;
     // Hour marks: a tiny dash every hour along the line's right edge; every even hour a small label beside it (6 ص، 8 ص، 10 ص …).
     for (let h = 1; h < 24; h++) {
       const t = new Date(`${todayISO}T${String(h).padStart(2, "0")}:00:00+03:00`);
@@ -361,7 +363,7 @@
       mark.style.top = p + "%";
       // Skip the hour's label when a prayer, sunrise/sunset or match dot sits within 25 minutes of it.
       const dots = (items || []).filter((e) => e.time && e.time.slice(0, 10) === todayISO).map((e) => new Date(e.time));
-      const crowded = [pt.fajr, pt.sunrise, pt.dhuhr, pt.asr, pt.maghrib, pt.isha, ...dots].some((x) => Math.abs(x - t) < 25 * 60e3);
+      const crowded = [pt.fajr, pt.sunrise, pt.dhuhr, pt.asr, pt.maghrib, pt.isha].filter((x) => !stale(x)).concat(dots).some((x) => Math.abs(x - t) < 25 * 60e3);
       if (h % 2 === 0 && !crowded) mark.append(el("span", "tl-hlabel", h === 12 ? "12 م" : h < 12 ? `${h} ص` : `${h - 12} م`));
       track.append(mark);
     }
@@ -369,6 +371,7 @@
     // Maghrib is sunset, so it is drawn once below as the moon with its name under it.
     // Sunrise and sunset (Maghrib) are marked the same way.
     for (const [t, name, full] of [[pt.fajr, "فجــــر", "الفجر"], [pt.sunrise, "شروق", "الشروق"], [pt.dhuhr, "ظهـــر", "الظهر"], [pt.asr, "عصر", "العصر"], [pt.maghrib, "مغرب", "المغرب"], [pt.isha, "عشـاء", "العشاء"]]) {
+      if (stale(t)) continue;
       const tick = el("span", "tl-hour major tl-tick" + (t < now ? " past" : ""));
       // The time sits just above the name, small (e.g. 11:34 over «ظهر»).
       const hm = Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit", hour12: true }).formatToParts(t).map((x) => [x.type, x.value]));

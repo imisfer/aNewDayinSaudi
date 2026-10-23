@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		093CD94DF497378CC1EABFC5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30033628D891AC34ADB172B8 /* WidgetKit.framework */; };
+		0BBE6CFAB40F427F1416DC4A /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF881831D225ACB0FB925DD /* DateHelpers.swift */; };
+		0BD10A46E6647D7CFAD19B00 /* WidgetViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8F1E778142A3232FF13AB /* WidgetViews.swift */; };
+		130FFF9C164583F0B009F7D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21CFFE1CCE2354B6428A43A /* ContentView.swift */; };
+		143D0E8C81694B5A4450B819 /* OccasionsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FEEFC83BD31C665353E46A /* OccasionsStore.swift */; };
+		2491058547709FBFF2F4E97D /* OccasionsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FEEFC83BD31C665353E46A /* OccasionsStore.swift */; };
+		4376DB7F24AB04CBA09E9A2C /* EditionFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859DB3EE5D7F6317A56FC9E /* EditionFetcher.swift */; };
+		44149A01CDF97087805CE5DC /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7903989F60BC260CB3BF3 /* Models.swift */; };
+		4687502ED023CCDD09CAE557 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06798E94C70E64C3A06E866B /* Color+Hex.swift */; };
+		5C4A195B4B2725F0FB19082F /* SaudiTodayWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F688A0201DDE8090E404E7 /* SaudiTodayWidgetBundle.swift */; };
+		6C110004D9E3E355F94B0765 /* occasions.json in Resources */ = {isa = PBXBuildFile; fileRef = 7936EC6CB035A10BD9ABE225 /* occasions.json */; };
+		78EB0E1F8612A63103C14D81 /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = 90F643F980367330DEEBD73D /* Adhan */; };
+		A164B3ED75B6FDA6028D438C /* EditionFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E859DB3EE5D7F6317A56FC9E /* EditionFetcher.swift */; };
+		AECB4334A5C21FCFF5A881DD /* SaudiTodayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7B09734162C539B3B1A6C5 /* SaudiTodayApp.swift */; };
+		CAEFFA7F13811EC6715A780B /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF881831D225ACB0FB925DD /* DateHelpers.swift */; };
+		D747409B117D64D869CD0932 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7014ED627C51C27AE0E39B2B /* Assets.xcassets */; };
+		DBC8855C90410ECCF79ED5B8 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B7903989F60BC260CB3BF3 /* Models.swift */; };
+		DBEA2946C1B226847C483F74 /* PrayerCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D87C2A219E4D0AF39CDE3C /* PrayerCalculator.swift */; };
+		DDDBD98CA2FEE75E0AA12716 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06798E94C70E64C3A06E866B /* Color+Hex.swift */; };
+		ECF274BCE26CBBBBF30CFD3F /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB047D4E571A351992189D /* Provider.swift */; };
+		EFECD34D5DE0F04F9D7DA788 /* PrayerCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D87C2A219E4D0AF39CDE3C /* PrayerCalculator.swift */; };
+		F2BBA9FCC5D4EAE9D89AD85E /* SaudiTodayWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9C089A0D804E85EC5CF65095 /* SaudiTodayWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F43A9CE5C4764AE792DCC766 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F3FC7A10A4E8D6598BF94D /* SwiftUI.framework */; };
+		FA35E21414F400782CDFA926 /* Adhan in Frameworks */ = {isa = PBXBuildFile; productRef = 103617BAE3173669DD62E825 /* Adhan */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D500D3E4DBECF357C9AC5587 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD8357101B0184A58D7F36F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA56868FC58FF7C88BCDF410;
+			remoteInfo = SaudiTodayWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2FBBC1667F6773CC17F5661F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F2BBA9FCC5D4EAE9D89AD85E /* SaudiTodayWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		061F092446541FF237BECB5E /* SaudiTodayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaudiTodayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06798E94C70E64C3A06E866B /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		26B7903989F60BC260CB3BF3 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		2C7B09734162C539B3B1A6C5 /* SaudiTodayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaudiTodayApp.swift; sourceTree = "<group>"; };
+		30033628D891AC34ADB172B8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		34F688A0201DDE8090E404E7 /* SaudiTodayWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaudiTodayWidgetBundle.swift; sourceTree = "<group>"; };
+		45521BD74CBEA254816A7E18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		48D87C2A219E4D0AF39CDE3C /* PrayerCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerCalculator.swift; sourceTree = "<group>"; };
+		49F3FC7A10A4E8D6598BF94D /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		4CB8F1E778142A3232FF13AB /* WidgetViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViews.swift; sourceTree = "<group>"; };
+		4FCB047D4E571A351992189D /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		56D198F62585F356CBD35170 /* SaudiTodayWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaudiTodayWidgetExtension.entitlements; sourceTree = "<group>"; };
+		7014ED627C51C27AE0E39B2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		76EBF693010C4A0BC6604E03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7936EC6CB035A10BD9ABE225 /* occasions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = occasions.json; sourceTree = "<group>"; };
+		9C089A0D804E85EC5CF65095 /* SaudiTodayWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SaudiTodayWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0FEEFC83BD31C665353E46A /* OccasionsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OccasionsStore.swift; sourceTree = "<group>"; };
+		CE37DEE355D33E137CE9E147 /* SaudiTodayApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaudiTodayApp.entitlements; sourceTree = "<group>"; };
+		E21CFFE1CCE2354B6428A43A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E859DB3EE5D7F6317A56FC9E /* EditionFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionFetcher.swift; sourceTree = "<group>"; };
+		FAF881831D225ACB0FB925DD /* DateHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		819A388659C0CEBCA01ACBA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA35E21414F400782CDFA926 /* Adhan in Frameworks */,
+				093CD94DF497378CC1EABFC5 /* WidgetKit.framework in Frameworks */,
+				F43A9CE5C4764AE792DCC766 /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE0D211FB7F02F91A8D67D06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78EB0E1F8612A63103C14D81 /* Adhan in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5D77D03F6977F58F4506D172 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				06798E94C70E64C3A06E866B /* Color+Hex.swift */,
+				FAF881831D225ACB0FB925DD /* DateHelpers.swift */,
+				E859DB3EE5D7F6317A56FC9E /* EditionFetcher.swift */,
+				26B7903989F60BC260CB3BF3 /* Models.swift */,
+				A0FEEFC83BD31C665353E46A /* OccasionsStore.swift */,
+				48D87C2A219E4D0AF39CDE3C /* PrayerCalculator.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		61DD63CB3D33FCCADE149C0B /* SaudiTodayApp */ = {
+			isa = PBXGroup;
+			children = (
+				7014ED627C51C27AE0E39B2B /* Assets.xcassets */,
+				E21CFFE1CCE2354B6428A43A /* ContentView.swift */,
+				45521BD74CBEA254816A7E18 /* Info.plist */,
+				CE37DEE355D33E137CE9E147 /* SaudiTodayApp.entitlements */,
+				2C7B09734162C539B3B1A6C5 /* SaudiTodayApp.swift */,
+			);
+			path = SaudiTodayApp;
+			sourceTree = "<group>";
+		};
+		68D746E2BCC80F4580E38EF7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				061F092446541FF237BECB5E /* SaudiTodayApp.app */,
+				9C089A0D804E85EC5CF65095 /* SaudiTodayWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC769D2E4C907805583D7EAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49F3FC7A10A4E8D6598BF94D /* SwiftUI.framework */,
+				30033628D891AC34ADB172B8 /* WidgetKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C77718A7CA5C25C5F9EFC60B = {
+			isa = PBXGroup;
+			children = (
+				61DD63CB3D33FCCADE149C0B /* SaudiTodayApp */,
+				E82E94BC79F175A541E265D0 /* SaudiTodayWidget */,
+				5D77D03F6977F58F4506D172 /* Shared */,
+				AC769D2E4C907805583D7EAA /* Frameworks */,
+				68D746E2BCC80F4580E38EF7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E82E94BC79F175A541E265D0 /* SaudiTodayWidget */ = {
+			isa = PBXGroup;
+			children = (
+				76EBF693010C4A0BC6604E03 /* Info.plist */,
+				7936EC6CB035A10BD9ABE225 /* occasions.json */,
+				4FCB047D4E571A351992189D /* Provider.swift */,
+				34F688A0201DDE8090E404E7 /* SaudiTodayWidgetBundle.swift */,
+				56D198F62585F356CBD35170 /* SaudiTodayWidgetExtension.entitlements */,
+				4CB8F1E778142A3232FF13AB /* WidgetViews.swift */,
+			);
+			path = SaudiTodayWidget;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		861EAEFF4C0D1008A35D3723 /* SaudiTodayApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C8B6CF4C2EAF4D026CE1A33 /* Build configuration list for PBXNativeTarget "SaudiTodayApp" */;
+			buildPhases = (
+				16CCD729E42DE362FE615771 /* Sources */,
+				A389790848ABD4FBCF46FD65 /* Resources */,
+				CE0D211FB7F02F91A8D67D06 /* Frameworks */,
+				2FBBC1667F6773CC17F5661F /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F7E63001C7DF44C838E0753 /* PBXTargetDependency */,
+			);
+			name = SaudiTodayApp;
+			packageProductDependencies = (
+				90F643F980367330DEEBD73D /* Adhan */,
+			);
+			productName = SaudiTodayApp;
+			productReference = 061F092446541FF237BECB5E /* SaudiTodayApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA56868FC58FF7C88BCDF410 /* SaudiTodayWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51F8B3108723D7E5A9121BEC /* Build configuration list for PBXNativeTarget "SaudiTodayWidgetExtension" */;
+			buildPhases = (
+				C29B80ADEA737B017323A6F2 /* Sources */,
+				3A5A671B0F11A491E344D2E3 /* Resources */,
+				819A388659C0CEBCA01ACBA5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SaudiTodayWidgetExtension;
+			packageProductDependencies = (
+				103617BAE3173669DD62E825 /* Adhan */,
+			);
+			productName = SaudiTodayWidgetExtension;
+			productReference = 9C089A0D804E85EC5CF65095 /* SaudiTodayWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD8357101B0184A58D7F36F9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					861EAEFF4C0D1008A35D3723 = {
+						ProvisioningStyle = Automatic;
+					};
+					FA56868FC58FF7C88BCDF410 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3BA3A288AD603F507D7E77E4 /* Build configuration list for PBXProject "SaudiTodayWidget" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = C77718A7CA5C25C5F9EFC60B;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CCBC572AAD559315BC41F820 /* XCRemoteSwiftPackageReference "adhan-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 68D746E2BCC80F4580E38EF7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				861EAEFF4C0D1008A35D3723 /* SaudiTodayApp */,
+				FA56868FC58FF7C88BCDF410 /* SaudiTodayWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A5A671B0F11A491E344D2E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C110004D9E3E355F94B0765 /* occasions.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A389790848ABD4FBCF46FD65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D747409B117D64D869CD0932 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16CCD729E42DE362FE615771 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4687502ED023CCDD09CAE557 /* Color+Hex.swift in Sources */,
+				130FFF9C164583F0B009F7D8 /* ContentView.swift in Sources */,
+				0BBE6CFAB40F427F1416DC4A /* DateHelpers.swift in Sources */,
+				4376DB7F24AB04CBA09E9A2C /* EditionFetcher.swift in Sources */,
+				44149A01CDF97087805CE5DC /* Models.swift in Sources */,
+				143D0E8C81694B5A4450B819 /* OccasionsStore.swift in Sources */,
+				DBEA2946C1B226847C483F74 /* PrayerCalculator.swift in Sources */,
+				AECB4334A5C21FCFF5A881DD /* SaudiTodayApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C29B80ADEA737B017323A6F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDDBD98CA2FEE75E0AA12716 /* Color+Hex.swift in Sources */,
+				CAEFFA7F13811EC6715A780B /* DateHelpers.swift in Sources */,
+				A164B3ED75B6FDA6028D438C /* EditionFetcher.swift in Sources */,
+				DBC8855C90410ECCF79ED5B8 /* Models.swift in Sources */,
+				2491058547709FBFF2F4E97D /* OccasionsStore.swift in Sources */,
+				EFECD34D5DE0F04F9D7DA788 /* PrayerCalculator.swift in Sources */,
+				ECF274BCE26CBBBBF30CFD3F /* Provider.swift in Sources */,
+				5C4A195B4B2725F0FB19082F /* SaudiTodayWidgetBundle.swift in Sources */,
+				0BD10A46E6647D7CFAD19B00 /* WidgetViews.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F7E63001C7DF44C838E0753 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA56868FC58FF7C88BCDF410 /* SaudiTodayWidgetExtension */;
+			targetProxy = D500D3E4DBECF357C9AC5587 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0ABC7CED518A0E498E767286 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SaudiTodayApp/SaudiTodayApp.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				INFOPLIST_FILE = SaudiTodayApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = info.misfer.yawm;
+				PRODUCT_NAME = "يوم جديد";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		318411FA6D240F1080442D4C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SaudiTodayWidget/SaudiTodayWidgetExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				INFOPLIST_FILE = SaudiTodayWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = info.misfer.yawm.widget;
+				PRODUCT_NAME = "ودجت يوم جديد";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7EF379D71928046FE18A94A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		9A94588FF16A5EC44259EA08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = SaudiTodayWidget/SaudiTodayWidgetExtension.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				INFOPLIST_FILE = SaudiTodayWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = info.misfer.yawm.widget;
+				PRODUCT_NAME = "ودجت يوم جديد";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		A5C6524B0D211B90FD4F512F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SaudiTodayApp/SaudiTodayApp.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				INFOPLIST_FILE = SaudiTodayApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = info.misfer.yawm;
+				PRODUCT_NAME = "يوم جديد";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D7E0F76FBDA0DE762B4BC129 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3BA3A288AD603F507D7E77E4 /* Build configuration list for PBXProject "SaudiTodayWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF379D71928046FE18A94A5 /* Debug */,
+				D7E0F76FBDA0DE762B4BC129 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		51F8B3108723D7E5A9121BEC /* Build configuration list for PBXNativeTarget "SaudiTodayWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				318411FA6D240F1080442D4C /* Debug */,
+				9A94588FF16A5EC44259EA08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8C8B6CF4C2EAF4D026CE1A33 /* Build configuration list for PBXNativeTarget "SaudiTodayApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0ABC7CED518A0E498E767286 /* Debug */,
+				A5C6524B0D211B90FD4F512F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CCBC572AAD559315BC41F820 /* XCRemoteSwiftPackageReference "adhan-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/batoulapps/adhan-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		103617BAE3173669DD62E825 /* Adhan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCBC572AAD559315BC41F820 /* XCRemoteSwiftPackageReference "adhan-swift" */;
+			productName = Adhan;
+		};
+		90F643F980367330DEEBD73D /* Adhan */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCBC572AAD559315BC41F820 /* XCRemoteSwiftPackageReference "adhan-swift" */;
+			productName = Adhan;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = AD8357101B0184A58D7F36F9 /* Project object */;
+}

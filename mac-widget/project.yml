@@ -1,0 +1,86 @@
+name: SaudiTodayWidget
+options:
+  bundleIdPrefix: info.misfer.yawm
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "2"
+    SWIFT_VERSION: "5.0"
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_HARDENED_RUNTIME: YES
+
+packages:
+  Adhan:
+    url: https://github.com/batoulapps/adhan-swift
+    from: 1.5.0
+
+targets:
+  SaudiTodayApp:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: SaudiTodayApp
+      - path: Shared
+    resources:
+      - path: SaudiTodayApp/Assets.xcassets
+    dependencies:
+      - package: Adhan
+      - target: SaudiTodayWidgetExtension
+        embed: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: info.misfer.yawm
+        PRODUCT_NAME: "يوم جديد"
+        ENABLE_APP_SANDBOX: YES
+        ENABLE_OUTGOING_NETWORK_CONNECTIONS: YES
+        CODE_SIGN_ENTITLEMENTS: SaudiTodayApp/SaudiTodayApp.entitlements
+    info:
+      path: SaudiTodayApp/Info.plist
+      properties:
+        CFBundleDisplayName: "يوم جديد"
+        NSHumanReadableCopyright: ""
+        NSPrincipalClass: NSApplication
+        LSApplicationCategoryType: public.app-category.news
+        LSMinimumSystemVersion: "14.0"
+        LSUIElement: false
+
+  SaudiTodayWidgetExtension:
+    type: app-extension
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: SaudiTodayWidget
+      - path: Shared
+    resources:
+      - path: SaudiTodayWidget/occasions.json
+    dependencies:
+      - package: Adhan
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: info.misfer.yawm.widget
+        PRODUCT_NAME: "ودجت يوم جديد"
+        ENABLE_APP_SANDBOX: YES
+        ENABLE_OUTGOING_NETWORK_CONNECTIONS: YES
+        CODE_SIGN_ENTITLEMENTS: SaudiTodayWidget/SaudiTodayWidgetExtension.entitlements
+        SKIP_INSTALL: YES
+    info:
+      path: SaudiTodayWidget/Info.plist
+      properties:
+        CFBundleDisplayName: "ودجت يوم جديد"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+
+schemes:
+  SaudiTodayApp:
+    build:
+      targets:
+        SaudiTodayApp: all
+    run:
+      config: Debug

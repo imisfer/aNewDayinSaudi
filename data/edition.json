@@ -1,57 +1,67 @@
 {
-  "edition_date": "2026-10-22",
+  "edition_date": "2026-10-23",
   "status": "pilot",
-  "headline": "«4,291 وظيفة صحية» للسعوديين في 20 تجمعًا، و«ورش السيارات» ملزمة بانتظار مكيّف يتيح متابعة الصيانة، وارتفاع «أسعار العقارات» 1.2%",
+  "headline": "«2,847 فندقًا» في المملكة بنهاية 2025 بنمو 31.6%، وحدائق «الرياض الخضراء» تتجاوز 85% إنجازًا، و«ذهبيتان بارالمبيتان» في ناغويا",
   "cards": [
     {
-      "category": "توظيف",
-      "keyword": "«4,291 وظيفة صحية»",
-      "story": "health-holding-4291-jobs-2026-10",
-      "title": "الصحة القابضة تطرح 4,291 وظيفة للممارسين الصحيين السعوديين",
-      "summary": "تتوزع على 20 تجمعًا صحيًا في مناطق المملكة، ويُقدَّم عليها إلكترونيًا عبر بوابات التجمعات خلال 15 يومًا من إعلانها، ليبلغ إجمالي التوظيف والفرص المطروحة في 2026 حتى الآن 19,610.",
-      "date": "2026-10-19",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/fex014p"
-    },
-    {
-      "category": "خدمات",
-      "keyword": "«ورش السيارات»",
-      "story": "momah-car-workshop-requirements-2026-10",
-      "title": "ورش السيارات ملزمة بمنطقة انتظار تتيح للعملاء متابعة الصيانة",
-      "summary": "وفق اشتراطات وزارة البلديات والإسكان: منطقة انتظار مكيّفة تُتابَع منها الصيانة عبر واجهات زجاجية أو بث مباشر، ورمز QR موحّد على الواجهة، ودفع إلكتروني، وإيقاف مركبات العملاء داخل الورشة.",
+      "category": "اقتصاد",
+      "keyword": "«2,847 فندقًا»",
+      "story": "gastat-services-stats-2025-hotels",
+      "title": "عدد الفنادق في المملكة يرتفع 31.6% إلى 2,847 فندقًا في 2025",
+      "summary": "وفق بيانات الهيئة العامة للإحصاء، تجاوزت الغرف الفندقية 491 ألف غرفة، وارتفع عدد المصانع المنتجة في المدن الصناعية 18.9% إلى 4,938 مصنعًا في 36 مدينة صناعية.",
       "date": "2026-10-21",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2271798"
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/business/saudi-arabias-factory-numbers-rise-19-hotels-jump-32-official-figures-show-3007485"
     },
     {
-      "category": "اقتصاد",
-      "keyword": "«أسعار العقارات»",
-      "story": "real-estate-price-index-q3-2026",
-      "title": "الرقم القياسي لأسعار العقارات يرتفع 1.2% في الربع الثالث 2026",
-      "summary": "بدعم من القطاع السكني الذي ارتفع 2.3% مقابل تراجع التجاري 2.0%، وسجّلت الحدود الشمالية أعلى ارتفاع بين المناطق بنسبة 12.0% تلتها الرياض بـ4.6%.",
-      "date": "2026-10-20",
-      "source_name": "أرقام",
-      "source_url": "https://www.argaam.com/ar/article/articledetail/id/1945447"
+      "category": "بيئة",
+      "keyword": "«الرياض الخضراء»",
+      "story": "green-riyadh-three-parks-85-percent-2026-10",
+      "title": "ثلاث حدائق كبرى ضمن «الرياض الخضراء» تتجاوز 85% من الإنجاز",
+      "summary": "تقع في أحياء القادسية والرمال والمونسية، وتضم ملاعب رياضية ومناطق لياقة وألعابًا مائية ومسارات للدراجات والتزلج، مع زراعة أكثر من 585 ألف شجرة وشجيرة.",
+      "date": "2026-10-22",
+      "source_name": "الهيئة الملكية لمدينة الرياض",
+      "source_url": "https://www.rcrc.gov.sa/en/green-riyadh-major-parks-85-of-completion/"
     },
     {
-      "category": "اقتصاد",
-      "keyword": "إيرادات الأعمال +3%",
-      "story": "business-revenue-building-permits-2026-08",
-      "title": "إيرادات قطاع الأعمال ترتفع 3.0% في أغسطس وإصدار 5,621 رخصة بناء",
-      "summary": "أظهرت المؤشرات قصيرة الأجل للهيئة العامة للإحصاء ارتفاع الرقم القياسي للإيرادات التشغيلية لقطاع الأعمال 3.0% مقارنة بأغسطس 2025، وصدور 5,621 رخصة بناء خلال الشهر.",
-      "date": "2026-10-20",
+      "category": "رياضة",
+      "keyword": "«ذهبيتان بارالمبيتان»",
+      "story": "nakhli-zahrani-asian-para-games-gold-2026",
+      "title": "النخلي والزهراني يحرزان ذهبيتين في الألعاب الآسيوية البارالمبية",
+      "summary": "أحرز النخلي ذهبية 100 متر لفئة T37 بزمن 11.31 ثانية، والزهراني ذهبية 400 متر للفئة نفسها بزمن 55.74 ثانية، في دورة آيتشي-ناغويا 2026 باليابان.",
+      "date": "2026-10-21",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/sport/saudis-al-nakhli-and-al-zahrani-win-gold-at-asian-para-games-in-japan-3007673"
+    },
+    {
+      "category": "رياضة",
+      "keyword": "إعداد الأخضر لكأس آسيا",
+      "story": "saudi-nt-asian-cup-2027-prep-program",
+      "title": "الأخضر يعلن برنامج إعداده لكأس آسيا 2027: معسكران وأربع وديات",
+      "summary": "معسكر في قطر من 9 إلى 17 نوفمبر يواجه فيه كوريا الجنوبية وأوزبكستان، ثم معسكر في الخبر يلاقي فيه قطر والأردن، قبل البطولة التي تستضيفها المملكة من 7 يناير.",
+      "date": "2026-10-22",
       "source_name": "سبق",
-      "source_url": "https://sabq.org/article/6j2ycsr"
+      "source_url": "https://sabq.org/article/vhuc1t8"
     },
     {
       "category": "ثقافة",
-      "keyword": "«ون بيس» بالعربية",
-      "story": "manga-arabia-one-piece-arabic-2026",
-      "title": "«مانجا العربية» تطلق سلسلة «ون بيس» رسميًا باللغة العربية",
-      "summary": "يشمل الإطلاق أكثر من 100 فصل عبر تطبيقات «مانجا العربية» الرقمية، بالتعاون مع الناشر الياباني «شويشا»، في أول إصدار عربي رسمي للسلسلة.",
-      "date": "2026-10-18",
+      "keyword": "موسم الآثار في العلا",
+      "story": "rcu-archaeology-season-2026-27-dadan-khaybar",
+      "title": "الهيئة الملكية للعلا تطلق موسم الآثار 2026–2027 في دادان وخيبر",
+      "summary": "يركّز في دادان على المواقع الجنائزية والسكنية ضمن مرحلة ثانية تستند إلى خمس سنوات من البحث، وفي خيبر على علاقة الإنسان بالواحة من العصر الحجري الحديث حتى الفترة الإسلامية.",
+      "date": "2026-10-22",
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/n6x3kyk"
+    },
+    {
+      "category": "تعليم",
+      "keyword": "مدرسة عالمية جديدة",
+      "story": "rcrc-aster-school-international-schools-program",
+      "title": "مدرسة «أستر» الحادية عشرة في برنامج استقطاب المدارس العالمية بالرياض",
+      "summary": "تعتمد المنهج البريطاني بتعليم ثنائي اللغة بالعربية والإنجليزية، وتستقبل الأطفال من عمر 6 أشهر حتى 18 عامًا، ضمن البرنامج الذي تديره الهيئة الملكية لمدينة الرياض.",
+      "date": "2026-10-21",
       "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/N2704291"
+      "source_url": "https://www.spa.gov.sa/en/N2706956"
     }
   ],
   "events": [
@@ -73,30 +83,18 @@
         "source_url": "https://www.spa.gov.sa/N2703270"
       },
       {
-        "title": "المعرض الزراعي السعودي 2026",
-        "place": "مركز الرياض الدولي للمؤتمرات",
-        "start": "2026-10-19",
-        "end": "2026-10-22",
-        "source_url": "https://sabq.org/article/qrhfl92"
-      },
-      {
-        "title": "جون عشقر: عرض كوميدي «فينا نحكي»",
-        "place": "مسرح مدارس الرياض",
-        "start": "2026-10-22",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/106073/feena-nehke-stand-up-comedy-by-john-achkar-in-riyadh"
-      },
-      {
-        "title": "عبدالله صبيح: عرض كوميدي",
-        "place": "مركز سرد، جامعة الملك سعود",
-        "start": "2026-10-22",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/108867/abedulla-sbieh-stand-up-comedy-show-in-riyadh"
-      },
-      {
         "title": "الدوري السعودي لقفز الحواجز: الجولة الأولى",
         "place": "حديقة الخيل، العمّارية",
         "start": "2026-10-22",
         "end": "2026-10-24",
         "source_url": "https://riyadh.platinumlist.net/event-tickets/109234/saudi-show-jumping-league-in-riyadh"
+      },
+      {
+        "title": "حفل مارلين نعمان",
+        "place": "تياترو الرياض",
+        "start": "2026-10-29",
+        "time": "21:00",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/108220/marilyne-naaman-live-concert-in-riyadh"
       }
     ],
     "jeddah": [
@@ -104,7 +102,15 @@
         "title": "جون عشقر: عرض كوميدي «فينا نحكي»",
         "place": "جامعة دار الحكمة",
         "start": "2026-10-23",
-        "source_url": "https://jeddah.platinumlist.net/ar/event-tickets/106065/feena-nehke-stand-up-comedy-by-john-achkar-in-jeddah"
+        "time": "21:00",
+        "source_url": "https://jeddah.platinumlist.net/event-tickets/106065/feena-nehke-stand-up-comedy-by-john-achkar-in-jeddah"
+      },
+      {
+        "title": "نمر: عرض كوميدي «واقف!»",
+        "place": "جامعة دار الحكمة",
+        "start": "2026-11-07",
+        "time": "21:00",
+        "source_url": "https://jeddah.platinumlist.net/event-tickets/107450/wagef-nemr-live-comedy-show-in-jeddah"
       }
     ],
     "alula": [
@@ -128,14 +134,14 @@
   "world": [
     {
       "continent": "asia",
-      "title": "مركز الملك سلمان للإغاثة يعيد 140 لاجئًا صوماليًا من اليمن إلى بلادهم",
-      "summary": "نُفّذت العودة الطوعية عبر مطار عدن الدولي بالتعاون مع المفوضية السامية للأمم المتحدة لشؤون اللاجئين، ضمن مشروع لحماية اللاجئين ومساعدتهم.",
-      "category": "إغاثة",
+      "title": "مركز الملك سلمان للإغاثة يسلّم شحنة أدوية جديدة لوزارة الصحة اليمنية",
+      "summary": "سُلّمت الشحنة في عدن إلى وزارة الصحة العامة والسكان لتعزيز الاستجابة الطارئة.",
+      "category": "صحة",
       "place": "عدن، اليمن",
       "date": "2026-10-21",
       "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2707270",
-      "story": "ksrelief-somali-refugees-repatriation-2026-10"
+      "source_url": "https://www.spa.gov.sa/en/N2707224",
+      "story": "ksrelief-yemen-medicines-shipment-2026-10"
     }
   ]
 }

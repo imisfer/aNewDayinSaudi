@@ -1,67 +1,77 @@
 {
-  "edition_date": "2026-10-24",
+  "edition_date": "2026-10-25",
   "status": "pilot",
-  "headline": "المملكة الأولى خليجيًا في «مؤشر التقاعد العالمي»، و«المتنزهات الزراعية» بعائد متوقع 6 مليارات ريال، و«الهلال» يتصدر دوري روشن",
+  "headline": "«بوليفارد وورلد» يفتح أبوابه الجمعة بتجارب 17 دولة، و«الأسطول البحري» ينمو 34%، وسبع منحوتات لمحمد السليم تنضم إلى «الرياض آرت»",
   "cards": [
     {
-      "category": "اقتصاد",
-      "keyword": "«مؤشر التقاعد العالمي»",
-      "story": "global-pension-index-2026-saudi-12th",
-      "title": "المملكة الأولى خليجيًا والـ12 عالميًا في مؤشر التقاعد العالمي 2026",
-      "summary": "سجّل نظام التقاعد السعودي 73.2 نقطة من 100 مقارنة بـ67.6 في 2025، بين 55 نظامًا يشملها مؤشر «مارش» ومعهد CFA، مع تصنيف A في محور النزاهة.",
-      "date": "2026-10-22",
-      "source_name": "أرقام",
-      "source_url": "https://www.argaam.com/ar/article/articledetail/id/1946374"
+      "category": "ترفيه",
+      "keyword": "«بوليفارد وورلد»",
+      "story": "boulevard-world-2026-opening",
+      "title": "طرح تذاكر «بوليفارد وورلد» قبل افتتاحه الجمعة 30 أكتوبر",
+      "summary": "بدأ موسم الرياض بيع تذاكر المنطقة عبر منصة «ويبوك»، وتضم تجارب مستوحاة من 17 دولة إلى جانب مناطق للثقافات الأفريقية والآسيوية والشامية، في عامها الخامس منذ انطلاقها عام 2022.",
+      "date": "2026-10-24",
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/N2709228"
     },
     {
-      "category": "زراعة",
-      "keyword": "«المتنزهات الزراعية»",
-      "story": "mewa-sustainable-agricultural-parks-phase1",
-      "title": "إطلاق المرحلة الأولى من مبادرة المتنزهات الزراعية المستدامة",
-      "summary": "وُقّعت سبعة عقود استثمارية في مناطق المدينة المنورة وتبوك ومكة المكرمة، يُتوقع أن تضيف 6 مليارات ريال إلى الناتج المحلي خلال 15 عامًا وتوفر أكثر من 700 وظيفة مباشرة.",
-      "date": "2026-10-20",
-      "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2705922"
+      "category": "نقل",
+      "keyword": "«الأسطول البحري»",
+      "story": "tga-national-maritime-fleet-growth-2025",
+      "title": "الأسطول البحري الوطني ينمو 34% خلال 2025",
+      "summary": "وفق الهيئة العامة للنقل، تبلغ الطاقة الاستيعابية للأسطول نحو 11.8 مليون طن، لتحل المملكة أولى في الشرق الأوسط والـ20 عالميًا، والثانية بين دول مجموعة العشرين في نمو القطاع البحري.",
+      "date": "2026-10-22",
+      "source_name": "الشرق الأوسط",
+      "source_url": "https://english.aawsat.com/business/5332197-saudi-transport-authority-maritime-sector-proved-resilient-amid-global-trade"
+    },
+    {
+      "category": "ثقافة",
+      "keyword": "«الرياض آرت»",
+      "story": "riyadh-art-al-saleem-sculptures",
+      "title": "سبع منحوتات لمحمد السليم تنضم إلى المجموعة الدائمة لـ«الرياض آرت»",
+      "summary": "أُنجزت الأعمال عام 1985، ونُصبت ست منها في الساحة الخارجية للمحطة الغربية على المسار البرتقالي لمترو الرياض، لترتفع المجموعة الدائمة إلى 82 عملًا فنيًا.",
+      "date": "2026-10-24",
+      "source_name": "الهيئة الملكية لمدينة الرياض",
+      "source_url": "https://www.rcrc.gov.sa/en/theriyadh-art-al-saleem-works/"
     },
     {
       "category": "رياضة",
-      "keyword": "«الهلال»",
-      "story": "rsl-qadsiah-hilal-2026-10-23",
-      "title": "ثلاثية في الدمام تحسم قمة القادسية وتعيد الهلال إلى الصدارة",
-      "summary": "سجّل للهلال مارتينيلي ونيفيز وميلينكوفيتش-سافيتش في الجولة الحادية عشرة، ليرتفع رصيده إلى 27 نقطة في الصدارة، فيما بقي القادسية ثالثًا بـ25 نقطة.",
-      "date": "2026-10-23",
-      "source_name": "الشرق الأوسط",
-      "source_url": "https://english.aawsat.com/sports/5332980-al-hilal-tops-saudi-pro-league-standings-3-2-win-over-al-qadsiah"
-    },
-    {
-      "category": "صحة",
-      "keyword": "النشاط البدني 59.9%",
-      "story": "gastat-physical-activity-2026",
-      "title": "59.9% من البالغين يمارسون النشاط البدني 150 دقيقة أسبوعيًا أو أكثر",
-      "summary": "وفق نشرة إحصاءات النشاط البدني 2026، بلغت النسبة 63.4% بين الذكور و52.9% بين الإناث، وكانت الفئة العمرية 18–29 عامًا الأعلى نشاطًا بنسبة 63%.",
-      "date": "2026-10-22",
-      "source_name": "الهيئة العامة للإحصاء",
-      "source_url": "https://www.stats.gov.sa/en/w/news/229"
-    },
-    {
-      "category": "بيئة",
-      "keyword": "جائزة خليجية للباحة",
-      "story": "baha-municipality-gcc-municipal-award-2026",
-      "title": "أمانة الباحة تحصد المركز الأول خليجيًا في جائزة العمل البلدي",
-      "summary": "فازت بجائزة مجلس التعاون للعمل البلدي في دورتها السادسة (2025–2026) عن «مبادرة الباحة الخضراء» للتشجير المستدام ونشر الأشجار المحلية الملائمة لمناخ المنطقة.",
+      "keyword": "لقب دولي للهجن",
+      "story": "saudi-camel-endurance-wadi-rum-2026",
+      "title": "المنتخب السعودي يتوّج بالبطولة الدولية الثانية لقدرة وتحمّل الهجن",
+      "summary": "تصدّر الترتيب العام برصيد 45 نقطة في سباق امتد 12 كيلومترًا بوادي رم في الأردن بمشاركة 37 هجّانًا من 11 دولة، وحصدت السعوديات المراكز الثلاثة الأولى في سباق السيدات.",
       "date": "2026-10-21",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/economy/na/2271768"
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/f4wupj0"
     },
     {
-      "category": "بيئة",
-      "keyword": "محطات تغذية النسور",
-      "story": "ncw-vulture-feeding-stations-2026",
-      "title": "الحياة الفطرية تعتزم إنشاء ثلاث محطات لتغذية النسور هذا العام",
-      "summary": "توفّر المحطات غذاءً آمنًا يقلل تعرض النسور للطُّعوم المسمومة وبقايا الأدوية البيطرية، وفق دليل وطني أُعدّ مع منظمات دولية متخصصة، ومن الأنواع المستهدفة النسر الأذون والرخمة المصرية.",
-      "date": "2026-10-23",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/green-blue/saudi-arabia-plans-three-vulture-restaurants-to-protect-threatened-species-3007028"
+      "category": "تنمية",
+      "keyword": "قروض الصندوق السعودي للتنمية",
+      "story": "sfd-annual-report-2025",
+      "title": "الصندوق السعودي للتنمية: 13 اتفاقية قروض بـ1.77 مليار ريال في 2025",
+      "summary": "شملت 11 دولة نامية، بينها سورينام وجزر سليمان وباربادوس للمرة الأولى، ليبلغ ما قدّمه الصندوق خلال خمسة عقود 808 قروض بقيمة 83.26 مليار ريال لـ101 دولة.",
+      "date": "2026-10-22",
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/en/w2707908"
+    },
+    {
+      "category": "ثقافة",
+      "keyword": "ضيف شرف معرض الجزائر",
+      "story": "algiers-book-fair-2026-saudi-guest-of-honor",
+      "title": "المملكة ضيف شرف معرض الجزائر الدولي للكتاب",
+      "summary": "تقود هيئة الأدب والنشر والترجمة المشاركة في المعرض من 28 أكتوبر إلى 7 نوفمبر، ببرنامج يضم ندوات وأمسيات شعرية ومعرضًا للمخطوطات وعروضًا للفنون الأدائية والأفلام السعودية.",
+      "date": "2026-10-21",
+      "source_name": "الشرق الأوسط",
+      "source_url": "https://english.aawsat.com/culture/5331812-saudi-arabia-named-guest-honor-algiers-international-book-fair-2026"
+    },
+    {
+      "category": "اقتصاد",
+      "keyword": "البناء الحديث +19%",
+      "story": "modern-construction-records-q3-2026",
+      "title": "سجلات التطوير العقاري بأساليب البناء الحديثة ترتفع 19%",
+      "summary": "بلغت 43,895 سجلًا تجاريًا بنهاية الربع الثالث 2026 مقارنة بـ36,850 قبل عام، وتصدّرت منطقة الرياض بـ20,230 سجلًا تلتها مكة المكرمة بـ11,238، وفق وزارة التجارة.",
+      "date": "2026-10-20",
+      "source_name": "سبق",
+      "source_url": "https://sabq.org/article/3zfusby"
     }
   ],
   "events": [
@@ -73,20 +83,68 @@
   ],
   "timeline": [
     {
-      "time": "2026-10-24T14:30:00+03:00",
-      "label": "أستون فيلا × مانشستر سيتي",
-      "note": "الدوري الإنجليزي · برمنغهام",
+      "time": "2026-10-25T17:00:00+03:00",
+      "label": "ليفربول × برايتون",
+      "note": "الدوري الإنجليزي · ليفربول",
       "colors": [
         [
-          "#670e36",
-          "#95bfe5"
+          "#c8102e",
+          "#ffffff"
         ],
         [
-          "#6cabdd",
-          "#1c2c5b"
+          "#0057b8",
+          "#ffffff"
         ]
       ],
-      "source_url": "https://www.mancity.com/news/mens/aston-villa-v-city-match-preview-pl-24-oct-63928096"
+      "source_url": "https://www.liverpoolfc.com/news/liverpool-v-brighton-hove-albion-premier-league-fixture-rescheduled"
+    },
+    {
+      "time": "2026-10-25T17:00:00+03:00",
+      "label": "مانشستر يونايتد × بورنموث",
+      "note": "الدوري الإنجليزي · مانشستر",
+      "colors": [
+        [
+          "#da291c",
+          "#000000"
+        ],
+        [
+          "#b50e12",
+          "#000000"
+        ]
+      ],
+      "source_url": "https://www.manutd.com/en/news/carricks-team-news-for-man-utd-v-bournemouth-25-october"
+    },
+    {
+      "time": "2026-10-25T19:30:00+03:00",
+      "label": "فرايبورغ × بايرن ميونخ",
+      "note": "الدوري الألماني · فرايبورغ",
+      "colors": [
+        [
+          "#e2001a",
+          "#ffffff"
+        ],
+        [
+          "#dc052d",
+          "#ffffff"
+        ]
+      ],
+      "source_url": "https://fcbayern.com/en/news/matchpreviews/2026/10/preview-freiburg-vs.-bayern-bundesliga-md7"
+    },
+    {
+      "time": "2026-10-25T23:00:00+03:00",
+      "label": "برشلونة × ريال مدريد",
+      "note": "الدوري الإسباني · برشلونة",
+      "colors": [
+        [
+          "#a50044",
+          "#004d98"
+        ],
+        [
+          "#ffffff",
+          "#00529f"
+        ]
+      ],
+      "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/fixtures/barcelona-real-madrid-a-por-el-primer-clasico-de-la-temporada-25-10-2026"
     }
   ],
   "regions": {
@@ -100,18 +158,17 @@
         "source_url": "https://www.spa.gov.sa/N2703270"
       },
       {
-        "title": "الدوري السعودي لقفز الحواجز: الجولة الأولى",
-        "place": "حديقة الخيل، العمّارية",
-        "start": "2026-10-22",
-        "end": "2026-10-24",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/109234/saudi-show-jumping-league-in-riyadh"
-      },
-      {
         "title": "حفل مارلين نعمان",
         "place": "تياترو الرياض",
         "start": "2026-10-29",
         "time": "21:00",
         "source_url": "https://riyadh.platinumlist.net/event-tickets/108220/marilyne-naaman-live-concert-in-riyadh"
+      },
+      {
+        "title": "افتتاح «بوليفارد وورلد»",
+        "place": "حطين، موسم الرياض",
+        "start": "2026-10-30",
+        "source_url": "https://www.spa.gov.sa/N2709228"
       }
     ],
     "jeddah": [

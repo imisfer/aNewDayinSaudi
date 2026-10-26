@@ -1,77 +1,67 @@
 {
-  "edition_date": "2026-10-25",
+  "edition_date": "2026-10-26",
   "status": "pilot",
-  "headline": "«بوليفارد وورلد» يفتح أبوابه الجمعة بتجارب 17 دولة، و«الأسطول البحري» ينمو 34%، وسبع منحوتات لمحمد السليم تنضم إلى «الرياض آرت»",
+  "headline": "بدل شهري بـ500 ريال للموظفين والمتقاعدين مع تعديل تعريفتي الكهرباء والمياه، و«نطاقات» يرفع أجر احتساب السعودي، و«السجل العقاري» يشمل الرياض",
   "cards": [
     {
-      "category": "ترفيه",
-      "keyword": "«بوليفارد وورلد»",
-      "story": "boulevard-world-2026-opening",
-      "title": "طرح تذاكر «بوليفارد وورلد» قبل افتتاحه الجمعة 30 أكتوبر",
-      "summary": "بدأ موسم الرياض بيع تذاكر المنطقة عبر منصة «ويبوك»، وتضم تجارب مستوحاة من 17 دولة إلى جانب مناطق للثقافات الأفريقية والآسيوية والشامية، في عامها الخامس منذ انطلاقها عام 2022.",
-      "date": "2026-10-24",
+      "category": "معيشة",
+      "keyword": "بدل شهري بـ500 ريال",
+      "story": "citizen-support-allowance-500-2026-10",
+      "title": "بدل شهري بـ500 ريال للموظفين والمتقاعدين بتوجيه من خادم الحرمين",
+      "summary": "وجّه خادم الحرمين الشريفين، بناءً على ما عرضه ولي العهد، بإجراءات داعمة للمواطنين تشمل بدلًا شهريًا بـ500 ريال للموظفين المدنيين والعسكريين والمتقاعدين، بالتزامن مع تعديل تعريفتي الكهرباء والمياه بدءًا من 1 يناير 2027.",
+      "date": "2026-10-25",
       "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/N2709228"
+      "source_url": "https://www.spa.gov.sa/N2709796"
     },
     {
-      "category": "نقل",
-      "keyword": "«الأسطول البحري»",
-      "story": "tga-national-maritime-fleet-growth-2025",
-      "title": "الأسطول البحري الوطني ينمو 34% خلال 2025",
-      "summary": "وفق الهيئة العامة للنقل، تبلغ الطاقة الاستيعابية للأسطول نحو 11.8 مليون طن، لتحل المملكة أولى في الشرق الأوسط والـ20 عالميًا، والثانية بين دول مجموعة العشرين في نمو القطاع البحري.",
-      "date": "2026-10-22",
-      "source_name": "الشرق الأوسط",
-      "source_url": "https://english.aawsat.com/business/5332197-saudi-transport-authority-maritime-sector-proved-resilient-amid-global-trade"
+      "category": "توظيف",
+      "keyword": "«نطاقات»",
+      "story": "nitaqat-saudi-min-wage-5000-2026",
+      "title": "رفع أجر احتساب السعودي في «نطاقات» إلى 5,000 ثم 6,000 ريال",
+      "summary": "ضمن الإجراءات الداعمة للمواطنين، يُرفع الحد الأدنى لأجر احتساب العامل السعودي في نسب التوطين بالقطاع الخاص إلى 5,000 ريال بعد ستة أشهر، ثم إلى 6,000 ريال بعد 12 شهرًا من الزيادة الأولى.",
+      "date": "2026-10-25",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/king-salman-orders-measures-to-support-citizens-following-crown-princes-proposal-3008205"
     },
     {
-      "category": "ثقافة",
-      "keyword": "«الرياض آرت»",
-      "story": "riyadh-art-al-saleem-sculptures",
-      "title": "سبع منحوتات لمحمد السليم تنضم إلى المجموعة الدائمة لـ«الرياض آرت»",
-      "summary": "أُنجزت الأعمال عام 1985، ونُصبت ست منها في الساحة الخارجية للمحطة الغربية على المسار البرتقالي لمترو الرياض، لترتفع المجموعة الدائمة إلى 82 عملًا فنيًا.",
-      "date": "2026-10-24",
-      "source_name": "الهيئة الملكية لمدينة الرياض",
-      "source_url": "https://www.rcrc.gov.sa/en/theriyadh-art-al-saleem-works/"
-    },
-    {
-      "category": "رياضة",
-      "keyword": "لقب دولي للهجن",
-      "story": "saudi-camel-endurance-wadi-rum-2026",
-      "title": "المنتخب السعودي يتوّج بالبطولة الدولية الثانية لقدرة وتحمّل الهجن",
-      "summary": "تصدّر الترتيب العام برصيد 45 نقطة في سباق امتد 12 كيلومترًا بوادي رم في الأردن بمشاركة 37 هجّانًا من 11 دولة، وحصدت السعوديات المراكز الثلاثة الأولى في سباق السيدات.",
-      "date": "2026-10-21",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/f4wupj0"
-    },
-    {
-      "category": "تنمية",
-      "keyword": "قروض الصندوق السعودي للتنمية",
-      "story": "sfd-annual-report-2025",
-      "title": "الصندوق السعودي للتنمية: 13 اتفاقية قروض بـ1.77 مليار ريال في 2025",
-      "summary": "شملت 11 دولة نامية، بينها سورينام وجزر سليمان وباربادوس للمرة الأولى، ليبلغ ما قدّمه الصندوق خلال خمسة عقود 808 قروض بقيمة 83.26 مليار ريال لـ101 دولة.",
-      "date": "2026-10-22",
+      "category": "عقار",
+      "keyword": "«السجل العقاري»",
+      "story": "rer-riyadh-region-28547-2026-10",
+      "title": "السجل العقاري يبدأ التسجيل العيني لـ28,547 عقارًا في منطقة الرياض",
+      "summary": "يشمل أجزاء من مدينة الرياض والحريق والأرطاوية وجلاجل وروضة سدير ومواقع أخرى، ويُتاح التسجيل عبر منصة السجل العقاري وتطبيقه حتى نهاية الخميس 28 يناير 2027.",
+      "date": "2026-10-25",
       "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/w2707908"
+      "source_url": "https://www.spa.gov.sa/N2709586"
     },
     {
-      "category": "ثقافة",
-      "keyword": "ضيف شرف معرض الجزائر",
-      "story": "algiers-book-fair-2026-saudi-guest-of-honor",
-      "title": "المملكة ضيف شرف معرض الجزائر الدولي للكتاب",
-      "summary": "تقود هيئة الأدب والنشر والترجمة المشاركة في المعرض من 28 أكتوبر إلى 7 نوفمبر، ببرنامج يضم ندوات وأمسيات شعرية ومعرضًا للمخطوطات وعروضًا للفنون الأدائية والأفلام السعودية.",
-      "date": "2026-10-21",
-      "source_name": "الشرق الأوسط",
-      "source_url": "https://english.aawsat.com/culture/5331812-saudi-arabia-named-guest-honor-algiers-international-book-fair-2026"
+      "category": "صناعة",
+      "keyword": "ناقلات نفط محلية الصنع",
+      "story": "bahri-imi-three-vlcc-2026",
+      "title": "«البحري» توقّع عقدًا بـ1.69 مليار ريال لبناء 3 ناقلات نفط في المملكة",
+      "summary": "تبنيها الشركة العالمية للصناعات البحرية بحمولة 320 ألف طن لكل ناقلة، وتُسلَّم على دفعات بين 2029 و2030، ليصل ما طلبته «البحري» من سفن تُصنع محليًا إلى تسع.",
+      "date": "2026-10-25",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/business/bahri-orders-3-oil-supertankers-in-451m-imi-deal-3008158"
     },
     {
       "category": "اقتصاد",
-      "keyword": "البناء الحديث +19%",
-      "story": "modern-construction-records-q3-2026",
-      "title": "سجلات التطوير العقاري بأساليب البناء الحديثة ترتفع 19%",
-      "summary": "بلغت 43,895 سجلًا تجاريًا بنهاية الربع الثالث 2026 مقارنة بـ36,850 قبل عام، وتصدّرت منطقة الرياض بـ20,230 سجلًا تلتها مكة المكرمة بـ11,238، وفق وزارة التجارة.",
-      "date": "2026-10-20",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/3zfusby"
+      "keyword": "توطين الإنفاق العسكري 27.3%",
+      "story": "gami-military-localization-27-3-2025",
+      "title": "توطين الإنفاق العسكري يبلغ 27.3% بنهاية 2025",
+      "summary": "ارتفع من 4% عام 2018 وفق ما عرضته الهيئة العامة للصناعات العسكرية في منتدى الصناعات العسكرية بالرياض، والمستهدف توطين أكثر من 50% من الإنفاق العسكري بحلول 2030.",
+      "date": "2026-10-25",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-military-spending-localization-reaches-273-as-riyadh-forum-highlights-industry-growth-3008197"
+    },
+    {
+      "category": "استثمار",
+      "keyword": "معارض سيارات بخميس مشيط",
+      "story": "aseer-khamis-mushait-auto-site-2026",
+      "title": "أمانة عسير تطوّر موقعًا استثماريًا جديدًا للسيارات في خميس مشيط",
+      "summary": "يمتد على أكثر من 500 ألف متر مربع شمال المحافظة، ويضم 168 قطعة لمعارض السيارات مقارنة بنحو 55 في الموقع السابق، إلى جانب ساحة مزاد بمساحة 10 آلاف متر مربع.",
+      "date": "2026-10-25",
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/en/N2709880"
     }
   ],
   "events": [
@@ -83,68 +73,52 @@
   ],
   "timeline": [
     {
-      "time": "2026-10-25T17:00:00+03:00",
-      "label": "ليفربول × برايتون",
-      "note": "الدوري الإنجليزي · ليفربول",
+      "time": "2026-10-26T16:45:00+03:00",
+      "label": "نفتشي × الاتحاد",
+      "note": "دوري أبطال آسيا للنخبة · فرغانة",
+      "colors": [
+        [
+          "#ffffff",
+          "#0033a0"
+        ],
+        [
+          "#fcd116",
+          "#000000"
+        ]
+      ],
+      "source_url": "https://assets.the-afc.com/2026-27_ACL_Elite/Downloads/Match_Schedule/AFC-Champions-League-Elite-2026-27-League-Stage---27Augupd.pdf"
+    },
+    {
+      "time": "2026-10-26T19:00:00+03:00",
+      "label": "الأهلي × الغرافة",
+      "note": "دوري أبطال آسيا للنخبة · جدة",
+      "colors": [
+        [
+          "#007a3d",
+          "#ffffff"
+        ],
+        [
+          "#ffd200",
+          "#0054a6"
+        ]
+      ],
+      "source_url": "https://assets.the-afc.com/2026-27_ACL_Elite/Downloads/Match_Schedule/AFC-Champions-League-Elite-2026-27-League-Stage---27Augupd.pdf"
+    },
+    {
+      "time": "2026-10-26T21:15:00+03:00",
+      "label": "القادسية × السعد",
+      "note": "دوري أبطال آسيا للنخبة · الدمام",
       "colors": [
         [
           "#c8102e",
-          "#ffffff"
-        ],
-        [
-          "#0057b8",
-          "#ffffff"
-        ]
-      ],
-      "source_url": "https://www.liverpoolfc.com/news/liverpool-v-brighton-hove-albion-premier-league-fixture-rescheduled"
-    },
-    {
-      "time": "2026-10-25T17:00:00+03:00",
-      "label": "مانشستر يونايتد × بورنموث",
-      "note": "الدوري الإنجليزي · مانشستر",
-      "colors": [
-        [
-          "#da291c",
-          "#000000"
-        ],
-        [
-          "#b50e12",
-          "#000000"
-        ]
-      ],
-      "source_url": "https://www.manutd.com/en/news/carricks-team-news-for-man-utd-v-bournemouth-25-october"
-    },
-    {
-      "time": "2026-10-25T19:30:00+03:00",
-      "label": "فرايبورغ × بايرن ميونخ",
-      "note": "الدوري الألماني · فرايبورغ",
-      "colors": [
-        [
-          "#e2001a",
-          "#ffffff"
-        ],
-        [
-          "#dc052d",
-          "#ffffff"
-        ]
-      ],
-      "source_url": "https://fcbayern.com/en/news/matchpreviews/2026/10/preview-freiburg-vs.-bayern-bundesliga-md7"
-    },
-    {
-      "time": "2026-10-25T23:00:00+03:00",
-      "label": "برشلونة × ريال مدريد",
-      "note": "الدوري الإسباني · برشلونة",
-      "colors": [
-        [
-          "#a50044",
-          "#004d98"
+          "#ffd100"
         ],
         [
           "#ffffff",
-          "#00529f"
+          "#000000"
         ]
       ],
-      "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/fixtures/barcelona-real-madrid-a-por-el-primer-clasico-de-la-temporada-25-10-2026"
+      "source_url": "https://assets.the-afc.com/2026-27_ACL_Elite/Downloads/Match_Schedule/AFC-Champions-League-Elite-2026-27-League-Stage---27Augupd.pdf"
     }
   ],
   "regions": {

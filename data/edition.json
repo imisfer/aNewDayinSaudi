@@ -1,67 +1,68 @@
 {
-  "edition_date": "2026-10-27",
+  "edition_date": "2026-10-28",
   "status": "pilot",
-  "headline": "«أبشر سفر للزوار» يسهّل الدخول عبر المنافذ البرية، والأهلي والاتحاد يفوزان في نخبة آسيا، و«تاسي» يرتفع 3.43%",
+  "headline": "«غلوبال إنتري» متاح للمواطنين، و«التخصصي» يتقدم 107 مراكز عالميًا، والصادرات غير النفطية ترتفع 8.5%",
   "cards": [
     {
       "category": "خدمات",
-      "keyword": "«أبشر سفر للزوار»",
-      "story": "absher-travel-visitors-land-ports-2026",
-      "title": "«أبشر سفر للزوار»: إنهاء إجراءات الدخول البري قبل الوصول",
-      "summary": "أطلقت وزارة الداخلية الخدمة في تطبيق أبشر لمواطني دول الخليج والزوار القادمين عبر المنافذ البرية، لتسجيل بياناتهم ومركباتهم وإتمام تأمينها قبل الرحلة، وتصبح إلزامية بعد ستة أشهر من إطلاقها.",
-      "date": "2026-10-26",
+      "keyword": "«غلوبال إنتري»",
+      "story": "us-global-entry-saudi-citizens-2026",
+      "title": "المواطنون مؤهلون للتسجيل في برنامج «غلوبال إنتري» الأمريكي",
+      "summary": "أعلنت وزارة الخارجية إتاحة البرنامج للسعوديين لتسريع إجراءات الدخول إلى الولايات المتحدة، بعضوية تصل إلى 5 سنوات تشمل أكثر من 200 مطار وأكثر من 80 شركة طيران.",
+      "date": "2026-10-27",
       "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2272505"
+      "source_url": "https://www.okaz.com.sa/local/na/2272717"
+    },
+    {
+      "category": "صحة",
+      "keyword": "«التخصصي»",
+      "story": "kfshrc-newsweek-smart-hospitals-2027",
+      "title": "«التخصصي» يتقدم 107 مراكز في تصنيف نيوزويك للمستشفيات الذكية",
+      "summary": "حلّ مستشفى الملك فيصل التخصصي ومركز الأبحاث في المرتبة 123 عالميًا بتصنيف 2027، ونال تميّز «الريادة في ابتكار الذكاء الاصطناعي»، وخفّض انتظار التنويم من 32 ساعة إلى ست.",
+      "date": "2026-10-27",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-hospital-jumps-107-places-in-global-smart-hospitals-rankings-3008514"
+    },
+    {
+      "category": "اقتصاد",
+      "keyword": "الصادرات غير النفطية",
+      "story": "gastat-trade-2026-08",
+      "title": "الصادرات الوطنية غير النفطية ترتفع 8.5% في أغسطس",
+      "summary": "بلغت الصادرات غير النفطية باستثناء إعادة التصدير 18.32 مليار ريال، بنمو 8.5% على أساس سنوي و17.8% مقارنة بيوليو، وفق بيانات الهيئة العامة للإحصاء.",
+      "date": "2026-10-26",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/business/saudi-arabias-trade-surplus-widens-178-to-416bn-in-august-gastat-3008323"
+    },
+    {
+      "category": "أنظمة",
+      "keyword": "نظام التنفيذ الجديد",
+      "story": "enforcement-law-regulations-2026",
+      "title": "نظام التنفيذ الجديد ولائحته يبدآن السريان في 29 أكتوبر",
+      "summary": "اعتمد وزير العدل اللائحة التنفيذية في 54 مادة، وتنظّم تنفيذ أحكام النفقة والحضانة والزيارة، وتسجيل الكمبيالات والسندات لأمر على المنصات الإلكترونية المعتمدة.",
+      "date": "2026-10-23",
+      "source_name": "أرقام",
+      "source_url": "https://www.argaam.com/ar/article/articledetail/id/1946620"
+    },
+    {
+      "category": "صناعة",
+      "keyword": "58 ألف شهادة منشأ",
+      "story": "moim-certificates-of-origin-2026-09",
+      "title": "58 ألف شهادة منشأ للصادرات الصناعية في سبتمبر",
+      "summary": "أصدرت وزارة الصناعة والثروة المعدنية نحو 58 ألف شهادة، بزيادة 9.7% عن أغسطس الذي شهد 52,895 شهادة.",
+      "date": "2026-10-27",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/business/saudi-arabia-issues-58k-certificates-of-origin-in-september-up-97-3008513"
     },
     {
       "category": "رياضة",
-      "keyword": "الأهلي والاتحاد",
-      "story": "acle-md3-ahli-ittihad-wins-2026-10",
-      "title": "الأهلي والاتحاد يفوزان 2-1 في الجولة الثالثة من نخبة آسيا",
-      "summary": "تغلّب الأهلي على الغرافة بهدفي إيفان توني وماتيوس غونسالفيس ليرفع رصيده إلى 7 نقاط، وحقق الاتحاد فوزه الأول على نفتشي بهدفي حسام عوار ويوسف النصيري.",
-      "date": "2026-10-26",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/sport/na/2272627"
-    },
-    {
-      "category": "أسواق",
-      "keyword": "«تاسي»",
-      "story": "tasi-up-3-43-2026-10-26",
-      "title": "«تاسي» يرتفع 3.43% ويغلق عند 9,761 نقطة",
-      "summary": "أضاف مؤشر السوق الرئيسية 323.28 نقطة في جلسة الاثنين ليغلق عند 9,761.78 نقطة.",
-      "date": "2026-10-26",
+      "keyword": "«الملوك الستة» في ديسمبر",
+      "story": "six-kings-slam-2026-december-dates",
+      "follows": "2026-10-03",
+      "title": "بطولة «الملوك الستة» للتنس تقام في الرياض أيام 27 و28 و30 ديسمبر",
+      "summary": "أُعلنت المواعيد الجديدة ضمن موسم الرياض بمشاركة سينر حامل اللقب مرتين، وديوكوفيتش وألكاراز وزفيريف وفريتز ودي مينور.",
+      "date": "2026-10-27",
       "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/finance/closing-bell-saudi-stock-market-rises-34-3008356"
-    },
-    {
-      "category": "طاقة",
-      "keyword": "تخزين النفط في سنغافورة",
-      "story": "aramco-singapore-crude-storage-mou-2026",
-      "title": "أرامكو توقّع مذكرة تفاهم لتخزين النفط الخام في سنغافورة",
-      "summary": "وقّعتها مع هيئة سوق الطاقة وشركة JTC لاستخدام كهوف جورونغ الصخرية التي تتسع لـ1.47 مليون متر مكعب، على أن يبدأ التخزين في النصف الثاني من 2027 إذا اكتملت المفاوضات.",
-      "date": "2026-10-26",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/energy/saudi-arabia-plans-singapore-crude-storage-to-strengthen-southeast-asia-supply-chain-3008300"
-    },
-    {
-      "category": "تعليم",
-      "keyword": "21 ميدالية في الروبوت",
-      "story": "riyadh-edu-wro-national-final-2026",
-      "title": "تعليم الرياض يحصد 21 ميدالية في النهائي الوطني لأولمبياد الروبوت",
-      "summary": "شملت 5 ذهبيات و3 فضيات و13 برونزية، إلى جانب 6 جوائز في فئات منها أفضل استراتيجية والتميز التقني والابتكار، ضمن الأولمبياد العالمي للروبوت WRO 2026.",
-      "date": "2026-10-25",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/Rs7_BUU"
-    },
-    {
-      "category": "فروسية",
-      "keyword": "مزاد 420 مهرًا",
-      "story": "jcsa-yearling-auction-2026",
-      "title": "نادي سباقات الخيل يعلن مزاد 2026 بمشاركة 420 مهرًا ومهرة",
-      "summary": "يُقام في ميدان الملك عبدالعزيز للفروسية بالجنادرية من 29 نوفمبر إلى 6 ديسمبر، وتُخصَّص للخيل المبيعة سبعة أشواط بجوائز مجموعها 3.45 مليون ريال.",
-      "date": "2026-10-25",
-      "source_name": "سبق",
-      "source_url": "https://sabq.org/article/q35po37"
+      "source_url": "https://www.arabnews.pk/sport/turki-alalshikh-confirms-six-kings-slam-will-return-in-december-as-part-of-riyadh-season-3005369"
     }
   ],
   "events": [
@@ -73,20 +74,52 @@
   ],
   "timeline": [
     {
-      "time": "2026-10-27T21:15:00+03:00",
-      "label": "الشمال × الهلال",
-      "note": "دوري أبطال آسيا للنخبة · الخور",
+      "time": "2026-10-28T22:30:00+03:00",
+      "label": "مانشستر سيتي × برايتون",
+      "note": "كأس الرابطة الإنجليزية · مانشستر",
       "colors": [
         [
-          "#ffffff",
-          "#c8102e"
+          "#6cabdd",
+          "#1c2c5b"
         ],
         [
-          "#0050a0",
+          "#0057b8",
           "#ffffff"
         ]
       ],
-      "source_url": "https://assets.the-afc.com/2026-27_ACL_Elite/Downloads/Match_Schedule/AFC-Champions-League-Elite-2026-27-League-Stage---27Augupd.pdf"
+      "source_url": "https://www.mancity.com/news/mens/city-v-brighton-preview-carabao-cup-28-oct-63928427"
+    },
+    {
+      "time": "2026-10-28T22:45:00+03:00",
+      "label": "بايرن ميونخ × ماغدبورغ",
+      "note": "كأس ألمانيا · ميونخ",
+      "colors": [
+        [
+          "#dc052d",
+          "#ffffff"
+        ],
+        [
+          "#0062ae",
+          "#ffffff"
+        ]
+      ],
+      "source_url": "https://fcbayern.com/es/noticias/2026/09/partido-segunda-ronda-copa-dfb-contra-magdeburg-horario-confirmado"
+    },
+    {
+      "time": "2026-10-28T23:00:00+03:00",
+      "label": "ليفربول × تشيلسي",
+      "note": "كأس الرابطة الإنجليزية · ليفربول",
+      "colors": [
+        [
+          "#c8102e",
+          "#ffffff"
+        ],
+        [
+          "#034694",
+          "#ffffff"
+        ]
+      ],
+      "source_url": "https://www.liverpoolfc.com/news/liverpool-v-chelsea-carabao-cup-fixture-details-confirmed"
     }
   ],
   "regions": {

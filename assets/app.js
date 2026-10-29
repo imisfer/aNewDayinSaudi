@@ -192,7 +192,8 @@
     }
     p.append(document.createTextNode(brief.slice(pos)));
     // Any card not referenced in the brief stays reachable as a chip.
-    const rest = cards.filter((_, i) => !placed.has(i));
+    // A chip needs a label and something to open; without any, «وأيضًا» is hidden.
+    const rest = cards.filter((c, i) => !placed.has(i) && c && (c.keyword || c.title || "").trim() && (c.title || c.summary || c.source_url));
     const more = $("more");
     more.textContent = "";
     $("more-wrap").hidden = rest.length === 0;
@@ -465,14 +466,9 @@
   const loadPicks = () => {
     try {
       const v = JSON.parse(localStorage.getItem(PICK_KEY));
-      // Riyadh is always the first column; the reader picks the other two.
-      if (Array.isArray(v) && v.length === 3 && v.every((k) => CITY_KEYS.includes(k)) && new Set(v).size === 3) {
-        if (v[0] === "riyadh") return v;
-        const others = v.filter((k) => k !== "riyadh");
-        return ["riyadh", others[0], others[1] || CITY_KEYS.find((k) => k !== "riyadh" && !others.includes(k))];
-      }
+      if (Array.isArray(v)) return v.filter((k) => CITY_KEYS.includes(k));
     } catch (e) { /* storage unavailable */ }
-    return null;
+    return [];
   };
   const savePicks = (v) => { try { localStorage.setItem(PICK_KEY, JSON.stringify(v)); } catch (e) { /* ignore */ } };
 
@@ -517,33 +513,40 @@
     $("nm-" + i).textContent = CITY_TITLES[key] || (CITIES.find((c) => c[0] === key) || [, key])[1];
   }
 
+  // Fill a city/continent picker with the given keys only (all of them have something to show).
+  function fillPicker(sel, keys, names) {
+    sel.textContent = "";
+    for (const k of keys) { const o = el("option", "", names(k)); o.value = k; sel.append(o); }
+  }
+  // Main column plus up to two stacked ones; a section or column with nothing in it is hidden.
+  function layoutColumns(wrap, stack, boxes, extra) {
+    wrap.classList.toggle("solo", extra === 0);
+    stack.hidden = extra === 0;
+    boxes.forEach((b, i) => { b.hidden = i >= extra; });
+    wrap.hidden = false;
+  }
+  function choosePicks(main, others, saved, fallback) {
+    const n = Math.min(2, others.length);
+    const out = [];
+    for (const k of [...saved, ...fallback, ...others]) if (out.length < n && others.includes(k) && !out.includes(k)) out.push(k);
+    return out;
+  }
+
   function renderRegions(regions) {
     if (!regions) return;
     const byCity = normalizeRegions(regions);
-    if (!CITY_KEYS.some((k) => byCity[k].length)) return;
-
-    let picks = loadPicks();
-    if (!picks) {
-      const third = CITY_KEYS.find((k) => !["riyadh", "jeddah"].includes(k) && byCity[k].length) || "makkah";
-      picks = ["riyadh", "jeddah", third];
-    }
-    renderColumn(0, "riyadh", byCity);
+    const withEv = CITY_KEYS.filter((k) => byCity[k].length);
+    if (!withEv.length) return;
+    // Riyadh leads when it has events; otherwise the first city that does.
+    const main = withEv.includes("riyadh") ? "riyadh" : withEv[0];
+    const others = withEv.filter((k) => k !== main);
+    const picks = [main, ...choosePicks(main, others, loadPicks(), ["jeddah"])];
+    renderColumn(0, main, byCity);
     const selects = { 1: $("pick-1"), 2: $("pick-2") };
-    [1, 2].forEach((i) => {
+    const cityName = (k) => (CITIES.find((c) => c[0] === k) || [, k])[1];
+    for (let i = 1; i < picks.length; i++) {
       const sel = selects[i];
-      sel.textContent = "";
-      // Cities with events first, then the rest; names stay plain so the column title reads cleanly.
-      for (const [label, has] of [["فيها فعاليات", true], ["لا فعاليات هذا الأسبوع", false]]) {
-        const group = el("optgroup");
-        group.label = label;
-        for (const [key, name] of CITIES) {
-          if (key === "riyadh" || !!byCity[key].length !== has) continue;
-          const o = el("option", "", name);
-          o.value = key;
-          group.append(o);
-        }
-        if (group.children.length) sel.append(group);
-      }
+      fillPicker(sel, others, cityName);
       sel.value = picks[i];
       sel.addEventListener("change", () => {
         const next = sel.value, prev = picks[i];
@@ -554,12 +557,12 @@
           renderColumn(other, prev, byCity);
         }
         picks[i] = next;
-        savePicks(picks);
+        savePicks(picks.slice(1));
         renderColumn(i, next, byCity);
       });
       renderColumn(i, picks[i], byCity);
-    });
-    $("regions-wrap").hidden = false;
+    }
+    layoutColumns($("regions-wrap"), $("r-1").closest(".r-stack"), [$("r-1").closest(".region"), $("r-2").closest(".region")], picks.length - 1);
     loadWeather().then(() => picks.forEach((key, i) => renderWeatherLine($("w-" + i), key)));
   }
 
@@ -589,34 +592,21 @@
     for (const w of items || []) if (byCont[w.continent]) byCont[w.continent].push(w);
     for (const k of CONT_KEYS) byCont[k] = byCont[k].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 5);
     const withNews = CONT_KEYS.filter((k) => byCont[k].length).sort((a, b) => byCont[b].length - byCont[a].length);
-    if (!withNews.length) return;
+    $("wr-0").closest(".region").hidden = !withNews.length;
+    if (!withNews.length) { $("w-stack").hidden = true; return; }
+    // The continent with the most stories leads; only continents with news can be picked.
     const main = withNews[0];
+    const others = withNews.slice(1);
+    let saved = [];
+    try { const v = JSON.parse(localStorage.getItem(W_PICK_KEY)); if (Array.isArray(v)) saved = v; } catch (e) { /* storage unavailable */ }
+    const picks = choosePicks(main, others, saved, []);
     renderWorldColumn(0, main, byCont);
-    $("world-wrap").hidden = false;
-    // With news from one continent only, it takes the full width; otherwise the reader picks two more.
-    if (withNews.length < 2) { $("world-wrap").classList.add("solo"); $("w-stack").hidden = true; return; }
-    let picks = null;
-    try { const v = JSON.parse(localStorage.getItem(W_PICK_KEY)); if (Array.isArray(v) && v.length === 2 && v.every((k) => CONT_KEYS.includes(k) && k !== main) && v[0] !== v[1]) picks = v; } catch (e) { /* storage unavailable */ }
-    if (!picks) {
-      const rest = [...withNews.slice(1), ...CONT_KEYS.filter((k) => k !== main && !withNews.includes(k))];
-      picks = [rest[0], rest[1]];
-    }
     const selects = { 1: $("wpick-1"), 2: $("wpick-2") };
-    [1, 2].forEach((i) => {
+    picks.forEach((key, idx) => {
+      const i = idx + 1;
       const sel = selects[i];
-      sel.textContent = "";
-      for (const [label, has] of [["فيها أخبار", true], ["لا أخبار هذا الشهر", false]]) {
-        const group = el("optgroup");
-        group.label = label;
-        for (const [key, name] of CONTINENTS) {
-          if (key === main || !!byCont[key].length !== has) continue;
-          const o = el("option", "", name);
-          o.value = key;
-          group.append(o);
-        }
-        if (group.children.length) sel.append(group);
-      }
-      sel.value = picks[i - 1];
+      fillPicker(sel, others, contName);
+      sel.value = key;
       sel.addEventListener("change", () => {
         const next = sel.value, other = i === 1 ? 2 : 1;
         if (picks[other - 1] === next) { picks[other - 1] = picks[i - 1]; selects[other].value = picks[other - 1]; renderWorldColumn(other, picks[other - 1], byCont); }
@@ -624,8 +614,31 @@
         try { localStorage.setItem(W_PICK_KEY, JSON.stringify(picks)); } catch (e) { /* ignore */ }
         renderWorldColumn(i, next, byCont);
       });
-      renderWorldColumn(i, picks[i - 1], byCont);
+      renderWorldColumn(i, key, byCont);
     });
+    layoutColumns($("world-wrap"), $("w-stack"), [$("wr-1").closest(".region"), $("wr-2").closest(".region")], picks.length);
+  }
+
+  // «بعيون العالم»: up to 3 facts about the Kingdom reported by major non-Saudi outlets or international bodies.
+  const EYE = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+  function renderWorldView(items) {
+    const list = (items || []).filter((x) => x && x.title && x.source_url).slice(0, 3);
+    const ul = $("wv");
+    ul.textContent = "";
+    for (const x of list) {
+      const li = el("li");
+      const a = el("a");
+      a.href = x.source_url; a.target = "_blank"; a.rel = "noopener";
+      a.append(el("span", "ev-title", x.title));
+      const meta = el("span", "ev-meta", [x.outlet, x.date && fmtDate(x.date)].filter(Boolean).join(" · "));
+      if (x.paywall) meta.append(" · ", el("span", "ev-tag", "للمشتركين"));
+      a.append(meta);
+      li.append(a);
+      ul.append(li);
+    }
+    $("wv-ic").innerHTML = EYE;
+    $("wv-wrap").hidden = !list.length;
+    return list.length > 0;
   }
 
   // ---------- Edition ----------
@@ -636,6 +649,7 @@
       ed = await r.json();
     } catch (e) {
       $("headline").textContent = "تعذّر تحميل موجز اليوم. حاول مرة أخرى بعد قليل.";
+      $("more-wrap").hidden = true;
       return;
     }
 
@@ -646,22 +660,16 @@
     }
     edition = ed;
 
-    renderHeadline(ed.headline || "", ed.cards.slice(0, 8));
+    renderHeadline(ed.headline || "", (ed.cards || []).slice(0, 8));
     renderTimeline(timedToday(ed));
 
     renderRegions(ed.regions);
     collectEvents(ed);
 
     renderWorld(ed.world);
-    if (ed.events && ed.events.length) {
-      $("events-wrap").hidden = false;
-      for (const ev of ed.events) {
-        // Date (or date range) once, then the title; a date in brackets at the end of an older title is dropped.
-        const title = ev.title.replace(/\s*\([^)]*\d[^)]*\)\s*$/, "");
-        const range = ev.end && ev.end !== ev.date ? when({ start: ev.date, end: ev.end }) : fmtDate(ev.date);
-        $("events").append(el("li", "", `${range} — ${title}`));
-      }
-    }
+    const hasView = renderWorldView(ed.world_view);
+    if (hasView) $("world-wrap").hidden = false; // the strip alone is enough to show the section
+    renderOccasions();
   }
 
   // ---------- Month calendar (opens from the date tile) ----------
@@ -690,6 +698,54 @@
       out.push({ ...e, closing: days > 7 && iso === end && iso !== e.start });
     }
     return out;
+  }
+  // ---------- «قادم»: holidays and celebrated days, from a static list reviewed once a year ----------
+  const dayDiff = (iso) => Math.round((Date.parse(iso + "T00:00:00Z") - Date.parse(todayISO + "T00:00:00Z")) / 864e5);
+  function countdown(n) {
+    if (n === 0) return "اليوم";
+    if (n === 1) return "غدًا";
+    if (n === 2) return "بعد يومين";
+    const r = n % 100;
+    return `بعد ${n} ${r >= 3 && r <= 10 ? "أيام" : n >= 100 && r <= 2 ? "يوم" : "يومًا"}`;
+  }
+  function occasionItem(title, meta) {
+    const li = el("li");
+    const box = el("div", "occ");
+    box.append(el("span", "ev-title", title), el("span", "ev-meta", meta.filter(Boolean).join(" · ")));
+    li.append(box);
+    return li;
+  }
+  async function renderOccasions() {
+    let data;
+    try {
+      const r = await fetch("data/occasions.json", { cache: "no-cache" });
+      if (!r.ok) return;
+      data = await r.json();
+    } catch (e) { return; }
+    const est = (x) => (x.estimated ? " (متوقع)" : "");
+    // Holidays: anything not yet over, ordered by the day it starts.
+    const hol = (data.holidays || []).map((h) => ({ ...h, date: h.date || h.start, end: h.end || h.start }))
+      .filter((h) => h.end >= todayISO).sort((x, y) => (x.start || x.date).localeCompare(y.start || y.date)).slice(0, 3);
+    // Celebrated days: yearly ones ("MM-DD") roll to their next date; dated ones stay put.
+    const year = +todayISO.slice(0, 4);
+    const days = (data.days || []).map((d) => {
+      let iso = d.on.length === 5 ? `${year}-${d.on}` : d.on;
+      if (d.on.length === 5 && iso < todayISO) iso = `${year + 1}-${d.on}`;
+      return { ...d, iso };
+    }).filter((d) => d.iso >= todayISO).sort((x, y) => x.iso.localeCompare(y.iso)).slice(0, 3);
+    const hl = $("occ-hol"), dl = $("occ-days");
+    hl.textContent = ""; dl.textContent = "";
+    for (const h of hol) {
+      const ongoing = h.start <= todayISO && h.end >= todayISO && h.end !== h.start;
+      const span = h.end !== h.start && !h.note ? when({ start: h.start, end: h.end }) : fmtDate(h.date);
+      const cd = ongoing ? (h.date > todayISO ? countdown(dayDiff(h.date)) : "حتى " + fmtDate(h.end)) : countdown(dayDiff(h.date));
+      hl.append(occasionItem(h.title, [span + est(h), h.note, cd]));
+    }
+    for (const d of days) dl.append(occasionItem(d.title, [fmtDate(d.iso) + est(d), d.tag, countdown(dayDiff(d.iso))]));
+    hl.closest(".region").hidden = !hol.length;
+    dl.closest(".region").hidden = !days.length;
+    $("events-wrap").classList.toggle("solo", !hol.length || !days.length);
+    $("events-wrap").hidden = !(hol.length || days.length);
   }
   function collectEvents(ed) {
     const list = [];

@@ -116,6 +116,19 @@ Kick-off times change at short notice, sometimes the day before. Every match tim
 - Fields: `continent`, `title` ≤ 70 chars (short, it sits in a narrow column), optional `summary` ≤ 220 chars (kept for the record, not shown), `category` (علوم، صحة، إغاثة، تعليم، رياضة، ثقافة، اقتصاد، بيئة), `place` (where it happened, in Arabic), `date`, `source_name`, `source_url`, `check_url`, `story` (slug). They share the news register with the cards, so a story runs once in 30 days, in one place.
 - On days with nothing that clears this bar, leave `world` empty; the section hides itself.
 
+## «بعيون العالم» (the Kingdom as major non-Saudi platforms report it)
+`world_view` holds 0–3 items: facts about Saudi Arabia reported by a major international outlet or published by an international body. It shows as a full-width strip at the bottom of «ما وراء البحار», and hides itself when empty.
+- **A fact, not praise.** The item must rest on something verifiable that the outlet or body reports: a credit rating or outlook, a growth or tourism figure, a ranking or index position, a large international deal, an international award or inscription. Never pick an item because the outlet says something flattering, and never an outlet's opinion, analysis or column.
+- **Positive in substance, not just in the headline.** Read the whole piece. If the report is mixed (the positive figure sits inside a story about a dispute, a conflict, a risk or a critique), leave it out. The "What stays out" list above applies here too.
+- **Two kinds** (`kind`):
+  - `body`: international organisations and their reports (IMF, World Bank, UN agencies incl. UN Tourism and UNESCO, OECD, WTO, WIPO, ITU, IEA, IRENA, WEF, IMD), rating agencies (Moody's, S&P, Fitch) and established rankings (QS, Times Higher Education). Prefer these: they are the strongest evidence. Link to the body's own release or report page.
+  - `press`: global outlets only, not Saudi or Saudi-owned ones (no Arab News, Asharq Al-Awsat, Al Arabiya …). Prefer the ones readers can open: Reuters, AP, AFP, BBC, CNBC, CNN, Nikkei Asia, The Guardian, DW, France 24, Euronews, NHK, ABC (Australia), SCMP, TIME. Paywalled outlets (FT, Bloomberg, WSJ, The Economist, NYT, Washington Post, Nikkei) are allowed with `"paywall": true`, and the page tags them «للمشتركين»; use one only when no open outlet reports the same fact.
+- **Our words, their credit.** `title` is our own Arabic statement of the fact (≤ 70 chars), never a translation of the outlet's headline. Name the outlet in `outlet`, in Arabic («رويترز»، «صندوق النقد الدولي»، «موديز»). Don't translate or quote the article.
+- **Fresh:** `date` (the date of the report or release) within the 14 days before the edition.
+- **No overlap:** not the same story as a card or a «ما وراء البحار» item in the same edition. It shares the 30-day news register (`story` slug).
+- Fields: `kind`, `title`, `outlet`, `date`, `source_url`, `story`, optional `summary` (≤ 220 chars, kept for the record, not shown), optional `paywall`.
+- Most days have nothing that clears this bar. Leave `world_view` empty rather than lower it.
+
 ## Upcoming national events
 - `events`: upcoming dated national events in the next 30 days, from official sources only.
 - Fields: `date` (first day, YYYY-MM-DD), optional `end` for multi-day events, and `title`. Don't put dates in the title; the page shows the date or range once, before the title.

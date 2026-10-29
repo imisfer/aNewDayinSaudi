@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Register of news already used: every card and world item published in the last 30 days, read from the git history of
+// Register of news already used: every card, world and world_view item published in the last 30 days, read from the git history of
 // data/edition.json (the last commit of each edition date counts). A story may appear only once in that window.
 // Usage: node scripts/register.mjs [--days 30] [--json]      (prints the register for the editor)
 // The validator imports loadRegister() and findRepeats() to block repeats.
@@ -28,7 +28,7 @@ export function loadRegister({ days = 30, before } = {}) {
     try { ed = JSON.parse(git("show", `${hash}:data/edition.json`)); } catch { continue; }
     const d = ed.edition_date;
     if (!d || d >= until || d < from || byDate.has(d)) continue;
-    byDate.set(d, [...(ed.cards || []), ...(ed.world || [])].map((c) => ({
+    byDate.set(d, [...(ed.cards || []), ...(ed.world || []), ...(ed.world_view || [])].map((c) => ({
       date: d, story: c.story || null, title: c.title || "", keyword: c.keyword || "",
       summary: c.summary || "", source_url: c.source_url || "",
     })));

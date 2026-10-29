@@ -46,14 +46,17 @@
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
-  background: var(--bg);
+  background: var(--surface); /* page and calendar box swapped: the page takes the surface colour */
   color: var(--ink);
   font-family: "Thmanyah Sans", Tahoma, system-ui, sans-serif;
   line-height: 1.7;
 }
 a { color: inherit; text-decoration: none; }
 
-.page { max-width: 640px; margin: 0 auto; padding: 20px 16px 40px; }
+/* The page keeps a phone's width on every screen, centred; on a wider window the sky rail on the left grows
+   to fill the space beside it. 50px on the left leaves room for the hour and prayer labels next to the rail. */
+:root { --phone: 430px; }
+.page { max-width: var(--phone); margin: 0 auto; padding: 20px 16px 40px 50px; }
 
 /* One row: the title fills the space, the date tile keeps its own width */
 .masthead {
@@ -96,7 +99,7 @@ a { color: inherit; text-decoration: none; }
     -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
   }
   .regions-title, .events h2 { /* section headings: dark grey at the top fading into the page background (both modes) */
-    background: linear-gradient(to bottom, var(--head-top) 25%, var(--bg) 105%);
+    background: linear-gradient(to bottom, var(--head-top) 25%, var(--surface) 105%);
     -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;
     width: fit-content; padding: 0 .15em .25em; /* room for the swash tails inside the clipped gradient */
   }
@@ -198,12 +201,12 @@ a { color: inherit; text-decoration: none; }
 .region a .ev-title { color: var(--accent); } /* small links: green, lavender on hover */
 .region a:hover .ev-title { color: var(--lavender); }
 .occ { display: flex; flex-direction: column; line-height: 1.5; }
-.occ .ev-title { color: color-mix(in srgb, var(--ink) 82%, var(--bg)); } /* not links, so not green */
+.occ .ev-title { color: color-mix(in srgb, var(--ink) 82%, var(--surface)); } /* not links, so not green */
 .ev-title { font-size: .9rem; font-weight: 600; color: var(--lavender); }
 .ev-meta { font-size: .75rem; color: var(--muted); }
 .ev-empty { font-size: .8rem; color: var(--muted); }
-/* Phones: Riyadh beside a stack of two cities, in a compact size */
-@media (max-width: 560px) {
+/* Riyadh beside a stack of two cities, in a compact size (the page is phone-width everywhere) */
+@supports (display: grid) {
   .regions { gap: 12px; }
   .r-stack { gap: 12px; }
   .r-pick { flex-wrap: wrap; gap: 2px 4px; padding-inline-end: 12px; }
@@ -228,7 +231,10 @@ a { color: inherit; text-decoration: none; }
 /* Day timeline: a vertical rail on the left edge, Fajr at the top, midnight at the bottom */
 /* The timeline runs down the left edge of the window, from the very top (left: 0, top: 0) to the bottom. */
 
-:root { --rail-x: 4px; --rail-w: 8px; } /* the 8px line starts right at the window edge; --rail-x is its centre */
+:root {
+  --rail-w: max(8px, calc((100vw - var(--phone)) / 2)); /* 8px on a phone; on a wider window, everything left of the page */
+  --rail-x: calc(var(--rail-w) - 4px); /* marks sit 4px inside the rail's inner edge, as on a phone */
+}
 .timeline { position: fixed; z-index: 5; top: 0; bottom: 0; left: 0; width: var(--rail-w); }
 .tl-track { position: absolute; top: 0; bottom: 0; left: 0; right: 0; --elapsed: 0%; }
 .tl-line, .tl-track::before {
@@ -306,7 +312,7 @@ a { color: inherit; text-decoration: none; }
   .clocks-row { gap: 6px; }
   .clock svg { width: 50px; height: 50px; }
 }
-.tl-dot-wrap { position: absolute; left: 8px; z-index: 4; } /* match dot keeps its 16px size, centred so it stays fully on screen */
+.tl-dot-wrap { position: absolute; left: var(--rail-w); z-index: 4; } /* match dot keeps its 16px size, centred so it stays fully on screen */
 .tl-dot {
   position: absolute; left: -8px; top: -8px; width: 16px; height: 16px; padding: 0;
   border-radius: 50%; border: 2px solid var(--surface); cursor: pointer;
@@ -350,17 +356,14 @@ a.tl-bubble:hover strong { color: var(--lavender); }
 .tl-dot-wrap:hover .tl-bubble,
 .tl-dot-wrap:focus-within .tl-bubble { display: flex; }
 
-/* On narrow screens, make room for the rail on the left */
-@media (max-width: 736px) {
-  .page { padding-left: 50px; } /* room for the line and its hour labels */
-}
+
 
 
 
 /* Month calendar (opens from the date tile) */
 .tile[role="button"] { cursor: pointer; }
 .tile[role="button"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.detail.cal { width: min(780px, calc(100% - 32px)); max-height: 92vh; padding: 16px 18px 18px; }
+.detail.cal { width: min(780px, calc(100% - 32px)); max-height: 92vh; padding: 16px 18px 18px; background: var(--bg); }
 .cal-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
 .detail.cal h3 { margin: 0; font-family: "Thmanyah Sans", system-ui, sans-serif; font-size: 1.6rem; line-height: 1.2; font-weight: 400; }
 .cal h3 b { font-weight: 700; }
@@ -424,11 +427,11 @@ a.tl-bubble:hover strong { color: var(--lavender); }
 
 /* Today agenda: the timeline widens from the left edge when the date tile is hovered or tapped */
 
-.timeline.expanded { z-index: 30; width: min(380px, calc(100vw - 56px)); }
+.timeline.expanded { z-index: 30; width: calc(var(--rail-w) + min(372px, 100vw - var(--rail-w) - 48px)); }
 .timeline.expanded .tl-bubble.tl-time { display: none !important; }
 .tl-agenda {
   position: absolute; top: 0; bottom: 0; left: var(--rail-w); right: 0; overflow: hidden; direction: rtl;
-  background: var(--surface); border-right: 1px solid var(--line); box-shadow: 12px 0 40px rgba(0,0,0,.16);
+  background: var(--bg); border-right: 1px solid var(--line); box-shadow: 12px 0 40px rgba(0,0,0,.16); /* swapped with the page */
   animation: ag-in .22s ease-out;
 }
 @keyframes ag-in { from { opacity: 0; } to { opacity: 1; } }
@@ -488,12 +491,7 @@ a.ag-row:hover .ag-name { color: var(--lavender); }
 .tl-agenda > :not(.ag-map) { z-index: 1; }
 /* Bookable experiences (no set date) in the city columns: a small «تجربة» tag leads the line under the title */
 .ev-meta .ev-tag { color: var(--lavender); font-weight: 600; }
-/* Wide screens: the date tile keeps the same spot as on a phone — top-left, just right of the timeline —
-   instead of following the centred page column. It still scrolls with the page. */
-@media (min-width: 737px) {
-  .masthead { grid-template-columns: 1fr; }
-  .masthead .tile { position: absolute; top: 20px; left: 50px; }
-}
+
 /* Club banner: a band across the top, home club's tile on the right half, away club's on the left half;
    each tile is the club's two colours split by a sharp diagonal. */
 .tl-bubble.club-banner {

@@ -482,10 +482,11 @@ a.ag-row:hover .ag-name { color: var(--lavender); }
 .clock.night svg .c-ticks line, .clock.night svg .c-hour, .clock.night svg .c-min { stroke: #e8ebf5; }
 .clock.night svg .c-nums text { fill: #e8ebf5; }
 .clock.night svg .c-pin { fill: #b8a5ee; }
-/* Today panel: the world day/night map as background, top-aligned, full width, drawn once (no repeat) */
-.clocks-map.ag-map { inset: 0 0 auto 0; height: auto; aspect-ratio: 2 / 1;
-  -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent); mask-image: linear-gradient(to bottom, #000 80%, transparent); } /* fades out, no hard edge */
-.tl-agenda > :not(.ag-map) { z-index: 1; }
+/* Main page: the live world day/night map behind the top of the page, full page width, fading out (no hard edge).
+   The page is its own stacking context so the map sits above the body colour and below everything else. */
+.page { position: relative; isolation: isolate; }
+.clocks-map.page-map { inset: 0 0 auto 0; height: auto; aspect-ratio: 2 / 1; z-index: -1;
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent); }
 /* Bookable experiences (no set date) in the city columns: a small «تجربة» tag leads the line under the title */
 .ev-meta .ev-tag { color: var(--lavender); font-weight: 600; }
 

@@ -279,6 +279,18 @@
       `<path class="m-night" d="${night}" filter="url(#${id}-soft)"/>`;
     return svg;
   }
+  // The page itself carries the live day/night world map, across the top at full width, fading out.
+  // Redrawn every 5 minutes so the night edge follows the sun.
+  function drawPageMap() {
+    const map = worldNightMap(new Date(), "pg");
+    if (!map) return;
+    map.setAttribute("class", "clocks-map page-map");
+    map.setAttribute("preserveAspectRatio", "xMidYMin meet");
+    const old = document.querySelector(".page-map");
+    if (old) old.replaceWith(map); else document.querySelector(".page").prepend(map);
+  }
+  if (window.WORLD_LAND) { drawPageMap(); setInterval(drawPageMap, 5 * 60e3); }
+
   function drawClocks(box) {
     const t = new Date();
     box.textContent = "";
@@ -918,13 +930,6 @@
   let agRows = [];
   function buildAgenda() {
     agenda.textContent = "";
-    // Same live day/night world map as the world clocks, across the top of the panel at full width.
-    const map = worldNightMap(new Date(), "ag");
-    if (map) {
-      map.setAttribute("class", "clocks-map ag-map");
-      map.setAttribute("preserveAspectRatio", "xMidYMin meet");
-      agenda.append(map);
-    }
     agRows = [];
     if (!dayModel) return;
     const { items } = dayModel;

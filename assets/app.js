@@ -285,6 +285,7 @@
     const map = worldNightMap(new Date(), "pg");
     if (!map) return;
     map.setAttribute("class", "clocks-map page-map");
+    map.setAttribute("viewBox", "0 0 360 150"); // 90°N to 60°S: leaves out Antarctica
     map.setAttribute("preserveAspectRatio", "xMidYMin meet");
     const old = document.querySelector(".page-map");
     if (old) old.replaceWith(map); else document.body.prepend(map);

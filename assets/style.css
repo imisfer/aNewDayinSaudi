@@ -487,7 +487,7 @@ a.ag-row:hover .ag-name { color: var(--lavender); }
 /* Page background: the live world day/night map across the top of the whole window, fading out (no hard edge).
    The body is its own stacking context so the map sits above the background colour and below everything else. */
 body { position: relative; isolation: isolate; }
-.clocks-map.page-map { inset: 0 0 auto 0; height: auto; aspect-ratio: 2 / 1; z-index: -1;
+.clocks-map.page-map { inset: 0 0 auto 0; height: auto; aspect-ratio: 360 / 150; /* down to 60°S, no Antarctica */ z-index: -1;
   -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent); }
 /* Bookable experiences (no set date) in the city columns: a small «تجربة» tag leads the line under the title */
 .ev-meta .ev-tag { color: var(--lavender); font-weight: 600; }

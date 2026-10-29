@@ -279,7 +279,7 @@
       `<path class="m-night" d="${night}" filter="url(#${id}-soft)"/>`;
     return svg;
   }
-  // The page itself carries the live day/night world map, across the top at full width, fading out.
+  // The page background carries the live day/night world map, across the top of the whole window, fading out.
   // Redrawn every 5 minutes so the night edge follows the sun.
   function drawPageMap() {
     const map = worldNightMap(new Date(), "pg");
@@ -287,7 +287,7 @@
     map.setAttribute("class", "clocks-map page-map");
     map.setAttribute("preserveAspectRatio", "xMidYMin meet");
     const old = document.querySelector(".page-map");
-    if (old) old.replaceWith(map); else document.querySelector(".page").prepend(map);
+    if (old) old.replaceWith(map); else document.body.prepend(map);
   }
   if (window.WORLD_LAND) { drawPageMap(); setInterval(drawPageMap, 5 * 60e3); }
 
@@ -656,12 +656,20 @@
   // ---------- Edition ----------
   async function renderEdition() {
     let ed;
-    try {
-      const r = await fetch("data/edition.json", { cache: "no-cache" });
-      ed = await r.json();
-    } catch (e) {
+    // A brief network hiccup shouldn't leave the page empty: try up to 3 times, 1.5s then 4s apart.
+    for (const wait of [0, 1500, 4000]) {
+      if (wait) await new Promise((res) => setTimeout(res, wait));
+      try {
+        const r = await fetch("data/edition.json", { cache: "no-cache" });
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        ed = await r.json();
+        break;
+      } catch (e) { ed = null; }
+    }
+    if (!ed) {
       $("headline").textContent = "تعذّر تحميل موجز اليوم. حاول مرة أخرى بعد قليل.";
       $("more-wrap").hidden = true;
+      renderOccasions();
       return;
     }
 

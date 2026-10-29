@@ -43,6 +43,8 @@
 }
 
 * { box-sizing: border-box; }
+/* A section or column marked hidden stays hidden, whatever display its own rule sets (grid, flex …). */
+[hidden] { display: none !important; }
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
@@ -482,9 +484,9 @@ a.ag-row:hover .ag-name { color: var(--lavender); }
 .clock.night svg .c-ticks line, .clock.night svg .c-hour, .clock.night svg .c-min { stroke: #e8ebf5; }
 .clock.night svg .c-nums text { fill: #e8ebf5; }
 .clock.night svg .c-pin { fill: #b8a5ee; }
-/* Main page: the live world day/night map behind the top of the page, full page width, fading out (no hard edge).
-   The page is its own stacking context so the map sits above the body colour and below everything else. */
-.page { position: relative; isolation: isolate; }
+/* Page background: the live world day/night map across the top of the whole window, fading out (no hard edge).
+   The body is its own stacking context so the map sits above the background colour and below everything else. */
+body { position: relative; isolation: isolate; }
 .clocks-map.page-map { inset: 0 0 auto 0; height: auto; aspect-ratio: 2 / 1; z-index: -1;
   -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent); }
 /* Bookable experiences (no set date) in the city columns: a small «تجربة» tag leads the line under the title */

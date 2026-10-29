@@ -592,7 +592,8 @@
     for (const w of items || []) if (byCont[w.continent]) byCont[w.continent].push(w);
     for (const k of CONT_KEYS) byCont[k] = byCont[k].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 5);
     const withNews = CONT_KEYS.filter((k) => byCont[k].length).sort((a, b) => byCont[b].length - byCont[a].length);
-    if (!withNews.length) return;
+    $("wr-0").closest(".region").hidden = !withNews.length;
+    if (!withNews.length) { $("w-stack").hidden = true; return; }
     // The continent with the most stories leads; only continents with news can be picked.
     const main = withNews[0];
     const others = withNews.slice(1);
@@ -616,6 +617,28 @@
       renderWorldColumn(i, key, byCont);
     });
     layoutColumns($("world-wrap"), $("w-stack"), [$("wr-1").closest(".region"), $("wr-2").closest(".region")], picks.length);
+  }
+
+  // «بعيون العالم»: up to 3 facts about the Kingdom reported by major non-Saudi outlets or international bodies.
+  const EYE = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+  function renderWorldView(items) {
+    const list = (items || []).filter((x) => x && x.title && x.source_url).slice(0, 3);
+    const ul = $("wv");
+    ul.textContent = "";
+    for (const x of list) {
+      const li = el("li");
+      const a = el("a");
+      a.href = x.source_url; a.target = "_blank"; a.rel = "noopener";
+      a.append(el("span", "ev-title", x.title));
+      const meta = el("span", "ev-meta", [x.outlet, x.date && fmtDate(x.date)].filter(Boolean).join(" · "));
+      if (x.paywall) meta.append(" · ", el("span", "ev-tag", "للمشتركين"));
+      a.append(meta);
+      li.append(a);
+      ul.append(li);
+    }
+    $("wv-ic").innerHTML = EYE;
+    $("wv-wrap").hidden = !list.length;
+    return list.length > 0;
   }
 
   // ---------- Edition ----------
@@ -644,6 +667,8 @@
     collectEvents(ed);
 
     renderWorld(ed.world);
+    const hasView = renderWorldView(ed.world_view);
+    if (hasView) $("world-wrap").hidden = false; // the strip alone is enough to show the section
     renderOccasions();
   }
 

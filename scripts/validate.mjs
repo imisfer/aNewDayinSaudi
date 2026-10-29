@@ -215,6 +215,50 @@ for (const c of CONTS) if (world.filter((x) => x.continent === c).length > 5) er
   });
 }
 
+// «بعيون العالم»: facts about the Kingdom reported by major non-Saudi outlets and international bodies (see EDITORIAL.md).
+// Global press: the outlet itself, never a Saudi or Saudi-owned one. Bodies: international organisations, rating agencies and rankings.
+const WV_PRESS = /(^|\.)(reuters\.com|apnews\.com|afp\.com|bbc\.com|bbc\.co\.uk|cnbc\.com|cnn\.com|nikkei\.com|theguardian\.com|dw\.com|france24\.com|euronews\.com|nhk\.or\.jp|abc\.net\.au|scmp\.com|time\.com|ft\.com|bloomberg\.com|wsj\.com|economist\.com|nytimes\.com|washingtonpost\.com)$/;
+const WV_BODIES = /(^|\.)(imf\.org|worldbank\.org|un\.org|untourism\.int|unwto\.org|unesco\.org|who\.int|oecd\.org|wto\.org|wipo\.int|itu\.int|iea\.org|irena\.org|weforum\.org|imd\.org|moodys\.com|spglobal\.com|fitchratings\.com|topuniversities\.com|timeshighereducation\.com|fifa\.com|olympics\.com)$/;
+const WV_PAYWALL = /(^|\.)(ft\.com|bloomberg\.com|wsj\.com|economist\.com|nytimes\.com|washingtonpost\.com|nikkei\.com)$/;
+const WV_OPINION = /\/(opinion|opinions|commentary|comment|op-ed|oped|blogs?|sponsored|partner-content|brandvoice|advertorial)(\/|$)/i;
+{
+  const wv = ed.world_view || [];
+  if (!Array.isArray(wv)) err("world_view must be an array");
+  if (wv.length > 3) err(`world_view has ${wv.length} items; maximum is 3`);
+  const reg = loadRegister({ before: ed.edition_date });
+  const used = new Set([...(ed.cards || []), ...(ed.world || [])].map((c) => c.story).filter(Boolean));
+  wv.forEach((x, i) => {
+    const n = `world_view ${i + 1}`;
+    if (!["press", "body"].includes(x.kind)) err(`${n}: kind must be "press" (a global outlet) or "body" (an international organisation, rating agency or ranking)`);
+    if (!x.title || x.title.length > 70) err(`${n}: title missing or longer than 70 chars`);
+    if (!x.outlet || x.outlet.length > 30) err(`${n}: outlet (the outlet or body's name, in Arabic) missing or longer than 30 chars`);
+    if (x.summary && x.summary.length > 220) err(`${n}: summary longer than 220 chars`);
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(x.story || "")) err(`${n}: story must be a short lowercase slug`);
+    else if (used.has(x.story)) err(`${n}: story "${x.story}" is already a card or a «ما وراء البحار» item in this edition`);
+    if (!iso.test(x.date || "")) err(`${n}: date not YYYY-MM-DD`);
+    else if (ed.edition_date && (x.date > ed.edition_date || daysBetween(x.date, ed.edition_date) > 14)) err(`${n}: date must be within the 14 days before the edition`);
+    // A fact, not praise: press items must carry a figure; bodies (a ranking, a rating, an inscription) should.
+    const text = `${x.title || ""} ${x.summary || ""}`;
+    if (!/[0-9٠-٩]/.test(text)) (x.kind === "press" ? err : warn)(`${n}: no figure in the title or summary; state the concrete fact (a number, a rank, a rating)`);
+    for (const t of [x.title, x.summary]) if (t && BANNED_WORDS.test(t)) err(`${n}: sensational wording`);
+    for (const t of [x.title, x.summary]) if (t && PRODUCT_NEWS.test(t)) err(`${n}: reads like company or product news`);
+    try {
+      const u = new URL(x.source_url);
+      const h = u.hostname.replace(/^www\./, "");
+      if (u.protocol !== "https:") err(`${n}: source_url must be https`);
+      const list = x.kind === "body" ? WV_BODIES : WV_PRESS;
+      if (!list.test(h)) err(`${n}: ${h} is not on the «بعيون العالم» ${x.kind === "body" ? "bodies" : "global press"} list`);
+      if (WV_OPINION.test(u.pathname)) err(`${n}: opinion, blog or sponsored pages are excluded; link to a news report or an official release`);
+      if (WV_PAYWALL.test(h) && x.paywall !== true) err(`${n}: ${h} is paywalled; set "paywall": true so the page tags it «للمشتركين»`);
+      if (!WV_PAYWALL.test(h) && x.paywall) warn(`${n}: paywall set for ${h}, which is not on the paywalled list`);
+    } catch { err(`${n}: source_url is not a valid URL`); }
+    for (const h of findRepeats({ ...x, keyword: "" }, reg.entries)) {
+      const m = `${n}: ${h.why} with ${h.e.date} «${h.e.title}»`;
+      if (h.level === "error") err(m + " — already used"); else warn(m);
+    }
+  });
+}
+
 // Timeline: today's timed events shown as dots at the bottom (matches, openings, national moments).
 const tl = ed.timeline || [];
 if (!Array.isArray(tl)) err("timeline must be an array");

@@ -57,7 +57,7 @@ a { color: inherit; text-decoration: none; }
 
 /* The page keeps a phone's width on every screen, aligned to the left beside the rail, exactly as on a phone.
    50px on the left leaves room for the hour and prayer labels next to the rail. */
-:root { --phone: 430px; }
+:root { --phone: 500px; }
 .page { max-width: var(--phone); margin: 0 auto 0 0; padding: 20px 16px 40px 50px; }
 
 /* One row: the title fills the space, the date tile keeps its own width */

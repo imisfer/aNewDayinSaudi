@@ -1,68 +1,67 @@
 {
-  "edition_date": "2026-10-28",
+  "edition_date": "2026-10-29",
   "status": "pilot",
-  "headline": "«غلوبال إنتري» متاح للمواطنين، و«التخصصي» يتقدم 107 مراكز عالميًا، والصادرات غير النفطية ترتفع 8.5%",
+  "headline": "الأخضر يفتتح «كأس آسيا 2027» أمام فلسطين في 7 يناير، و«نظام المعاملات التجارية» يجيز التجارة من سن 15، و85.3% من الأطفال على مسار نمو سليم",
   "cards": [
     {
-      "category": "خدمات",
-      "keyword": "«غلوبال إنتري»",
-      "story": "us-global-entry-saudi-citizens-2026",
-      "title": "المواطنون مؤهلون للتسجيل في برنامج «غلوبال إنتري» الأمريكي",
-      "summary": "أعلنت وزارة الخارجية إتاحة البرنامج للسعوديين لتسريع إجراءات الدخول إلى الولايات المتحدة، بعضوية تصل إلى 5 سنوات تشمل أكثر من 200 مطار وأكثر من 80 شركة طيران.",
-      "date": "2026-10-27",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2272717"
-    },
-    {
-      "category": "صحة",
-      "keyword": "«التخصصي»",
-      "story": "kfshrc-newsweek-smart-hospitals-2027",
-      "title": "«التخصصي» يتقدم 107 مراكز في تصنيف نيوزويك للمستشفيات الذكية",
-      "summary": "حلّ مستشفى الملك فيصل التخصصي ومركز الأبحاث في المرتبة 123 عالميًا بتصنيف 2027، ونال تميّز «الريادة في ابتكار الذكاء الاصطناعي»، وخفّض انتظار التنويم من 32 ساعة إلى ست.",
-      "date": "2026-10-27",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-hospital-jumps-107-places-in-global-smart-hospitals-rankings-3008514"
-    },
-    {
-      "category": "اقتصاد",
-      "keyword": "الصادرات غير النفطية",
-      "story": "gastat-trade-2026-08",
-      "title": "الصادرات الوطنية غير النفطية ترتفع 8.5% في أغسطس",
-      "summary": "بلغت الصادرات غير النفطية باستثناء إعادة التصدير 18.32 مليار ريال، بنمو 8.5% على أساس سنوي و17.8% مقارنة بيوليو، وفق بيانات الهيئة العامة للإحصاء.",
+      "category": "رياضة",
+      "keyword": "«كأس آسيا 2027»",
+      "story": "afc-asian-cup-2027-match-schedule",
+      "title": "اكتمال جدول كأس آسيا 2027: الأخضر يفتتح أمام فلسطين في 7 يناير",
+      "summary": "تستضيف المملكة النهائيات للمرة الأولى في نسختها التاسعة عشرة بمشاركة 24 منتخبًا، يخوضون 51 مباراة على ثمانية ملاعب في الرياض وجدة والخبر حتى 5 فبراير.",
       "date": "2026-10-26",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/business/saudi-arabias-trade-surplus-widens-178-to-416bn-in-august-gastat-3008323"
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/en/N2710627"
     },
     {
       "category": "أنظمة",
-      "keyword": "نظام التنفيذ الجديد",
-      "story": "enforcement-law-regulations-2026",
-      "title": "نظام التنفيذ الجديد ولائحته يبدآن السريان في 29 أكتوبر",
-      "summary": "اعتمد وزير العدل اللائحة التنفيذية في 54 مادة، وتنظّم تنفيذ أحكام النفقة والحضانة والزيارة، وتسجيل الكمبيالات والسندات لأمر على المنصات الإلكترونية المعتمدة.",
-      "date": "2026-10-23",
-      "source_name": "أرقام",
-      "source_url": "https://www.argaam.com/ar/article/articledetail/id/1946620"
+      "keyword": "«نظام المعاملات التجارية»",
+      "story": "commercial-transactions-law-2026",
+      "title": "مجلس الوزراء يقرّ نظام المعاملات التجارية في 271 مادة",
+      "summary": "يحلّ النظام محل ثلاثة أنظمة قائمة، ويجيز ممارسة التجارة لمن بلغ 15 عامًا بإذن وليّه أو وصيّه أو المحكمة، ويتيح حفظ الدفاتر إلكترونيًا، ويسري بعد 180 يومًا من نشره.",
+      "date": "2026-10-27",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/economy/na/2272696"
     },
     {
-      "category": "صناعة",
-      "keyword": "58 ألف شهادة منشأ",
-      "story": "moim-certificates-of-origin-2026-09",
-      "title": "58 ألف شهادة منشأ للصادرات الصناعية في سبتمبر",
-      "summary": "أصدرت وزارة الصناعة والثروة المعدنية نحو 58 ألف شهادة، بزيادة 9.7% عن أغسطس الذي شهد 52,895 شهادة.",
-      "date": "2026-10-27",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/business/saudi-arabia-issues-58k-certificates-of-origin-in-september-up-97-3008513"
+      "category": "مجتمع",
+      "keyword": "85.3% من الأطفال",
+      "story": "gastat-early-childhood-2026",
+      "title": "الإحصاء: 85.3% من الأطفال على المسار الصحيح للنمو",
+      "summary": "تخص النسبة الأطفال من 24 إلى 59 شهرًا، فيما بلغ الالتحاق ببرامج تعليم الطفولة المبكرة 17.6% بين 36 و59 شهرًا، ويعيش 89.6% منهم في بيئة منزلية محفزة على التعلم.",
+      "date": "2026-10-28",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/local/na/2272789"
+    },
+    {
+      "category": "خدمات",
+      "keyword": "«أبشر»: 48.9 مليون عملية",
+      "story": "absher-transactions-2026-09",
+      "title": "48.9 مليون عملية إلكترونية عبر «أبشر» في سبتمبر",
+      "summary": "نفّذت منصة أبشر أفراد 46.3 مليون عملية وأبشر أعمال 2.6 مليون، وتصدّر استعراض الوثائق في المحفظة الرقمية الاستخدام بنحو 37.6 مليون عملية.",
+      "date": "2026-10-28",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/local/na/2272853"
     },
     {
       "category": "رياضة",
-      "keyword": "«الملوك الستة» في ديسمبر",
-      "story": "six-kings-slam-2026-december-dates",
-      "follows": "2026-10-03",
-      "title": "بطولة «الملوك الستة» للتنس تقام في الرياض أيام 27 و28 و30 ديسمبر",
-      "summary": "أُعلنت المواعيد الجديدة ضمن موسم الرياض بمشاركة سينر حامل اللقب مرتين، وديوكوفيتش وألكاراز وزفيريف وفريتز ودي مينور.",
+      "keyword": "أولمبياد داكار للشباب",
+      "story": "dakar-2026-youth-olympics-saudi-team",
+      "title": "14 رياضيًا ورياضية يمثلون المملكة في أولمبياد الشباب «داكار 2026»",
+      "summary": "تشارك البعثة في تسع رياضات، منها السباحة والتايكوندو وألعاب القوى والمبارزة، في النسخة الرابعة من الألعاب الأولمبية للشباب بالسنغال من 31 أكتوبر إلى 13 نوفمبر.",
+      "date": "2026-10-28",
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/N2712265"
+    },
+    {
+      "category": "صحة",
+      "keyword": "جراحة «دافنشي 5» الروبوتية",
+      "story": "sfh-da-vinci-5-robotic-surgery",
+      "title": "مستشفى قوى الأمن يعتمد نظام «دافنشي 5» للجراحة الروبوتية",
+      "summary": "أفادت واس بأنه أول مستشفى في المملكة يعتمد الجيل الخامس من هذه التقنية، التي تتيح للجرّاح استشعار قوى الدفع والسحب التي تمارسها الأدوات على الأنسجة.",
       "date": "2026-10-27",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.pk/sport/turki-alalshikh-confirms-six-kings-slam-will-return-in-december-as-part-of-riyadh-season-3005369"
+      "source_name": "واس",
+      "source_url": "https://www.spa.gov.sa/en/N2711584"
     }
   ],
   "events": [
@@ -74,52 +73,34 @@
   ],
   "timeline": [
     {
-      "time": "2026-10-28T22:30:00+03:00",
-      "label": "مانشستر سيتي × برايتون",
-      "note": "كأس الرابطة الإنجليزية · مانشستر",
+      "time": "2026-10-29T21:00:00+03:00",
+      "label": "النصر × الخلود",
+      "note": "دوري روشن · الرياض",
       "colors": [
         [
-          "#6cabdd",
-          "#1c2c5b"
+          "#fcd116",
+          "#003a8c"
         ],
         [
-          "#0057b8",
-          "#ffffff"
+          "#b01e23"
         ]
       ],
-      "source_url": "https://www.mancity.com/news/mens/city-v-brighton-preview-carabao-cup-28-oct-63928427"
+      "source_url": "https://www.saff.com.sa/team.php?id=2"
     },
     {
-      "time": "2026-10-28T22:45:00+03:00",
-      "label": "بايرن ميونخ × ماغدبورغ",
-      "note": "كأس ألمانيا · ميونخ",
+      "time": "2026-10-29T21:00:00+03:00",
+      "label": "الرياض × القادسية",
+      "note": "دوري روشن · الرياض",
       "colors": [
         [
-          "#dc052d",
-          "#ffffff"
+          "#c8102e"
         ],
         [
-          "#0062ae",
-          "#ffffff"
+          "#d71920",
+          "#fcd116"
         ]
       ],
-      "source_url": "https://fcbayern.com/es/noticias/2026/09/partido-segunda-ronda-copa-dfb-contra-magdeburg-horario-confirmado"
-    },
-    {
-      "time": "2026-10-28T23:00:00+03:00",
-      "label": "ليفربول × تشيلسي",
-      "note": "كأس الرابطة الإنجليزية · ليفربول",
-      "colors": [
-        [
-          "#c8102e",
-          "#ffffff"
-        ],
-        [
-          "#034694",
-          "#ffffff"
-        ]
-      ],
-      "source_url": "https://www.liverpoolfc.com/news/liverpool-v-chelsea-carabao-cup-fixture-details-confirmed"
+      "source_url": "https://www.saff.com.sa/team.php?id=76"
     }
   ],
   "regions": {
@@ -144,6 +125,19 @@
         "place": "حطين، موسم الرياض",
         "start": "2026-10-30",
         "source_url": "https://www.spa.gov.sa/N2709228"
+      },
+      {
+        "title": "نمر: عرض كوميدي «واقف!»",
+        "place": "كراون بلازا الرياض RDC",
+        "start": "2026-11-06",
+        "time": "21:00",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/107280/wagef-nemr-live-comedy-show-in-riyadh"
+      },
+      {
+        "title": "حفل عبادي الجوهر وناتاشا",
+        "place": "محمد عبده أرينا",
+        "start": "2026-11-06",
+        "source_url": "https://www.okaz.com.sa/culture/na/2272839"
       }
     ],
     "jeddah": [
@@ -153,6 +147,13 @@
         "start": "2026-11-07",
         "time": "21:00",
         "source_url": "https://jeddah.platinumlist.net/event-tickets/107450/wagef-nemr-live-comedy-show-in-jeddah"
+      },
+      {
+        "title": "مؤتمر ومعرض الحج",
+        "place": "جدة",
+        "start": "2026-11-08",
+        "end": "2026-11-11",
+        "source_url": "https://www.spa.gov.sa/ar/N2696796"
       }
     ],
     "alula": [
@@ -170,6 +171,13 @@
         "start": "2026-11-06",
         "end": "2026-11-15",
         "source_url": "https://www.experiencealula.com/ar/whats-on/festivals/alula-skies-festival"
+      },
+      {
+        "title": "حفل نانسي عجرم",
+        "place": "ثنايا، العلا",
+        "start": "2026-11-13",
+        "time": "20:00",
+        "source_url": "https://www.experiencealula.com/en/things-to-do/experiences/concert-with-nancy-ajram"
       }
     ]
   },

@@ -656,14 +656,16 @@
 
   // ---------- Edition ----------
   // Saudi riyal sign: the Thmanyah fonts turn «ر.س» into the riyal symbol (required ligature, rlig).
-  // An amount written with the word («1.3 مليار ريال», «بـ500 ريال», «ريالًا») is shown with the sign;
-  // «ريال» without a number before it (ريال مدريد, ريالات) is left alone. Without the font, «ر.س» still reads correctly.
-  const RIYAL = /(\d[\d.,٬٫]*(?:\s*(?:ألف|آلاف|مليون|ملايين|مليار|مليارات|تريليون))?\s*)ريال(?:ًا|اً|ا)?(?![\u0621-\u064A\u0671-\u06D3])/g;
+  // Like «$251.7 billion», the sign sits right next to the number and the multiplier follows it:
+  // «251.7 مليار ريال» → «251.7 ر.س مليار», «بـ500 ريال» → «بـ500 ر.س» (no-break space, so the sign never wraps away
+  // from its number). «ريال» without a number before it (ريال مدريد, ريالات) is left alone; without the font «ر.س» still reads correctly.
+  const RIYAL = /(\d[\d.,٬٫]*)\s*(?:(ألف|آلاف|مليون|ملايين|مليار|مليارات|تريليون)\s*)?ريال(?:ًا|اً|ا)?(?![\u0621-\u064A\u0671-\u06D3])/g;
+  const toSign = (t) => t.replace(RIYAL, (_, n, mult) => n + "\u00A0ر.س" + (mult ? " " + mult : ""));
   const SKIP_KEYS = /(^|_)(url|story|follows|date|start|end|time|kind|continent|status)$/;
   function riyalSign(o) {
-    if (Array.isArray(o)) o.forEach((v, i) => { if (typeof v === "string") o[i] = v.replace(RIYAL, "$1ر.س"); else riyalSign(v); });
+    if (Array.isArray(o)) o.forEach((v, i) => { if (typeof v === "string") o[i] = toSign(v); else riyalSign(v); });
     else if (o && typeof o === "object") for (const k of Object.keys(o)) {
-      if (typeof o[k] === "string") { if (!SKIP_KEYS.test(k)) o[k] = o[k].replace(RIYAL, "$1ر.س"); }
+      if (typeof o[k] === "string") { if (!SKIP_KEYS.test(k)) o[k] = toSign(o[k]); }
       else riyalSign(o[k]);
     }
     return o;

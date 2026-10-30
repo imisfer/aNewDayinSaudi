@@ -655,6 +655,20 @@
   }
 
   // ---------- Edition ----------
+  // Saudi riyal sign: the Thmanyah fonts turn «ر.س» into the riyal symbol (required ligature, rlig).
+  // An amount written with the word («1.3 مليار ريال», «بـ500 ريال», «ريالًا») is shown with the sign;
+  // «ريال» without a number before it (ريال مدريد, ريالات) is left alone. Without the font, «ر.س» still reads correctly.
+  const RIYAL = /(\d[\d.,٬٫]*(?:\s*(?:ألف|آلاف|مليون|ملايين|مليار|مليارات|تريليون))?\s*)ريال(?:ًا|اً|ا)?(?![\u0621-\u064A\u0671-\u06D3])/g;
+  const SKIP_KEYS = /(^|_)(url|story|follows|date|start|end|time|kind|continent|status)$/;
+  function riyalSign(o) {
+    if (Array.isArray(o)) o.forEach((v, i) => { if (typeof v === "string") o[i] = v.replace(RIYAL, "$1ر.س"); else riyalSign(v); });
+    else if (o && typeof o === "object") for (const k of Object.keys(o)) {
+      if (typeof o[k] === "string") { if (!SKIP_KEYS.test(k)) o[k] = o[k].replace(RIYAL, "$1ر.س"); }
+      else riyalSign(o[k]);
+    }
+    return o;
+  }
+
   async function renderEdition() {
     let ed;
     // A brief network hiccup shouldn't leave the page empty: try up to 3 times, 1.5s then 4s apart.
@@ -679,6 +693,7 @@
       $("edition-label").textContent = "آخر تحديث: " + fmtDate(ed.edition_date);
       $("edition-label").hidden = false;
     }
+    riyalSign(ed);
     edition = ed;
 
     renderHeadline(ed.headline || "", (ed.cards || []).slice(0, 8));

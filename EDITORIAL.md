@@ -22,6 +22,7 @@ Crime, accidents, disputes, politics and foreign conflicts, rumours, anything th
 - Title ≤ 70 characters. Summary ≤ 35 words, one or two sentences, with a concrete number or fact where possible.
 - `date` = the date of the event or release, not today's date.
 - Claim only what the source says. No "every year", "first ever" or "largest" unless the source says it.
+- Amounts in riyals: write the word as usual («1.3 مليار ريال», «بـ500 ريال»). The page shows a number followed by «ريال» as «ر.س», which the Thmanyah fonts draw as the Saudi riyal sign; don't type the sign or «ر.س» yourself.
 - No sensational words (عاجل، صادم، مذهل، كارثة…) and no exaggeration.
 - 5–8 cards. If fewer than 5 items pass verification, publish fewer (minimum 3). Never pad with weak items.
 - Mix categories; avoid more than 2 cards from the same category.

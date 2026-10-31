@@ -1,67 +1,57 @@
 {
-  "edition_date": "2026-10-30",
+  "edition_date": "2026-10-31",
   "status": "pilot",
-  "headline": "صادرات الخدمات تبلغ 251.7 مليار ريال في 2025، وهيئة الأفلام تعلن 1.3 مليار ريال إنفاقًا إنتاجيًا، وأرباح البنوك تنمو 7.3% في سبتمبر",
+  "headline": "نجاح فصل التوأم التنزاني في الرياض، وتعديلات تنظّم التسجيل العيني للعقار، والمملكة تحصد 4 جوائز في الحكومة الرقمية الخليجية",
   "cards": [
     {
-      "category": "اقتصاد",
-      "keyword": "صادرات الخدمات",
-      "story": "gastat-services-trade-2025",
-      "title": "صادرات الخدمات ترتفع 6.9% إلى 251.7 مليار ريال في 2025",
-      "summary": "تصدّر السفر صادرات الخدمات بنحو 159.9 مليار ريال، تلاه النقل بـ35.4 مليار ريال، وفق بيانات الهيئة العامة للإحصاء.",
+      "category": "صحة",
+      "keyword": "التوأم التنزاني",
+      "story": "tanzanian-twins-separation-2026-10",
+      "title": "نجاح جراحة التوأمين التنزانيين «لايتيينس ولوفنس» بعد أكثر من 14 ساعة",
+      "summary": "استغرقت العملية أكثر من 14 ساعة على تسع مراحل بمشاركة 44 من الاستشاريين والكوادر التمريضية والفنية، وهي العملية الـ75 ضمن البرنامج السعودي للتوائم الملتصقة.",
       "date": "2026-10-29",
       "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/tourism-transport/saudi-arabias-services-exports-value-up-69-official-figures-show-3008852"
-    },
-    {
-      "category": "ثقافة",
-      "keyword": "هيئة الأفلام",
-      "story": "film-commission-2025-figures-confex-2026",
-      "title": "هيئة الأفلام: 1.3 مليار ريال إنفاقًا إنتاجيًا على مشاريعها في 2025",
-      "summary": "دعمت الهيئة 71 مشروعًا ودرّبت 6,900 متدرب ومتدربة عبر 22 برنامجًا، وفق ما عُرض في النسخة الرابعة من منتدى الأفلام السعودي بالدرعية يومي 28 و29 أكتوبر.",
-      "date": "2026-10-29",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/lifestyle/saudi-film-confex-highlights-kingdoms-cinematic-ambitions-3008842"
-    },
-    {
-      "category": "اقتصاد",
-      "keyword": "أرباح البنوك",
-      "story": "sama-bank-profits-2026-09",
-      "title": "أرباح البنوك في المملكة 9.99 مليار ريال في سبتمبر بنمو 7.3%",
-      "summary": "تُظهر النشرة الإحصائية الشهرية للبنك المركزي السعودي ارتفاع الأرباح المجمعة للبنوك قبل الزكاة والضرائب من 9.31 مليار ريال في سبتمبر 2025.",
-      "date": "2026-10-29",
-      "source_name": "أرقام",
-      "source_url": "https://www.argaam.com/ar/stats-report-bank-sama/3/62932"
+      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-medical-team-undertakes-complex-surgery-to-separate-tanzanian-conjoined-twins-3008851"
     },
     {
       "category": "أنظمة",
-      "keyword": "«استطلاع»: 32 مشروعًا",
-      "story": "istitlaa-32-projects-2026-10-29",
-      "title": "منصة «استطلاع» تطرح 32 مشروعًا لمرئيات العموم",
-      "summary": "تُقدَّم المشاريع بالتعاون مع 18 جهة حكومية، ومنها مشروع نظام الأسرار التجارية من الهيئة السعودية للملكية الفكرية، وتُستقبل مرئياته حتى 25 نوفمبر.",
-      "date": "2026-10-29",
-      "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2713382"
+      "keyword": "التسجيل العيني",
+      "story": "real-estate-registration-regs-amendments-2026-10",
+      "title": "تعديلات لائحة التسجيل العيني تحدد الفروق المقبولة في مساحات الصكوك",
+      "summary": "تتراوح الفروق المقبولة في المساحة بين 2% في المخططات المعتمدة و7% خارج النطاق العمراني، ويُوقَف التسجيل عند ازدواج الصكوك دون أن يفقد الطلب أسبقيته.",
+      "date": "2026-10-30",
+      "source_name": "أم القرى",
+      "source_url": "https://www.uqn.gov.sa/decisions-and-regulations/4002249"
     },
     {
-      "category": "ثقافة",
-      "keyword": "مهرجان الفيلم الأوروبي",
-      "story": "european-film-festival-riyadh-2026",
-      "title": "مهرجان الفيلم الأوروبي يعود إلى الرياض بـ16 فيلمًا",
-      "summary": "تُعرض في النسخة الخامسة أفلام من 16 دولة أوروبية للجمهور من 3 إلى 10 نوفمبر، بتنظيم بعثة الاتحاد الأوروبي وسفارات دوله وبدعم من هيئة الأفلام.",
-      "date": "2026-10-29",
-      "source_name": "الشرق الأوسط",
-      "source_url": "https://english.aawsat.com/culture/5335239-european-film-festival-returns-riyadh-fifth-edition-16-films"
+      "category": "تقنية",
+      "keyword": "الحكومة الرقمية",
+      "story": "gcc-digital-government-award-2026",
+      "title": "المملكة تحصد 4 جوائز في جائزة الحكومة الرقمية الخليجية 2026",
+      "summary": "فازت وزارة الحج والعمرة بجائزة أفضل جهة حكومية متميزة رقميًا، ونالت هيئة الحكومة الرقمية وأكاديمية طويق والأكاديمية المالية بقية الجوائز في الدورة السابعة بالبحرين.",
+      "date": "2026-10-28",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/local/saudi-arabia/2272940"
     },
     {
       "category": "رياضة",
-      "keyword": "أكاديمية سباقات الخيل",
-      "story": "jcsa-academy-2026",
-      "title": "نادي سباقات الخيل يدشّن أكاديمية للتدريب ورعاية خيول السباق المعتزلة",
-      "summary": "تضم الأكاديمية 60 إسطبلًا وميدانًا داخليًا مكيفًا ومدرسة للفروسية، وتقدّم برامج مهنية معتمدة في حدادة الخيول وتغذيتها بالشراكة مع جامعة الملك فيصل.",
+      "keyword": "سداسية الشباب",
+      "story": "rsl-shabab-ahli-6-1-2026-10",
+      "title": "الشباب يتغلب على الأهلي 6-1 وكاراسكو يسجل ثلاثية",
+      "summary": "سجّل يانيك كاراسكو ثلاثة أهداف وريكاردو ماتياس هدفين وروجر مارتينيز هدفًا في الجولة الثانية عشرة من دوري روشن، ليرتفع رصيد الشباب إلى 14 نقطة.",
+      "date": "2026-10-30",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/sport/na/2273234"
+    },
+    {
+      "category": "تراث",
+      "keyword": "مزاد حائل للإبل",
+      "story": "hail-camel-auction-17-sales-2026",
+      "title": "مبيعات مزاد حائل للإبل تتجاوز 26.3 مليون ريال في نسخته الـ17",
+      "summary": "تشمل المبيعات مزادات الإبل والحراج ومكاتب المستثمرين، وفق ما أعلنته وكالة الأنباء السعودية عن النسخة السابعة عشرة من المزاد.",
       "date": "2026-10-28",
       "source_name": "واس",
-      "source_url": "https://www.spa.gov.sa/en/N2712604"
+      "source_url": "https://www.spa.gov.sa/N2712333"
     }
   ],
   "events": [
@@ -73,36 +63,52 @@
   ],
   "timeline": [
     {
-      "time": "2026-10-30T15:30:00+03:00",
-      "label": "أبها × الاتحاد",
-      "note": "دوري روشن · أبها",
+      "time": "2026-10-31T21:00:00+03:00",
+      "label": "الهلال × الفتح",
+      "note": "دوري روشن · الرياض",
       "colors": [
         [
-          "#d71920",
+          "#0050a0",
           "#ffffff"
         ],
         [
-          "#fcd116",
-          "#000000"
+          "#1f4e9c",
+          "#ffffff"
         ]
       ],
       "source_url": "https://www.saff.com.sa/championship.php?id=415"
     },
     {
-      "time": "2026-10-30T21:00:00+03:00",
-      "label": "الشباب × الأهلي",
-      "note": "دوري روشن · الرياض",
+      "time": "2026-10-31T20:30:00+03:00",
+      "label": "بايرن ميونخ × دورتموند",
+      "note": "الدوري الألماني · ميونخ",
       "colors": [
         [
-          "#ffffff",
-          "#000000"
+          "#dc052d",
+          "#ffffff"
         ],
         [
-          "#007a3d",
+          "#fde100",
+          "#000000"
+        ]
+      ],
+      "source_url": "https://fcbayern.com/en/news/2026/10/facts-on-fc-bayern-vs.-borussia-dortmund-in-the-bundesliga"
+    },
+    {
+      "time": "2026-10-31T23:00:00+03:00",
+      "label": "برشلونة × ألافيس",
+      "note": "الدوري الإسباني · برشلونة",
+      "colors": [
+        [
+          "#a50044",
+          "#004d98"
+        ],
+        [
+          "#005baa",
           "#ffffff"
         ]
       ],
-      "source_url": "https://www.saff.com.sa/championship.php?id=415"
+      "source_url": "https://www.fcbarcelona.com/en/news/4599503/when-and-where-to-watch-fc-barcelona-v-alaves"
     }
   ],
   "regions": {
@@ -114,12 +120,6 @@
         "end": "2027-04-17",
         "when": "الجمعة والسبت",
         "source_url": "https://www.spa.gov.sa/N2703270"
-      },
-      {
-        "title": "افتتاح «بوليفارد وورلد»",
-        "place": "حطين، موسم الرياض",
-        "start": "2026-10-30",
-        "source_url": "https://www.spa.gov.sa/N2709228"
       },
       {
         "title": "مهرجان الفيلم الأوروبي",

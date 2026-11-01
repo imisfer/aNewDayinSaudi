@@ -233,9 +233,9 @@
         try { await navigator.share({ title: "يوم جديد في السعودية", text, url }); return; }
         catch (e) { if (e && e.name === "AbortError") return; }
       }
-      try { await navigator.clipboard.writeText(text + "\n" + url); label.textContent = "نُسخ الموجز والرابط"; }
-      catch (e) { label.textContent = url; }
-      setTimeout(() => { label.textContent = "شارك موجز اليوم"; }, 2500);
+      try { await navigator.clipboard.writeText(text + "\n" + url); label.textContent = "نُسخ"; }
+      catch (e) { label.textContent = "تعذّر النسخ"; }
+      setTimeout(() => { label.textContent = ""; }, 2500);
     });
   }
 

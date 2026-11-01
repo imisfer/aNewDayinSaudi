@@ -6,10 +6,29 @@
   <title>يوم جديد في السعودية</title>
   <meta name="description" content="موجز يومي هادئ لما يحدث في المملكة: إنجازات ومؤشرات وخدمات، في شاشة واحدة ودقيقة قراءة.">
   <meta name="theme-color" content="#0b5d3b">
+  <!-- Home-screen install -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="يوم جديد">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <!-- Link preview (WhatsApp, X, iMessage …). share/today.png is rebuilt with each edition; absolute URLs are required. -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:site_name" content="يوم جديد في السعودية">
+  <meta property="og:title" content="يوم جديد في السعودية">
+  <meta property="og:description" content="موجز يومي هادئ لما يحدث في المملكة: إنجازات ومؤشرات وخدمات، في شاشة واحدة ودقيقة قراءة.">
+  <meta property="og:url" content="https://imisfer.github.io/aNewDayinSaudi/">
+  <meta property="og:image" content="https://imisfer.github.io/aNewDayinSaudi/share/today.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="موجز اليوم من «يوم جديد في السعودية»">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" type="application/rss+xml" title="يوم جديد في السعودية" href="feed.xml">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b5d3b'/%3E%3Ccircle cx='16' cy='18' r='7' fill='%23f7f5f0'/%3E%3Crect x='6' y='23' width='20' height='4' fill='%230b5d3b'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/thmanyahsans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/thmanyahserifdisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=1.74">
+  <link rel="stylesheet" href="assets/style.css?v=1.75">
 </head>
 <body>
   <main class="page">
@@ -28,6 +47,13 @@
         <span class="also-label">وأيضًا</span>
         <ul class="more" id="more" aria-label="أخبار أخرى"></ul>
       </div>
+      <button type="button" class="share" id="share-btn" hidden><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7.5 7.5 12 3l4.5 4.5M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg><span id="share-label">شارك موجز اليوم</span></button>
+    </section>
+
+    <!-- «يهمّك اليوم»: official service notices (schools, flights, weather alerts, ministry changes), stated plainly. Hidden when empty. -->
+    <section class="notices" id="notices-wrap" aria-labelledby="notices-title" hidden>
+      <h2 class="n-title" id="notices-title">يهمّك اليوم</h2>
+      <ul id="notices"></ul>
     </section>
 
 
@@ -94,12 +120,12 @@
 
     <footer class="foot">
       <p class="about">موجز يومي هادئ: إنجازات ومشاريع ومؤشرات وخدمات وفعاليات، احتفاءً بالمحتوى المحلي وإثراءً له. كل خبر مؤرخ ومربوط بمصدره. نلخّص ونحيل إلى المصدر، ولا نعيد نشر المقالات.</p>
-      <p class="ver">الإصدار v1.74 · 2026-11-01</p>
+      <p class="ver">الإصدار v1.75 · 2026-11-01</p>
     </footer>
   </main>
 
   <script src="assets/adhan.min.js"></script>
   <script src="assets/world.js?v=1.70"></script>
-  <script src="assets/app.js?v=1.74"></script>
+  <script src="assets/app.js?v=1.75"></script>
 </body>
 </html>

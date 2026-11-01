@@ -204,6 +204,41 @@
     }
   }
 
+  // ---------- «يهمّك اليوم»: official service notices, stated plainly ----------
+  function renderNotices(items) {
+    const list = (items || []).filter((x) => x && x.title && x.source_url && (!x.until || x.until >= todayISO)).slice(0, 4);
+    const ul = $("notices");
+    ul.textContent = "";
+    for (const x of list) {
+      const li = el("li");
+      const a = el("a");
+      a.href = x.source_url; a.target = "_blank"; a.rel = "noopener";
+      a.append(el("span", "n-text", x.title));
+      const meta = [x.issuer, x.area, x.until && (x.until === todayISO ? "اليوم فقط" : "حتى " + fmtDate(x.until))].filter(Boolean).join(" · ");
+      if (meta) a.append(el("span", "ev-meta", meta));
+      li.append(a);
+      ul.append(li);
+    }
+    $("notices-wrap").hidden = !list.length;
+  }
+
+  // ---------- Share: the system share sheet where there is one, otherwise copy the headline and link ----------
+  function setupShare(headline) {
+    const btn = $("share-btn"), label = $("share-label");
+    const url = location.origin + location.pathname;
+    const text = (headline || "").trim();
+    btn.hidden = false;
+    btn.addEventListener("click", async () => {
+      if (navigator.share) {
+        try { await navigator.share({ title: "يوم جديد في السعودية", text, url }); return; }
+        catch (e) { if (e && e.name === "AbortError") return; }
+      }
+      try { await navigator.clipboard.writeText(text + "\n" + url); label.textContent = "نُسخ الموجز والرابط"; }
+      catch (e) { label.textContent = url; }
+      setTimeout(() => { label.textContent = "شارك موجز اليوم"; }, 2500);
+    });
+  }
+
   // ---------- World clocks (tooltip on the timeline's "now" marker) ----------
   const WORLD = [
     ["طوكيو", "Asia/Tokyo", 35.68, 139.69], ["الرياض", "Asia/Riyadh", 24.71, 46.68],
@@ -646,6 +681,8 @@
     edition = ed;
 
     renderHeadline(ed.headline || "", (ed.cards || []).slice(0, 8));
+    renderNotices(ed.notices);
+    setupShare(ed.headline);
     renderTimeline(timedToday(ed));
 
     renderRegions(ed.regions);

@@ -166,6 +166,37 @@ for (const [i, x] of (ed.events || []).entries()) {
   if (new Set(ids).size !== ids.length) err("two cards share the same story id");
 }
 
+// «يهمّك اليوم»: official service notices (see EDITORIAL.md). The service change, never the security event behind it.
+const SECURITY_WORDS = /(صاروخ|صواريخ|مسيّر|مسير[ةا]ت|اعتراض|هجوم|هجمات|قصف|حوثي|الحوثي|إيران|استهداف|انفجار|شظايا|عسكري)/;
+{
+  const ns = ed.notices || [];
+  if (!Array.isArray(ns)) err("notices must be an array");
+  if (ns.length > 4) err(`notices has ${ns.length} items; maximum is 4`);
+  const nUrls = new Set();
+  ns.forEach((x, i) => {
+    const n = `notice ${i + 1}`;
+    if (!x.title || x.title.length > 90) err(`${n}: title missing or longer than 90 chars`);
+    if (!x.issuer || x.issuer.length > 30) err(`${n}: issuer (the body that announced it, in Arabic) missing or longer than 30 chars`);
+    if (x.area && x.area.length > 25) err(`${n}: area longer than 25 chars`);
+    if (!iso.test(x.date || "")) err(`${n}: date (when it was announced) not YYYY-MM-DD`);
+    else if (ed.edition_date && (x.date > ed.edition_date || daysBetween(x.date, ed.edition_date) > 7)) err(`${n}: announced more than 7 days before the edition`);
+    if (x.until != null && !iso.test(x.until)) err(`${n}: until not YYYY-MM-DD`);
+    if (x.until && ed.edition_date && x.until < ed.edition_date) err(`${n}: already over (until ${x.until})`);
+    if (!x.until && x.date && ed.edition_date && daysBetween(x.date, ed.edition_date) > 2) err(`${n}: without "until", a notice may run for 2 days only`);
+    for (const t of [x.title, x.area]) if (t && BANNED_WORDS.test(t)) err(`${n}: sensational wording`);
+    if (x.title && SECURITY_WORDS.test(x.title)) err(`${n}: state the service change only, not the security event behind it`);
+    try {
+      const u = new URL(x.source_url);
+      const h = u.hostname.replace(/^www\./, "");
+      if (u.protocol !== "https:") err(`${n}: source_url must be https`);
+      if (!OFFICIAL.test(h) && !REPUTABLE.test(h)) err(`${n}: source ${h} is not on the allowed list`);
+      else if (!OFFICIAL.test(h)) warn(`${n}: non-official source (${h}); link the issuer's own release when there is one`);
+    } catch { err(`${n}: source_url is not a valid URL`); }
+    if (nUrls.has(x.source_url)) err(`${n}: duplicate source_url`);
+    nUrls.add(x.source_url);
+  });
+}
+
 // «ما وراء البحار» (`world`) was retired on 2026-11-01; «بعيون العالم» (`world_view`) replaced it on the page.
 if (ed.world != null && (!Array.isArray(ed.world) || ed.world.length)) err("world is retired (the page no longer shows «ما وراء البحار»); use world_view for «بعيون العالم» or drop the key");
 

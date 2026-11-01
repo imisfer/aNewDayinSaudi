@@ -44,6 +44,15 @@ Cards are not shown as a list. The one-line `headline` (≤ 140 characters) is t
 - No keyword may contain another.
 - Order cards from strongest to weakest; chips follow that order.
 
+## «يهمّك اليوم» (official service notices)
+`notices` holds 0–4 notices that change a citizen's day: school schedule changes (remote learning, suspensions), airport and flight status, NCM weather alerts, a public holiday or office-hours change, a ministry service going down or changing. It shows as a small block right under the headline and hides when empty.
+- **The service change, stated plainly.** Say what changes, for whom, where, and until when: «الدراسة عن بُعد عبر منصة مدرستي لمدارس الرياض والدرعية». Never the security event behind it (no attacks, interceptions, debris, names of parties); the validator rejects those words. No sensational wording.
+- **From the issuer.** Link the issuing body's own release (`*.gov.sa`, SPA). When the body announced it only on its social account, a reputable Saudi outlet that names the body may stand in. Name the body in `issuer` («تعليم الرياض»، «المركز الوطني للأرصاد»، «الهيئة العامة للطيران المدني»).
+- **Checked on the day.** Notices change at short notice and are sometimes reversed within hours. Confirm each one on the edition date; if the latest word can't be confirmed, leave it out.
+- **Research it every day**, before the cards: search for «تعليق الدراسة», «الدراسة عن بعد», «تنبيه الأرصاد», «الطيران المدني» and the like for the last 48 hours. An empty block must be a finding.
+- Fields: `title` ≤ 90 chars, `issuer` ≤ 30, optional `area` ≤ 25 («الرياض والدرعية»), `date` (announced, within 7 days), optional `until` (last day it applies; without it the notice runs 2 days at most), `source_url`.
+- A notice is not a card: it doesn't enter the headline, the news register or the 30-day repeat check, and it may repeat while it still applies.
+
 ## Timeline (dots at the bottom of the screen)
 `timeline` holds today's timed moments. Each one shows as a dot at its time on a Fajr-to-midnight line, with a small bubble on tap. The next one within 3 hours shows its bubble automatically.
 - Include: Saudi national team matches; Roshn Saudi League and King's Cup matches for Al-Hilal, Al-Nassr, Al-Ittihad, Al-Ahli, Al-Qadsiah and Al-Shabab; Saudi clubs in AFC competitions; major tournaments hosted in Saudi Arabia (all their matches); official openings or national moments with a set time.
@@ -128,4 +137,5 @@ Kick-off times change at short notice, sometimes the day before. Every match tim
 1. Write `data/edition.json` with `edition_date` = today (Asia/Riyadh) and `status: "pilot"`.
 2. Run `node scripts/validate.mjs --today` (it also checks the news register). If it fails, fix the edition and re-run. Never publish a failing edition.
 3. If a valid edition can't be produced, change nothing. The page will label the previous edition "آخر تحديث".
-4. Commit to `main` as `edition: YYYY-MM-DD` and push.
+4. Run `node scripts/build-share.mjs`. It rebuilds `share/today.png` (link preview), `share/post.png` (WhatsApp Channel image), `share/whatsapp.txt` (the post text) and `feed.xml` (RSS, last 14 editions) from the edition. Look at both images once: the headline must fit and read cleanly.
+5. Commit `data/edition.json`, `share/` and `feed.xml` together to `main` as `edition: YYYY-MM-DD` and push. Change no other file.

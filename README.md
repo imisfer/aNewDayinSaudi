@@ -15,6 +15,14 @@ A one-screen, Arabic-first daily briefing on what's happening in Saudi Arabia: d
 - If no valid edition can be produced, nothing is pushed and the page labels the previous edition "آخر تحديث".
 - To change what gets selected or how it's written, edit `EDITORIAL.md`.
 
+## Sharing and delivery
+- **Install:** `manifest.webmanifest` and `assets/icons/` let readers add the page to their home screen (Android and iOS).
+- **Link preview:** Open Graph tags point to `share/today.png`, rebuilt with each edition, so a pasted link shows today's headline in WhatsApp, X and iMessage.
+- **Share button:** under the headline. It opens the phone's share sheet, or copies the headline and link where there is none.
+- **WhatsApp Channel:** `share/post.png` and `share/whatsapp.txt` are the day's post, ready to paste. WhatsApp has no API for posting to a Channel, so posting is manual.
+- **RSS:** `feed.xml` (last 14 editions) works with any feed reader, and with RSS-to-email services for a morning email.
+- `scripts/build-share.mjs` builds all four from `data/edition.json`. The site address is set once, in `SITE` at the top of that script and in the `og:` tags in `index.html`.
+
 ## Versioning
 - The footer shows `الإصدار vX.Y · date`. Bump it on every code or design change, in the footer and in the `?v=` on `style.css` and `app.js` in `index.html` (all three must match). The `?v=` makes browsers fetch the new files instead of a cached copy.
 - Daily edition pushes don't change the version.

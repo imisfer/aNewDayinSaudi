@@ -579,61 +579,8 @@
     loadWeather().then(() => picks.forEach((key, i) => renderWeatherLine($("w-" + i), key)));
   }
 
-  // ---------- «ما وراء البحار»: the Kingdom abroad, by continent (same layout as the city events) ----------
-  const CONTINENTS = [["asia", "آسيا"], ["africa", "أفريقيا"], ["europe", "أوروبا"], ["namerica", "أمريكا الشمالية"], ["samerica", "أمريكا الجنوبية"], ["oceania", "أوقيانوسيا"]];
-  const CONT_KEYS = CONTINENTS.map((c) => c[0]);
-  const contName = (k) => (CONTINENTS.find((c) => c[0] === k) || [, k])[1];
-  const GLOBE = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21M12 3C9.5 5.6 8.2 8.6 8.2 12s1.3 6.4 3.8 9"/></svg>';
-  const W_PICK_KEY = "continentColumns";
-  function renderWorldColumn(i, key, byCont) {
-    const ul = $("wr-" + i);
-    ul.textContent = "";
-    for (const w of byCont[key]) {
-      const li = el("li");
-      const a = el("a");
-      a.href = w.source_url; a.target = "_blank"; a.rel = "noopener";
-      a.append(el("span", "ev-title", w.title), el("span", "ev-meta", [fmtDate(w.date), w.place, w.source_name].filter(Boolean).join(" · ")));
-      li.append(a);
-      ul.append(li);
-    }
-    if (!byCont[key].length) ul.append(el("li", "ev-empty", "لا أخبار هذا الشهر"));
-    $("wic-" + i).innerHTML = GLOBE;
-    $("wnm-" + i).textContent = contName(key);
-  }
-  function renderWorld(items) {
-    const byCont = Object.fromEntries(CONT_KEYS.map((k) => [k, []]));
-    for (const w of items || []) if (byCont[w.continent]) byCont[w.continent].push(w);
-    for (const k of CONT_KEYS) byCont[k] = byCont[k].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 5);
-    const withNews = CONT_KEYS.filter((k) => byCont[k].length).sort((a, b) => byCont[b].length - byCont[a].length);
-    $("wr-0").closest(".region").hidden = !withNews.length;
-    if (!withNews.length) { $("w-stack").hidden = true; return; }
-    // The continent with the most stories leads; only continents with news can be picked.
-    const main = withNews[0];
-    const others = withNews.slice(1);
-    let saved = [];
-    try { const v = JSON.parse(localStorage.getItem(W_PICK_KEY)); if (Array.isArray(v)) saved = v; } catch (e) { /* storage unavailable */ }
-    const picks = choosePicks(main, others, saved, []);
-    renderWorldColumn(0, main, byCont);
-    const selects = { 1: $("wpick-1"), 2: $("wpick-2") };
-    picks.forEach((key, idx) => {
-      const i = idx + 1;
-      const sel = selects[i];
-      fillPicker(sel, others, contName);
-      sel.value = key;
-      sel.addEventListener("change", () => {
-        const next = sel.value, other = i === 1 ? 2 : 1;
-        if (picks[other - 1] === next) { picks[other - 1] = picks[i - 1]; selects[other].value = picks[other - 1]; renderWorldColumn(other, picks[other - 1], byCont); }
-        picks[i - 1] = next;
-        try { localStorage.setItem(W_PICK_KEY, JSON.stringify(picks)); } catch (e) { /* ignore */ }
-        renderWorldColumn(i, next, byCont);
-      });
-      renderWorldColumn(i, key, byCont);
-    });
-    layoutColumns($("world-wrap"), $("w-stack"), [$("wr-1").closest(".region"), $("wr-2").closest(".region")], picks.length);
-  }
-
-  // «بعيون العالم»: up to 3 facts about the Kingdom reported by major non-Saudi outlets or international bodies.
-  const EYE = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+  // ---------- «بعيون العالم»: up to 3 facts about the Kingdom reported by international bodies or major non-Saudi outlets ----------
+  // (It replaced «ما وراء البحار»; an edition's old `world` array is ignored.)
   function renderWorldView(items) {
     const list = (items || []).filter((x) => x && x.title && x.source_url).slice(0, 3);
     const ul = $("wv");
@@ -649,8 +596,7 @@
       li.append(a);
       ul.append(li);
     }
-    $("wv-ic").innerHTML = EYE;
-    $("wv-wrap").hidden = !list.length;
+    $("world-wrap").hidden = !list.length;
     return list.length > 0;
   }
 
@@ -705,9 +651,7 @@
     renderRegions(ed.regions);
     collectEvents(ed);
 
-    renderWorld(ed.world);
-    const hasView = renderWorldView(ed.world_view);
-    if (hasView) $("world-wrap").hidden = false; // the strip alone is enough to show the section
+    renderWorldView(ed.world_view);
     renderOccasions();
   }
 

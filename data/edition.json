@@ -147,18 +147,5 @@
       }
     ]
   },
-  "world": [
-    {
-      "continent": "asia",
-      "title": "62 مشروعًا سعوديًا للمياه في 14 محافظة يمنية",
-      "summary": "نفّذ البرنامج السعودي لتنمية وإعمار اليمن 62 مشروعًا ومبادرة للمياه تغطي احتياج الغيضة كاملًا ونصف احتياج سقطرى وجزءًا من احتياج عدن.",
-      "category": "إغاثة",
-      "place": "اليمن",
-      "date": "2026-10-31",
-      "source_name": "الشرق الأوسط",
-      "source_url": "https://english.aawsat.com/gulf/5335856-saudi-arabia-strengthens-water-security-14-yemeni-governorates-62-projects",
-      "check_url": "https://www.arabnews.com/saudi-arabia/saudi-aid-expands-access-to-clean-water-while-providing-food-shelter-to-displaced-yemenis-3009114",
-      "story": "sdrpy-yemen-62-water-projects-2026-10"
-    }
-  ]
+  "world_view": []
 }

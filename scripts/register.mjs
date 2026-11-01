@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Register of news already used: every card, world and world_view item published in the last 30 days, read from the git history of
+// Register of news already used: every card and world_view item (and old world items) published in the last 30 days, read from the git history of
 // data/edition.json (the last commit of each edition date counts). A story may appear only once in that window.
 // Usage: node scripts/register.mjs [--days 30] [--json]      (prints the register for the editor)
 // The validator imports loadRegister() and findRepeats() to block repeats.

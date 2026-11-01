@@ -518,11 +518,10 @@ body { position: relative; isolation: isolate; }
 }
 .tl-hour.tl-tick .tl-hlabel { left: calc(100% + 2px); }
 .tl-sun .tl-hlabel { left: 32px; } /* the sun/moon box spans 40px centred on the line; this lines the label up with the hour labels */
-/* «ما وراء البحار» uses the city-events layout; with one continent only, its column spans the full width */
 /* A section left with one column (the others had nothing to show) uses the full width. */
 .regions.solo > .region { grid-column: 1 / -1; }
 .region[hidden] { display: none; }
-/* «بعيون العالم»: a full-width strip under the continent columns */
+/* «بعيون العالم»: one full-width list */
 .regions > .wv { grid-column: 1 / -1; }
 /* Prayer, sunrise and sunset times: a small figure just above the name */
 .tl-ptime {

@@ -9,10 +9,6 @@ const file = args.find((a) => !a.startsWith("--")) || "data/edition.json";
 const requireToday = args.includes("--today");
 
 // Official Saudi sources are preferred; these reputable outlets are allowed when no official release exists.
-// Trusted Saudi sources: enough on their own, no second source needed. Government entities (ministries, authorities,
-// SADAIA, health clusters …), all Saudi universities, tertiary government hospitals and medical cities, KACST, KAUST,
-// Mawhiba and KSrelief.
-const SAUDI_TRUSTED = /(^|\.)(gov\.sa|edu\.sa|med\.sa|mawhiba\.org|mawhiba\.sa|ksrelief\.org|kacst\.edu\.sa|kaust\.edu\.sa)$/;
 const OFFICIAL = /(^|\.)(edu\.sa|med\.sa|mawhiba\.org|mawhiba\.sa|ksrelief\.org)$|(^|\.)gov\.sa$|(^|\.)spa\.gov\.sa$|(^|\.)pif\.gov\.sa$|(^|\.)sama\.gov\.sa$|(^|\.)stats\.gov\.sa$|(^|\.)vision2030\.gov\.sa$|(^|\.)saudiexchange\.sa$|(^|\.)aramco\.com$|(^|\.)ncm\.gov\.sa$|(^|\.)my\.gov\.sa$/;
 const REPUTABLE = /(^|\.)(arabnews\.com|arabnews\.pk|aljazeera\.net|alyaum\.com|the-afc\.com|thenationalnews\.com|reuters\.com|bloomberg\.com|aawsat\.com|alarabiya\.net|okaz\.com\.sa|alriyadh\.com|aleqt\.com|argaam\.com|sabq\.org|saudigazette\.com\.sa|spl\.com\.sa|saff\.com\.sa)$/;
 // Arabic letters that join to the following letter (excludes ا أ إ آ د ذ ر ز و ؤ ة ء).
@@ -23,9 +19,6 @@ const FOREIGN_CLUBS = /(^|\.)(realmadrid\.com|fcbarcelona\.com|mancity\.com|live
 const HEX = /^#[0-9a-fA-F]{6}$/;
 const validColors = (c) => Array.isArray(c) && c.length >= 1 && c.length <= 2 &&
   (c.every((x) => typeof x === "string" && HEX.test(x)) || c.every((x) => Array.isArray(x) && x.length >= 1 && x.length <= 2 && x.every((y) => HEX.test(y))));
-// «السعودية في العالم»: the Kingdom abroad. Primary sources (journals, UN agencies, university and agency releases) and global wires.
-const WORLD = /(^|\.)(reuters\.com|apnews\.com|afp\.com|bbc\.com|bbc\.co\.uk|who\.int|un\.org|unicef\.org|unhcr\.org|wfp\.org|fao\.org|unesco\.org|undp\.org|worldbank\.org|nature\.com|science\.org|thelancet\.com|nejm\.org|bmj\.com|cell\.com|nih\.gov|nasa\.gov|esa\.int|europa\.eu|aljazeera\.net|alarabiya\.net|aawsat\.com|thenationalnews\.com|arabnews\.com|bloomberg\.com|ft\.com|theguardian\.com|nytimes\.com|washingtonpost\.com|npr\.org|dw\.com|france24\.com|euronews\.com|nhk\.or\.jp|abc\.net\.au|cbc\.ca|pnas\.org|newscientist\.com|iaea\.org|home\.cern|jaxa\.jp|isro\.gov\.in|nist\.gov|noaa\.gov|[a-z0-9-]+\.edu|[a-z0-9-]+\.ac\.uk|kaust\.edu\.sa|ksu\.edu\.sa|kfupm\.edu\.sa|ksrelief\.org|saudiarabia\.un\.org)$/; // + university press offices (.edu, .ac.uk)
-const WORLD_CATS = ["علوم", "صحة", "إغاثة", "تعليم", "رياضة", "ثقافة", "اقتصاد", "بيئة"];
 // Science and technology items must be research or public-institution news, not a company's product news.
 const PRODUCT_NEWS = /(يطلق هاتف|هاتف جديد|تطلق تطبيق|إطلاق تطبيق|إصدار جديد من|نموذج ذكاء اصطناعي جديد|جولة تمويل|طرح عام|أرباح|سهم|آيفون|أندرويد)/;
 const BANNED_WORDS = /(صادم|عاجل|كارثة|فضيحة|لن تصدق|مذهل|الأعظم في التاريخ)/;
@@ -173,47 +166,8 @@ for (const [i, x] of (ed.events || []).entries()) {
   if (new Set(ids).size !== ids.length) err("two cards share the same story id");
 }
 
-// «السعودية في العالم»: 0–2 stories about the Kingdom abroad, each confirmed by a second, independent source.
-const world = ed.world || [];
-if (!Array.isArray(world)) err("world must be an array");
-if (world.length > 10) err(`world has ${world.length} items; maximum is 10`);
-const CONTS = ["asia", "africa", "europe", "namerica", "samerica", "oceania"];
-for (const c of CONTS) if (world.filter((x) => x.continent === c).length > 5) err(`world: more than 5 items for ${c}`);
-{
-  const reg = loadRegister({ before: ed.edition_date });
-  world.forEach((x, i) => {
-    const n = `world ${i + 1}`;
-    if (!x.title || x.title.length > 70) err(`${n}: title missing or longer than 70 chars`);
-    if (x.summary && x.summary.length > 220) err(`${n}: summary longer than 220 chars`);
-    if (!CONTS.includes(x.continent)) err(`${n}: continent must be one of ${CONTS.join(", ")}`);
-    if (!x.place || x.place.length > 25) err(`${n}: place (country or city, in Arabic) missing or longer than 25 chars`);
-    if (!WORLD_CATS.includes(x.category)) err(`${n}: category must be one of ${WORLD_CATS.join("، ")}`);
-    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(x.story || "")) err(`${n}: story must be a short lowercase slug`);
-    if (!iso.test(x.date || "")) err(`${n}: date not YYYY-MM-DD`);
-    else if (ed.edition_date && (x.date > ed.edition_date || daysBetween(x.date, ed.edition_date) > 30)) err(`${n}: date must be within the 30 days before the edition`); // a slow-moving track
-    for (const t of [x.title, x.summary]) if (t && BANNED_WORDS.test(t)) err(`${n}: sensational wording`);
-    for (const t of [x.title, x.summary]) if (t && PRODUCT_NEWS.test(t)) err(`${n}: reads like company or product news, which «السعودية في العالم» excludes`);
-    const hosts = [];
-    // A trusted Saudi source stands on its own; anything else needs check_url from a second, independent outlet.
-    let trusted = false;
-    try { trusted = SAUDI_TRUSTED.test(new URL(x.source_url).hostname.replace(/^www\./, "")); } catch { /* reported below */ }
-    const pairs = [["source_url", x.source_url]];
-    if (x.check_url || !trusted) pairs.push(["check_url", x.check_url]);
-    for (const [k, u] of pairs) {
-      try {
-        const h = new URL(u).hostname.replace(/^www\./, "");
-        if (!WORLD.test(h) && !OFFICIAL.test(h) && !REPUTABLE.test(h)) err(`${n}: ${k} host ${h} is not on the world-news list`); // Saudi outlets (Sabq, Okaz, Al-Riyadh, Arab News …) count too
-        hosts.push(h.split(".").slice(/\.(gov|edu|med|org|com|net)\.sa$/.test(h) ? -3 : -2).join(".")); // the organisation, not «gov.sa»
-      } catch { err(`${n}: ${k} missing or not a valid URL`); }
-    }
-    if (hosts.length === 2 && hosts[0] === hosts[1]) err(`${n}: check_url must be a different, independent source from source_url`);
-    if (!x.source_name) err(`${n}: source_name missing`);
-    for (const h of findRepeats({ ...x, keyword: "" }, reg.entries)) {
-      const m = `${n}: ${h.why} with ${h.e.date} «${h.e.title}»`;
-      if (h.level === "error") err(m + " — already used"); else warn(m);
-    }
-  });
-}
+// «ما وراء البحار» (`world`) was retired on 2026-11-01; «بعيون العالم» (`world_view`) replaced it on the page.
+if (ed.world != null && (!Array.isArray(ed.world) || ed.world.length)) err("world is retired (the page no longer shows «ما وراء البحار»); use world_view for «بعيون العالم» or drop the key");
 
 // «بعيون العالم»: facts about the Kingdom reported by major non-Saudi outlets and international bodies (see EDITORIAL.md).
 // Global press: the outlet itself, never a Saudi or Saudi-owned one. Bodies: international organisations, rating agencies and rankings.
@@ -226,7 +180,7 @@ const WV_OPINION = /\/(opinion|opinions|commentary|comment|op-ed|oped|blogs?|spo
   if (!Array.isArray(wv)) err("world_view must be an array");
   if (wv.length > 3) err(`world_view has ${wv.length} items; maximum is 3`);
   const reg = loadRegister({ before: ed.edition_date });
-  const used = new Set([...(ed.cards || []), ...(ed.world || [])].map((c) => c.story).filter(Boolean));
+  const used = new Set([...(ed.cards || [])].map((c) => c.story).filter(Boolean));
   wv.forEach((x, i) => {
     const n = `world_view ${i + 1}`;
     if (!["press", "body"].includes(x.kind)) err(`${n}: kind must be "press" (a global outlet) or "body" (an international organisation, rating agency or ranking)`);
@@ -234,7 +188,7 @@ const WV_OPINION = /\/(opinion|opinions|commentary|comment|op-ed|oped|blogs?|spo
     if (!x.outlet || x.outlet.length > 30) err(`${n}: outlet (the outlet or body's name, in Arabic) missing or longer than 30 chars`);
     if (x.summary && x.summary.length > 220) err(`${n}: summary longer than 220 chars`);
     if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(x.story || "")) err(`${n}: story must be a short lowercase slug`);
-    else if (used.has(x.story)) err(`${n}: story "${x.story}" is already a card or a «ما وراء البحار» item in this edition`);
+    else if (used.has(x.story)) err(`${n}: story "${x.story}" is already a card in this edition`);
     if (!iso.test(x.date || "")) err(`${n}: date not YYYY-MM-DD`);
     else if (ed.edition_date && (x.date > ed.edition_date || daysBetween(x.date, ed.edition_date) > 14)) err(`${n}: date must be within the 14 days before the edition`);
     // A fact, not praise: press items must carry a figure; bodies (a ranking, a rating, an inscription) should.

@@ -23,6 +23,10 @@ A one-screen, Arabic-first daily briefing on what's happening in Saudi Arabia: d
 - **RSS:** `feed.xml` (last 14 editions) works with any feed reader, and with RSS-to-email services for a morning email.
 - `scripts/build-share.mjs` builds all four from `data/edition.json`. The site address is set once, in `SITE` at the top of that script and in the `og:` tags in `index.html`.
 
+## New day
+- A page left open reloads quietly when the Riyadh date changes, and when a reader returns to it after 30 minutes or more. Until today's edition is out, it also checks every 10 minutes for the night update and the morning edition.
+- `data/today.json` is the night update (00:10): the new day's timeline and notices only. See EDITORIAL.md.
+
 ## Versioning
 - The footer shows `الإصدار vX.Y · date`. Bump it on every code or design change, in the footer and in the `?v=` on `style.css` and `app.js` in `index.html` (all three must match). The `?v=` makes browsers fetch the new files instead of a cached copy.
 - Daily edition pushes don't change the version.

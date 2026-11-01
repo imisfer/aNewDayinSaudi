@@ -653,6 +653,32 @@
     return o;
   }
 
+  // ---------- New day: a page left open rolls over at midnight (Riyadh) and picks up later updates ----------
+  const riyadhDate = () => new Intl.DateTimeFormat("en-CA", { timeZone: TZ }).format(new Date());
+  const loadedAt = Date.now();
+  // Once a minute (cheap, and survives a sleeping laptop): a new Riyadh date reloads the page quietly.
+  setInterval(() => { if (riyadhDate() !== todayISO) location.reload(); }, 60e3);
+  // Coming back to a tab: reload if the day changed, or if it has been open for over 30 minutes (a newer edition may be out).
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState !== "visible") return;
+    if (riyadhDate() !== todayISO || Date.now() - loadedAt > 30 * 60e3) location.reload();
+  });
+  // Until today's edition is out, check every 10 minutes while the page stays open: for the night update
+  // (today's timeline and notices, just after midnight) and then for the morning edition. Stops at 10:00.
+  function watchForUpdate(haveNight) {
+    const hour = +new Intl.DateTimeFormat("en-US", { timeZone: TZ, hour: "numeric", hourCycle: "h23" }).format(new Date());
+    if (hour >= 10) return;
+    setTimeout(async () => {
+      try {
+        const get = async (u) => { const r = await fetch(u, { cache: "no-cache" }); return r.ok ? r.json() : null; };
+        const e = await get("data/edition.json");
+        if (e && e.edition_date === todayISO) { location.reload(); return; }
+        if (!haveNight) { const n = await get("data/today.json"); if (n && n.date === todayISO) { location.reload(); return; } }
+      } catch (err) { /* try again later */ }
+      watchForUpdate(haveNight);
+    }, 10 * 60e3);
+  }
+
   async function renderEdition() {
     let ed;
     // A brief network hiccup shouldn't leave the page empty: try up to 3 times, 1.5s then 4s apart.
@@ -680,10 +706,21 @@
     riyalSign(ed);
     edition = ed;
 
+    // Night update: from just after midnight until the morning edition, data/today.json carries the new day's
+    // timeline and notices. The morning edition takes over as soon as it is today's.
+    let night = null;
+    if (ed.edition_date !== todayISO) {
+      try {
+        const r = await fetch("data/today.json", { cache: "no-cache" });
+        if (r.ok) { const n = await r.json(); if (n && n.date === todayISO) night = riyalSign(n); }
+      } catch (e) { /* no night update: keep the edition's own */ }
+    }
+    if (ed.edition_date !== todayISO) watchForUpdate(!!night);
+
     renderHeadline(ed.headline || "", (ed.cards || []).slice(0, 8));
-    renderNotices(ed.notices);
+    renderNotices(night ? night.notices : ed.notices);
     setupShare(ed.headline);
-    renderTimeline(timedToday(ed));
+    renderTimeline(timedToday(night ? { ...ed, timeline: night.timeline } : ed));
 
     renderRegions(ed.regions);
     collectEvents(ed);

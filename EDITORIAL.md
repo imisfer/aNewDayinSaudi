@@ -133,6 +133,15 @@ Kick-off times change at short notice, sometimes the day before. Every match tim
 - `events`: upcoming dated national events in the next 30 days, from official sources only.
 - Fields: `date` (first day, YYYY-MM-DD), optional `end` for multi-day events, and `title`. Don't put dates in the title; the page shows the date or range once, before the title.
 
+## Night update (just after midnight)
+From midnight until the morning edition, the page shows yesterday's cards labelled «آخر تحديث», but the date has changed. A light run at 00:10 Riyadh writes `data/today.json` so night readers see the new day's timed events and notices:
+```json
+{ "date": "YYYY-MM-DD", "timeline": [ … ], "notices": [ … ] }
+```
+- `date` is the new day. `timeline` and `notices` follow exactly the rules above (official fixtures, kick-offs checked on the day, notices from the issuer, the service change only). Nothing else goes in the file: no headline, no cards.
+- The page uses it only while `data/edition.json` is not yet today's. Once the morning edition is out, the edition's own timeline and notices take over, so the morning run re-checks them as usual.
+- Validate with `node scripts/validate.mjs --night`. Commit only `data/today.json` as `night: YYYY-MM-DD`. If nothing validates, push nothing; the page keeps yesterday's edition.
+
 ## Publishing
 1. Write `data/edition.json` with `edition_date` = today (Asia/Riyadh) and `status: "pilot"`.
 2. Run `node scripts/validate.mjs --today` (it also checks the news register). If it fails, fix the edition and re-run. Never publish a failing edition.

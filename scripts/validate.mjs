@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 // Gate for automatic publishing. Exits non-zero if data/edition.json breaks the editorial contract.
 // Usage: node scripts/validate.mjs [path] [--today]   (--today also requires edition_date == today in Riyadh)
+//        node scripts/validate.mjs --night              (checks data/today.json, the night update: date must be today)
 import { readFileSync } from "node:fs";
 import { loadRegister, findRepeats } from "./register.mjs";
 
 const args = process.argv.slice(2);
-const file = args.find((a) => !a.startsWith("--")) || "data/edition.json";
+const file = args.find((a) => !a.startsWith("--")) || (args.includes("--night") ? "data/today.json" : "data/edition.json");
 const requireToday = args.includes("--today");
+const night = args.includes("--night");
 
 // Official Saudi sources are preferred; these reputable outlets are allowed when no official release exists.
 const OFFICIAL = /(^|\.)(edu\.sa|med\.sa|mawhiba\.org|mawhiba\.sa|ksrelief\.org)$|(^|\.)gov\.sa$|(^|\.)spa\.gov\.sa$|(^|\.)pif\.gov\.sa$|(^|\.)sama\.gov\.sa$|(^|\.)stats\.gov\.sa$|(^|\.)vision2030\.gov\.sa$|(^|\.)saudiexchange\.sa$|(^|\.)aramco\.com$|(^|\.)ncm\.gov\.sa$|(^|\.)my\.gov\.sa$/;
@@ -21,6 +23,7 @@ const validColors = (c) => Array.isArray(c) && c.length >= 1 && c.length <= 2 &&
   (c.every((x) => typeof x === "string" && HEX.test(x)) || c.every((x) => Array.isArray(x) && x.length >= 1 && x.length <= 2 && x.every((y) => HEX.test(y))));
 // Science and technology items must be research or public-institution news, not a company's product news.
 const PRODUCT_NEWS = /(يطلق هاتف|هاتف جديد|تطلق تطبيق|إطلاق تطبيق|إصدار جديد من|نموذج ذكاء اصطناعي جديد|جولة تمويل|طرح عام|أرباح|سهم|آيفون|أندرويد)/;
+const SECURITY_WORDS = /(صاروخ|صواريخ|مسيّر|مسير[ةا]ت|اعتراض|هجوم|هجمات|قصف|حوثي|الحوثي|إيران|استهداف|انفجار|شظايا|عسكري)/;
 const BANNED_WORDS = /(صادم|عاجل|كارثة|فضيحة|لن تصدق|مذهل|الأعظم في التاريخ)/;
 
 const errors = [];
@@ -39,6 +42,21 @@ try {
 const iso = /^\d{4}-\d{2}-\d{2}$/;
 const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Riyadh" }).format(new Date());
 const daysBetween = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);
+
+// Night update (data/today.json): only the new day's timeline and notices, published just after midnight.
+// The checks themselves are the edition's (function declarations below are hoisted).
+if (night) {
+  const allowed = ["date", "timeline", "notices"];
+  for (const k of Object.keys(ed)) if (!allowed.includes(k)) err(`night update: unexpected key "${k}" (only ${allowed.join(", ")})`);
+  if (!iso.test(ed.date || "")) err("night update: date missing or not YYYY-MM-DD");
+  else if (ed.date !== today) err(`night update: date ${ed.date} is not today (${today})`);
+  checkNotices(ed.notices, ed.date);
+  checkTimeline(ed.timeline, ed.date);
+  for (const w of warnings) console.log(`WARN: ${w}`);
+  for (const e of errors) console.log(`FAIL: ${e}`);
+  console.log(errors.length ? `\n${errors.length} error(s) — do not publish.` : `\nOK — night update for ${ed.date}: ${(ed.timeline || []).length} timeline item(s), ${(ed.notices || []).length} notice(s).`);
+  process.exit(errors.length ? 1 : 0);
+}
 
 if (!iso.test(ed.edition_date || "")) err("edition_date missing or not YYYY-MM-DD");
 if (ed.edition_date > today) err(`edition_date ${ed.edition_date} is in the future`);
@@ -167,9 +185,8 @@ for (const [i, x] of (ed.events || []).entries()) {
 }
 
 // «يهمّك اليوم»: official service notices (see EDITORIAL.md). The service change, never the security event behind it.
-const SECURITY_WORDS = /(صاروخ|صواريخ|مسيّر|مسير[ةا]ت|اعتراض|هجوم|هجمات|قصف|حوثي|الحوثي|إيران|استهداف|انفجار|شظايا|عسكري)/;
-{
-  const ns = ed.notices || [];
+function checkNotices(list, date) {
+  const ns = list || [];
   if (!Array.isArray(ns)) err("notices must be an array");
   if (ns.length > 4) err(`notices has ${ns.length} items; maximum is 4`);
   const nUrls = new Set();
@@ -179,10 +196,10 @@ const SECURITY_WORDS = /(صاروخ|صواريخ|مسيّر|مسير[ةا]ت|ا�
     if (!x.issuer || x.issuer.length > 30) err(`${n}: issuer (the body that announced it, in Arabic) missing or longer than 30 chars`);
     if (x.area && x.area.length > 25) err(`${n}: area longer than 25 chars`);
     if (!iso.test(x.date || "")) err(`${n}: date (when it was announced) not YYYY-MM-DD`);
-    else if (ed.edition_date && (x.date > ed.edition_date || daysBetween(x.date, ed.edition_date) > 7)) err(`${n}: announced more than 7 days before the edition`);
+    else if (date && (x.date > date || daysBetween(x.date, date) > 7)) err(`${n}: announced more than 7 days before the edition`);
     if (x.until != null && !iso.test(x.until)) err(`${n}: until not YYYY-MM-DD`);
-    if (x.until && ed.edition_date && x.until < ed.edition_date) err(`${n}: already over (until ${x.until})`);
-    if (!x.until && x.date && ed.edition_date && daysBetween(x.date, ed.edition_date) > 2) err(`${n}: without "until", a notice may run for 2 days only`);
+    if (x.until && date && x.until < date) err(`${n}: already over (until ${x.until})`);
+    if (!x.until && x.date && date && daysBetween(x.date, date) > 2) err(`${n}: without "until", a notice may run for 2 days only`);
     for (const t of [x.title, x.area]) if (t && BANNED_WORDS.test(t)) err(`${n}: sensational wording`);
     if (x.title && SECURITY_WORDS.test(x.title)) err(`${n}: state the service change only, not the security event behind it`);
     try {
@@ -196,6 +213,8 @@ const SECURITY_WORDS = /(صاروخ|صواريخ|مسيّر|مسير[ةا]ت|ا�
     nUrls.add(x.source_url);
   });
 }
+
+checkNotices(ed.notices, ed.edition_date);
 
 // «ما وراء البحار» (`world`) was retired on 2026-11-01; «بعيون العالم» (`world_view`) replaced it on the page.
 if (ed.world != null && (!Array.isArray(ed.world) || ed.world.length)) err("world is retired (the page no longer shows «ما وراء البحار»); use world_view for «بعيون العالم» or drop the key");
@@ -245,14 +264,15 @@ const WV_OPINION = /\/(opinion|opinions|commentary|comment|op-ed|oped|blogs?|spo
 }
 
 // Timeline: today's timed events shown as dots at the bottom (matches, openings, national moments).
-const tl = ed.timeline || [];
+function checkTimeline(list, date) {
+const tl = list || [];
 if (!Array.isArray(tl)) err("timeline must be an array");
 if (tl.length > 6) err(`timeline has ${tl.length} items; maximum is 6`);
 let seenForeign = false; // foreign-club matches only fill in after every Saudi item
 tl.forEach((x, i) => {
   const n = `timeline ${i + 1}`;
   if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?\+03:00$/.test(x.time || "")) err(`${n}: time must be ISO with +03:00 (e.g. 2026-09-27T21:00:00+03:00)`);
-  else if (x.time.slice(0, 10) !== ed.edition_date) err(`${n}: time is not on the edition date`);
+  else if (x.time.slice(0, 10) !== date) err(`${n}: time is not on the edition date`);
   if (!x.label || x.label.length > 40) err(`${n}: label missing or longer than 40 chars`);
   if (x.note && x.note.length > 40) err(`${n}: note longer than 40 chars`);
   if (x.duration != null && !(Number.isInteger(x.duration) && x.duration >= 15 && x.duration <= 600)) err(`${n}: duration must be whole minutes, 15–600`);
@@ -266,6 +286,9 @@ tl.forEach((x, i) => {
     } catch { err(`${n}: source_url is not a valid URL`); }
   } else err(`${n}: missing source_url`);
 });
+}
+
+checkTimeline(ed.timeline, ed.edition_date);
 
 for (const w of warnings) console.log(`WARN: ${w}`);
 for (const e of errors) console.log(`FAIL: ${e}`);

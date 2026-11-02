@@ -583,14 +583,14 @@ body { position: relative; isolation: isolate; }
 .page { padding-bottom: 24px; }
 
 /* Sections as fieldsets: a thin rounded frame around each section, its title sitting on the left border,
-   from the top, reading top to bottom. A page-coloured patch behind the title cuts the border.
+   from the top, reading top to bottom. The left border is 6px, the others 1px. A page-coloured patch behind the title cuts the border.
    The frame reaches 8px into the right margin and none into the left one, clear of the timeline's hour labels. */
-.regions { position: relative; display: block; border: 1px solid var(--line); border-radius: 12px;
+.regions { position: relative; display: block; border: 1px solid var(--line); border-left-width: 6px; border-radius: 12px;
   padding: 10px 10px 10px 14px; margin-inline: -8px 0; margin-top: 16px; min-height: 9.5rem; }
 .sec-body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: start; }
 .regions.solo .sec-body > .region, .sec-body > .wv { grid-column: 1 / -1; }
 .regions-title, .events h2 {
-  position: absolute; left: 0; top: 12px; writing-mode: vertical-rl; transform: translate(-50%, 0) rotate(180deg);
+  position: absolute; left: -3px; top: 12px; writing-mode: vertical-rl; transform: translate(-50%, 0) rotate(180deg); /* centred on the 6px left border */
   margin: 0 !important; padding: 6px 0 !important; width: auto !important;
   font-family: "Thmanyah Sans", serif; font-weight: 300; font-size: 12px; line-height: 1.4;
   font-feature-settings: normal; white-space: nowrap;

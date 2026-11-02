@@ -582,16 +582,16 @@ body { position: relative; isolation: isolate; }
 .foot .ver { margin-top: 4px; }
 .page { padding-bottom: 24px; }
 
-/* Sections as fieldsets: a thin rounded frame around each section, its title sitting on the top border
-   like a <legend>. The title has a page-coloured background that cuts the border; it is solid grey (a text gradient cannot share that background). */
+/* Sections as fieldsets: a thin rounded frame around each section, its title sitting on the right border
+   (the start side), centred along it and reading top to bottom. A page-coloured patch behind the title cuts the border.
+   The frame reaches into the left margin but only 2px into the right one, so the title stays on screen. */
 .regions { position: relative; display: block; border: 1px solid var(--line); border-radius: 12px;
-  padding: 14px 10px 10px; margin-inline: -8px; margin-top: 20px; }
+  padding: 10px 14px 10px 10px; margin-inline: -2px -8px; margin-top: 16px; min-height: 9.5rem; }
 .sec-body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: start; }
 .regions.solo .sec-body > .region, .sec-body > .wv { grid-column: 1 / -1; }
-/* The legend: Thmanyah Sans Light 12px, centred on the frame's top border, solid grey on a page-coloured patch that cuts the border */
 .regions-title, .events h2 {
-  position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
-  margin: 0 !important; padding: 0 6px !important; width: auto !important;
+  position: absolute; right: 0; top: 50%; writing-mode: vertical-rl; transform: translate(50%, -50%) rotate(180deg);
+  margin: 0 !important; padding: 6px 0 !important; width: auto !important;
   font-family: "Thmanyah Sans", serif; font-weight: 300; font-size: 12px; line-height: 1.4;
   font-feature-settings: normal; white-space: nowrap;
   background: var(--surface) !important; -webkit-text-fill-color: var(--head-top) !important; color: var(--head-top) !important;

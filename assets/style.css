@@ -597,5 +597,5 @@ body { position: relative; isolation: isolate; }
   background: var(--surface) !important; -webkit-text-fill-color: var(--head-top) !important; color: var(--head-top) !important;
 }
 
-/* Column titles (city names, «إجازات», «أيام نحتفي بها»): Thmanyah Sans Bold, no swashes, so they sit with the Serif Text frame titles */
+/* Column titles (city names, «إجازات», «أيام نحتفي بها»): Thmanyah Sans Bold, no swashes, matching the frame titles */
 .r-name { font-family: "Thmanyah Sans", system-ui, sans-serif; font-weight: 700; font-feature-settings: normal; }

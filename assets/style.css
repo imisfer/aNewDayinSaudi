@@ -586,7 +586,7 @@ body { position: relative; isolation: isolate; }
    centred along it, reading top to bottom. The left border is 6px, the others 1px. A page-coloured patch behind the title cuts the border.
    The frame reaches 8px into the right margin and none into the left one, clear of the timeline's hour labels. */
 .regions { position: relative; display: block; border: 1px solid var(--line); border-left-width: 6px; border-radius: 12px;
-  padding: 10px 10px 10px 14px; margin-inline: -8px 0; margin-top: 16px; min-height: 9.5rem; }
+  padding: 10px 10px 10px 14px; margin-inline: -8px 0; margin-top: 16px; } /* height: its content, or the title's length if longer (set in app.js) */
 .sec-body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: start; }
 .regions.solo .sec-body > .region, .sec-body > .wv { grid-column: 1 / -1; }
 .regions-title, .events h2 {

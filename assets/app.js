@@ -727,8 +727,21 @@
     collectEvents(ed);
 
     renderWorldView(ed.world_view);
-    renderOccasions();
+    await renderOccasions();
+    fitFrames();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitFrames);
   }
+
+  // A framed section is as tall as its content; only when the title on its border is longer does the frame grow to fit it.
+  function fitFrames() {
+    for (const sec of document.querySelectorAll("section.regions")) {
+      const t = sec.querySelector(".regions-title");
+      if (sec.hidden || !t) continue;
+      sec.style.minHeight = "";
+      sec.style.minHeight = Math.ceil(t.getBoundingClientRect().height + 16) + "px";
+    }
+  }
+  window.addEventListener("resize", fitFrames);
 
   // ---------- Month calendar (opens from the date tile) ----------
   // Saudi week: Sunday first; Friday and Saturday are the weekend.

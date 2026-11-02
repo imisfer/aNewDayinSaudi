@@ -3,7 +3,6 @@
 @font-face { font-family: "Thmanyah Sans"; src: url("fonts/thmanyahsans-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Thmanyah Sans"; src: url("fonts/thmanyahsans-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "Thmanyah Sans"; src: url("fonts/thmanyahsans-Bold.woff2") format("woff2"); font-weight: 600 700; font-display: swap; }
-@font-face { font-family: "Thmanyah Serif Text"; src: url("fonts/thmanyahseriftext-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "Thmanyah Serif Display"; src: url("fonts/thmanyahserifdisplay-Light.woff2") format("woff2"); font-weight: 300; font-display: swap; }
 @font-face { font-family: "Thmanyah Serif Display"; src: url("fonts/thmanyahserifdisplay-Bold.woff2") format("woff2"); font-weight: 600 700; font-display: swap; }
 
@@ -589,11 +588,11 @@ body { position: relative; isolation: isolate; }
   padding: 14px 10px 10px; margin-inline: -8px; margin-top: 20px; }
 .sec-body { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-items: start; }
 .regions.solo .sec-body > .region, .sec-body > .wv { grid-column: 1 / -1; }
-/* The legend: Thmanyah Serif Text 12px, solid grey on a page-coloured patch that cuts the frame's top border */
+/* The legend: Thmanyah Sans 12px, solid grey on a page-coloured patch that cuts the frame's top border */
 .regions-title, .events h2 {
   position: absolute; top: 0; inset-inline-start: 12px; transform: translateY(-50%);
   margin: 0 !important; padding: 0 6px !important; width: auto !important;
-  font-family: "Thmanyah Serif Text", "Thmanyah Sans", serif; font-weight: 500; font-size: 12px; line-height: 1.4;
+  font-family: "Thmanyah Sans", serif; font-weight: 500; font-size: 12px; line-height: 1.4;
   font-feature-settings: normal; white-space: nowrap;
   background: var(--surface) !important; -webkit-text-fill-color: var(--head-top) !important; color: var(--head-top) !important;
 }

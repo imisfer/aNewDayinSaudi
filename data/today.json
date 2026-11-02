@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-03",
+  "timeline": [
+    {
+      "time": "2026-11-03T21:15:00+03:00",
+      "label": "الهلال × شباب الأهلي",
+      "note": "نخبة آسيا · الرياض",
+      "colors": [["#0050a0", "#ffffff"], ["#d71920", "#ffffff"]],
+      "source_url": "https://www.saff.com.sa/championship.php?id=410"
+    },
+    {
+      "time": "2026-11-03T23:00:00+03:00",
+      "label": "برشلونة × أستون فيلا",
+      "note": "دوري أبطال أوروبا · برشلونة",
+      "colors": [["#a50044", "#004d98"], ["#670e36", "#95bfe5"]],
+      "source_url": "https://www.fcbarcelona.com/en/matches/141501/fc-barcelona-aston-villa-uefa-champions-league-2026-2027"
+    },
+    {
+      "time": "2026-11-03T23:00:00+03:00",
+      "label": "أتلتيكو مدريد × بايرن ميونخ",
+      "note": "دوري أبطال أوروبا · مدريد",
+      "colors": [["#cb3524", "#ffffff"], ["#dc052d", "#ffffff"]],
+      "source_url": "https://fcbayern.com/de/news/2026/11/ticker-der-tag-des-fc-bayern-vor-dem-champions-league-spiel-bei-atletico-madrid"
+    }
+  ],
+  "notices": []
+}

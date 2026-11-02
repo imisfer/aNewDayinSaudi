@@ -558,6 +558,11 @@
     if (!byCity[key].length) ul.append(el("li", "ev-empty", "لا فعاليات بارزة هذا الأسبوع"));
     renderWeatherLine($("w-" + i), key);
     $("ic-" + i).innerHTML = cityIcon(key);
+    // The city's icon again, large and faint, as the column's background (10% grey, behind the list)
+    const box = ul.closest(".region");
+    let mark = box.querySelector(".r-mark");
+    if (!mark) { mark = el("span", "r-mark"); mark.setAttribute("aria-hidden", "true"); box.prepend(mark); }
+    mark.innerHTML = cityIcon(key);
     $("nm-" + i).textContent = CITY_TITLES[key] || (CITIES.find((c) => c[0] === key) || [, key])[1];
   }
 

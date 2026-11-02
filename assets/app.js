@@ -558,16 +558,6 @@
     if (!byCity[key].length) ul.append(el("li", "ev-empty", "لا فعاليات بارزة هذا الأسبوع"));
     renderWeatherLine($("w-" + i), key);
     $("ic-" + i).innerHTML = cityIcon(key);
-    // The city's icon again, large and faint, as the column's background (10% grey, behind the list)
-    const box = ul.closest(".region");
-    let mark = box.querySelector(".r-mark");
-    if (!mark) { mark = el("span", "r-mark"); mark.setAttribute("aria-hidden", "true"); box.prepend(mark); }
-    mark.innerHTML = cityIcon(key).replace("<svg ", '<svg preserveAspectRatio="xMidYMax meet" '); // as large as the column allows, resting on its bottom
-    // Crop the drawing to its own outline so it fills the column as fully as its shape allows (after layout, once visible)
-    requestAnimationFrame(() => {
-      const svg = mark.querySelector("svg");
-      try { const b = svg.getBBox(); if (b.width && b.height) svg.setAttribute("viewBox", `${b.x - 1} ${b.y - 1} ${b.width + 2} ${b.height + 2}`); } catch (e) { /* keep the 24×24 box */ }
-    });
     $("nm-" + i).textContent = CITY_TITLES[key] || (CITIES.find((c) => c[0] === key) || [, key])[1];
   }
 

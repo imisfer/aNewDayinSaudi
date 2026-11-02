@@ -627,7 +627,8 @@
   // ---------- «بعيون العالم»: up to 3 facts about the Kingdom reported by international bodies or major non-Saudi outlets ----------
   // (It replaced «ما وراء البحار»; an edition's old `world` array is ignored.)
   function renderWorldView(items) {
-    const list = (items || []).filter((x) => x && x.title && x.source_url).slice(0, 3);
+    // In the order the edition gives (by significance); anything past 60 days drops off even on an old edition.
+    const list = (items || []).filter((x) => x && x.title && x.source_url && (!x.date || (Date.parse(todayISO) - Date.parse(x.date)) / 864e5 <= 60)).slice(0, 3);
     const ul = $("wv");
     ul.textContent = "";
     for (const x of list) {

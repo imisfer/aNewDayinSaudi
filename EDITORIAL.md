@@ -14,7 +14,7 @@ Always look for the official release first and link to it.
 National achievements, Vision 2030 milestones, economic indicators, new projects and openings, science, sports, culture, and new government services that affect citizens.
 
 ## What stays out
-Crime, accidents, disputes, politics and foreign conflicts, rumours, anything that cannot be traced to a dated source, and anything older than 14 days.
+Crime, accidents, disputes, politics and foreign conflicts, rumours, anything that cannot be traced to a dated source, and anything older than 14 days (60 for «بعيون العالم»).
 
 ## Rules for every card
 - **Verify before writing.** Open the source and confirm each number, name and date. If a figure can't be confirmed, drop it or drop the card.
@@ -116,18 +116,20 @@ Kick-off times change at short notice, sometimes the day before. Every match tim
 - Verify the dates on the event page itself. If a listing contradicts itself, use the event page or drop the item.
 
 ## «بعيون العالم» (the Kingdom as major non-Saudi platforms report it; replaced «ما وراء البحار» on 2026-11-01)
-`world_view` holds 0–3 items: facts about Saudi Arabia reported by a major international outlet or published by an international body. It is its own section at the end of the page (it replaced «ما وراء البحار», the Kingdom abroad by continent), and hides itself when empty. Don't write a `world` array any more; the validator rejects one.
+`world_view` holds 0–3 items: facts about Saudi Arabia reported by a major international outlet or published by an international body, from the last 60 days. It is its own section at the end of the page (it replaced «ما وراء البحار», the Kingdom abroad by continent), and hides itself when empty. Don't write a `world` array any more; the validator rejects one.
 - **A fact, not praise.** The item must rest on something verifiable that the outlet or body reports: a credit rating or outlook, a growth or tourism figure, a ranking or index position, a large international deal, an international award or inscription. Never pick an item because the outlet says something flattering, and never an outlet's opinion, analysis or column.
 - **Positive in substance, not just in the headline.** Read the whole piece. If the report is mixed (the positive figure sits inside a story about a dispute, a conflict, a risk or a critique), leave it out. The "What stays out" list above applies here too.
 - **Two kinds** (`kind`):
   - `body`: international organisations and their reports (IMF, World Bank, UN agencies incl. UN Tourism and UNESCO, OECD, WTO, WIPO, ITU, IEA, IRENA, WEF, IMD), rating agencies (Moody's, S&P, Fitch) and established rankings (QS, Times Higher Education). Prefer these: they are the strongest evidence. Link to the body's own release or report page.
   - `press`: global outlets only, not Saudi or Saudi-owned ones (no Arab News, Asharq Al-Awsat, Al Arabiya …). Prefer the ones readers can open: Reuters, AP, AFP, BBC, CNBC, CNN, Nikkei Asia, The Guardian, DW, France 24, Euronews, NHK, ABC (Australia), SCMP, TIME. Paywalled outlets (FT, Bloomberg, WSJ, The Economist, NYT, Washington Post, Nikkei) are allowed with `"paywall": true`, and the page tags them «للمشتركين»; use one only when no open outlet reports the same fact.
 - **Our words, their credit.** `title` is our own Arabic statement of the fact (≤ 70 chars), never a translation of the outlet's headline. Name the outlet in `outlet`, in Arabic («رويترز»، «صندوق النقد الدولي»، «موديز»). Don't translate or quote the article.
-- **Fresh:** `date` (the date of the report or release) within the 14 days before the edition.
+- **The last 60 days, three at most.** `date` (the date of the report or release) within the 60 days before the edition. Keep the three most recent items that clear the bar; when a newer one qualifies, it replaces the oldest.
+- **A standing list.** Carry yesterday's items forward unchanged unless one is replaced or turns 60 days old (drop it). Re-check each source still says the same; if a body later revises the fact (a rating changed, a ranking corrected), replace or drop it. These items are not in the 30-day news register, so they may run every day while they qualify.
+- **Ordered by significance**, strongest first: a sovereign credit rating or outlook, an IMF or World Bank figure, or a major international ranking or inscription before a single-sector figure or a press report. Bodies before press unless the press fact is clearly bigger; between equals, newest first. The validator warns when a body sits below a press item.
 - **Research it every day.** Search in English and Arabic for fresh reports by the bodies and outlets below, then decide; an empty section must be a finding, not a skipped step.
-- **No overlap:** not the same story as a card in the same edition. It shares the 30-day news register (`story` slug).
+- **No overlap:** not the same story as a card in the same edition (`story` slug).
 - Fields: `kind`, `title`, `outlet`, `date`, `source_url`, `story`, optional `summary` (≤ 220 chars, kept for the record, not shown), optional `paywall`.
-- Most days have nothing that clears this bar. Leave `world_view` empty rather than lower it.
+- Never lower the bar to fill three slots. Fewer items, or none, is fine.
 
 ## Upcoming national events
 - `events`: upcoming dated national events in the next 30 days, from official sources only.

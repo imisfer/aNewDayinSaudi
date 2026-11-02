@@ -240,7 +240,7 @@ const WV_OPINION = /\/(opinion|opinions|commentary|comment|op-ed|oped|blogs?|spo
     if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(x.story || "")) err(`${n}: story must be a short lowercase slug`);
     else if (used.has(x.story)) err(`${n}: story "${x.story}" is already a card in this edition`);
     if (!iso.test(x.date || "")) err(`${n}: date not YYYY-MM-DD`);
-    else if (ed.edition_date && (x.date > ed.edition_date || daysBetween(x.date, ed.edition_date) > 14)) err(`${n}: date must be within the 14 days before the edition`);
+    else if (ed.edition_date && (x.date > ed.edition_date || daysBetween(x.date, ed.edition_date) > 60)) err(`${n}: date must be within the 60 days before the edition`);
     // A fact, not praise: press items must carry a figure; bodies (a ranking, a rating, an inscription) should.
     const text = `${x.title || ""} ${x.summary || ""}`;
     if (!/[0-9٠-٩]/.test(text)) (x.kind === "press" ? err : warn)(`${n}: no figure in the title or summary; state the concrete fact (a number, a rank, a rating)`);
@@ -256,11 +256,13 @@ const WV_OPINION = /\/(opinion|opinions|commentary|comment|op-ed|oped|blogs?|spo
       if (WV_PAYWALL.test(h) && x.paywall !== true) err(`${n}: ${h} is paywalled; set "paywall": true so the page tags it «للمشتركين»`);
       if (!WV_PAYWALL.test(h) && x.paywall) warn(`${n}: paywall set for ${h}, which is not on the paywalled list`);
     } catch { err(`${n}: source_url is not a valid URL`); }
-    for (const h of findRepeats({ ...x, keyword: "" }, reg.entries)) {
-      const m = `${n}: ${h.why} with ${h.e.date} «${h.e.title}»`;
-      if (h.level === "error") err(m + " — already used"); else warn(m);
-    }
+    // «بعيون العالم» is a standing list (the three most recent qualifying facts of the last 60 days), so its items
+    // carry over from day to day and are not in the news register. A match with a recent card is worth a look, not a block.
+    for (const h of findRepeats({ ...x, keyword: "" }, reg.entries)) if (h.level === "error") warn(`${n}: ${h.why} with the ${h.e.date} card «${h.e.title}»`);
   });
+  // Ordered by significance, newest first among equals: bodies (ratings, rankings, international reports) lead the press.
+  const firstPress = wv.findIndex((x) => x.kind === "press");
+  if (firstPress >= 0 && wv.slice(firstPress).some((x) => x.kind === "body")) warn("world_view: a body item sits below a press item; order by significance (bodies first) unless the press fact is clearly bigger");
 }
 
 // Timeline: today's timed events shown as dots at the bottom (matches, openings, national moments).

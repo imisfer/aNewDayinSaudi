@@ -583,7 +583,7 @@ body { position: relative; isolation: isolate; }
 .foot .ver { margin-top: 4px; }
 .page { padding-bottom: 24px; }
 
-/* Sections as fieldsets (test): a thin rounded frame around each section, its title sitting on the top border
+/* Sections as fieldsets: a thin rounded frame around each section, its title sitting on the top border
    like a <legend>. The title has a page-coloured background that cuts the border; it is solid grey (a text gradient cannot share that background). */
 .regions { position: relative; display: block; border: 1px solid var(--line); border-radius: 12px;
   padding: 14px 10px 10px; margin-inline: -8px; margin-top: 20px; }

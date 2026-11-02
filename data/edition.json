@@ -1,39 +1,50 @@
 {
-  "edition_date": "2026-11-01",
+  "edition_date": "2026-11-02",
   "status": "pilot",
-  "headline": "الولايات المتحدة تنضم رسميًا إلى إكسبو 2030 في الرياض، و1.82 مليون طالب يشاركون في مسابقة المعرفة الإحصائية",
+  "headline": "أرامكو تُتم دخولها في «هيوماين» للذكاء الاصطناعي، و99.6% من الأفراد يستخدمون الإنترنت، وقيود الامتياز التجاري تنمو 53%",
   "cards": [
     {
-      "category": "مشاريع كبرى",
-      "keyword": "إكسبو 2030",
-      "story": "expo-2030-us-participation-agreement",
-      "title": "الولايات المتحدة توقّع اتفاقية مشاركتها الرسمية في إكسبو 2030 الرياض",
-      "summary": "وقّع الاتفاقية وزير الخارجية الأمير فيصل بن فرحان ووزير الخارجية الأمريكي ماركو روبيو في أتلانتا، ويُتوقع أن يستقبل المعرض أكثر من 40 مليون زائر بين أكتوبر 2030 ومارس 2031.",
-      "date": "2026-10-30",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/us-joins-expo-2030-riyadh-as-official-participant-under-new-agreement-3009090"
+      "category": "تقنية",
+      "keyword": "«هيوماين»",
+      "story": "aramco-humain-49pct-close-2026-11",
+      "title": "أرامكو تُتم الاستحواذ على 49% من «هيوماين» للذكاء الاصطناعي",
+      "summary": "أكمل صندوق الاستثمارات العامة وأرامكو الصفقة، ويحتفظ الصندوق بحصة 51%، فيما تضخ أرامكو نحو 9.9 مليار ريال نقدًا في الشركة خلال 2026 إلى جانب أصول حوسبية ورقمية.",
+      "date": "2026-11-01",
+      "source_name": "أرامكو السعودية",
+      "source_url": "https://www.aramco.com/en/news-media/news/2026/pif-and-aramco-close-humain-transaction-to-accelerate-humains-global-growth"
     },
     {
-      "category": "تعليم",
-      "keyword": "1.82 مليون طالب",
-      "story": "gastat-statistical-knowledge-competition-3",
-      "title": "1.82 مليون طالب وطالبة في النسخة الثالثة من مسابقة المعرفة الإحصائية",
-      "summary": "اختتمت هيئة الإحصاء بالتعاون مع وزارة التعليم المسابقة بمشاركة 1,822,143 طالبًا وطالبة من الابتدائي العليا حتى الثانوي، وتصدّر تعليم مكة المكرمة نسب المشاركة بـ68.4%.",
-      "date": "2026-10-25",
-      "source_name": "الهيئة العامة للإحصاء",
-      "source_url": "https://stats.gov.sa/ar/w/news/231"
+      "category": "مؤشرات",
+      "keyword": "99.6%",
+      "story": "gastat-ict-households-individuals-2026",
+      "title": "99.6% من الأفراد في المملكة يستخدمون الإنترنت في 2026",
+      "summary": "أظهر مسح هيئة الإحصاء لعام 2026 للفئة العمرية 15–74 عامًا أن 98.4% يستخدمون الخدمات الحكومية الإلكترونية، وأن 74.5% من مستخدمي الإنترنت يشترون سلعًا أو خدمات عبره.",
+      "date": "2026-11-01",
+      "source_name": "عرب نيوز (عن واس)",
+      "source_url": "https://www.arabnews.com/business/saudi-arabias-internet-penetration-hits-996-gastat-3009270"
     },
     {
-      "category": "صحة",
-      "keyword": "دواء لسرطان المعدة",
-      "story": "sfda-breakthrough-sonesitatug-vedotin-2026-10",
-      "title": "«الغذاء والدواء» تمنح دواءً لسرطان المعدة تصنيف «الاختراق العلاجي»",
-      "summary": "يتيح التصنيف مراجعة دواء «سونيسيتاتوغ فيدوتين» عبر المسار المخصص للأدوية الواعدة لعلاج البالغين بسرطان المعدة أو المريء المتقدم، ويصدر قرار التسجيل بعد تقييم علمي كامل للملف.",
-      "date": "2026-10-28",
-      "source_name": "الهيئة العامة للغذاء والدواء",
-      "source_url": "https://www.sfda.gov.sa/en/news/19790"
+      "category": "اقتصاد",
+      "keyword": "الامتياز التجاري",
+      "story": "mc-franchise-registrations-q3-2026",
+      "title": "قيود الامتياز التجاري ترتفع 53% إلى 6,484 قيدًا",
+      "summary": "بلغت القيود 6,484 في الأشهر التسعة الأولى من 2026 مقارنة بـ4,227 بنهاية 2025 وفق وزارة التجارة، وتصدّرتها قطاعات الأغذية والمشروبات والوقود والأزياء.",
+      "date": "2026-11-01",
+      "source_name": "الشرق الأوسط",
+      "source_url": "https://english.aawsat.com/business/5336309-saudi-arabia-records-6484-franchise-registrations-53"
+    },
+    {
+      "category": "علوم",
+      "keyword": "شهب الأسديات",
+      "story": "november-2026-sky-jeddah-astronomy",
+      "title": "شهب الأسديات تبلغ ذروتها ليلة 17–18 نوفمبر",
+      "summary": "قالت الجمعية الفلكية بجدة إن الذروة تصل إلى 10–15 شهابًا في الساعة، وإن عطارد والزهرة والمريخ والمشتري تظهر في سماء الفجر بين 13 و22 نوفمبر.",
+      "date": "2026-11-02",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/local/na/2273498"
     }
   ],
+  "notices": [],
   "events": [
     {
       "date": "2026-11-08",
@@ -43,36 +54,68 @@
   ],
   "timeline": [
     {
-      "time": "2026-11-01T18:15:00+03:00",
-      "label": "راسينغ سانتاندير × ريال مدريد",
-      "note": "الدوري الإسباني · سانتاندير",
+      "time": "2026-11-02T16:45:00+03:00",
+      "label": "باختاكور × النصر",
+      "note": "نخبة آسيا · طشقند",
       "colors": [
         [
           "#ffffff",
           "#00843d"
         ],
         [
-          "#ffffff",
-          "#00529f"
+          "#fcd116",
+          "#003a8c"
         ]
       ],
-      "source_url": "https://www.realmadrid.com/de-DE/news/fussball/erste-mannshaft/latest-news/el-racing-santander-real-madrid-se-jugara-el-domingo-1-de-noviembre-a-las-16-15-h-03-10-2026"
+      "source_url": "https://www.saff.com.sa/championship.php?id=410"
     },
     {
-      "time": "2026-11-01T19:30:00+03:00",
-      "label": "ليفربول × آرسنال",
-      "note": "الدوري الإنجليزي · ليفربول",
+      "time": "2026-11-02T19:00:00+03:00",
+      "label": "السد × الأهلي",
+      "note": "نخبة آسيا · الدوحة",
       "colors": [
         [
-          "#c8102e",
-          "#ffffff"
+          "#ffffff",
+          "#000000"
         ],
         [
-          "#ef0107",
+          "#007a3d",
           "#ffffff"
         ]
       ],
-      "source_url": "https://www.liverpoolfc.com/news/fixture-updates-new-dates-anfield-games-against-man-city-and-arsenal"
+      "source_url": "https://www.saff.com.sa/championship.php?id=410"
+    },
+    {
+      "time": "2026-11-02T21:15:00+03:00",
+      "label": "الاتحاد × العين",
+      "note": "نخبة آسيا · جدة",
+      "colors": [
+        [
+          "#fcd116",
+          "#000000"
+        ],
+        [
+          "#5b2c83",
+          "#ffffff"
+        ]
+      ],
+      "source_url": "https://www.saff.com.sa/championship.php?id=410"
+    },
+    {
+      "time": "2026-11-02T21:15:00+03:00",
+      "label": "الغرافة × القادسية",
+      "note": "نخبة آسيا · الدوحة",
+      "colors": [
+        [
+          "#ffd200",
+          "#0054a6"
+        ],
+        [
+          "#d71920",
+          "#fcd116"
+        ]
+      ],
+      "source_url": "https://www.saff.com.sa/championship.php?id=410"
     }
   ],
   "regions": {

@@ -1,26 +1,33 @@
 {
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "timeline": [
     {
-      "time": "2026-11-03T21:15:00+03:00",
-      "label": "الهلال × شباب الأهلي",
-      "note": "نخبة آسيا · الرياض",
-      "colors": [["#0050a0", "#ffffff"], ["#d71920", "#ffffff"]],
-      "source_url": "https://www.saff.com.sa/championship.php?id=410"
+      "time": "2026-11-04T21:15:00+03:00",
+      "label": "التعاون × الفيصلي",
+      "note": "دوري أبطال آسيا 2 · بريدة",
+      "colors": [["#fcd116", "#0b3d91"], ["#0a3d91", "#ffffff"]],
+      "source_url": "https://www.saff.com.sa/championship.php?id=442"
     },
     {
-      "time": "2026-11-03T23:00:00+03:00",
-      "label": "برشلونة × أستون فيلا",
-      "note": "دوري أبطال أوروبا · برشلونة",
-      "colors": [["#a50044", "#004d98"], ["#670e36", "#95bfe5"]],
-      "source_url": "https://www.fcbarcelona.com/en/matches/141501/fc-barcelona-aston-villa-uefa-champions-league-2026-2027"
+      "time": "2026-11-04T20:45:00+03:00",
+      "label": "أيك أثينا × ريال مدريد",
+      "note": "دوري أبطال أوروبا · أثينا",
+      "colors": [["#ffde00", "#000000"], ["#ffffff", "#00529f"]],
+      "source_url": "https://www.realmadrid.com/es-ES/noticias/futbol/primer-equipo/actualidad/horarios-de-la-cuarta-jornada-de-la-champions-03-11-2026"
     },
     {
-      "time": "2026-11-03T23:00:00+03:00",
-      "label": "أتلتيكو مدريد × بايرن ميونخ",
-      "note": "دوري أبطال أوروبا · مدريد",
-      "colors": [["#cb3524", "#ffffff"], ["#dc052d", "#ffffff"]],
-      "source_url": "https://fcbayern.com/de/news/2026/11/ticker-der-tag-des-fc-bayern-vor-dem-champions-league-spiel-bei-atletico-madrid"
+      "time": "2026-11-04T20:45:00+03:00",
+      "label": "فنربخشة × ليفربول",
+      "note": "دوري أبطال أوروبا · إسطنبول",
+      "colors": [["#00205b", "#ffed00"], ["#c8102e", "#ffffff"]],
+      "source_url": "https://www.liverpoolfc.com/news/champions-league-fixture-details-liverpools-eight-league-phase-matches"
+    },
+    {
+      "time": "2026-11-04T23:00:00+03:00",
+      "label": "لايبزيغ × مانشستر سيتي",
+      "note": "دوري أبطال أوروبا · لايبزيغ",
+      "colors": [["#ffffff", "#dd0741"], ["#6cabdd", "#1c2c5b"]],
+      "source_url": "https://www.mancity.com/news/mens/champions-league-2026-27-league-phase-fixtures-confirmed-63923595"
     }
   ],
   "notices": []

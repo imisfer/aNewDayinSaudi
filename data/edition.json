@@ -1,47 +1,57 @@
 {
-  "edition_date": "2026-11-02",
+  "edition_date": "2026-11-03",
   "status": "pilot",
-  "headline": "أرامكو تُتم دخولها في «هيوماين» للذكاء الاصطناعي، و99.6% من الأفراد يستخدمون الإنترنت، وقيود الامتياز التجاري تنمو 53%",
+  "headline": "إطلاق واجهة الخبر البحرية بأكثر من 4 آلاف وحدة سكنية، وحجر أساس لمقر أبحاث الغابات في جازان، والنصر والقادسية يفوزان في نخبة آسيا",
   "cards": [
     {
-      "category": "تقنية",
-      "keyword": "«هيوماين»",
-      "story": "aramco-humain-49pct-close-2026-11",
-      "title": "أرامكو تُتم الاستحواذ على 49% من «هيوماين» للذكاء الاصطناعي",
-      "summary": "أكمل صندوق الاستثمارات العامة وأرامكو الصفقة، ويحتفظ الصندوق بحصة 51%، فيما تضخ أرامكو نحو 9.9 مليار ريال نقدًا في الشركة خلال 2026 إلى جانب أصول حوسبية ورقمية.",
+      "category": "مشاريع",
+      "keyword": "واجهة الخبر",
+      "story": "alkhobar-waterfront-pif-launch-2026-11",
+      "title": "إطلاق مشروع واجهة الخبر البحرية بأكثر من 4 آلاف وحدة سكنية",
+      "summary": "أطلق صندوق الاستثمارات العامة المشروع الذي تطوره «داون تاون السعودية» على 829 ألف متر مربع، ويضم أكثر من 500 غرفة فندقية و103 آلاف متر مربع من المساحات الخضراء والحدائق.",
       "date": "2026-11-01",
-      "source_name": "أرامكو السعودية",
-      "source_url": "https://www.aramco.com/en/news-media/news/2026/pif-and-aramco-close-humain-transaction-to-accelerate-humains-global-growth"
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-arabia-steps-up-urban-development-with-new-alkhobar-waterfront-project-3009405"
+    },
+    {
+      "category": "بيئة",
+      "keyword": "أبحاث الغابات",
+      "story": "jazan-forest-research-center-2026-11",
+      "title": "حجر الأساس لمقر أبحاث الغابات في جازان بأكثر من 46.7 مليون ريال",
+      "summary": "وضع أمير منطقة جازان حجر أساس المشروع على مساحة 33,246 مترًا مربعًا، ويضم مبنى إداريًا وبحثيًا ومبنى مختبرات متخصصة ومركزًا للزوار ومتنزهًا بيئيًا.",
+      "date": "2026-11-02",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/local/na/2273630"
+    },
+    {
+      "category": "رياضة",
+      "keyword": "النصر والقادسية",
+      "story": "acle-md4-nassr-qadsiah-wins-2026-11",
+      "title": "النصر والقادسية يفوزان بسداسية وخماسية في نخبة آسيا",
+      "summary": "تغلب النصر على باختاكور 6-2 في طشقند، والقادسية على الغرافة 5-0 في الريان، وتعادل الأهلي مع السد دون أهداف في الجولة الرابعة.",
+      "date": "2026-11-02",
+      "source_name": "الاتحاد الآسيوي لكرة القدم",
+      "source_url": "https://www.the-afc.com/en/club/afc_champions_league_elite.html/news/md4-al-gharafa-sc-qat-0-5-al-qadsiah-club-ksa"
     },
     {
       "category": "مؤشرات",
-      "keyword": "99.6%",
-      "story": "gastat-ict-households-individuals-2026",
-      "title": "99.6% من الأفراد في المملكة يستخدمون الإنترنت في 2026",
-      "summary": "أظهر مسح هيئة الإحصاء لعام 2026 للفئة العمرية 15–74 عامًا أن 98.4% يستخدمون الخدمات الحكومية الإلكترونية، وأن 74.5% من مستخدمي الإنترنت يشترون سلعًا أو خدمات عبره.",
+      "keyword": "الأنشطة غير النفطية 1.9%",
+      "story": "gastat-gdp-flash-q3-2026",
+      "title": "الأنشطة غير النفطية تنمو 1.9% في الربع الثالث من 2026",
+      "summary": "أظهرت تقديرات هيئة الإحصاء السريعة انكماش الناتج المحلي 3.8% سنويًا مع تراجع الأنشطة النفطية 20.4%، بينما نما الناتج 1.3% مقارنة بالربع السابق.",
       "date": "2026-11-01",
-      "source_name": "عرب نيوز (عن واس)",
-      "source_url": "https://www.arabnews.com/business/saudi-arabias-internet-penetration-hits-996-gastat-3009270"
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/business/saudi-non-oil-growth-accelerates-to-19-in-q3-gastat-3009246"
     },
     {
       "category": "اقتصاد",
-      "keyword": "الامتياز التجاري",
-      "story": "mc-franchise-registrations-q3-2026",
-      "title": "قيود الامتياز التجاري ترتفع 53% إلى 6,484 قيدًا",
-      "summary": "بلغت القيود 6,484 في الأشهر التسعة الأولى من 2026 مقارنة بـ4,227 بنهاية 2025 وفق وزارة التجارة، وتصدّرتها قطاعات الأغذية والمشروبات والوقود والأزياء.",
-      "date": "2026-11-01",
-      "source_name": "الشرق الأوسط",
-      "source_url": "https://english.aawsat.com/business/5336309-saudi-arabia-records-6484-franchise-registrations-53"
-    },
-    {
-      "category": "علوم",
-      "keyword": "شهب الأسديات",
-      "story": "november-2026-sky-jeddah-astronomy",
-      "title": "شهب الأسديات تبلغ ذروتها ليلة 17–18 نوفمبر",
-      "summary": "قالت الجمعية الفلكية بجدة إن الذروة تصل إلى 10–15 شهابًا في الساعة، وإن عطارد والزهرة والمريخ والمشتري تظهر في سماء الفجر بين 13 و22 نوفمبر.",
+      "keyword": "سوق الكربون الطوعي",
+      "story": "vcm-carbon-15m-credits-2026-11",
+      "title": "أكثر من 15 مليون رصيد كربوني متداول في السوق الطوعية خلال 3 سنوات",
+      "summary": "قال الرئيس التنفيذي لشركة سوق الكربون الطوعي إن التداولات وجّهت نحو 350 مليون ريال إلى مشاريع مناخية حول العالم، وإن الشركة تتابع أكثر من 30 مطورًا محليًا ودوليًا.",
       "date": "2026-11-02",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2273498"
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/business/voluntary-carbon-market-co-tracking-30-local-international-project-developers-ceo-tells-al-eqtisadiah-3009400"
     }
   ],
   "notices": [],
@@ -54,68 +64,52 @@
   ],
   "timeline": [
     {
-      "time": "2026-11-02T16:45:00+03:00",
-      "label": "باختاكور × النصر",
-      "note": "نخبة آسيا · طشقند",
+      "time": "2026-11-03T21:15:00+03:00",
+      "label": "الهلال × شباب الأهلي",
+      "note": "نخبة آسيا · الرياض",
       "colors": [
         [
-          "#ffffff",
-          "#00843d"
-        ],
-        [
-          "#fcd116",
-          "#003a8c"
-        ]
-      ],
-      "source_url": "https://www.saff.com.sa/championship.php?id=410"
-    },
-    {
-      "time": "2026-11-02T19:00:00+03:00",
-      "label": "السد × الأهلي",
-      "note": "نخبة آسيا · الدوحة",
-      "colors": [
-        [
-          "#ffffff",
-          "#000000"
-        ],
-        [
-          "#007a3d",
+          "#0050a0",
           "#ffffff"
-        ]
-      ],
-      "source_url": "https://www.saff.com.sa/championship.php?id=410"
-    },
-    {
-      "time": "2026-11-02T21:15:00+03:00",
-      "label": "الاتحاد × العين",
-      "note": "نخبة آسيا · جدة",
-      "colors": [
-        [
-          "#fcd116",
-          "#000000"
-        ],
-        [
-          "#5b2c83",
-          "#ffffff"
-        ]
-      ],
-      "source_url": "https://www.saff.com.sa/championship.php?id=410"
-    },
-    {
-      "time": "2026-11-02T21:15:00+03:00",
-      "label": "الغرافة × القادسية",
-      "note": "نخبة آسيا · الدوحة",
-      "colors": [
-        [
-          "#ffd200",
-          "#0054a6"
         ],
         [
           "#d71920",
-          "#fcd116"
+          "#ffffff"
         ]
       ],
-      "source_url": "https://www.saff.com.sa/championship.php?id=410"
+      "source_url": "https://assets.the-afc.com/2026-27_ACL_Elite/Downloads/Match_Schedule/AFC-Champions-League-Elite-2026-27-League-Stage---27Augupd.pdf"
+    },
+    {
+      "time": "2026-11-03T23:00:00+03:00",
+      "label": "برشلونة × أستون فيلا",
+      "note": "دوري أبطال أوروبا · برشلونة",
+      "colors": [
+        [
+          "#a50044",
+          "#004d98"
+        ],
+        [
+          "#670e36",
+          "#95bfe5"
+        ]
+      ],
+      "source_url": "https://www.fcbarcelona.com/en/news/4602874/when-and-where-to-watch-fc-barcelona-v-aston-villa/amp"
+    },
+    {
+      "time": "2026-11-03T23:00:00+03:00",
+      "label": "أتلتيكو مدريد × بايرن ميونخ",
+      "note": "دوري أبطال أوروبا · مدريد",
+      "colors": [
+        [
+          "#cb3524",
+          "#ffffff"
+        ],
+        [
+          "#dc052d",
+          "#ffffff"
+        ]
+      ],
+      "source_url": "https://fcbayern.com/de/news/vorberichte/2026/11/vorschau-champions-league-atletico-madrid-fc-bayern"
     }
   ],
   "regions": {
@@ -199,6 +193,15 @@
       "source_url": "https://www.wipo.int/web-publications/global-innovation-index-2026/en/gii-2026-results.html",
       "story": "wipo-gii-2026-saudi-42",
       "summary": "تقدّمت المملكة إلى المركز 42 في مؤشر الابتكار العالمي 2026 وحلّت الأولى عالميًا في استخدام تقنية المعلومات والاتصالات، ودخلت الرياض قائمة أكبر 100 تجمع للابتكار في المركز 92."
+    },
+    {
+      "kind": "body",
+      "title": "المملكة في المركز 29 عالميًا في مؤشر تطوير السفر والسياحة 2026",
+      "outlet": "المنتدى الاقتصادي العالمي",
+      "date": "2026-09-25",
+      "source_url": "https://reports.weforum.org/docs/WEF_Travel_and_Tourism_Development_Index_2026.pdf",
+      "story": "wef-ttdi-2026-saudi-29",
+      "summary": "حلّت المملكة في المركز 29 عالميًا في مؤشر 2026، متقدمة 3 مراكز منذ 2024 مع ارتفاع درجتها 3.4% إلى 4.45."
     },
     {
       "kind": "body",

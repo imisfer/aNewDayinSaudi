@@ -1,57 +1,88 @@
 {
-  "edition_date": "2026-11-03",
+  "edition_date": "2026-11-04",
   "status": "pilot",
-  "headline": "إطلاق واجهة الخبر البحرية بأكثر من 4 آلاف وحدة سكنية، وحجر أساس لمقر أبحاث الغابات في جازان، والنصر والقادسية يفوزان في نخبة آسيا",
+  "headline": "الإيرادات غير النفطية تبلغ 412.5 مليار ريال في 9 أشهر، وأرامكو تسجل 117 مليار ريال دخلًا معدّلًا، ومجلس الوزراء يقر السياسة الوطنية للفضاء",
   "cards": [
     {
-      "category": "مشاريع",
-      "keyword": "واجهة الخبر",
-      "story": "alkhobar-waterfront-pif-launch-2026-11",
-      "title": "إطلاق مشروع واجهة الخبر البحرية بأكثر من 4 آلاف وحدة سكنية",
-      "summary": "أطلق صندوق الاستثمارات العامة المشروع الذي تطوره «داون تاون السعودية» على 829 ألف متر مربع، ويضم أكثر من 500 غرفة فندقية و103 آلاف متر مربع من المساحات الخضراء والحدائق.",
-      "date": "2026-11-01",
+      "category": "اقتصاد",
+      "keyword": "الإيرادات غير النفطية",
+      "story": "mof-budget-q3-2026",
+      "title": "الإيرادات غير النفطية 412.5 مليار ريال في 9 أشهر بنمو 8%",
+      "summary": "أظهر تقرير وزارة المالية بلوغها 142.6 مليار ريال في الربع الثالث بنمو 20%، فيما سجلت الميزانية عجزًا ربعيًا قدره 84.3 مليار ريال.",
+      "date": "2026-11-03",
       "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-arabia-steps-up-urban-development-with-new-alkhobar-waterfront-project-3009405"
+      "source_url": "https://www.arabnews.com/business/saudi-arabia-posts-2238bn-budget-deficit-in-q3-3009626"
     },
     {
-      "category": "بيئة",
-      "keyword": "أبحاث الغابات",
-      "story": "jazan-forest-research-center-2026-11",
-      "title": "حجر الأساس لمقر أبحاث الغابات في جازان بأكثر من 46.7 مليون ريال",
-      "summary": "وضع أمير منطقة جازان حجر أساس المشروع على مساحة 33,246 مترًا مربعًا، ويضم مبنى إداريًا وبحثيًا ومبنى مختبرات متخصصة ومركزًا للزوار ومتنزهًا بيئيًا.",
-      "date": "2026-11-02",
+      "category": "طاقة",
+      "keyword": "أرامكو",
+      "story": "aramco-q3-2026-results",
+      "title": "أرامكو: 117 مليار ريال دخلًا صافيًا معدّلًا في الربع الثالث بنمو 9%",
+      "summary": "أقرت الشركة توزيعات أساسية بـ82.1 مليار ريال بزيادة 3.5%، وارتفعت تدفقاتها النقدية الحرة 19.7% إلى 105.8 مليار ريال، وبدأ الإنتاج في مشروع زيادة إنتاج حقل الظلوف.",
+      "date": "2026-11-03",
       "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2273630"
+      "source_url": "https://www.okaz.com.sa/economy/na/2273721"
     },
     {
-      "category": "رياضة",
-      "keyword": "النصر والقادسية",
-      "story": "acle-md4-nassr-qadsiah-wins-2026-11",
-      "title": "النصر والقادسية يفوزان بسداسية وخماسية في نخبة آسيا",
-      "summary": "تغلب النصر على باختاكور 6-2 في طشقند، والقادسية على الغرافة 5-0 في الريان، وتعادل الأهلي مع السد دون أهداف في الجولة الرابعة.",
-      "date": "2026-11-02",
-      "source_name": "الاتحاد الآسيوي لكرة القدم",
-      "source_url": "https://www.the-afc.com/en/club/afc_champions_league_elite.html/news/md4-al-gharafa-sc-qat-0-5-al-qadsiah-club-ksa"
+      "category": "فضاء",
+      "keyword": "السياسة الوطنية للفضاء",
+      "story": "cabinet-national-space-policy-2026-11",
+      "title": "مجلس الوزراء يوافق على السياسة الوطنية للفضاء",
+      "summary": "أقرّ المجلس في جلسته بالرياض يوم 3 نوفمبر السياسة، إلى جانب قواعد الرقابة المالية لحسابات الأوقاف التي تديرها جهات حكومية، ومذكرة تفاهم مع الهند في الموارد المائية.",
+      "date": "2026-11-03",
+      "source_name": "عكاظ",
+      "source_url": "https://okaz.com.sa/local/na/2273826"
     },
     {
       "category": "مؤشرات",
-      "keyword": "الأنشطة غير النفطية 1.9%",
-      "story": "gastat-gdp-flash-q3-2026",
-      "title": "الأنشطة غير النفطية تنمو 1.9% في الربع الثالث من 2026",
-      "summary": "أظهرت تقديرات هيئة الإحصاء السريعة انكماش الناتج المحلي 3.8% سنويًا مع تراجع الأنشطة النفطية 20.4%، بينما نما الناتج 1.3% مقارنة بالربع السابق.",
-      "date": "2026-11-01",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/business/saudi-non-oil-growth-accelerates-to-19-in-q3-gastat-3009246"
+      "keyword": "مديري المشتريات 54 نقطة",
+      "story": "riyad-pmi-2026-10",
+      "title": "مؤشر مديري المشتريات 54 نقطة في أكتوبر والنمو يستمر للشهر السابع",
+      "summary": "تراجع مؤشر بنك الرياض من 55.3 في سبتمبر وبقي فوق خط النمو، مع تسارع الإنتاج واستمرار التوظيف للشهر الرابع، رغم تباطؤ الطلبات الجديدة وتراجع طلبات التصدير.",
+      "date": "2026-11-03",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/economy/na/2273763"
     },
     {
-      "category": "اقتصاد",
-      "keyword": "سوق الكربون الطوعي",
-      "story": "vcm-carbon-15m-credits-2026-11",
-      "title": "أكثر من 15 مليون رصيد كربوني متداول في السوق الطوعية خلال 3 سنوات",
-      "summary": "قال الرئيس التنفيذي لشركة سوق الكربون الطوعي إن التداولات وجّهت نحو 350 مليون ريال إلى مشاريع مناخية حول العالم، وإن الشركة تتابع أكثر من 30 مطورًا محليًا ودوليًا.",
+      "category": "رياضة",
+      "keyword": "الهلال 2-0",
+      "story": "acle-md4-hilal-shabab-2026-11",
+      "follows": "acle-md4-nassr-qadsiah-wins-2026-11",
+      "title": "الهلال يتغلب على شباب الأهلي 2-0 في نخبة آسيا",
+      "summary": "سجّل أولي واتكينز هدفي اللقاء في الدقيقتين 6 و46 على ملعب المملكة أرينا بالرياض، ضمن الجولة الرابعة من البطولة.",
+      "date": "2026-11-03",
+      "source_name": "الاتحاد الآسيوي لكرة القدم",
+      "source_url": "https://www.the-afc.com/ar/club/afc_champions_league_elite.html/news/md4-al-hilal-sfc-ksa-2-0-shabab-al-ahli-uae-1"
+    },
+    {
+      "category": "سياحة",
+      "keyword": "سجلات النُزل السياحية 52%",
+      "story": "mc-tourism-registrations-q3-2026",
+      "title": "سجلات النُزل السياحية ترتفع 52% إلى 18,115 سجلًا",
+      "summary": "أظهرت بيانات وزارة التجارة بنهاية الربع الثالث من 2026 نمو سجلات مرافق الإيواء السياحي 37% إلى 18,956 وسجلات الإرشاد السياحي 33% إلى 7,735.",
+      "date": "2026-11-03",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/tourism-transport/saudi-tourism-activities-grow-with-tourist-lodges-leading-at-52-3009606"
+    },
+    {
+      "category": "ثقافة",
+      "keyword": "شتاء إثراء 2026",
+      "story": "ithra-winter-2026-launch",
+      "title": "«شتاء إثراء 2026» يتزامن مع افتتاح موسم الخبر في 13 نوفمبر",
+      "summary": "أعلن مركز الملك عبدالعزيز الثقافي العالمي البرنامج على واجهة الخبر البحرية بعروض بصرية وضوئية وأمسيات شعرية والعرضة السعودية، مع برنامج ثقافي في الظهران إكسبو.",
+      "date": "2026-11-03",
+      "source_name": "الشرق الأوسط",
+      "source_url": "https://english.aawsat.com/culture/5337190-ithra-announces-launch-ithra-winter-2026-program"
+    },
+    {
+      "category": "صحة",
+      "keyword": "هاكاثون التمريض",
+      "story": "kfshrc-nursing-ai-hackathon-2026",
+      "title": "هاكاثون مستقبل التمريض يختار 21 مشروعًا من 75 مشاركة",
+      "summary": "استضاف مستشفى الملك فيصل التخصصي ومركز الأبحاث الفعالية في الرياض يومي 1 و2 نوفمبر، ويجري تحكيم المشاريع في 10 نوفمبر مع احتضان الفائزين لتطويرها.",
       "date": "2026-11-02",
       "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/business/voluntary-carbon-market-co-tracking-30-local-international-project-developers-ceo-tells-al-eqtisadiah-3009400"
+      "source_url": "https://www.arabnews.com/saudi-arabia/ai-hackathon-targets-better-patient-care-in-kingdom-3009582"
     }
   ],
   "notices": [],
@@ -64,52 +95,68 @@
   ],
   "timeline": [
     {
-      "time": "2026-11-03T21:15:00+03:00",
-      "label": "الهلال × شباب الأهلي",
-      "note": "نخبة آسيا · الرياض",
+      "time": "2026-11-04T21:15:00+03:00",
+      "label": "التعاون × الفيصلي",
+      "note": "دوري أبطال آسيا 2 · بريدة",
       "colors": [
         [
-          "#0050a0",
-          "#ffffff"
+          "#fcd116",
+          "#0b3d91"
         ],
         [
-          "#d71920",
+          "#0a3d91",
           "#ffffff"
         ]
       ],
-      "source_url": "https://assets.the-afc.com/2026-27_ACL_Elite/Downloads/Match_Schedule/AFC-Champions-League-Elite-2026-27-League-Stage---27Augupd.pdf"
+      "source_url": "https://www.saff.com.sa/en/championship.php?id=442"
     },
     {
-      "time": "2026-11-03T23:00:00+03:00",
-      "label": "برشلونة × أستون فيلا",
-      "note": "دوري أبطال أوروبا · برشلونة",
+      "time": "2026-11-04T20:45:00+03:00",
+      "label": "أيك أثينا × ريال مدريد",
+      "note": "دوري أبطال أوروبا · أثينا",
       "colors": [
         [
-          "#a50044",
-          "#004d98"
+          "#ffde00",
+          "#000000"
         ],
         [
-          "#670e36",
-          "#95bfe5"
+          "#ffffff",
+          "#00529f"
         ]
       ],
-      "source_url": "https://www.fcbarcelona.com/en/news/4602874/when-and-where-to-watch-fc-barcelona-v-aston-villa/amp"
+      "source_url": "https://www.realmadrid.com/es-ES/noticias/futbol/primer-equipo/actualidad/horarios-de-la-cuarta-jornada-de-la-champions-03-11-2026"
     },
     {
-      "time": "2026-11-03T23:00:00+03:00",
-      "label": "أتلتيكو مدريد × بايرن ميونخ",
-      "note": "دوري أبطال أوروبا · مدريد",
+      "time": "2026-11-04T20:45:00+03:00",
+      "label": "فنربخشة × ليفربول",
+      "note": "دوري أبطال أوروبا · إسطنبول",
       "colors": [
         [
-          "#cb3524",
-          "#ffffff"
+          "#00205b",
+          "#ffed00"
         ],
         [
-          "#dc052d",
+          "#c8102e",
           "#ffffff"
         ]
       ],
-      "source_url": "https://fcbayern.com/de/news/vorberichte/2026/11/vorschau-champions-league-atletico-madrid-fc-bayern"
+      "source_url": "https://www.liverpoolfc.com/news/fenerbahce-v-liverpool-tv-channels-live-commentary-and-ucl-highlights-guide"
+    },
+    {
+      "time": "2026-11-04T23:00:00+03:00",
+      "label": "لايبزيغ × مانشستر سيتي",
+      "note": "دوري أبطال أوروبا · لايبزيغ",
+      "colors": [
+        [
+          "#ffffff",
+          "#dd0741"
+        ],
+        [
+          "#6cabdd",
+          "#1c2c5b"
+        ]
+      ],
+      "source_url": "https://www.mancity.com/news/mens/champions-league-2026-27-league-phase-fixtures-confirmed-63923595"
     }
   ],
   "regions": {
@@ -141,6 +188,13 @@
         "place": "محمد عبده أرينا",
         "start": "2026-11-06",
         "source_url": "https://www.okaz.com.sa/culture/na/2272839"
+      },
+      {
+        "title": "معرض القطط ضمن معرض الحيوانات الأليفة",
+        "place": "مركز الرياض الدولي للمؤتمرات",
+        "start": "2026-11-09",
+        "end": "2026-11-11",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/cat-show"
       }
     ],
     "jeddah": [
@@ -181,6 +235,14 @@
         "start": "2026-11-13",
         "time": "20:00",
         "source_url": "https://www.experiencealula.com/en/things-to-do/experiences/concert-with-nancy-ajram"
+      }
+    ],
+    "eastern": [
+      {
+        "title": "موسم الخبر وشتاء إثراء 2026",
+        "place": "واجهة الخبر البحرية",
+        "start": "2026-11-13",
+        "source_url": "https://english.aawsat.com/culture/5337190-ithra-announces-launch-ithra-winter-2026-program"
       }
     ]
   },

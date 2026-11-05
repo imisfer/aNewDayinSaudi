@@ -1,34 +1,22 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-06",
   "timeline": [
     {
-      "time": "2026-11-04T21:15:00+03:00",
-      "label": "التعاون × الفيصلي",
-      "note": "دوري أبطال آسيا 2 · بريدة",
-      "colors": [["#fcd116", "#0b3d91"], ["#0a3d91", "#ffffff"]],
-      "source_url": "https://www.saff.com.sa/championship.php?id=442"
-    },
-    {
-      "time": "2026-11-04T20:45:00+03:00",
-      "label": "أيك أثينا × ريال مدريد",
-      "note": "دوري أبطال أوروبا · أثينا",
-      "colors": [["#ffde00", "#000000"], ["#ffffff", "#00529f"]],
-      "source_url": "https://www.realmadrid.com/es-ES/noticias/futbol/primer-equipo/actualidad/horarios-de-la-cuarta-jornada-de-la-champions-03-11-2026"
-    },
-    {
-      "time": "2026-11-04T20:45:00+03:00",
-      "label": "فنربخشة × ليفربول",
-      "note": "دوري أبطال أوروبا · إسطنبول",
-      "colors": [["#00205b", "#ffed00"], ["#c8102e", "#ffffff"]],
-      "source_url": "https://www.liverpoolfc.com/news/champions-league-fixture-details-liverpools-eight-league-phase-matches"
-    },
-    {
-      "time": "2026-11-04T23:00:00+03:00",
-      "label": "لايبزيغ × مانشستر سيتي",
-      "note": "دوري أبطال أوروبا · لايبزيغ",
-      "colors": [["#ffffff", "#dd0741"], ["#6cabdd", "#1c2c5b"]],
-      "source_url": "https://www.mancity.com/news/mens/champions-league-2026-27-league-phase-fixtures-confirmed-63923595"
+      "time": "2026-11-06T14:00:00+03:00",
+      "label": "السعودية × موريتانيا",
+      "note": "كأس العرب للكرة الشاطئية · بورسعيد",
+      "colors": [["#006c35", "#ffffff"], ["#00a95c", "#ffd700"]],
+      "source_url": "https://www.saff.com.sa/en/calendar.php"
     }
   ],
-  "notices": []
+  "notices": [
+    {
+      "title": "توقعات بأمطار رعدية وسيول حتى الثلاثاء؛ الابتعاد عن الأودية ومجاري السيول",
+      "issuer": "الدفاع المدني",
+      "area": "معظم مناطق المملكة",
+      "date": "2026-11-05",
+      "until": "2026-11-10",
+      "source_url": "https://www.okaz.com.sa/local/saudi-arabia/2274130"
+    }
+  ]
 }

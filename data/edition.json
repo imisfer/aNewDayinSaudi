@@ -1,88 +1,77 @@
 {
-  "edition_date": "2026-11-04",
+  "edition_date": "2026-11-05",
   "status": "pilot",
-  "headline": "الإيرادات غير النفطية تبلغ 412.5 مليار ريال في 9 أشهر، وأرامكو تسجل 117 مليار ريال دخلًا معدّلًا، ومجلس الوزراء يقر السياسة الوطنية للفضاء",
+  "headline": "61.2 مليون سائح في النصف الأول، وضوابط الأراضي البيضاء تُعتمد، و659 مدرسة تبلغ مستوى التميز",
   "cards": [
     {
-      "category": "اقتصاد",
-      "keyword": "الإيرادات غير النفطية",
-      "story": "mof-budget-q3-2026",
-      "title": "الإيرادات غير النفطية 412.5 مليار ريال في 9 أشهر بنمو 8%",
-      "summary": "أظهر تقرير وزارة المالية بلوغها 142.6 مليار ريال في الربع الثالث بنمو 20%، فيما سجلت الميزانية عجزًا ربعيًا قدره 84.3 مليار ريال.",
+      "category": "سياحة",
+      "keyword": "61.2 مليون سائح",
+      "story": "tourism-h1-2026-61m-wtm",
+      "title": "61.2 مليون سائح في النصف الأول من 2026 بنمو يقارب 1%",
+      "summary": "أعلن وزير السياحة في افتتاح جناح المملكة بسوق السفر العالمي في لندن إنفاقًا سياحيًا بلغ 151.9 مليار ريال، ونحو 623 ألف وحدة إيواء مرخصة.",
       "date": "2026-11-03",
       "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/business/saudi-arabia-posts-2238bn-budget-deficit-in-q3-3009626"
+      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-arabia-welcomes-612m-tourists-in-first-half-of-2026-3009757"
     },
     {
-      "category": "طاقة",
-      "keyword": "أرامكو",
-      "story": "aramco-q3-2026-results",
-      "title": "أرامكو: 117 مليار ريال دخلًا صافيًا معدّلًا في الربع الثالث بنمو 9%",
-      "summary": "أقرت الشركة توزيعات أساسية بـ82.1 مليار ريال بزيادة 3.5%، وارتفعت تدفقاتها النقدية الحرة 19.7% إلى 105.8 مليار ريال، وبدأ الإنتاج في مشروع زيادة إنتاج حقل الظلوف.",
-      "date": "2026-11-03",
+      "category": "عقار",
+      "keyword": "ضوابط الأراضي البيضاء",
+      "story": "momah-white-land-transactions-rules-2026-11",
+      "title": "اعتماد ضوابط التصرفات العقارية على الأراضي الخاضعة لرسوم البيضاء",
+      "summary": "لن تُوثَّق التصرفات قبل التحقق من سداد الرسوم، مع استثناء حالات منها قسمة التركات والأحكام القضائية. وأوضحت وزارة البلديات والإسكان أن الاستثناءات ليست إعفاءً من الرسوم.",
+      "date": "2026-11-04",
       "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/economy/na/2273721"
+      "source_url": "https://www.okaz.com.sa/local/na/2273947"
     },
     {
-      "category": "فضاء",
-      "keyword": "السياسة الوطنية للفضاء",
-      "story": "cabinet-national-space-policy-2026-11",
-      "title": "مجلس الوزراء يوافق على السياسة الوطنية للفضاء",
-      "summary": "أقرّ المجلس في جلسته بالرياض يوم 3 نوفمبر السياسة، إلى جانب قواعد الرقابة المالية لحسابات الأوقاف التي تديرها جهات حكومية، ومذكرة تفاهم مع الهند في الموارد المائية.",
-      "date": "2026-11-03",
+      "category": "تعليم",
+      "keyword": "659 مدرسة",
+      "story": "etec-school-excellence-659-2026",
+      "title": "659 مدرسة تبلغ مستوى التميز في التقويم المدرسي الوطني",
+      "summary": "أعلنت هيئة تقويم التعليم والتدريب النتائج: 499 مدرسة للبنات و160 للبنين، وتصدرت منطقة مكة المكرمة بـ146 مدرسة، تلتها الشرقية بـ133 والرياض بـ116.",
+      "date": "2026-11-04",
       "source_name": "عكاظ",
-      "source_url": "https://okaz.com.sa/local/na/2273826"
+      "source_url": "https://www.okaz.com.sa/local/na/2273948"
     },
     {
-      "category": "مؤشرات",
-      "keyword": "مديري المشتريات 54 نقطة",
-      "story": "riyad-pmi-2026-10",
-      "title": "مؤشر مديري المشتريات 54 نقطة في أكتوبر والنمو يستمر للشهر السابع",
-      "summary": "تراجع مؤشر بنك الرياض من 55.3 في سبتمبر وبقي فوق خط النمو، مع تسارع الإنتاج واستمرار التوظيف للشهر الرابع، رغم تباطؤ الطلبات الجديدة وتراجع طلبات التصدير.",
-      "date": "2026-11-03",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/economy/na/2273763"
+      "category": "اقتصاد",
+      "keyword": "1200 منشأة أجنبية",
+      "story": "foreign-establishments-oct-2026-chambers",
+      "title": "أكثر من 1200 منشأة أجنبية جديدة في المملكة خلال أكتوبر",
+      "summary": "قال الأمين العام لاتحاد الغرف السعودية سلطان المسلم إن الصناعة تتصدر اهتمام المستثمرين الأجانب يليها البناء، وإن أكثر من 50 شركة تُسجَّل يوميًا.",
+      "date": "2026-11-04",
+      "source_name": "أرقام",
+      "source_url": "https://www.argaam.com/ar/article/articledetail/id/1950449"
+    },
+    {
+      "category": "تنمية",
+      "keyword": "403 ملايين دولار لسوريا",
+      "story": "sfd-syria-six-loans-403m-2026-11",
+      "title": "الصندوق السعودي للتنمية يوقّع 6 قروض ميسرة لسوريا بـ403 ملايين دولار",
+      "summary": "تشمل الاتفاقيات الطاقة والمياه والإسكان والصحة وتأهيل 25 مركزًا للدفاع المدني، ومنها 100 مليون دولار للمستشفيات والمراكز الصحية و300 ألف عداد مياه ذكي.",
+      "date": "2026-11-05",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-fund-provides-over-403m-for-infrastructure-and-public-service-projects-in-syria-3009880"
     },
     {
       "category": "رياضة",
-      "keyword": "الهلال 2-0",
-      "story": "acle-md4-hilal-shabab-2026-11",
-      "follows": "acle-md4-nassr-qadsiah-wins-2026-11",
-      "title": "الهلال يتغلب على شباب الأهلي 2-0 في نخبة آسيا",
-      "summary": "سجّل أولي واتكينز هدفي اللقاء في الدقيقتين 6 و46 على ملعب المملكة أرينا بالرياض، ضمن الجولة الرابعة من البطولة.",
-      "date": "2026-11-03",
+      "keyword": "التعاون في دور الـ16",
+      "story": "acl2-md4-taawoun-faisaly-r16-2026-11",
+      "title": "التعاون يتأهل إلى دور الـ16 في أبطال آسيا 2 بفوزه على الفيصلي 3-1",
+      "summary": "سجّل عبدالرزاق حمدالله هدفين وبارفيه جيغون هدفًا على ملعب بريدة في الجولة الرابعة من المجموعة الثالثة.",
+      "date": "2026-11-04",
       "source_name": "الاتحاد الآسيوي لكرة القدم",
-      "source_url": "https://www.the-afc.com/ar/club/afc_champions_league_elite.html/news/md4-al-hilal-sfc-ksa-2-0-shabab-al-ahli-uae-1"
+      "source_url": "https://www.the-afc.com/ar/club/afc_champions_league_two.html/news/group-c-al-taawoun-fc-ksa-3-1-al-faisaly-jor-1"
     },
     {
-      "category": "سياحة",
-      "keyword": "سجلات النُزل السياحية 52%",
-      "story": "mc-tourism-registrations-q3-2026",
-      "title": "سجلات النُزل السياحية ترتفع 52% إلى 18,115 سجلًا",
-      "summary": "أظهرت بيانات وزارة التجارة بنهاية الربع الثالث من 2026 نمو سجلات مرافق الإيواء السياحي 37% إلى 18,956 وسجلات الإرشاد السياحي 33% إلى 7,735.",
-      "date": "2026-11-03",
+      "category": "بيئة",
+      "keyword": "100 ألف شجرة",
+      "story": "al-ahsa-100k-trees-2026-11",
+      "title": "محافظ الأحساء يطلق مبادرة لزراعة 100 ألف شجرة بـ3 ملايين ريال",
+      "summary": "تنفَّذ مع هيئة تطوير الأحساء وشركة تنمية الغذائية بدعم من صندوق البيئة وأمانة الأحساء، لزيادة المساحات الخضراء والغطاء النباتي.",
+      "date": "2026-11-04",
       "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/tourism-transport/saudi-tourism-activities-grow-with-tourist-lodges-leading-at-52-3009606"
-    },
-    {
-      "category": "ثقافة",
-      "keyword": "شتاء إثراء 2026",
-      "story": "ithra-winter-2026-launch",
-      "title": "«شتاء إثراء 2026» يتزامن مع افتتاح موسم الخبر في 13 نوفمبر",
-      "summary": "أعلن مركز الملك عبدالعزيز الثقافي العالمي البرنامج على واجهة الخبر البحرية بعروض بصرية وضوئية وأمسيات شعرية والعرضة السعودية، مع برنامج ثقافي في الظهران إكسبو.",
-      "date": "2026-11-03",
-      "source_name": "الشرق الأوسط",
-      "source_url": "https://english.aawsat.com/culture/5337190-ithra-announces-launch-ithra-winter-2026-program"
-    },
-    {
-      "category": "صحة",
-      "keyword": "هاكاثون التمريض",
-      "story": "kfshrc-nursing-ai-hackathon-2026",
-      "title": "هاكاثون مستقبل التمريض يختار 21 مشروعًا من 75 مشاركة",
-      "summary": "استضاف مستشفى الملك فيصل التخصصي ومركز الأبحاث الفعالية في الرياض يومي 1 و2 نوفمبر، ويجري تحكيم المشاريع في 10 نوفمبر مع احتضان الفائزين لتطويرها.",
-      "date": "2026-11-02",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/ai-hackathon-targets-better-patient-care-in-kingdom-3009582"
+      "source_url": "https://www.arabnews.com/saudi-arabia/al-ahsa-launches-initiative-to-plant-100000-trees-3009760"
     }
   ],
   "notices": [],
@@ -93,72 +82,7 @@
       "title": "مؤتمر ومعرض الحج في جدة"
     }
   ],
-  "timeline": [
-    {
-      "time": "2026-11-04T21:15:00+03:00",
-      "label": "التعاون × الفيصلي",
-      "note": "دوري أبطال آسيا 2 · بريدة",
-      "colors": [
-        [
-          "#fcd116",
-          "#0b3d91"
-        ],
-        [
-          "#0a3d91",
-          "#ffffff"
-        ]
-      ],
-      "source_url": "https://www.saff.com.sa/en/championship.php?id=442"
-    },
-    {
-      "time": "2026-11-04T20:45:00+03:00",
-      "label": "أيك أثينا × ريال مدريد",
-      "note": "دوري أبطال أوروبا · أثينا",
-      "colors": [
-        [
-          "#ffde00",
-          "#000000"
-        ],
-        [
-          "#ffffff",
-          "#00529f"
-        ]
-      ],
-      "source_url": "https://www.realmadrid.com/es-ES/noticias/futbol/primer-equipo/actualidad/horarios-de-la-cuarta-jornada-de-la-champions-03-11-2026"
-    },
-    {
-      "time": "2026-11-04T20:45:00+03:00",
-      "label": "فنربخشة × ليفربول",
-      "note": "دوري أبطال أوروبا · إسطنبول",
-      "colors": [
-        [
-          "#00205b",
-          "#ffed00"
-        ],
-        [
-          "#c8102e",
-          "#ffffff"
-        ]
-      ],
-      "source_url": "https://www.liverpoolfc.com/news/fenerbahce-v-liverpool-tv-channels-live-commentary-and-ucl-highlights-guide"
-    },
-    {
-      "time": "2026-11-04T23:00:00+03:00",
-      "label": "لايبزيغ × مانشستر سيتي",
-      "note": "دوري أبطال أوروبا · لايبزيغ",
-      "colors": [
-        [
-          "#ffffff",
-          "#dd0741"
-        ],
-        [
-          "#6cabdd",
-          "#1c2c5b"
-        ]
-      ],
-      "source_url": "https://www.mancity.com/news/mens/champions-league-2026-27-league-phase-fixtures-confirmed-63923595"
-    }
-  ],
+  "timeline": [],
   "regions": {
     "riyadh": [
       {
@@ -177,6 +101,13 @@
         "source_url": "https://english.aawsat.com/culture/5335239-european-film-festival-returns-riyadh-fifth-edition-16-films"
       },
       {
+        "title": "الدوري السعودي لقفز الحواجز",
+        "place": "هورسز بارك، العمارية",
+        "start": "2026-11-05",
+        "end": "2026-11-07",
+        "source_url": "https://riyadh.platinumlist.net/event-tickets/109699/saudi-show-jumping-league-in-riyadh"
+      },
+      {
         "title": "نمر: عرض كوميدي «واقف!»",
         "place": "كراون بلازا الرياض RDC",
         "start": "2026-11-06",
@@ -188,16 +119,16 @@
         "place": "محمد عبده أرينا",
         "start": "2026-11-06",
         "source_url": "https://www.okaz.com.sa/culture/na/2272839"
-      },
-      {
-        "title": "معرض القطط ضمن معرض الحيوانات الأليفة",
-        "place": "مركز الرياض الدولي للمؤتمرات",
-        "start": "2026-11-09",
-        "end": "2026-11-11",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/cat-show"
       }
     ],
     "jeddah": [
+      {
+        "title": "حفل فضل شاكر ومحمد شاكر",
+        "place": "أبادي الجوهر أرينا",
+        "start": "2026-11-05",
+        "time": "22:00",
+        "source_url": "https://webook.com/en/sa/jed/music-events/events/fadel-chaker-and-mohammed-chaker-concert-jeddah-2026-tickts-726262"
+      },
       {
         "title": "نمر: عرض كوميدي «واقف!»",
         "place": "جامعة دار الحكمة",
@@ -258,12 +189,12 @@
     },
     {
       "kind": "body",
-      "title": "المملكة في المركز 29 عالميًا في مؤشر تطوير السفر والسياحة 2026",
-      "outlet": "المنتدى الاقتصادي العالمي",
-      "date": "2026-09-25",
-      "source_url": "https://reports.weforum.org/docs/WEF_Travel_and_Tourism_Development_Index_2026.pdf",
-      "story": "wef-ttdi-2026-saudi-29",
-      "summary": "حلّت المملكة في المركز 29 عالميًا في مؤشر 2026، متقدمة 3 مراكز منذ 2024 مع ارتفاع درجتها 3.4% إلى 4.45."
+      "title": "جامعة «كاوست» الأولى عربيًا للعام الرابع في تصنيف التايمز 2027",
+      "outlet": "تايمز للتعليم العالي",
+      "date": "2026-10-22",
+      "source_url": "https://www.timeshighereducation.com/world-university-rankings/2027/arab-university-rankings",
+      "story": "the-arab-rankings-2027-kaust-first",
+      "summary": "تصدّرت جامعة الملك عبدالله للعلوم والتقنية تصنيف الجامعات العربية 2027 للعام الرابع على التوالي، وحلّت جامعة الملك فهد للبترول والمعادن ثالثة."
     },
     {
       "kind": "body",

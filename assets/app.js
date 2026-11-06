@@ -18,12 +18,12 @@
   const part = (cal, opt) => new Intl.DateTimeFormat(`ar-SA-u-ca-${cal}-nu-latn`, { timeZone: TZ, ...opt }).format(now);
   // Calendar-icon tile: short weekday on top, day number below.
   // Gregorian face in English («Fri 16»); Hijri face in Arabic with short day names («جمعة 5»).
-  const AR_SHORT = { Sun: "أحد", Mon: "إثنين", Tue: "ثلاثاء", Wed: "أربعاء", Thu: "خميس", Fri: "جمعة", Sat: "سبت" };
+  const AR_SHORT = { Sun: "أحـــد", Mon: "إثنـين", Tue: "ثلاثـاء", Wed: "أربعـاء", Thu: "خميس", Fri: "جمعـة", Sat: "سبت" };
   const enDay = new Intl.DateTimeFormat("en-US", { timeZone: TZ, weekday: "short" }).format(now);
   $("greg-m").textContent = enDay;
   $("greg-d").textContent = part("gregory", { day: "numeric" });
   $("hijri-m").textContent = AR_SHORT[enDay] || part("gregory", { weekday: "long" });
-  $("hijri-d").textContent = part("islamic-umalqura", { day: "numeric" });
+  $("hijri-d").textContent = part("islamic-umalqura", { day: "numeric" }).replace(/\d/g, (d) => "٠١٢٣٤٥٦٧٨٩"[d]); // Hijri face uses Hindi digits; Gregorian keeps 0-9
   $("greg-mo").textContent = new Intl.DateTimeFormat("en-US", { timeZone: TZ, month: "long" }).format(now);
   // Short Hijri month names for the small tile, e.g. «جماد أول» instead of «جمادى الأولى».
   const HIJRI_SHORT = ["محرم", "صفر", "ربيع أول", "ربيع ثاني", "جماد أول", "جماد ثاني", "رجب", "شعبان", "رمضان", "شوال", "ذو القعدة", "ذو الحجة"];
@@ -38,6 +38,17 @@
   // One date tile: Hijri first (the official calendar), then Gregorian, switching every 10 seconds.
   if (hasUmmAlQura) setInterval(() => $("date-tile").classList.toggle("show-greg"), 10e3);
   else $("date-tile").classList.add("show-greg");
+  // The tile is pinned (position: fixed): keep its space in the masthead, and lift it once the page has scrolled.
+  const dateTile = $("date-tile"), masthead = dateTile.parentElement;
+  const fitTile = () => {
+    masthead.style.setProperty("--tile-w", dateTile.offsetWidth + "px");
+    masthead.style.setProperty("--tile-h", dateTile.offsetHeight + "px");
+  };
+  fitTile();
+  if (window.ResizeObserver) new ResizeObserver(fitTile).observe(dateTile);
+  const liftTile = () => dateTile.classList.toggle("lifted", window.scrollY > 4);
+  addEventListener("scroll", liftTile, { passive: true });
+  liftTile();
 
   const fmtDate = (iso) => new Intl.DateTimeFormat("ar-SA-u-ca-gregory-nu-latn", {
     timeZone: TZ, day: "numeric", month: "long"
@@ -636,6 +647,33 @@
     return list.length > 0;
   }
 
+  // ---------- Cabinet decisions: the latest session's picks, from the SPA statement (see EDITORIAL.md) ----------
+  function renderCabinet(c) {
+    const wrap = $("cabinet-wrap");
+    const age = c && c.session_date ? (Date.parse(todayISO) - Date.parse(c.session_date)) / 864e5 : NaN;
+    const items = c && Array.isArray(c.items) ? c.items.filter((x) => x && x.title) : [];
+    if (!items.length || !c.source_url || !(age >= 0 && age <= 8)) { wrap.hidden = true; return; }
+    // "This week" must stay true: the Saudi week starts on Sunday, so on Sunday and Monday the session belongs to last week.
+    const sunday = Date.parse(todayISO) - new Date(todayISO + "T00:00:00Z").getUTCDay() * 864e5;
+    $("cabinet-title").textContent = Date.parse(c.session_date) >= sunday ? "قرارات مجلس الوزراء هذا الأسبوع" : "آخر جلسة لمجلس الوزراء";
+    const ul = $("cab");
+    ul.textContent = "";
+    for (const x of items) {
+      const li = el("li");
+      const a = el("a");
+      a.href = c.source_url; a.target = "_blank"; a.rel = "noopener";
+      a.append(el("span", "ev-title", x.title));
+      li.append(a);
+      ul.append(li);
+    }
+    const noun = (n) => (n >= 3 && n <= 10 ? "قرارات" : "قرارًا");
+    const count = c.total > items.length ? `أبرز ${items.length} من ${c.total} ${noun(c.total)}` : "";
+    const src = $("cab-source");
+    src.href = c.source_url;
+    src.textContent = [count, `جلسة ${fmtDate(c.session_date)}`, "البيان في واس ↖"].filter(Boolean).join(" · ");
+    wrap.hidden = false;
+  }
+
   // ---------- Edition ----------
   // Saudi riyal sign: the Thmanyah fonts turn «ر.س» into the riyal symbol (required ligature, rlig).
   // SAMA usage rules: the sign sits to the left of the number, with a space (1, 2), and to the left of a written
@@ -727,6 +765,7 @@
     collectEvents(ed);
 
     renderWorldView(ed.world_view);
+    renderCabinet(ed.cabinet);
     await renderOccasions();
     fitFrames();
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitFrames);

@@ -28,7 +28,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b5d3b'/%3E%3Ccircle cx='16' cy='18' r='7' fill='%23f7f5f0'/%3E%3Crect x='6' y='23' width='20' height='4' fill='%230b5d3b'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/thmanyahsans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/thmanyahserifdisplay-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/style.css?v=1.93">
+  <link rel="stylesheet" href="assets/style.css?v=1.94">
 </head>
 <body>
   <main class="page">
@@ -90,6 +90,14 @@
     </dialog>
 
 
+    <!-- Cabinet decisions: the citizen-relevant picks from the latest session, linked to the SPA statement. Hides itself when there is none. -->
+    <section class="regions world-regions cabinet" id="cabinet-wrap" aria-labelledby="cabinet-title" hidden>
+      <h2 class="regions-title" id="cabinet-title">قرارات مجلس الوزراء هذا الأسبوع</h2>
+      <div class="sec-body">
+      <div class="region wv"><ul id="cab"></ul><a class="cab-source" id="cab-source" target="_blank" rel="noopener"></a></div>
+      </div>
+    </section>
+
     <!-- Riyadh is fixed in the first column; the second column stacks two cities the reader picks -->
     <section class="regions" id="regions-wrap" aria-labelledby="regions-title" hidden>
       <h2 class="regions-title" id="regions-title">احجـز لحظتك هـذا الأسبـوع</h2>
@@ -127,12 +135,12 @@
 
     <footer class="foot">
       <p class="about">موجز يومي هادئ: إنجازات ومشاريع ومؤشرات وخدمات وفعاليات، احتفاءً بالمحتوى المحلي وإثراءً له. كل خبر مؤرخ ومربوط بمصدره. نلخّص ونحيل إلى المصدر، ولا نعيد نشر المقالات.</p>
-      <p class="ver">الإصدار v1.93 · 2026-11-03</p>
+      <p class="ver">الإصدار v1.94 · 2026-11-06</p>
     </footer>
   </main>
 
   <script src="assets/adhan.min.js"></script>
   <script src="assets/world.js?v=1.70"></script>
-  <script src="assets/app.js?v=1.93"></script>
+  <script src="assets/app.js?v=1.94"></script>
 </body>
 </html>

@@ -12,10 +12,14 @@ Always look for the official release first and link to it.
 
 **Finding SPA items directly.** Search engines index new SPA pages a day or more late, and SPA's site search ranks old items first. SPA's own news feed has everything as soon as it is published; read it from the shell (it needs portalapi.spa.gov.sa on the account's allowed domains):
 ```sh
-curl -sS 'https://portalapi.spa.gov.sa/api/v1/news?by_latest=1&limit=100&page=1&l=ar' \
+# Arabic items, page 1 of the feed (newest first). Change the page number to go further back.
+P=1; curl -sS -H 'Accept-Language: ar' "https://portalapi.spa.gov.sa/api/v1/news?by_latest=1&per_page=100&page=$P&_=$(date +%s)$P" \
   | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{for(const n of JSON.parse(s).data)console.log(n.uuid,new Date(n.published_at*1e3).toISOString().slice(0,16),n.title)})'
 ```
-Each page holds 100 items, newest first (about a day per 10 pages). Page on until you pass the dates you need, grep the titles («الدفاع المدني», «مجلس الوزراء», «الأرصاد»…), and link the item as `https://www.spa.gov.sa/<uuid>`. If curl is refused, fall back to search and say so in the run summary.
+- `Accept-Language` sets the language (`ar`, or `en` for SPA's English items); the `l=` parameter is ignored. The `_=` cache-buster is required: without it the feed may serve a cached copy in the other language.
+- Use `per_page=100` (`limit` is ignored; the default is 20). 100 items cover about half a day, so 4 pages reach back about 48 hours.
+- Grep the titles («الدفاع المدني», «مجلس الوزراء», «الأرصاد», «تعليق الدراسة»…) and link the item as `https://www.spa.gov.sa/<uuid>`. Each entry also carries the full text in `content`, which counts as the source when the page itself won't open.
+- If curl is refused, fall back to search and say so in the run summary.
 
 ## What goes in
 National achievements, Vision 2030 milestones, economic indicators, new projects and openings, science, sports, culture, and new government services that affect citizens.

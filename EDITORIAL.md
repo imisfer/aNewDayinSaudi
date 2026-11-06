@@ -10,6 +10,13 @@ One screen, under a minute of reading: what happened in Saudi Arabia in the last
 2. **Reputable, only when no official release is findable:** Arab News, Asharq Al-Awsat, Al Arabiya, Okaz, Al Riyadh, Al Eqtisadiah, Argaam, Saudi Gazette, The National, Reuters, Bloomberg.
 Always look for the official release first and link to it.
 
+**Finding SPA items directly.** Search engines index new SPA pages a day or more late, and SPA's site search ranks old items first. SPA's own news feed has everything as soon as it is published; read it from the shell (it needs portalapi.spa.gov.sa on the account's allowed domains):
+```sh
+curl -sS 'https://portalapi.spa.gov.sa/api/v1/news?by_latest=1&limit=100&page=1&l=ar' \
+  | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{for(const n of JSON.parse(s).data)console.log(n.uuid,new Date(n.published_at*1e3).toISOString().slice(0,16),n.title)})'
+```
+Each page holds 100 items, newest first (about a day per 10 pages). Page on until you pass the dates you need, grep the titles («الدفاع المدني», «مجلس الوزراء», «الأرصاد»…), and link the item as `https://www.spa.gov.sa/<uuid>`. If curl is refused, fall back to search and say so in the run summary.
+
 ## What goes in
 National achievements, Vision 2030 milestones, economic indicators, new projects and openings, science, sports, culture, and new government services that affect citizens.
 

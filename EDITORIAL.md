@@ -131,6 +131,18 @@ Kick-off times change at short notice, sometimes the day before. Every match tim
 - Fields: `kind`, `title`, `outlet`, `date`, `source_url`, `story`, optional `summary` (≤ 220 chars, kept for the record, not shown), optional `paywall`.
 - Never lower the bar to fill three slots. Fewer items, or none, is fine.
 
+## «قرارات مجلس الوزراء» (the latest cabinet session)
+`cabinet` holds the citizen-relevant decisions of the latest Council of Ministers session. It shows as its own section, titled «قرارات مجلس الوزراء هذا الأسبوع» while the session is in the current Saudi week (Sunday–Saturday) and «آخر جلسة لمجلس الوزراء» after that, and hides itself once the session is more than 8 days old.
+```json
+"cabinet": { "session_date": "YYYY-MM-DD", "source_url": "https://www.spa.gov.sa/…", "total": 14, "items": [ { "title": "…" } ] }
+```
+- **From SPA's statement only.** `source_url` is SPA's statement for that session (the validator accepts spa.gov.sa only). Every item links to it; the page adds «البيان في واس ↖».
+- **Pick 1–4 that touch citizens' daily life:** fees and costs, services, rights and benefits, regulations people deal with, new holidays or schedules, approvals of national programmes. Leave out foreign agreements and MoUs, appointments, security and foreign-policy paragraphs, and routine procedural approvals.
+- **Our words, their facts.** `title` ≤ 70 chars, the decision stated plainly in our own Arabic («الموافقة على نظام …»), never copied from the statement. No sensational wording.
+- `total` (optional): the number of decisions in the statement, so the page can say «أبرز 3 من 14 قرارًا». Count the numbered decisions; omit it if unsure.
+- **Carry it forward.** The session usually falls on Tuesday. Keep the same `cabinet` object in every edition until a new session's statement is out, then replace it. Drop the key when the session is more than 8 days old (the validator rejects it).
+- Not a card: it doesn't enter the headline or the news register. Don't also run the same decision as a card on the same day.
+
 ## Upcoming national events
 - `events`: upcoming dated national events in the next 30 days, from official sources only.
 - Fields: `date` (first day, YYYY-MM-DD), optional `end` for multi-day events, and `title`. Don't put dates in the title; the page shows the date or range once, before the title.

@@ -265,6 +265,39 @@ const WV_OPINION = /\/(opinion|opinions|commentary|comment|op-ed|oped|blogs?|spo
   if (firstPress >= 0 && wv.slice(firstPress).some((x) => x.kind === "body")) warn("world_view: a body item sits below a press item; order by significance (bodies first) unless the press fact is clearly bigger");
 }
 
+// «قرارات مجلس الوزراء»: the citizen-relevant picks from the latest cabinet session, all linked to SPA's statement (see EDITORIAL.md).
+// The page hides the section once the session is more than 8 days old, so a stale one is an error here.
+if (ed.cabinet != null) {
+  const c = ed.cabinet;
+  const n = "cabinet";
+  if (typeof c !== "object" || Array.isArray(c)) err(`${n} must be an object { session_date, source_url, total, items }`);
+  else {
+    if (!iso.test(c.session_date || "")) err(`${n}: session_date not YYYY-MM-DD`);
+    else if (ed.edition_date && (c.session_date > ed.edition_date || daysBetween(c.session_date, ed.edition_date) > 8)) err(`${n}: session_date must be within the 8 days before the edition (drop the key when the session is older)`);
+    try {
+      const u = new URL(c.source_url);
+      const h = u.hostname.replace(/^www\./, "");
+      if (u.protocol !== "https:") err(`${n}: source_url must be https`);
+      if (!/(^|\.)spa\.gov\.sa$/.test(h)) err(`${n}: source_url must be SPA's statement for the session (spa.gov.sa), not ${h}`);
+    } catch { err(`${n}: source_url is not a valid URL`); }
+    const items = c.items;
+    if (!Array.isArray(items) || items.length < 1) err(`${n}: items must hold 1–4 decisions`);
+    else {
+      if (items.length > 4) err(`${n}: ${items.length} items; maximum is 4`);
+      items.forEach((x, i) => {
+        const m = `${n} ${i + 1}`;
+        if (!x || typeof x.title !== "string" || !x.title) err(`${m}: missing title`);
+        else {
+          if (x.title.length > 70) err(`${m}: title longer than 70 chars`);
+          if (BANNED_WORDS.test(x.title)) err(`${m}: sensational wording`);
+          if (SECURITY_WORDS.test(x.title)) err(`${m}: security or foreign-policy item; pick decisions that change citizens' services, costs or rights`);
+        }
+      });
+      if (c.total != null && !(Number.isInteger(c.total) && c.total >= items.length)) err(`${n}: total must be a whole number, at least the number of items`);
+    }
+  }
+}
+
 // Timeline: today's timed events shown as dots at the bottom (matches, openings, national moments).
 function checkTimeline(list, date) {
 const tl = list || [];

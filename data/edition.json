@@ -1,80 +1,89 @@
 {
-  "edition_date": "2026-11-05",
+  "edition_date": "2026-11-06",
   "status": "pilot",
-  "headline": "61.2 مليون سائح في النصف الأول، وضوابط الأراضي البيضاء تُعتمد، و659 مدرسة تبلغ مستوى التميز",
+  "headline": "إدراج الصكوك السعودية في مؤشر جي بي مورغان من يناير، و70.7 مليون مسافر عبر المنافذ البرية، و4 دول جديدة للتأشيرة السياحية",
   "cards": [
     {
-      "category": "سياحة",
-      "keyword": "61.2 مليون سائح",
-      "story": "tourism-h1-2026-61m-wtm",
-      "title": "61.2 مليون سائح في النصف الأول من 2026 بنمو يقارب 1%",
-      "summary": "أعلن وزير السياحة في افتتاح جناح المملكة بسوق السفر العالمي في لندن إنفاقًا سياحيًا بلغ 151.9 مليار ريال، ونحو 623 ألف وحدة إيواء مرخصة.",
-      "date": "2026-11-03",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-arabia-welcomes-612m-tourists-in-first-half-of-2026-3009757"
-    },
-    {
-      "category": "عقار",
-      "keyword": "ضوابط الأراضي البيضاء",
-      "story": "momah-white-land-transactions-rules-2026-11",
-      "title": "اعتماد ضوابط التصرفات العقارية على الأراضي الخاضعة لرسوم البيضاء",
-      "summary": "لن تُوثَّق التصرفات قبل التحقق من سداد الرسوم، مع استثناء حالات منها قسمة التركات والأحكام القضائية. وأوضحت وزارة البلديات والإسكان أن الاستثناءات ليست إعفاءً من الرسوم.",
-      "date": "2026-11-04",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2273947"
-    },
-    {
-      "category": "تعليم",
-      "keyword": "659 مدرسة",
-      "story": "etec-school-excellence-659-2026",
-      "title": "659 مدرسة تبلغ مستوى التميز في التقويم المدرسي الوطني",
-      "summary": "أعلنت هيئة تقويم التعليم والتدريب النتائج: 499 مدرسة للبنات و160 للبنين، وتصدرت منطقة مكة المكرمة بـ146 مدرسة، تلتها الشرقية بـ133 والرياض بـ116.",
-      "date": "2026-11-04",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2273948"
-    },
-    {
       "category": "اقتصاد",
-      "keyword": "1200 منشأة أجنبية",
-      "story": "foreign-establishments-oct-2026-chambers",
-      "title": "أكثر من 1200 منشأة أجنبية جديدة في المملكة خلال أكتوبر",
-      "summary": "قال الأمين العام لاتحاد الغرف السعودية سلطان المسلم إن الصناعة تتصدر اهتمام المستثمرين الأجانب يليها البناء، وإن أكثر من 50 شركة تُسجَّل يوميًا.",
-      "date": "2026-11-04",
-      "source_name": "أرقام",
-      "source_url": "https://www.argaam.com/ar/article/articledetail/id/1950449"
+      "keyword": "مؤشر جي بي مورغان",
+      "story": "jpm-em-local-index-saudi-sukuk-weight-2026-11",
+      "title": "8 صكوك سعودية بـ79 مليار دولار تدخل مؤشر جي بي مورغان للأسواق الناشئة",
+      "summary": "يبدأ إدراج الصكوك المقوّمة بالريال تدريجيًا في 29 يناير 2027 على مدى 10 أشهر، ويتوقع أن يبلغ وزن المملكة 2.71% عند اكتماله.",
+      "date": "2026-11-05",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/economy/na/2274163"
     },
     {
-      "category": "تنمية",
-      "keyword": "403 ملايين دولار لسوريا",
-      "story": "sfd-syria-six-loans-403m-2026-11",
-      "title": "الصندوق السعودي للتنمية يوقّع 6 قروض ميسرة لسوريا بـ403 ملايين دولار",
-      "summary": "تشمل الاتفاقيات الطاقة والمياه والإسكان والصحة وتأهيل 25 مركزًا للدفاع المدني، ومنها 100 مليون دولار للمستشفيات والمراكز الصحية و300 ألف عداد مياه ذكي.",
+      "category": "نقل",
+      "keyword": "70.7 مليون مسافر",
+      "story": "gastat-road-transport-2025",
+      "title": "70.7 مليون مسافر عبر المنافذ البرية في 2025 بنمو 7.2%",
+      "summary": "أظهرت نشرة النقل البري للهيئة العامة للإحصاء أن منفذ جسر الملك فهد استحوذ على 49.1% من المسافرين، وارتفعت الصادرات البرية 6.3% إلى 14.3 مليون طن.",
+      "date": "2026-11-06",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/local/na/2274189"
+    },
+    {
+      "category": "سياحة",
+      "keyword": "4 دول جديدة",
+      "story": "tourist-visa-four-countries-2026-11",
+      "title": "التأشيرة السياحية تشمل المكسيك وصربيا والبوسنة ومقدونيا الشمالية",
+      "summary": "أتاحت المملكة التأشيرة لمواطني الدول الأربع، وتتيح الزيارة لأغراض منها حضور الفعاليات وأداء العمرة والمعارض والمؤتمرات وزيارة الأقارب.",
       "date": "2026-11-05",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-fund-provides-over-403m-for-infrastructure-and-public-service-projects-in-syria-3009880"
+      "source_name": "الشرق الأوسط",
+      "source_url": "https://english.aawsat.com/business/5337965-saudi-arabia-expands-tourist-e-visa-eligibility-four-more-countries"
     },
     {
       "category": "رياضة",
-      "keyword": "التعاون في دور الـ16",
-      "story": "acl2-md4-taawoun-faisaly-r16-2026-11",
-      "title": "التعاون يتأهل إلى دور الـ16 في أبطال آسيا 2 بفوزه على الفيصلي 3-1",
-      "summary": "سجّل عبدالرزاق حمدالله هدفين وبارفيه جيغون هدفًا على ملعب بريدة في الجولة الرابعة من المجموعة الثالثة.",
-      "date": "2026-11-04",
-      "source_name": "الاتحاد الآسيوي لكرة القدم",
-      "source_url": "https://www.the-afc.com/ar/club/afc_champions_league_two.html/news/group-c-al-taawoun-fc-ksa-3-1-al-faisaly-jor-1"
+      "keyword": "ذهبية الرحموني في داكار",
+      "story": "rahmouni-yog-dakar-400m-gold-2026",
+      "title": "رامي الرحموني يحرز ذهبية 400 متر حرة في أولمبياد الشباب بداكار",
+      "summary": "سجّل 3:47.86 دقيقة، في أول ميدالية من نوعها للسباحة السعودية في دورات الألعاب الأولمبية، وثاني ذهبية للمملكة في أولمبياد الشباب بعد كاراتيه 2018.",
+      "date": "2026-11-03",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/sport/saudi/2273844"
     },
     {
-      "category": "بيئة",
-      "keyword": "100 ألف شجرة",
-      "story": "al-ahsa-100k-trees-2026-11",
-      "title": "محافظ الأحساء يطلق مبادرة لزراعة 100 ألف شجرة بـ3 ملايين ريال",
-      "summary": "تنفَّذ مع هيئة تطوير الأحساء وشركة تنمية الغذائية بدعم من صندوق البيئة وأمانة الأحساء، لزيادة المساحات الخضراء والغطاء النباتي.",
+      "category": "خدمات",
+      "keyword": "خدمات جديدة في أبشر",
+      "story": "absher-public-security-services-2026-11",
+      "title": "الأمن العام يدشّن خدمات جديدة في «أبشر» للأفراد والأعمال",
+      "summary": "تشمل طباعة رخصة القيادة، والمزايدة على لوحات الدراجات النارية، وتراخيص البنادق الهوائية، وللمنشآت تسجيل المركبات المستعملة ونقل ملكيتها.",
       "date": "2026-11-04",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/al-ahsa-launches-initiative-to-plant-100000-trees-3009760"
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/local/na/2273960"
+    },
+    {
+      "category": "اقتصاد",
+      "keyword": "نمو تمويل البنوك 7%",
+      "story": "sama-bank-credit-2026-09",
+      "title": "تمويل البنوك للقطاع الخاص والجهات الحكومية 3,610 مليارات ريال",
+      "summary": "أظهرت بيانات البنك المركزي السعودي بنهاية سبتمبر نموًا سنويًا يقارب 7%، وبلغت حصة القطاع الخاص نحو 3,324.5 مليار ريال بما يعادل 92% من الإجمالي.",
+      "date": "2026-11-05",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/economy/na/2274096"
+    },
+    {
+      "category": "صحة",
+      "keyword": "مركز كلى في جازان",
+      "story": "jazan-dialysis-center-2026-11",
+      "title": "أمير جازان يضع حجر الأساس لمركز غسيل كلوي بسعة 60 سريرًا",
+      "summary": "يقام المركز في مستشفى جازان العام بتكلفة تتجاوز 31 مليون ريال، على ثلاثة طوابق مساحة كل منها 1,647 مترًا مربعًا.",
+      "date": "2026-11-05",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/local/na/2274119"
     }
   ],
-  "notices": [],
+  "notices": [
+    {
+      "title": "توقعات بأمطار رعدية وسيول حتى الثلاثاء؛ الابتعاد عن الأودية ومجاري السيول",
+      "issuer": "الدفاع المدني",
+      "area": "معظم مناطق المملكة",
+      "date": "2026-11-05",
+      "until": "2026-11-10",
+      "source_url": "https://www.okaz.com.sa/local/saudi-arabia/2274130"
+    }
+  ],
   "events": [
     {
       "date": "2026-11-08",
@@ -82,7 +91,24 @@
       "title": "مؤتمر ومعرض الحج في جدة"
     }
   ],
-  "timeline": [],
+  "timeline": [
+    {
+      "time": "2026-11-06T14:00:00+03:00",
+      "label": "السعودية × موريتانيا",
+      "note": "كأس العرب للكرة الشاطئية · بورسعيد",
+      "colors": [
+        [
+          "#006c35",
+          "#ffffff"
+        ],
+        [
+          "#00a95c",
+          "#ffd700"
+        ]
+      ],
+      "source_url": "https://www.saff.com.sa/nationalteams.php?id=9&type=2"
+    }
+  ],
   "regions": {
     "riyadh": [
       {
@@ -113,22 +139,9 @@
         "start": "2026-11-06",
         "time": "21:00",
         "source_url": "https://riyadh.platinumlist.net/event-tickets/107280/wagef-nemr-live-comedy-show-in-riyadh"
-      },
-      {
-        "title": "حفل عبادي الجوهر وناتاشا",
-        "place": "محمد عبده أرينا",
-        "start": "2026-11-06",
-        "source_url": "https://www.okaz.com.sa/culture/na/2272839"
       }
     ],
     "jeddah": [
-      {
-        "title": "حفل فضل شاكر ومحمد شاكر",
-        "place": "أبادي الجوهر أرينا",
-        "start": "2026-11-05",
-        "time": "22:00",
-        "source_url": "https://webook.com/en/sa/jed/music-events/events/fadel-chaker-and-mohammed-chaker-concert-jeddah-2026-tickts-726262"
-      },
       {
         "title": "نمر: عرض كوميدي «واقف!»",
         "place": "جامعة دار الحكمة",
@@ -141,7 +154,7 @@
         "place": "جدة",
         "start": "2026-11-08",
         "end": "2026-11-11",
-        "source_url": "https://www.spa.gov.sa/ar/N2696796"
+        "source_url": "https://www.okaz.com.sa/local/saudi-arabia/2274162"
       }
     ],
     "alula": [

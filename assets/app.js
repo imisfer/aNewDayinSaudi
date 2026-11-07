@@ -239,8 +239,6 @@
     const url = location.origin + location.pathname;
     const text = (headline || "").trim();
     btn.hidden = false;
-    // The note beside the button: «نُسخ» with a small copy icon after the text.
-    const COPY_ICON = '<svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>';
     let reset;
     btn.addEventListener("click", async () => {
       if (navigator.share) {
@@ -248,7 +246,7 @@
         catch (e) { if (e && e.name === "AbortError") return; }
       }
       clearTimeout(reset);
-      try { await navigator.clipboard.writeText(text + "\n" + url); label.innerHTML = COPY_ICON + "<span>نُسخ</span>"; }
+      try { await navigator.clipboard.writeText(text + "\n" + url); label.textContent = "تم نسخ الرابط"; }
       catch (e) { label.textContent = "تعذّر النسخ"; }
       reset = setTimeout(() => { label.textContent = ""; }, 2500);
     });

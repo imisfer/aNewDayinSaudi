@@ -1,80 +1,74 @@
 {
-  "edition_date": "2026-11-06",
+  "edition_date": "2026-11-07",
   "status": "pilot",
-  "headline": "إدراج الصكوك السعودية في مؤشر جي بي مورغان من يناير، و70.7 مليون مسافر عبر المنافذ البرية، و4 دول جديدة للتأشيرة السياحية",
+  "headline": "ضوابط لنقل الركاب في سيارات ذاتية القيادة، و«قطار الرياض» ضمن أفضل 4 مشاريع نقل عالميًا",
   "cards": [
     {
-      "category": "اقتصاد",
-      "keyword": "مؤشر جي بي مورغان",
-      "story": "jpm-em-local-index-saudi-sukuk-weight-2026-11",
-      "title": "8 صكوك سعودية بـ79 مليار دولار تدخل مؤشر جي بي مورغان للأسواق الناشئة",
-      "summary": "يبدأ إدراج الصكوك المقوّمة بالريال تدريجيًا في 29 يناير 2027 على مدى 10 أشهر، ويتوقع أن يبلغ وزن المملكة 2.71% عند اكتماله.",
-      "date": "2026-11-05",
+      "category": "نقل",
+      "keyword": "سيارات ذاتية القيادة",
+      "story": "tga-autonomous-passenger-transport-rules-2026-11",
+      "title": "هيئة النقل تعتمد ضوابط نقل الركاب بمركبات ذاتية القيادة دون سائق",
+      "summary": "تشترط الضوابط أسطولًا من 5 مركبات على الأقل لا يتجاوز عمرها 10 سنوات، وترخيصًا مدته 3 سنوات في نطاق جغرافي معتمد، مع تأمين يغطي الركاب والغير.",
+      "date": "2026-11-06",
       "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/economy/na/2274163"
+      "source_url": "https://www.okaz.com.sa/local/na/2274254"
     },
     {
       "category": "نقل",
-      "keyword": "70.7 مليون مسافر",
-      "story": "gastat-road-transport-2025",
-      "title": "70.7 مليون مسافر عبر المنافذ البرية في 2025 بنمو 7.2%",
-      "summary": "أظهرت نشرة النقل البري للهيئة العامة للإحصاء أن منفذ جسر الملك فهد استحوذ على 49.1% من المسافرين، وارتفعت الصادرات البرية 6.3% إلى 14.3 مليون طن.",
-      "date": "2026-11-06",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2274189"
-    },
-    {
-      "category": "سياحة",
-      "keyword": "4 دول جديدة",
-      "story": "tourist-visa-four-countries-2026-11",
-      "title": "التأشيرة السياحية تشمل المكسيك وصربيا والبوسنة ومقدونيا الشمالية",
-      "summary": "أتاحت المملكة التأشيرة لمواطني الدول الأربع، وتتيح الزيارة لأغراض منها حضور الفعاليات وأداء العمرة والمعارض والمؤتمرات وزيارة الأقارب.",
+      "keyword": "«قطار الرياض»",
+      "story": "riyadh-metro-smart-city-expo-top4-2026",
+      "title": "«قطار الرياض» ضمن أفضل 4 مشاريع نقل عالميًا في مؤتمر المدن الذكية",
+      "summary": "جاء الترتيب في المؤتمر والمعرض العالمي للمدن الذكية 2026 ببرشلونة، من بين 533 مشاركة من 68 دولة، وفق الهيئة الملكية لمدينة الرياض.",
       "date": "2026-11-05",
-      "source_name": "الشرق الأوسط",
-      "source_url": "https://english.aawsat.com/business/5337965-saudi-arabia-expands-tourist-e-visa-eligibility-four-more-countries"
-    },
-    {
-      "category": "رياضة",
-      "keyword": "ذهبية الرحموني في داكار",
-      "story": "rahmouni-yog-dakar-400m-gold-2026",
-      "title": "رامي الرحموني يحرز ذهبية 400 متر حرة في أولمبياد الشباب بداكار",
-      "summary": "سجّل 3:47.86 دقيقة، في أول ميدالية من نوعها للسباحة السعودية في دورات الألعاب الأولمبية، وثاني ذهبية للمملكة في أولمبياد الشباب بعد كاراتيه 2018.",
-      "date": "2026-11-03",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/sport/saudi/2273844"
-    },
-    {
-      "category": "خدمات",
-      "keyword": "خدمات جديدة في أبشر",
-      "story": "absher-public-security-services-2026-11",
-      "title": "الأمن العام يدشّن خدمات جديدة في «أبشر» للأفراد والأعمال",
-      "summary": "تشمل طباعة رخصة القيادة، والمزايدة على لوحات الدراجات النارية، وتراخيص البنادق الهوائية، وللمنشآت تسجيل المركبات المستعملة ونقل ملكيتها.",
-      "date": "2026-11-04",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2273960"
+      "source_name": "الهيئة الملكية لمدينة الرياض",
+      "source_url": "https://www.rcrc.gov.sa/riyadh-metro-top-4-global-transport-projects/"
     },
     {
       "category": "اقتصاد",
-      "keyword": "نمو تمويل البنوك 7%",
-      "story": "sama-bank-credit-2026-09",
-      "title": "تمويل البنوك للقطاع الخاص والجهات الحكومية 3,610 مليارات ريال",
-      "summary": "أظهرت بيانات البنك المركزي السعودي بنهاية سبتمبر نموًا سنويًا يقارب 7%، وبلغت حصة القطاع الخاص نحو 3,324.5 مليار ريال بما يعادل 92% من الإجمالي.",
-      "date": "2026-11-05",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/economy/na/2274096"
+      "keyword": "نمو إيرادات الأعمال 2.3%",
+      "story": "gastat-structural-business-stats-2025",
+      "title": "5,628 مليار ريال إيرادات تشغيلية لقطاع الأعمال في 2025 بنمو 2.3%",
+      "summary": "أظهرت إحصاءات الهيئة العامة للإحصاء ارتفاع تعويضات العاملين 6% إلى 624.1 مليار ريال، منها 528.9 مليار ريال رواتب وأجور.",
+      "date": "2026-11-01",
+      "source_name": "الهيئة العامة للإحصاء",
+      "source_url": "https://stats.gov.sa/ar/w/news/232"
     },
     {
-      "category": "صحة",
-      "keyword": "مركز كلى في جازان",
-      "story": "jazan-dialysis-center-2026-11",
-      "title": "أمير جازان يضع حجر الأساس لمركز غسيل كلوي بسعة 60 سريرًا",
-      "summary": "يقام المركز في مستشفى جازان العام بتكلفة تتجاوز 31 مليون ريال، على ثلاثة طوابق مساحة كل منها 1,647 مترًا مربعًا.",
-      "date": "2026-11-05",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2274119"
+      "category": "تقنية",
+      "keyword": "توعية سيبرانية في الرياض",
+      "story": "nca-cyber-awareness-exhibition-sports-boulevard-2026",
+      "title": "معرض توعوي للأمن السيبراني في المسار الرياضي بالرياض لثلاثة أيام",
+      "summary": "تقيمه الهيئة الوطنية للأمن السيبراني ضمن حملتها السنوية للتوعية بالممارسات الآمنة على الإنترنت، بالتعاون مع مؤسسة المسار الرياضي.",
+      "date": "2026-11-06",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/staying-safe-online-cybersecurity-event-opens-in-riyadh-3010186"
     }
   ],
   "notices": [
+    {
+      "title": "أمطار غزيرة على منطقة المدينة المنورة اليوم من 9 صباحًا حتى 7 مساءً مع برَد وسيول",
+      "issuer": "المركز الوطني للأرصاد",
+      "area": "المدينة المنورة",
+      "date": "2026-11-06",
+      "until": "2026-11-07",
+      "source_url": "https://www.spa.gov.sa/N2719963"
+    },
+    {
+      "title": "أمطار متوسطة إلى غزيرة على جدة ورابغ اليوم؛ متابعة تنبيهات الأرصاد",
+      "issuer": "المركز الوطني للأرصاد",
+      "area": "جدة ورابغ",
+      "date": "2026-11-06",
+      "until": "2026-11-07",
+      "source_url": "https://www.spa.gov.sa/N2719720"
+    },
+    {
+      "title": "الدوام الشتوي لمدارس عسير من الأحد 8 نوفمبر: الاصطفاف 7:15 والحصة الأولى 7:30",
+      "issuer": "تعليم عسير",
+      "area": "عسير",
+      "date": "2026-11-05",
+      "until": "2026-11-08",
+      "source_url": "https://www.okaz.com.sa/local/na/2274097"
+    },
     {
       "title": "توقعات بأمطار رعدية وسيول حتى الثلاثاء؛ الابتعاد عن الأودية ومجاري السيول",
       "issuer": "الدفاع المدني",
@@ -93,20 +87,36 @@
   ],
   "timeline": [
     {
-      "time": "2026-11-06T14:00:00+03:00",
-      "label": "السعودية × موريتانيا",
-      "note": "كأس العرب للكرة الشاطئية · بورسعيد",
+      "time": "2026-11-07T17:30:00+03:00",
+      "label": "ماينتس × بايرن ميونخ",
+      "note": "الدوري الألماني · ماينتس",
       "colors": [
         [
-          "#006c35",
+          "#c3141e",
           "#ffffff"
         ],
         [
-          "#00a95c",
-          "#ffd700"
+          "#dc052d",
+          "#ffffff"
         ]
       ],
-      "source_url": "https://www.saff.com.sa/nationalteams.php?id=9&type=2"
+      "source_url": "https://fcbayern.com/en/match-center/matchplan"
+    },
+    {
+      "time": "2026-11-07T23:00:00+03:00",
+      "label": "فالنسيا × ريال مدريد",
+      "note": "الدوري الإسباني · فالنسيا",
+      "colors": [
+        [
+          "#ffffff",
+          "#000000"
+        ],
+        [
+          "#ffffff",
+          "#00529f"
+        ]
+      ],
+      "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/el-valencia-real-madrid-se-jugara-el-sabado-7-de-noviembre-a-las-21-00-h-12-10-2026"
     }
   ],
   "regions": {
@@ -132,13 +142,6 @@
         "start": "2026-11-05",
         "end": "2026-11-07",
         "source_url": "https://riyadh.platinumlist.net/event-tickets/109699/saudi-show-jumping-league-in-riyadh"
-      },
-      {
-        "title": "نمر: عرض كوميدي «واقف!»",
-        "place": "كراون بلازا الرياض RDC",
-        "start": "2026-11-06",
-        "time": "21:00",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/107280/wagef-nemr-live-comedy-show-in-riyadh"
       }
     ],
     "jeddah": [

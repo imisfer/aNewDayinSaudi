@@ -577,6 +577,11 @@ body { position: relative; isolation: isolate; }
 .lead-foot { display: flex; align-items: flex-start; gap: 12px; margin-top: 10px; }
 .lead-foot .also { margin: 0; flex: 1 1 0; min-width: 0; }
 .lead-foot .share { flex: none; margin: 0; margin-inline-start: auto; width: 32px; height: 32px; padding: 0; justify-content: center; gap: 0; border-radius: 50%; position: relative; }
+/* One icon at a time: share where there is a share sheet, copy where the button copies, a tick for a moment after copying */
+.share .i-copy, .share .i-done, .share.copy .i-share { display: none; }
+.share.copy .i-copy { display: block; }
+.share.done .i-share, .share.done .i-copy { display: none; }
+.share.done .i-done { display: block; }
 .share-note:empty { display: none; }
 .share-note { position: absolute; inset-inline-end: calc(100% + 6px); top: 50%; transform: translateY(-50%); white-space: nowrap; font-size: .75rem; color: var(--accent); }
 .lead { padding-bottom: 8px; }

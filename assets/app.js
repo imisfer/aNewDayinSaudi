@@ -238,15 +238,23 @@
     const btn = $("share-btn"), label = $("share-label");
     const url = location.origin + location.pathname;
     const text = (headline || "").trim();
+    // No share sheet (most desktop browsers): the button copies, so it shows a copy icon and says so.
+    if (!navigator.share) {
+      btn.classList.add("copy");
+      btn.setAttribute("aria-label", "انسخ موجز اليوم");
+      btn.title = "انسخ موجز اليوم";
+    }
     btn.hidden = false;
+    let reset;
     btn.addEventListener("click", async () => {
       if (navigator.share) {
         try { await navigator.share({ title: "يوم جديد في السعودية", text, url }); return; }
         catch (e) { if (e && e.name === "AbortError") return; }
       }
-      try { await navigator.clipboard.writeText(text + "\n" + url); label.textContent = "نُسخ"; }
+      clearTimeout(reset);
+      try { await navigator.clipboard.writeText(text + "\n" + url); label.textContent = "نُسخ"; btn.classList.add("done"); }
       catch (e) { label.textContent = "تعذّر النسخ"; }
-      setTimeout(() => { label.textContent = ""; }, 2500);
+      reset = setTimeout(() => { label.textContent = ""; btn.classList.remove("done"); }, 2500);
     });
   }
 

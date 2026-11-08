@@ -1,74 +1,61 @@
 {
-  "edition_date": "2026-11-07",
+  "edition_date": "2026-11-08",
   "status": "pilot",
-  "headline": "ضوابط لنقل الركاب في سيارات ذاتية القيادة، و«قطار الرياض» ضمن أفضل 4 مشاريع نقل عالميًا",
+  "headline": "المملكة نحو «60 غيغاواط» من الطاقة المتجددة بحلول 2031، و«مؤتمر ومعرض الحج» ينطلق في جدة، و«دوري البراعم» يبدأ بـ370 فريقًا",
   "cards": [
     {
-      "category": "نقل",
-      "keyword": "سيارات ذاتية القيادة",
-      "story": "tga-autonomous-passenger-transport-rules-2026-11",
-      "title": "هيئة النقل تعتمد ضوابط نقل الركاب بمركبات ذاتية القيادة دون سائق",
-      "summary": "تشترط الضوابط أسطولًا من 5 مركبات على الأقل لا يتجاوز عمرها 10 سنوات، وترخيصًا مدته 3 سنوات في نطاق جغرافي معتمد، مع تأمين يغطي الركاب والغير.",
-      "date": "2026-11-06",
-      "source_name": "عكاظ",
-      "source_url": "https://www.okaz.com.sa/local/na/2274254"
+      "category": "طاقة",
+      "keyword": "«60 غيغاواط»",
+      "story": "iea-renewables-2026-saudi-60gw",
+      "title": "الطاقة الدولية تتوقع بلوغ قدرة المملكة المتجددة 60 غيغاواط في 2031",
+      "summary": "بعد إضافة قياسية بلغت 9 غيغاواط في 2025، يتوقع التقرير السنوي للوكالة توسعًا يعادل نصف النمو المتوقع في منطقة الشرق الأوسط وشمال أفريقيا.",
+      "date": "2026-11-07",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/energy/saudi-arabia-to-expand-renewables-fivefold-iea-reports-3010378"
     },
     {
-      "category": "نقل",
-      "keyword": "«قطار الرياض»",
-      "story": "riyadh-metro-smart-city-expo-top4-2026",
-      "title": "«قطار الرياض» ضمن أفضل 4 مشاريع نقل عالميًا في مؤتمر المدن الذكية",
-      "summary": "جاء الترتيب في المؤتمر والمعرض العالمي للمدن الذكية 2026 ببرشلونة، من بين 533 مشاركة من 68 دولة، وفق الهيئة الملكية لمدينة الرياض.",
-      "date": "2026-11-05",
-      "source_name": "الهيئة الملكية لمدينة الرياض",
-      "source_url": "https://www.rcrc.gov.sa/riyadh-metro-top-4-global-transport-projects/"
+      "category": "حج وعمرة",
+      "keyword": "«مؤتمر ومعرض الحج»",
+      "story": "hajj-conference-2026-opening",
+      "follows": "2026-10-11",
+      "title": "انطلاق النسخة السادسة من مؤتمر ومعرض الحج في جدة بمشاركة 150 دولة",
+      "summary": "يستمر حتى 11 نوفمبر بمشاركة أكثر من 520 جهة على مساحة تتجاوز 67 ألف متر مربع، ويضم 32 جلسة متخصصة ضمن الاستعداد المبكر لموسم حج 1448هـ.",
+      "date": "2026-11-08",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/local/na/2274437"
+    },
+    {
+      "category": "رياضة",
+      "keyword": "«دوري البراعم»",
+      "story": "saff-u9-buds-league-2026",
+      "title": "انطلاق دوري البراعم تحت 9 سنوات بـ370 فريقًا وأكثر من 600 مباراة",
+      "summary": "ينظمه الاتحاد السعودي لكرة القدم في نسخته الأولى بمباريات سباعية مدتها 15 دقيقة، وأُهّل له 998 حكمًا شابًا عبر دورات في 15 مدينة.",
+      "date": "2026-11-07",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/sport/na/2274411"
+    },
+    {
+      "category": "حج وعمرة",
+      "keyword": "تأهيل قادة بعثات الحج",
+      "story": "hajj-mission-leaders-training-2027",
+      "title": "برنامج تدريبي في 11 مسارًا لتأهيل قادة بعثات الحج لموسم 2027",
+      "summary": "تنفذه وزارة الحج والعمرة مع برنامج خدمة ضيوف الرحمن بنموذج تدريب المدربين، لينقل المشاركون المهارات إلى مكاتب شؤون الحجاج.",
+      "date": "2026-11-07",
+      "source_name": "عرب نيوز",
+      "source_url": "https://www.arabnews.com/saudi-arabia/saudi-arabia-launches-training-program-to-prepare-hajj-mission-leaders-for-2027-season-3010320"
     },
     {
       "category": "اقتصاد",
-      "keyword": "نمو إيرادات الأعمال 2.3%",
-      "story": "gastat-structural-business-stats-2025",
-      "title": "5,628 مليار ريال إيرادات تشغيلية لقطاع الأعمال في 2025 بنمو 2.3%",
-      "summary": "أظهرت إحصاءات الهيئة العامة للإحصاء ارتفاع تعويضات العاملين 6% إلى 624.1 مليار ريال، منها 528.9 مليار ريال رواتب وأجور.",
-      "date": "2026-11-01",
-      "source_name": "الهيئة العامة للإحصاء",
-      "source_url": "https://stats.gov.sa/ar/w/news/232"
-    },
-    {
-      "category": "تقنية",
-      "keyword": "توعية سيبرانية في الرياض",
-      "story": "nca-cyber-awareness-exhibition-sports-boulevard-2026",
-      "title": "معرض توعوي للأمن السيبراني في المسار الرياضي بالرياض لثلاثة أيام",
-      "summary": "تقيمه الهيئة الوطنية للأمن السيبراني ضمن حملتها السنوية للتوعية بالممارسات الآمنة على الإنترنت، بالتعاون مع مؤسسة المسار الرياضي.",
-      "date": "2026-11-06",
-      "source_name": "عرب نيوز",
-      "source_url": "https://www.arabnews.com/saudi-arabia/staying-safe-online-cybersecurity-event-opens-in-riyadh-3010186"
+      "keyword": "الإنشاءات 52.3 نقطة",
+      "story": "rajhi-construction-pmi-2026-10",
+      "title": "مؤشر قطاع الإنشاءات يسجّل 52.3 نقطة في أكتوبر وينمو للشهر السادس",
+      "summary": "جاءت القراءة المعدّلة موسميًا دون مستوى 54.4 نقطة في سبتمبر، وفق مؤشر الراجحي المالية لقطاع الإنشاءات السعودي.",
+      "date": "2026-11-05",
+      "source_name": "عكاظ",
+      "source_url": "https://www.okaz.com.sa/economy/na/2274137"
     }
   ],
   "notices": [
-    {
-      "title": "أمطار غزيرة على منطقة المدينة المنورة اليوم من 9 صباحًا حتى 7 مساءً مع برَد وسيول",
-      "issuer": "المركز الوطني للأرصاد",
-      "area": "المدينة المنورة",
-      "date": "2026-11-06",
-      "until": "2026-11-07",
-      "source_url": "https://www.spa.gov.sa/N2719963"
-    },
-    {
-      "title": "أمطار متوسطة إلى غزيرة على جدة ورابغ اليوم؛ متابعة تنبيهات الأرصاد",
-      "issuer": "المركز الوطني للأرصاد",
-      "area": "جدة ورابغ",
-      "date": "2026-11-06",
-      "until": "2026-11-07",
-      "source_url": "https://www.spa.gov.sa/N2719720"
-    },
-    {
-      "title": "الدوام الشتوي لمدارس عسير من الأحد 8 نوفمبر: الاصطفاف 7:15 والحصة الأولى 7:30",
-      "issuer": "تعليم عسير",
-      "area": "عسير",
-      "date": "2026-11-05",
-      "until": "2026-11-08",
-      "source_url": "https://www.okaz.com.sa/local/na/2274097"
-    },
     {
       "title": "توقعات بأمطار رعدية وسيول حتى الثلاثاء؛ الابتعاد عن الأودية ومجاري السيول",
       "issuer": "الدفاع المدني",
@@ -87,36 +74,36 @@
   ],
   "timeline": [
     {
-      "time": "2026-11-07T17:30:00+03:00",
-      "label": "ماينتس × بايرن ميونخ",
-      "note": "الدوري الألماني · ماينتس",
+      "time": "2026-11-08T17:00:00+03:00",
+      "label": "كريستال بالاس × ليفربول",
+      "note": "الدوري الإنجليزي · لندن",
       "colors": [
         [
-          "#c3141e",
-          "#ffffff"
+          "#1b458f",
+          "#c4122e"
         ],
         [
-          "#dc052d",
+          "#c8102e",
           "#ffffff"
         ]
       ],
-      "source_url": "https://fcbayern.com/en/match-center/matchplan"
+      "source_url": "https://www.liverpoolfc.com/tickets/match/crystal-palace-v-liverpool-english-premier-league-20261108"
     },
     {
-      "time": "2026-11-07T23:00:00+03:00",
-      "label": "فالنسيا × ريال مدريد",
-      "note": "الدوري الإسباني · فالنسيا",
+      "time": "2026-11-08T23:00:00+03:00",
+      "label": "أتلتيكو مدريد × برشلونة",
+      "note": "الدوري الإسباني · مدريد",
       "colors": [
         [
-          "#ffffff",
-          "#000000"
+          "#cb3524",
+          "#ffffff"
         ],
         [
-          "#ffffff",
-          "#00529f"
+          "#a50044",
+          "#004d98"
         ]
       ],
-      "source_url": "https://www.realmadrid.com/en-US/news/football/first-team/latest-news/el-valencia-real-madrid-se-jugara-el-sabado-7-de-noviembre-a-las-21-00-h-12-10-2026"
+      "source_url": "https://www.fcbarcelona.com/en/football/first-team/news/4604218/when-and-where-to-watch-atletico-madrid-v-fc-barcelona/featured"
     }
   ],
   "regions": {
@@ -135,23 +122,9 @@
         "start": "2026-11-03",
         "end": "2026-11-10",
         "source_url": "https://english.aawsat.com/culture/5335239-european-film-festival-returns-riyadh-fifth-edition-16-films"
-      },
-      {
-        "title": "الدوري السعودي لقفز الحواجز",
-        "place": "هورسز بارك، العمارية",
-        "start": "2026-11-05",
-        "end": "2026-11-07",
-        "source_url": "https://riyadh.platinumlist.net/event-tickets/109699/saudi-show-jumping-league-in-riyadh"
       }
     ],
     "jeddah": [
-      {
-        "title": "نمر: عرض كوميدي «واقف!»",
-        "place": "جامعة دار الحكمة",
-        "start": "2026-11-07",
-        "time": "21:00",
-        "source_url": "https://jeddah.platinumlist.net/event-tickets/107450/wagef-nemr-live-comedy-show-in-jeddah"
-      },
       {
         "title": "مؤتمر ومعرض الحج",
         "place": "جدة",
@@ -211,15 +184,6 @@
       "source_url": "https://www.timeshighereducation.com/world-university-rankings/2027/arab-university-rankings",
       "story": "the-arab-rankings-2027-kaust-first",
       "summary": "تصدّرت جامعة الملك عبدالله للعلوم والتقنية تصنيف الجامعات العربية 2027 للعام الرابع على التوالي، وحلّت جامعة الملك فهد للبترول والمعادن ثالثة."
-    },
-    {
-      "kind": "body",
-      "title": "جامعة الملك فهد للبترول والمعادن الأولى عربيًا في تصنيف QS 2027",
-      "outlet": "كيو إس",
-      "date": "2026-10-15",
-      "source_url": "https://topuniversities.com/qs-arab-rankings",
-      "story": "qs-arab-rankings-2027-kfupm-first",
-      "summary": "تصدّرت جامعة الملك فهد للبترول والمعادن تصنيف QS للجامعات العربية 2027، وجاءت جامعة الملك سعود رابعة وجامعة الملك عبدالعزيز ثامنة."
     }
   ]
 }

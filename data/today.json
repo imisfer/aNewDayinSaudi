@@ -1,38 +1,14 @@
 {
-  "date": "2026-11-08",
-  "timeline": [
+  "date": "2026-11-09",
+  "timeline": [],
+  "notices": [
     {
-      "time": "2026-11-08T17:00:00+03:00",
-      "label": "كريستال بالاس × ليفربول",
-      "note": "الدوري الإنجليزي · لندن",
-      "colors": [
-        [
-          "#1b458f",
-          "#c4122e"
-        ],
-        [
-          "#c8102e",
-          "#ffffff"
-        ]
-      ],
-      "source_url": "https://www.liverpoolfc.com/news/fixture-updates-three-premier-league-changes-liverpool-november?amp=1"
-    },
-    {
-      "time": "2026-11-08T23:00:00+03:00",
-      "label": "أتلتيكو مدريد × برشلونة",
-      "note": "الدوري الإسباني · مدريد",
-      "colors": [
-        [
-          "#cb3524",
-          "#ffffff"
-        ],
-        [
-          "#a50044",
-          "#004d98"
-        ]
-      ],
-      "source_url": "https://www.fcbarcelona.com/en/matches/138391/atletico-fc-barcelona-la-liga-2026-2027"
+      "title": "أمطار رعدية متوسطة إلى غزيرة تشتد الاثنين والثلاثاء؛ الابتعاد عن الأودية ومجاري السيول",
+      "issuer": "المركز الوطني للأرصاد",
+      "area": "معظم مناطق المملكة",
+      "date": "2026-11-07",
+      "until": "2026-11-10",
+      "source_url": "https://www.okaz.com.sa/local/na/2274446"
     }
-  ],
-  "notices": []
+  ]
 }

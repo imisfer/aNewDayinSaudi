@@ -1,30 +1,27 @@
 {
-  "date": "2026-11-22",
+  "date": "2026-11-24",
   "timeline": [
     {
-      "time": "2026-11-22T19:30:00+03:00",
-      "label": "ليفربول × مانشستر يونايتد",
-      "note": "الدوري الإنجليزي · ليفربول",
-      "colors": [["#c8102e", "#ffffff"], ["#da291c", "#000000"]],
-      "source_url": "https://www.liverpoolfc.com/news/fixture-updates-three-premier-league-changes-liverpool-november"
-    }
-  ],
-  "notices": [
-    {
-      "title": "استمرار الأمطار الرعدية على معظم المناطق حتى الثلاثاء؛ الابتعاد عن مجاري السيول والأودية",
-      "issuer": "الدفاع المدني",
-      "area": "معظم مناطق المملكة",
-      "date": "2026-11-19",
-      "until": "2026-11-24",
-      "source_url": "https://www.spa.gov.sa/N2731527"
+      "time": "2026-11-24T19:00:00+03:00",
+      "label": "شباب الأهلي × القادسية",
+      "note": "نخبة آسيا · دبي",
+      "colors": [["#d71920", "#ffffff"], ["#d71920", "#fcd116"]],
+      "source_url": "https://www.the-afc.com/en/club/afc_champions_league_elite.html/news/preview-shabab-al-ahli-uae-v-al-qadsiah-club-ksa"
     },
     {
-      "title": "أمطار متوسطة إلى غزيرة على منطقة الباحة حتى اليوم الأحد؛ الالتزام بتعليمات السلامة",
-      "issuer": "المركز الوطني للأرصاد",
-      "area": "منطقة الباحة",
-      "date": "2026-11-20",
-      "until": "2026-11-22",
-      "source_url": "https://www.spa.gov.sa/N2732149"
+      "time": "2026-11-24T21:15:00+03:00",
+      "label": "النصر × السد",
+      "note": "نخبة آسيا · الرياض",
+      "colors": [["#fcd116", "#003a8c"], ["#ffffff", "#000000"]],
+      "source_url": "https://www.the-afc.com/en/club/afc_champions_league_elite.html/news/preview-al-nassr-club-ksa-v-al-sadd-sc-qat"
+    },
+    {
+      "time": "2026-11-24T23:00:00+03:00",
+      "label": "مانشستر سيتي × نابولي",
+      "note": "دوري أبطال أوروبا · مانشستر",
+      "colors": [["#6cabdd", "#1c2c5b"], ["#12a0d7", "#ffffff"]],
+      "source_url": "https://www.mancity.com/news/mens/manchester-city-napoli-tickets-hospitality-63929577"
     }
-  ]
+  ],
+  "notices": []
 }

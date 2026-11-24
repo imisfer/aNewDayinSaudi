@@ -1,26 +1,19 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "timeline": [
     {
-      "time": "2026-11-24T19:00:00+03:00",
-      "label": "شباب الأهلي × القادسية",
-      "note": "نخبة آسيا · دبي",
-      "colors": [["#d71920", "#ffffff"], ["#d71920", "#fcd116"]],
-      "source_url": "https://www.the-afc.com/en/club/afc_champions_league_elite.html/news/preview-shabab-al-ahli-uae-v-al-qadsiah-club-ksa"
+      "time": "2026-11-25T20:45:00+03:00",
+      "label": "صباح × برشلونة",
+      "note": "دوري أبطال أوروبا · باكو",
+      "colors": [["#000000", "#e5007e"], ["#a50044", "#004d98"]],
+      "source_url": "https://www.fcbarcelona.com/en/matches/141532/sabah-fc-barcelona-uefa-champions-league-2026-2027"
     },
     {
-      "time": "2026-11-24T21:15:00+03:00",
-      "label": "النصر × السد",
-      "note": "نخبة آسيا · الرياض",
-      "colors": [["#fcd116", "#003a8c"], ["#ffffff", "#000000"]],
-      "source_url": "https://www.the-afc.com/en/club/afc_champions_league_elite.html/news/preview-al-nassr-club-ksa-v-al-sadd-sc-qat"
-    },
-    {
-      "time": "2026-11-24T23:00:00+03:00",
-      "label": "مانشستر سيتي × نابولي",
-      "note": "دوري أبطال أوروبا · مانشستر",
-      "colors": [["#6cabdd", "#1c2c5b"], ["#12a0d7", "#ffffff"]],
-      "source_url": "https://www.mancity.com/news/mens/manchester-city-napoli-tickets-hospitality-63929577"
+      "time": "2026-11-25T23:00:00+03:00",
+      "label": "كلوب بروج × ليفربول",
+      "note": "دوري أبطال أوروبا · بروج",
+      "colors": [["#0057b8", "#000000"], ["#c8102e", "#ffffff"]],
+      "source_url": "https://www.liverpoolfc.com/news/club-brugge-v-liverpool-champions-league-ticket-details"
     }
   ],
   "notices": []

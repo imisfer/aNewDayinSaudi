@@ -1,19 +1,12 @@
 {
-  "date": "2026-11-25",
+  "date": "2026-11-28",
   "timeline": [
     {
-      "time": "2026-11-25T20:45:00+03:00",
-      "label": "صباح × برشلونة",
-      "note": "دوري أبطال أوروبا · باكو",
-      "colors": [["#000000", "#e5007e"], ["#a50044", "#004d98"]],
-      "source_url": "https://www.fcbarcelona.com/en/matches/141532/sabah-fc-barcelona-uefa-champions-league-2026-2027"
-    },
-    {
-      "time": "2026-11-25T23:00:00+03:00",
-      "label": "كلوب بروج × ليفربول",
-      "note": "دوري أبطال أوروبا · بروج",
-      "colors": [["#0057b8", "#000000"], ["#c8102e", "#ffffff"]],
-      "source_url": "https://www.liverpoolfc.com/news/club-brugge-v-liverpool-champions-league-ticket-details"
+      "time": "2026-11-28T15:15:00+03:00",
+      "label": "الحزم × النصر",
+      "note": "دوري روشن السعودي · بريدة",
+      "colors": [["#f47920", "#000000"], ["#fcd116", "#003a8c"]],
+      "source_url": "https://www.saff.com.sa/team.php?id=2"
     }
   ],
   "notices": []
